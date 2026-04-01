@@ -1,0 +1,518 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.std-doc {
+    position: relative;
+    width: 100%;
+    min-height: 900px;
+    background-color: rgba(10, 14, 26, 1);
+    overflow: hidden;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 4;
+    padding: 80px 0 300px 0;
+}
+
+/* ─── Ghost number ─────────────────────────────────────────────────────────── */
+.std-ghost-number {
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    font-size: 200px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    z-index: 0;
+}
+
+/* ─── Top section ──────────────────────────────────────────────────────────── */
+.std-top {
+    position: relative;
+    z-index: 1;
+    padding: 0 80px;
+    margin-bottom: 60px;
+    max-width: 800px;
+}
+
+.std-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e88e5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.std-heading {
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    white-space: pre-line;
+}
+
+.std-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(197, 221, 240, 1);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 700px;
+}
+
+/* ─── Cards container ──────────────────────────────────────────────────────── */
+.std-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 80px;
+    margin-bottom: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ─── Big card (left) ──────────────────────────────────────────────────────── */
+.std-card-big {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    grid-row: span 2;
+}
+
+.std-card-top {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.std-card-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.std-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.std-card-description {
+    font-size: 14px;
+    color: rgba(197, 221, 240, 1);
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+}
+
+.std-card-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 16px 0;
+}
+
+.std-card-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.std-card-feature {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+.std-card-feature span:first-child {
+    color: #1e88e5;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.std-card-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e88e5;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    padding: 6px 0;
+}
+
+.std-card-link:hover {
+    color: rgba(99, 222, 247, 1);
+}
+
+.std-card-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e88e5;
+    opacity: 0.5;
+}
+
+/* ─── Accent bar ───────────────────────────────────────────────────────────── */
+.std-card-accent-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    bottom: 0;
+    background-color: #1e88e5;
+    border-radius: 16px 0 0 16px;
+}
+
+/* ─── Right column ─────────────────────────────────────────────────────────── */
+.std-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Small cards */
+.std-card-small {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.std-card-small-top,
+.std-card-small-bottom {
+}
+
+.std-card-title-small {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 8px 0 8px 0;
+    line-height: 1.3;
+}
+
+.std-card-description-small {
+    font-size: 13px;
+    color: rgba(197, 221, 240, 1);
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+    flex-grow: 1;
+}
+
+.std-card-link-small {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e88e5;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.std-card-link-small:hover {
+    color: rgba(99, 222, 247, 1);
+}
+
+.std-card-number-small {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e88e5;
+    opacity: 0.5;
+}
+
+/* ─── Full-width card (bottom) ─────────────────────────────────────────────── */
+.std-card-full {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(120deg, rgba(30, 136, 229, 0.18) 0%, rgba(99, 222, 247, 0.07) 100%);
+    border: 1px solid rgba(99, 222, 247, 0.2);
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 0 80px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    align-items: center;
+    min-height: 140px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.std-card-full:hover {
+    border-color: rgba(99, 222, 247, 0.4);
+    background: linear-gradient(120deg, rgba(30, 136, 229, 0.24) 0%, rgba(99, 222, 247, 0.12) 100%);
+}
+
+/* Decorative glow inside card */
+.std-full-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(99, 222, 247, 0.08);
+    border-radius: 50%;
+    filter: blur(80px);
+    right: -60px;
+    top: -80px;
+    pointer-events: none;
+}
+
+/* Icon circle */
+.std-full-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.std-full-icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(99, 222, 247, 0.12);
+    border: 1px solid rgba(99, 222, 247, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+/* Content */
+.std-full-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.std-full-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(99, 222, 247, 0.9);
+    background: rgba(99, 222, 247, 0.1);
+    border: 1px solid rgba(99, 222, 247, 0.2);
+    border-radius: 20px;
+    padding: 3px 10px;
+    width: fit-content;
+}
+
+.std-card-title-full {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.std-card-description-full {
+    font-size: 13px;
+    color: rgba(197, 221, 240, 0.8);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 480px;
+}
+
+/* CTA column */
+.std-full-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.std-card-link-full {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0a0e1a;
+    background: rgba(99, 222, 247, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.std-card-link-full:hover {
+    background: rgba(128, 232, 255, 1);
+    transform: translateY(-2px);
+}
+
+.std-full-cta-note {
+    font-size: 11px;
+    color: rgba(99, 222, 247, 0.55);
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.std-card-number-full {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 22px;
+    font-weight: 800;
+    color: rgba(99, 222, 247, 1);
+    opacity: 0.25;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .std-container {
+        grid-template-columns: 1fr;
+        padding: 0 40px;
+    }
+
+    .std-card-big {
+        grid-row: auto;
+    }
+
+    .std-ghost-number {
+        right: 40px;
+        font-size: 140px;
+    }
+
+    .std-top {
+        padding: 0 40px;
+    }
+
+    .std-card-full {
+        margin: 0 40px;
+        gap: 28px;
+        padding: 28px 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .std-doc {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .std-top {
+        padding: 0 24px;
+        margin-bottom: 40px;
+    }
+
+    .std-heading {
+        font-size: 32px;
+    }
+
+    .std-container {
+        padding: 0 24px;
+        gap: 16px;
+    }
+
+    .std-card-big {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .std-right-column {
+        gap: 16px;
+    }
+
+    .std-card-small {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .std-card-full {
+        margin: 0 24px;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        padding: 24px;
+    }
+
+    .std-full-cta {
+        grid-column: 1 / -1;
+        align-items: flex-start;
+    }
+
+    .std-full-icon-circle {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+    }
+
+    .std-ghost-number {
+        font-size: 100px;
+        right: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .std-top {
+        padding: 0 16px;
+    }
+
+    .std-heading {
+        font-size: 26px;
+    }
+
+    .std-container {
+        padding: 0 16px;
+    }
+
+    .std-card-big {
+        padding: 16px;
+    }
+
+    .std-card-full {
+        margin: 0 16px;
+        padding: 16px;
+    }
+
+    .std-card-top {
+        margin-bottom: 12px;
+    }
+
+    .std-card-title {
+        font-size: 16px;
+    }
+
+    .std-card-title-small {
+        font-size: 14px;
+    }
+
+    .std-card-title-full {
+        font-size: 14px;
+    }
+
+    .std-ghost-number {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 640px) {
+    .std-doc {
+        border-radius: 50px 50px 0 0;
+        margin-top: -100px;
+        padding-bottom: 150px;
+    }
+}

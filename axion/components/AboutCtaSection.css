@@ -1,0 +1,199 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.acta-section {
+    position: relative;
+    width: 100%;
+    background: #f4f7fb;
+    border-radius: 100px 100px 0 0;
+    margin-top: -6rem;
+    z-index: 6;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-height: 480px;
+    padding-bottom: 120px;
+}
+
+/* ─── Left content column ────────────────────────────────────────────────── */
+.acta-left {
+    flex: 1;
+    padding: 80px 64px 200px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* ─── Label row ──────────────────────────────────────────────────────────── */
+.acta-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.acta-label-bar {
+    width: 4px;
+    height: 18px;
+    background: #1e88e5;
+    flex-shrink: 0;
+    border-radius: 1px;
+}
+
+.acta-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e88e5;
+    letter-spacing: 0.08em;
+}
+
+/* ─── Heading ────────────────────────────────────────────────────────────── */
+.acta-heading {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0d1b2e;
+    margin: 0 0 18px 0;
+    max-width: 500px;
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────── */
+.acta-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #4a5568;
+    margin: 0 0 36px 0;
+    max-width: 420px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+.acta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.acta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 28px;
+    background: #1e88e5;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.acta-btn-primary:hover {
+    background: #1565c0;
+}
+
+.acta-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 28px;
+    background: transparent;
+    color: #0d1b2e;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1.5px solid #cbd5e0;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.acta-btn-ghost:hover {
+    border-color: #1e88e5;
+    color: #1e88e5;
+}
+
+/* ─── Right image column ─────────────────────────────────────────────────── */
+.acta-right {
+    position: relative;
+    width: 520px;
+    flex-shrink: 0;
+    overflow: hidden;
+    margin: 40px 40px 40px 0;
+    border-radius: 20px;
+    background-color: #0a2040;
+}
+
+.acta-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* ─── Emergency overlay bar ──────────────────────────────────────────────── */
+.acta-emergency {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1e88e5;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+    border-radius: 0 0 20px 20px;
+}
+
+.acta-emergency-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.acta-emergency-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .acta-section {
+        flex-direction: column;
+        border-radius: 60px 60px 0 0;
+    }
+    .acta-left {
+        padding: 60px 48px 80px;
+    }
+    .acta-right {
+        width: 100%;
+        height: 360px;
+        position: relative;
+    }
+}
+
+@media (max-width: 640px) {
+    .acta-section {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+    }
+    .acta-left {
+        padding: 48px 24px;
+    }
+    .acta-heading {
+        font-size: 28px;
+    }
+    .acta-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .acta-right {
+        height: 280px;
+    }
+}

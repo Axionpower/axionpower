@@ -1,0 +1,132 @@
+/* EsCoverageSection - Emergency Support Coverage */
+
+.escv-section {
+  position: relative;
+  width: 100%;
+  background-color: #b71c1c;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.escv-inner {
+  padding: 80px 100px 260px;
+}
+
+/* Label row */
+.escv-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.escv-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.escv-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.escv-heading {
+  font-size: 46px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.escv-body {
+  font-size: 16px;
+  color: #ffcdd2;
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0 0 50px 0;
+}
+
+/* Coverage cards row — always 4 in a row */
+.escv-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.escv-card {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 220px;
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.escv-card-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.escv-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+}
+
+.escv-card-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .escv-inner {
+    padding: 60px 48px 200px;
+  }
+
+  .escv-cards {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .escv-card {
+    flex: 1 1 calc(50% - 8px);
+    min-height: 200px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .escv-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .escv-inner {
+    padding: 40px 24px 120px;
+  }
+
+  .escv-heading {
+    font-size: 28px;
+  }
+
+  .escv-card {
+    width: 100%;
+    min-height: auto;
+  }
+}

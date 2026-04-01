@@ -1,0 +1,251 @@
+.qsi-section {
+    position: relative;
+    width: 100%;
+    background-color: #1e88e5;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.qsi-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 74px 80px 260px;
+}
+
+/* Label row */
+.qsi-label-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qsi-label-bar {
+    width: 4px;
+    height: 22px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+.qsi-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Heading */
+.qsi-heading {
+    font-size: 50px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 20px auto 0;
+    line-height: 1.15;
+    max-width: 1200px;
+}
+
+/* Divider */
+.qsi-divider {
+    width: 120px;
+    height: 2px;
+    background-color: #ffffff;
+    opacity: 0.4;
+    margin: 30px auto;
+}
+
+/* Body text */
+.qsi-body {
+    font-size: 17px;
+    color: #e8f4ff;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+/* Cards grid container */
+.qsi-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.qsi-cards-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Row 1: ~49% + ~51% */
+.qsi-cards-row:first-of-type .qsi-card:first-child {
+    flex: 49;
+    min-width: 0;
+}
+
+.qsi-cards-row:first-of-type .qsi-card:last-child {
+    flex: 51;
+    min-width: 0;
+}
+
+/* Row 2: ~33% + ~67% */
+.qsi-cards-row:last-of-type .qsi-card:first-child {
+    flex: 33;
+    min-width: 0;
+}
+
+.qsi-cards-row:last-of-type .qsi-card:last-child {
+    flex: 67;
+    min-width: 0;
+}
+
+/* Card styles */
+.qsi-card {
+    border-radius: 20px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    text-align: left;
+}
+
+/* Top bar */
+.qsi-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+}
+
+/* Number watermark */
+.qsi-card-number {
+    position: absolute;
+    right: 20px;
+    top: -8px;
+    font-size: 72px;
+    font-weight: 800;
+    color: #ffffff;
+    opacity: 0.06;
+}
+
+/* Card content wrapper */
+.qsi-card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Icon circle */
+.qsi-card-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+/* Title */
+.qsi-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    white-space: pre-wrap;
+}
+
+/* Divider inside card */
+.qsi-card-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 4px 0;
+}
+
+/* Description */
+.qsi-card-description {
+    font-size: 13px;
+    color: #c5ddf0;
+    line-height: 1.6;
+}
+
+/* Badge pill */
+.qsi-card-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 4px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #1565c0;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .qsi-cards-row {
+        flex-direction: column;
+    }
+
+    .qsi-cards-row:first-of-type .qsi-card:first-child,
+    .qsi-cards-row:first-of-type .qsi-card:last-child,
+    .qsi-cards-row:last-of-type .qsi-card:first-child,
+    .qsi-cards-row:last-of-type .qsi-card:last-child {
+        flex: 1;
+    }
+
+    .qsi-inner {
+        padding: 60px 48px 60px;
+    }
+
+    .qsi-heading {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .qsi-section {
+        margin-top: -100px;
+        border-radius: 50px 50px 0 0;
+    }
+
+    .qsi-cards-row {
+        flex-direction: column;
+    }
+
+    .qsi-inner {
+        padding: 40px 24px 160px;
+    }
+
+    .qsi-heading {
+        font-size: 28px;
+        margin: 16px auto 0;
+    }
+
+    .qsi-body {
+        font-size: 14px;
+        margin: 0 auto 30px;
+    }
+
+    .qsi-card {
+        min-height: 180px;
+    }
+
+    .qsi-card-title {
+        font-size: 16px;
+    }
+
+    .qsi-card-description {
+        font-size: 12px;
+    }
+}

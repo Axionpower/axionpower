@@ -82,9 +82,16 @@ export interface AboutData {
   labelBarColor: string;
   headingText: string;
   headingTag: string;
+  headingFontWeight?: string;
+  headingFontFamily?: string;
+  cardHeadingTag?: string;
   headingColor: string;
   headingFontSize: number;
   headingFontSizeMobile: number;
+  bodyFontSize?: string;
+  bodyFontWeight?: string;
+  bodyColor?: string;
+  accentColor?: string;
   button: AboutButton;
   description1: string;
   description2: string;
@@ -104,6 +111,8 @@ export interface AboutData {
   statDescColor: string;
   statDescFontSize: number;
   statDividerColor: string;
+  cardTitleColor?: string;
+  cardBgColor?: string;
 }
 
 // ── Default values (matching current hardcoded content) ──
@@ -113,11 +122,18 @@ export const ABOUT_DEFAULTS: AboutData = {
   labelColor: "#64748b",
   labelFontSize: 13,
   labelBarColor: "#0EA5E9",
-  headingText: "Powering Critical\nSystems with Proven\nBattery Technology",
+  headingText: "About Axion\nCritical Power\nSolutions",
   headingTag: "h2",
+  headingFontWeight: "700",
+  headingFontFamily: undefined,
+  cardHeadingTag: "h3",
   headingColor: "#0f172a",
   headingFontSize: 38,
   headingFontSizeMobile: 28,
+  bodyFontSize: "14px",
+  bodyFontWeight: "400",
+  bodyColor: "#475569",
+  accentColor: "#0EA5E9",
   button: {
     label: "ABOUT US",
     url: "/about",
@@ -128,9 +144,9 @@ export const ABOUT_DEFAULTS: AboutData = {
     hoverBgColor: "#0284C7",
   },
   description1:
-    "Axion Critical Power Solutions provides dependable battery technologies designed to support uninterrupted power in mission-critical environments. We supply high-performance VRLA and flooded (wet cell) battery solutions, backed by technical expertise, responsive support, and a strong understanding of critical power systems.",
+    "Axion Critical Power Solutions is dedicated to supplying reliable battery systems for mission-critical power applications. Our focus is on VRLA and wet cell batteries used in UPS systems, DC power plants, and standby power environments.",
   description2:
-    "Our focus is simple: deliver reliable, compliant, and long-term battery solutions that protect critical infrastructure.",
+    "We work closely with consulting engineers, contractors, and end users to ensure each battery solution is properly specified, compliant, and aligned with long-term operational requirements. Our approach is practical, technically sound, and reliability-driven.",
   descriptionColor: "#475569",
   descriptionFontSize: 14,
   approachTitle: "Our Approach",
@@ -138,26 +154,27 @@ export const ABOUT_DEFAULTS: AboutData = {
   approachTitleColor: "#0f172a",
   approachTitleFontSize: 18,
   approachTags: [
-    { tagText: "Reliability First" },
-    { tagText: "Technical Integrity First" },
-    { tagText: "Safety & Compliance" },
-    { tagText: "Accountability" },
-    { tagText: "Customer Partnership" },
+    { tagText: "Reliability-first mindset" },
+    { tagText: "Technical accuracy and transparency" },
+    { tagText: "Long-term customer partnerships" },
+    { tagText: "Commitment to safety and compliance" },
   ],
   tagTextColor: "#334155",
   tagBorderColor: "#d1d5db",
   tagFontSize: 13,
   stats: [
-    { statValue: "15,000+", statDescription: "Clients ranging from 1 to 15,000+ employees" },
-    { statValue: "13,000+", statDescription: "Medium and large enterprise clients" },
-    { statValue: "50,000+", statDescription: "Payslips being produced and distributed every month" },
-    { statValue: "7 Million+", statDescription: "7 Million+ In BACS payments processed each month" },
+    { statValue: "500+",  statDescription: "Battery Systems Deployed" },
+    { statValue: "15+",   statDescription: "Years of Experience" },
+    { statValue: "24/7",  statDescription: "Technical Support Available" },
+    { statValue: "100%",  statDescription: "Compliance Focus" },
   ],
   statValueColor: "#0f172a",
   statValueFontSize: 30,
   statDescColor: "#64748b",
   statDescFontSize: 12,
   statDividerColor: "#e2e8f0",
+  cardTitleColor: "#0f172a",
+  cardBgColor: "#ffffff",
 };
 
 // ── Merge helper: fill missing fields with defaults ──

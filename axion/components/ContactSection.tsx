@@ -10,6 +10,8 @@ interface Props {
 export default function ContactSection({ data }: Props) {
     const imgSrc = data.image?.node?.sourceUrl || data.fallbackImage;
     const imgAlt = data.image?.node?.altText || "Contact Axion";
+    const HeadingTag = (data.headingTag || 'h2') as React.ElementType;
+    const HighlightsTag = (data.highlightsTag || 'h3') as React.ElementType;
 
     return (
         <section className="contact-section">
@@ -41,12 +43,12 @@ export default function ContactSection({ data }: Props) {
                 <div className="contact-right">
                     <div className="contact-label">
                         <span className="contact-label-bar" />
-                        <span className="contact-label-text">{data.labelText}</span>
+                        <span className="contact-label-text" style={{ ...(data.labelColor && { color: data.labelColor }) }}>{data.labelText}</span>
                     </div>
-                    <h2 className="contact-heading">{data.heading}</h2>
-                    <p className="contact-desc">{data.description}</p>
+                    <HeadingTag className="contact-heading" style={{ ...(data.headingColor && { color: data.headingColor }) }}>{data.heading}</HeadingTag>
+                    <p className="contact-desc" style={{ ...(data.bodyColor && { color: data.bodyColor }) }}>{data.description}</p>
 
-                    <h3 className="contact-highlights-title">{data.highlightsTitle}</h3>
+                    <HighlightsTag className="contact-highlights-title" style={{ ...(data.highlightsColor && { color: data.highlightsColor }) }}>{data.highlightsTitle}</HighlightsTag>
                     <div className="contact-pills">
                         {data.highlights.map((h: string, i: number) => (
                             <span key={i} className="contact-pill">{h}</span>

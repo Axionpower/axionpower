@@ -1,0 +1,273 @@
+/* ── HCQualitySection ── */
+
+.hc-qual-section {
+  background-color: rgba(21, 101, 192, 1);
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  padding: 6rem 120px 7rem;
+  position: relative;
+  z-index: 5;
+}
+
+.hc-qual-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header — Label left, then Title + Desc row */
+.hc-qual-header {
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+.hc-qual-label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hc-qual-header-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hc-qual-heading {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+}
+
+.hc-qual-heading-line1 {
+  display: block;
+}
+
+.hc-qual-heading-line2 {
+  display: block;
+  color: rgba(20, 184, 166, 1);
+}
+
+.hc-qual-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.hc-qual-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.hc-qual-download-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(20, 184, 166, 1);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.hc-qual-download-link:hover {
+  background-color: rgba(15, 140, 126, 1);
+  transform: translateY(-2px);
+}
+
+/* Cards Grid */
+.hc-qual-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.hc-qual-card {
+  background-color: rgba(30, 115, 180, 1);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hc-qual-card:hover {
+  transform: translateY(-8px);
+  background-color: rgba(35, 125, 190, 1);
+}
+
+.hc-qual-card-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(20, 184, 166, 0.3);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.hc-qual-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0.5rem 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.hc-qual-card-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.5rem 0 1rem 0;
+  font-weight: 500;
+}
+
+.hc-qual-card-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1rem 0;
+}
+
+.hc-qual-card-badge {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+.hc-qual-badge-verified {
+  background-color: rgba(20, 184, 166, 0.2);
+  color: rgba(20, 184, 166, 1);
+  border: 1px solid rgba(20, 184, 166, 0.5);
+}
+
+.hc-qual-badge-certified {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: rgba(34, 197, 94, 1);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+}
+
+.hc-qual-badge-compliant {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: rgba(59, 130, 246, 1);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+/* ── Responsive Design ── */
+
+@media (max-width: 1100px) {
+  .hc-qual-section {
+    padding: 5rem 48px 8rem;
+  }
+
+  .hc-qual-heading {
+    font-size: 2.5rem;
+  }
+
+  .hc-qual-header-row {
+    gap: 2rem;
+  }
+
+  .hc-qual-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hc-qual-card {
+    padding: 1.75rem;
+  }
+
+  .hc-qual-card-number {
+    font-size: 2.5rem;
+  }
+
+  .hc-qual-card-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hc-qual-section {
+    padding: 4rem 24px 8rem;
+    margin-top: -4rem;
+    border-radius: 60px 60px 0 0;
+  }
+
+  .hc-qual-heading {
+    font-size: 2rem;
+  }
+
+  .hc-qual-header-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hc-qual-description {
+    font-size: 1rem;
+  }
+
+  .hc-qual-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hc-qual-card {
+    padding: 1.5rem;
+  }
+
+  .hc-qual-card-title {
+    font-size: 1.1rem;
+  }
+
+  .hc-qual-card-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .hc-qual-card-description {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hc-qual-section {
+    padding: 3rem 16px 7rem;
+    margin-top: -3rem;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .hc-qual-heading {
+    font-size: 1.5rem;
+  }
+
+  .hc-qual-description {
+    font-size: 0.9rem;
+  }
+
+  .hc-qual-label {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .hc-qual-card-number {
+    font-size: 2rem;
+  }
+
+  .hc-qual-card-title {
+    font-size: 1rem;
+  }
+}

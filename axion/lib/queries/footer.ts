@@ -35,6 +35,10 @@ export interface FooterData {
   copyright: string;
   navLinks: FooterLink[];
   legalLinks: FooterLink[];
+  logoMain?: string;
+  logoSub?: string;
+  navColumnTitle?: string;
+  legalColumnTitle?: string;
 }
 
 // ── Default values ──
@@ -42,6 +46,10 @@ export const FOOTER_DEFAULTS: FooterData = {
   phone: "020 3345 3310",
   email: "enquiries@energy-park.co.uk",
   copyright: "© 2025 Axion Critical Power Solutions. All rights reserved.",
+  logoMain: "AXION",
+  logoSub: "Critical Power Solutions",
+  navColumnTitle: "Navigation",
+  legalColumnTitle: "Legal",
   navLinks: [
     { label: "Solutions", url: "/solutions" },
     { label: "About Us", url: "/about" },
@@ -72,6 +80,10 @@ function mergeWithDefaults(
     phone: data.phone || FOOTER_DEFAULTS.phone,
     email: data.email || FOOTER_DEFAULTS.email,
     copyright: data.copyright || FOOTER_DEFAULTS.copyright,
+    logoMain: data.logoMain || FOOTER_DEFAULTS.logoMain,
+    logoSub: data.logoSub || FOOTER_DEFAULTS.logoSub,
+    navColumnTitle: data.navColumnTitle || FOOTER_DEFAULTS.navColumnTitle,
+    legalColumnTitle: data.legalColumnTitle || FOOTER_DEFAULTS.legalColumnTitle,
     navLinks: data.navLinks?.length
       ? data.navLinks
       : FOOTER_DEFAULTS.navLinks,
@@ -93,6 +105,10 @@ export async function getFooterData(): Promise<FooterData> {
       if (ax.phone) merged.phone = ax.phone;
       if (ax.email) merged.email = ax.email;
       if (ax.copyright) merged.copyright = ax.copyright;
+      if (ax.logo_main) merged.logoMain = ax.logo_main;
+      if (ax.logo_sub) merged.logoSub = ax.logo_sub;
+      if (ax.nav_column_title) merged.navColumnTitle = ax.nav_column_title;
+      if (ax.legal_column_title) merged.legalColumnTitle = ax.legal_column_title;
       if (Array.isArray(ax.nav_links)) {
         merged.navLinks = ax.nav_links.map((l: { label: string; url: string }) => ({ label: l.label, url: l.url }));
       }

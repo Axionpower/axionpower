@@ -1,0 +1,152 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.qs-hero {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    overflow: hidden;
+    background-color: #0a0e1a;
+    background-image: url("https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* ─── Overlay ─────────────────────────────────────────────────────────────── */
+.qs-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        rgba(10, 14, 26, 0.97) 0%,
+        rgba(7, 24, 40, 0.88) 50%,
+        rgba(10, 14, 26, 0.75) 100%
+    );
+}
+
+/* ─── Subtle grid lines ───────────────────────────────────────────────────── */
+.qs-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(30, 136, 229, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 136, 229, 0.04) 1px, transparent 1px);
+    background-size: 116px 116px;
+    pointer-events: none;
+}
+
+/* ─── Top-right badge ─────────────────────────────────────────────────────── */
+.qs-badge-top {
+    position: absolute;
+    top: 80px;
+    right: 120px;
+    background: rgba(30, 136, 229, 0.15);
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    z-index: 2;
+}
+
+/* ─── Content ─────────────────────────────────────────────────────────────── */
+.qs-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 130px 120px 260px;
+    max-width: 780px;
+}
+
+/* ─── Breadcrumb ──────────────────────────────────────────────────────────── */
+.qs-breadcrumb {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e88e5;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ─── Heading ─────────────────────────────────────────────────────────────── */
+.qs-heading {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 20px 0 0 0;
+}
+
+/* ─── Blue accent bar ─────────────────────────────────────────────────────── */
+.qs-accent-bar {
+    width: 72px;
+    height: 5px;
+    background-color: #1e88e5;
+    border-radius: 2px;
+    margin: 28px 0 0 0;
+}
+
+/* ─── Subtext ─────────────────────────────────────────────────────────────── */
+.qs-subtext {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #d0dcf0;
+    max-width: 660px;
+    margin: 20px 0 0 0;
+}
+
+/* ─── CTA Button ───────────────────────────────────────────────────────────── */
+.qs-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 36px;
+    height: 52px;
+    padding: 0 36px;
+    border-radius: 26px;
+    background-color: #1e88e5;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    align-self: flex-start;
+}
+
+.qs-cta-btn:hover {
+    background-color: #1565c0;
+    transform: translateY(-1px);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .qs-content {
+        padding: 130px 48px 260px;
+        max-width: none;
+    }
+    .qs-badge-top {
+        display: none;
+    }
+    .qs-heading {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .qs-hero {
+        min-height: auto;
+        padding-bottom: 130px;
+    }
+    .qs-content {
+        padding: 90px 24px 0;
+        max-width: none;
+    }
+    .qs-heading {
+        font-size: 30px;
+    }
+    .qs-cta-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}

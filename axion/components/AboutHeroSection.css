@@ -1,0 +1,231 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.ah-hero {
+    position: relative;
+    width: 100%;
+    height: 780px;
+    overflow: hidden;
+    background-color: #0a0e1a;
+    background-image: url("https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* ─── Top-to-bottom gradient overlay ─────────────────────────────────────── */
+.ah-overlay-vertical {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 45, 89, 1) 0%,
+        rgba(13, 31, 64, 0.8) 50%,
+        rgba(5, 18, 46, 1) 100%
+    );
+}
+
+/* ─── Left-to-right gradient overlay ─────────────────────────────────────── */
+.ah-overlay-horizontal {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(10, 14, 26, 0.95) 0%,
+        rgba(13, 27, 42, 0.75) 50%,
+        rgba(13, 27, 42, 0.3) 100%
+    );
+}
+
+/* ─── Content container ───────────────────────────────────────────────────── */
+.ah-content {
+    position: absolute;
+    top: 130px;
+    left: 120px;
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Breadcrumb ──────────────────────────────────────────────────────────── */
+.ah-breadcrumb {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e88e5;
+    margin-bottom: 22px;
+    letter-spacing: 0.04em;
+}
+
+/* ─── Heading ─────────────────────────────────────────────────────────────── */
+.ah-heading {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 64px;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+}
+
+/* ─── Blue accent bar ─────────────────────────────────────────────────────── */
+.ah-accent-bar {
+    width: 72px;
+    height: 5px;
+    background-color: #1e88e5;
+    border-radius: 3px;
+    margin-bottom: 18px;
+}
+
+/* ─── Subtext ─────────────────────────────────────────────────────────────── */
+.ah-subtext {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #d0dcef;
+    max-width: 600px;
+    margin: 0 0 36px 0;
+}
+
+/* ─── Stats bar ───────────────────────────────────────────────────────────── */
+.ah-stats-bar {
+    display: flex;
+    align-items: center;
+    width: 680px;
+    height: 88px;
+    border-radius: 16px;
+    border: 1px solid rgba(30, 136, 229, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0 28px;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+}
+
+/* ─── Stat item ───────────────────────────────────────────────────────────── */
+.ah-stat-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 20px;
+}
+
+/* ─── Stat divider ────────────────────────────────────────────────────────── */
+.ah-stat-divider {
+    width: 1px;
+    height: 48px;
+    background-color: rgba(30, 136, 229, 0.4);
+    flex-shrink: 0;
+}
+
+/* ─── Stat value ──────────────────────────────────────────────────────────── */
+.ah-stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e88e5;
+    line-height: 1.1;
+}
+
+/* ─── Stat label ──────────────────────────────────────────────────────────── */
+.ah-stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6b8aab;
+    margin-top: 4px;
+}
+
+/* ─── Button row ──────────────────────────────────────────────────────────── */
+.ah-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ─── Primary button ──────────────────────────────────────────────────────── */
+.ah-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 48px;
+    border-radius: 24px;
+    background-color: #1e88e5;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.ah-btn-primary:hover {
+    background-color: #1976d2;
+}
+
+/* ─── Ghost button ────────────────────────────────────────────────────────── */
+.ah-btn-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 186px;
+    height: 48px;
+    border-radius: 24px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.ah-btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .ah-content {
+        top: 120px;
+        left: 48px;
+        width: calc(100% - 96px);
+    }
+    .ah-stats-bar {
+        width: 100%;
+    }
+    .ah-heading {
+        font-size: 40px;
+        line-height: 52px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ah-hero {
+        height: auto;
+        padding-bottom: 130px;
+    }
+    .ah-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* Push content below sticky header (~70px) + breathing room */
+        padding: 90px 24px 0;
+    }
+    .ah-heading {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .ah-stats-bar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 20px;
+        gap: 16px;
+    }
+    .ah-stat-divider {
+        display: none;
+    }
+    .ah-stat-item {
+        flex: 0 0 calc(50% - 16px);
+    }
+    .ah-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .ah-btn-primary,
+    .ah-btn-ghost {
+        width: 100%;
+    }
+}

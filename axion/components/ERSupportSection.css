@@ -1,0 +1,221 @@
+/* ============================================================
+   ERSupportSection — dark bg, z-index 7, stacked
+   ============================================================ */
+.er-sup {
+  background: #0a0e1a;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 7;
+  padding: 100px 0 7rem;
+}
+
+.er-sup__container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.er-sup__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.er-sup__label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(251,146,60,1);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.er-sup__heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.er-sup__subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Grid */
+.er-sup__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.er-sup__card {
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.er-sup__card:hover { border-color: rgba(251,146,60,0.3); }
+
+.er-sup__card-icon {
+  font-size: 26px;
+}
+
+.er-sup__card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.er-sup__card-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+/* Deliverables */
+.er-sup__deliverables {
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.er-sup__del-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.er-sup__del-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.er-sup__del-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+}
+
+.er-sup__del-check {
+  color: rgba(251,146,60,1);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Turnaround */
+.er-sup__turnaround {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.er-sup__ta-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 600;
+}
+
+.er-sup__ta-value {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(251,146,60,1);
+}
+
+/* Note bar */
+.er-sup__note {
+  background: rgba(251,146,60,0.08);
+  border: 1px solid rgba(251,146,60,0.2);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.er-sup__note-icon {
+  font-size: 24px;
+  color: rgba(251,146,60,1);
+  flex-shrink: 0;
+}
+
+.er-sup__note-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.er-sup__note-heading {
+  font-size: 15px;
+  font-weight: 800;
+  color: rgba(251,146,60,1);
+}
+
+.er-sup__note-body {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.er-sup__note-btn {
+  display: inline-block;
+  background: rgba(251,146,60,1);
+  color: #0a0e1a;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.er-sup__note-btn:hover { opacity: 0.85; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .er-sup__container { padding: 0 24px; }
+  .er-sup__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .er-sup { padding: 80px 0 80px; border-radius: 60px 60px 0 0; }
+  .er-sup__heading { font-size: 30px; }
+  .er-sup__note { flex-direction: column; text-align: center; }
+  .er-sup__note-btn { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .er-sup { padding: 60px 0 80px; border-radius: 32px 32px 0 0; }
+  .er-sup__grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,95 @@
+/* ============================================================
+   DC ENGINEERING / SOLUTIONS SECTION  — z-index 4
+   ============================================================ */
+.dc-eng {
+  background: #0a0e1a;
+  padding: 6rem 120px 7rem;
+  box-sizing: border-box;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 4;
+}
+.dc-eng-inner { max-width: 1200px; margin: 0 auto; }
+
+.dc-eng-header { margin-bottom: 56px; }
+.dc-eng-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: rgba(0,217,255,1);
+  display: block;
+  margin-bottom: 16px;
+}
+.dc-eng-heading {
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+  white-space: pre-line;
+}
+
+.dc-eng-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.dc-eng-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-top: 3px solid rgba(0,217,255,1);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background .2s, transform .2s;
+}
+.dc-eng-card:hover { background: rgba(255,255,255,.07); transform: translateY(-4px); }
+
+.dc-eng-card-number {
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(0,217,255,.15);
+  line-height: 1;
+  display: block;
+  margin-bottom: -4px;
+}
+.dc-eng-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+}
+.dc-eng-card-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(0,217,255,1);
+  margin: 0;
+  letter-spacing: .02em;
+}
+.dc-eng-card-bullets {
+  list-style: none;
+  padding: 0; margin: 8px 0 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.dc-eng-card-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(178,204,229,1);
+  line-height: 1.5;
+}
+.dc-eng-bullet-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(0,217,255,1);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+@media (max-width: 1100px) { .dc-eng { padding: 5rem 48px 8rem; } .dc-eng-heading { font-size: 32px; } }
+@media (max-width: 768px)  { .dc-eng { padding: 4rem 24px 8rem; border-radius: 60px 60px 0 0; } .dc-eng-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px)  { .dc-eng { padding: 3rem 16px 7rem; border-radius: 40px 40px 0 0; } .dc-eng-heading { font-size: 26px; } }

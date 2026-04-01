@@ -10,6 +10,8 @@ interface Props {
 function IndustryCard({ item, index }: { item: IndustryItem; index: number }) {
     const isReversed = index % 2 === 1;
     const hasImageOverlay = !!item.imageTitle;
+    const CardHeadingTag = 'h3' as React.ElementType;
+    const ImageTitleTag = 'h3' as React.ElementType;
 
     const imageBlock = (
         <div className="industry-image-wrap">
@@ -22,7 +24,7 @@ function IndustryCard({ item, index }: { item: IndustryItem; index: number }) {
             />
             {hasImageOverlay && (
                 <div className="industry-image-overlay">
-                    <h3 className="industry-image-title">{item.imageTitle}</h3>
+                    <ImageTitleTag className="industry-image-title">{item.imageTitle}</ImageTitleTag>
                     <Link href={item.buttonUrl || "#"} className="industry-image-btn">
                         {item.imageButtonLabel}
                     </Link>
@@ -33,7 +35,7 @@ function IndustryCard({ item, index }: { item: IndustryItem; index: number }) {
 
     const contentBlock = (
         <div className="industry-content">
-            <h3 className="industry-title">{item.title}</h3>
+            <CardHeadingTag className="industry-title">{item.title}</CardHeadingTag>
             {item.subtitle && <p className="industry-subtitle">{item.subtitle}</p>}
             <p className="industry-description">{item.description}</p>
 
@@ -69,6 +71,8 @@ function IndustryCard({ item, index }: { item: IndustryItem; index: number }) {
 }
 
 export default function IndustriesSection({ data }: Props) {
+    const HeadingTag = (data.headingTag || 'h2') as React.ElementType;
+
     return (
         <>
             {/* ── Intro ── */}
@@ -76,10 +80,11 @@ export default function IndustriesSection({ data }: Props) {
                 <div className="industries-intro-container">
                     <div className="industries-label">
                         <span className="industries-label-bar" />
-                        <span className="industries-label-text">{data.labelText}</span>
+                        <span className="industries-label-text" style={{ ...(data.labelColor && { color: data.labelColor }) }}>{data.labelText}</span>
                     </div>
-                    <p
+                    <HeadingTag
                         className="industries-intro-heading"
+                        style={{ ...(data.headingColor && { color: data.headingColor }) }}
                         dangerouslySetInnerHTML={{ __html: data.introHeading }}
                     />
                 </div>

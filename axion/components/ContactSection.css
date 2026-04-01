@@ -152,15 +152,29 @@
     box-shadow: 0 4px 14px rgba(255, 255, 255, 0.3);
 }
 
-/* ── Responsive ── */
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .contact-section {
+        border-radius: 60px 60px 0 0;
+    }
+
+    .contact-container {
+        padding: 0 1.5rem;
+        gap: 2.5rem;
+    }
+}
+
+/* ── Responsive 768px ── */
 @media (max-width: 768px) {
     .contact-section {
-        border-radius: 50px 50px 0 0;
+        border-radius: 40px 40px 0 0;
+        padding: 3.5rem 0 9rem;
     }
 
     .contact-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 1.25rem;
     }
 
     .contact-heading {
@@ -169,5 +183,88 @@
 
     .contact-pills {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ── Responsive 480px ── */
+@media (max-width: 480px) {
+    .contact-section {
+        border-radius: 20px 20px 0 0;
+        padding: 2.5rem 0 9rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .contact-image-area {
+        margin-bottom: 1rem;
+    }
+
+    .contact-frame-outer {
+        padding: 8px;
+        border-radius: 16px;
+    }
+
+    .contact-frame-middle {
+        padding: 8px;
+        border-radius: 12px;
+    }
+
+    .contact-frame-inner {
+        border-radius: 10px;
+    }
+
+    .contact-image {
+        max-width: 100%;
+    }
+
+    .contact-right {
+        align-items: flex-start;
+    }
+
+    .contact-label {
+        margin-bottom: 1rem;
+    }
+
+    .contact-label-text {
+        font-size: 12px;
+        letter-spacing: 0.8px;
+    }
+
+    .contact-heading {
+        font-size: clamp(20px, 4vw, 24px);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .contact-desc {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-highlights-title {
+        font-size: 16px;
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-pills {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-pill {
+        padding: 0.6rem 1rem;
+        font-size: 11px;
+        border-radius: 0 16px 0 16px;
+    }
+
+    .contact-cta-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 12px;
     }
 }

@@ -1,0 +1,379 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.stb-benefits {
+    position: relative;
+    width: 100%;
+    min-height: 960px;
+    background: linear-gradient(135deg, rgba(21, 101, 192, 1) 0%, rgba(30, 136, 229, 0.9) 100%);
+    overflow: hidden;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 5;
+    padding: 100px 0 300px 0;
+}
+
+/* ─── Decorative glow ──────────────────────────────────────────────────────── */
+.stb-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba(99, 222, 247, 0.1);
+    border-radius: 50%;
+    filter: blur(120px);
+    bottom: -200px;
+    right: -100px;
+    pointer-events: none;
+}
+
+/* ─── Container ────────────────────────────────────────────────────────────── */
+.stb-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 490px 1fr;
+    gap: 100px;
+    padding: 0 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* ─── Left column ──────────────────────────────────────────────────────────── */
+.stb-left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label */
+.stb-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(178, 217, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Heading */
+.stb-heading {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    white-space: pre-line;
+}
+
+/* Description */
+.stb-description {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(178, 217, 255, 0.6);
+    line-height: 1.6;
+    margin: 0 0 40px 0;
+    max-width: 450px;
+}
+
+/* Stat boxes */
+.stb-stat-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stb-stat-box {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+}
+
+.stb-stat-box-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stb-stat-box-label {
+    font-size: 12px;
+    color: rgba(178, 217, 255, 0.6);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Right column ─────────────────────────────────────────────────────────── */
+.stb-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cards layout */
+.stb-cards-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Benefit card */
+.stb-benefit-card {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.stb-benefit-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+}
+
+.stb-benefit-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.stb-benefit-number {
+    font-size: 36px;
+    font-weight: 800;
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.stb-benefit-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.stb-benefit-description {
+    font-size: 13px;
+    color: rgba(178, 217, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* CTA card — sits in left column below stat boxes */
+.stb-cta-card {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: left;
+    margin-top: 20px;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.stb-cta-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+.stb-cta-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgba(99, 222, 247, 0.9);
+    text-transform: uppercase;
+    background: rgba(99, 222, 247, 0.12);
+    border: 1px solid rgba(99, 222, 247, 0.25);
+    border-radius: 20px;
+    padding: 4px 12px;
+    width: fit-content;
+}
+
+.stb-cta-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.stb-cta-description {
+    font-size: 13px;
+    color: rgba(178, 217, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.stb-cta-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(99, 222, 247, 1);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(99, 222, 247, 0.3);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.stb-cta-link:hover {
+    border-color: rgba(99, 222, 247, 0.8);
+    background-color: rgba(99, 222, 247, 0.1);
+}
+
+/* ─── Separator line ───────────────────────────────────────────────────────── */
+.stb-separator {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    bottom: 200px;
+    width: 1px;
+    background: linear-gradient(180deg,
+        rgba(99, 222, 247, 0) 0%,
+        rgba(99, 222, 247, 0.2) 50%,
+        rgba(99, 222, 247, 0) 100%
+    );
+}
+
+/* ─── Floating dots ────────────────────────────────────────────────────────── */
+.stb-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: 0 0;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .stb-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 0 40px;
+    }
+
+    .stb-heading {
+        font-size: 40px;
+    }
+
+    .stb-separator {
+        display: none;
+    }
+
+    .stb-cards-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stb-benefits {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .stb-container {
+        padding: 0 24px;
+    }
+
+    .stb-heading {
+        font-size: 36px;
+    }
+
+    .stb-cards-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .stb-stat-boxes {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .stb-stat-box {
+        flex: 1;
+        min-height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stb-container {
+        padding: 0 16px;
+    }
+
+    .stb-heading {
+        font-size: 28px;
+    }
+
+    .stb-description {
+        font-size: 14px;
+    }
+
+    .stb-cards-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stb-benefit-card {
+        min-height: auto;
+        padding: 16px;
+    }
+
+    .stb-benefit-title {
+        font-size: 14px;
+    }
+
+    .stb-benefit-description {
+        font-size: 12px;
+    }
+
+    .stb-cta-card {
+        min-height: auto;
+        padding: 20px 16px;
+    }
+
+    .stb-cta-title {
+        font-size: 16px;
+    }
+
+    .stb-stat-boxes {
+        gap: 10px;
+    }
+
+    .stb-stat-box {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .stb-benefits {
+        border-radius: 50px 50px 0 0;
+        margin-top: -100px;
+        padding-bottom: 200px;
+    }
+}

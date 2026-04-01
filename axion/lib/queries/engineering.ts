@@ -44,6 +44,14 @@ export interface EngineeringData {
   buttonLabel: string;
   buttonUrl: string;
   decorImages: DecorImage[];
+  headingTag?: string;
+  subheadingTag?: string;
+  headingColor?: string;
+  headingFontWeight?: string;
+  headingFontFamily?: string;
+  bodyColor?: string;
+  bodyFontSize?: string;
+  accentColor?: string;
 }
 
 // ── Default values ──
@@ -62,14 +70,16 @@ export const ENGINEERING_DEFAULTS: EngineeringData = {
   ],
   buttonLabel: "Access Our Engineering Resources Library",
   buttonUrl: "/engineering-resources",
+  headingTag: "h2",
+  subheadingTag: "h3",
   decorImages: [
-    { image: null, fallback: "/eng-1.png" },
-    { image: null, fallback: "/eng-2.png" },
-    { image: null, fallback: "/eng-3.png" },
-    { image: null, fallback: "/eng-4.png" },
-    { image: null, fallback: "/eng-5.png" },
-    { image: null, fallback: "/eng-6.png" },
-    { image: null, fallback: "/eng-3.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
+    { image: null, fallback: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png" },
   ],
 };
 
@@ -88,10 +98,18 @@ function mergeWithDefaults(
       : ENGINEERING_DEFAULTS.highlights,
     buttonLabel: data.buttonLabel || ENGINEERING_DEFAULTS.buttonLabel,
     buttonUrl: data.buttonUrl || ENGINEERING_DEFAULTS.buttonUrl,
+    headingTag: data.headingTag || ENGINEERING_DEFAULTS.headingTag,
+    subheadingTag: data.subheadingTag || ENGINEERING_DEFAULTS.subheadingTag,
+    headingColor: data.headingColor,
+    headingFontWeight: data.headingFontWeight,
+    headingFontFamily: data.headingFontFamily,
+    bodyColor: data.bodyColor,
+    bodyFontSize: data.bodyFontSize,
+    accentColor: data.accentColor,
     decorImages: data.decorImages?.length
       ? data.decorImages.map((d: { image: DecorImage["image"] }, i: number) => ({
         image: d.image,
-        fallback: ENGINEERING_DEFAULTS.decorImages[i]?.fallback || "/eng-1.png",
+        fallback: ENGINEERING_DEFAULTS.decorImages[i]?.fallback || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
       }))
       : ENGINEERING_DEFAULTS.decorImages,
   };
@@ -110,6 +128,13 @@ export async function getEngineeringData(): Promise<EngineeringData> {
       if (ax.label) merged.title = ax.label;
       if (ax.heading) merged.title = ax.heading;
       if (ax.description) merged.description = ax.description;
+      if (ax.heading_tag) merged.headingTag = ax.heading_tag;
+      if (ax.subheading_tag) merged.subheadingTag = ax.subheading_tag;
+      if (ax.heading_color) merged.headingColor = ax.heading_color;
+      if (ax.heading_font_weight) merged.headingFontWeight = ax.heading_font_weight;
+      if (ax.body_color) merged.bodyColor = ax.body_color;
+      if (ax.body_font_size) merged.bodyFontSize = ax.body_font_size;
+      if (ax.accent_color) merged.accentColor = ax.accent_color;
       if (Array.isArray(ax.features)) {
         merged.highlights = ax.features.map((f: { title: string; description?: string }) => f.title || f.description || "");
       }

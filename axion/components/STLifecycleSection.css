@@ -1,0 +1,483 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.stlc-lifecycle {
+    position: relative;
+    width: 100%;
+    min-height: 840px;
+    background-color: rgba(10, 14, 26, 1);
+    overflow: hidden;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 7;
+    padding: 80px 0 300px 0;
+}
+
+/* ─── Decorative elements ──────────────────────────────────────────────────── */
+.stlc-dots-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(30, 136, 229, 0.1) 1px, transparent 1px),
+        radial-gradient(circle, rgba(99, 222, 247, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px, 160px 160px;
+    background-position: 0 0, 40px 40px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.stlc-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.stlc-glow-left {
+    width: 500px;
+    height: 500px;
+    background: rgba(30, 136, 229, 0.1);
+    top: 100px;
+    left: -200px;
+}
+
+.stlc-glow-right {
+    width: 450px;
+    height: 450px;
+    background: rgba(99, 222, 247, 0.08);
+    bottom: 200px;
+    right: -150px;
+}
+
+/* ─── Top section ──────────────────────────────────────────────────────────── */
+.stlc-top {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px;
+    margin-bottom: 80px;
+    max-width: 680px;
+}
+
+/* Label pill */
+.stlc-label-pill {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(30, 136, 229, 0.15);
+    border: 1px solid rgba(30, 136, 229, 0.3);
+    border-radius: 14px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e88e5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+/* Heading */
+.stlc-heading {
+    font-size: 52px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    white-space: pre-line;
+}
+
+/* Accent line */
+.stlc-accent-line {
+    width: 48px;
+    height: 3px;
+    background-color: #1e88e5;
+    margin: 20px 0 24px 0;
+    border-radius: 2px;
+}
+
+/* Description */
+.stlc-description {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(143, 201, 249, 0.7);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 620px;
+}
+
+/* ─── Feature cards section ────────────────────────────────────────────────── */
+.stlc-features {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 0 80px;
+    margin-bottom: 80px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature card */
+.stlc-feature-card {
+    background-color: rgba(30, 136, 229, 0.12);
+    border: 1px solid rgba(30, 136, 229, 0.25);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Ghost number */
+.stlc-feature-ghost-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 80px;
+    font-weight: 800;
+    opacity: 0.04;
+    line-height: 1;
+}
+
+/* Header */
+.stlc-feature-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* Accent bar */
+.stlc-feature-accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: -32px 0 0 -32px;
+    width: calc(100% + 64px);
+}
+
+/* Icon circle */
+.stlc-feature-icon-circle {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* Badge */
+.stlc-feature-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(143, 201, 249, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+/* Title */
+.stlc-feature-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+/* Description */
+.stlc-feature-description {
+    font-size: 13px;
+    color: rgba(143, 201, 249, 0.65);
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+    flex-grow: 1;
+}
+
+/* Link */
+.stlc-feature-link {
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.stlc-feature-link:hover {
+    opacity: 0.8;
+}
+
+/* ─── Timeline section ─────────────────────────────────────────────────────── */
+.stlc-timeline-container {
+    position: relative;
+    z-index: 2;
+    padding: 40px 80px;
+}
+
+/* Timeline line */
+.stlc-timeline-line {
+    position: relative;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.06);
+    margin-bottom: 40px;
+    border-radius: 1px;
+}
+
+/* Active segment */
+.stlc-timeline-active-segment {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: rgba(30, 136, 229, 0.6);
+    border-radius: 1px;
+}
+
+/* Steps grid */
+.stlc-steps {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    align-items: flex-start;
+}
+
+/* Step */
+.stlc-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 12px;
+}
+
+.stlc-step-inactive {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px 12px;
+}
+
+.stlc-step-active {
+    background-color: rgba(30, 136, 229, 0.2);
+    border: 1px solid rgba(30, 136, 229, 0.5);
+    border-radius: 12px;
+    padding: 20px 12px;
+}
+
+/* Circle */
+.stlc-step-circle {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.stlc-step-active .stlc-step-circle {
+    background-color: rgba(30, 136, 229, 0.4);
+    color: #1e88e5;
+}
+
+/* Content */
+.stlc-step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    text-align: center;
+}
+
+.stlc-step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.stlc-step-active .stlc-step-title {
+    color: #ffffff;
+}
+
+.stlc-step-description {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.stlc-step-active .stlc-step-description {
+    color: rgba(143, 201, 249, 0.6);
+}
+
+/* Active badge */
+.stlc-step-active-badge {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(99, 222, 247, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 8px;
+}
+
+/* ─── Bottom note ──────────────────────────────────────────────────────────── */
+.stlc-bottom-note {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(143, 201, 249, 0.45);
+    padding: 0 80px;
+    margin-top: 40px;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .stlc-top {
+        padding: 0 40px;
+    }
+
+    .stlc-features {
+        grid-template-columns: 1fr;
+        padding: 0 40px;
+    }
+
+    .stlc-heading {
+        font-size: 40px;
+    }
+
+    .stlc-timeline-container {
+        padding: 40px 40px;
+    }
+
+    .stlc-steps {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stlc-lifecycle {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .stlc-top {
+        padding: 0 24px;
+        margin-bottom: 40px;
+    }
+
+    .stlc-heading {
+        font-size: 32px;
+    }
+
+    .stlc-features {
+        padding: 0 24px;
+        margin-bottom: 40px;
+    }
+
+    .stlc-timeline-container {
+        padding: 40px 24px;
+    }
+
+    .stlc-steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .stlc-step-inactive,
+    .stlc-step-active {
+        padding: 16px 8px;
+    }
+
+    .stlc-step-title {
+        font-size: 12px;
+    }
+
+    .stlc-step-description {
+        font-size: 10px;
+    }
+
+    .stlc-bottom-note {
+        padding: 0 24px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stlc-top {
+        padding: 0 16px;
+    }
+
+    .stlc-heading {
+        font-size: 26px;
+    }
+
+    .stlc-feature-card {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .stlc-feature-title {
+        font-size: 18px;
+    }
+
+    .stlc-features {
+        padding: 0 16px;
+        margin-bottom: 32px;
+    }
+
+    .stlc-timeline-container {
+        padding: 32px 16px;
+    }
+
+    .stlc-steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stlc-step-inactive,
+    .stlc-step-active {
+        padding: 12px 4px;
+    }
+
+    .stlc-step-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+
+    .stlc-step-title {
+        font-size: 11px;
+    }
+
+    .stlc-step-description {
+        display: none;
+    }
+
+    .stlc-bottom-note {
+        padding: 0 16px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .stlc-lifecycle {
+        border-radius: 50px 50px 0 0;
+        margin-top: -100px;
+        padding-bottom: 150px;
+    }
+}

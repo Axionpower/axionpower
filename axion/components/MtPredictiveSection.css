@@ -1,0 +1,297 @@
+/* MtPredictiveSection - Predictive Analytics */
+
+.mtpa-section {
+  position: relative;
+  width: 100%;
+  background-color: #1565c0;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.mtpa-inner {
+  padding: 80px 100px 260px;
+}
+
+/* Label row */
+.mtpa-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mtpa-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.mtpa-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mtpa-heading {
+  font-size: 46px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.mtpa-body {
+  font-size: 16px;
+  color: #c5ddf0;
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0 0 50px 0;
+}
+
+/* ── Mobile carousel (hidden on desktop) ── */
+.mtpa-mobile {
+  display: none;
+}
+
+/* Issue cards row — always 4 in a row on desktop */
+.mtpa-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.mtpa-card {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 200px;
+  border-radius: 18px;
+  padding: 32px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mtpa-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mtpa-card-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.mtpa-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.mtpa-card-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Bottom stats bar */
+.mtpa-stats-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mtpa-stat-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.mtpa-stat-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.mtpa-stat-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.mtpa-stat-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mtpa-stat-desc {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .mtpa-inner {
+    padding: 60px 48px 200px;
+  }
+
+  .mtpa-cards {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mtpa-card {
+    flex: 1 1 calc(50% - 8px);
+    min-height: 200px;
+  }
+
+  .mtpa-stats-bar {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .mtpa-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .mtpa-inner {
+    padding: 40px 0 160px;
+  }
+
+  .mtpa-label-row,
+  .mtpa-heading,
+  .mtpa-body {
+    padding: 0 24px;
+  }
+
+  .mtpa-heading {
+    font-size: 28px;
+  }
+
+  /* Hide desktop card row */
+  .mtpa-cards-desktop {
+    display: none;
+  }
+
+  /* Show mobile carousel */
+  .mtpa-mobile {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  /* ── Carousel wrapper ── */
+  .mtpa-carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  /* ── Track ── */
+  .mtpa-track {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
+    scrollbar-width: none;
+    padding: 0.25rem 0 0.5rem;
+  }
+
+  .mtpa-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mtpa-track .mtpa-card {
+    flex: 0 0 78vw;
+    max-width: 300px;
+    scroll-snap-align: center;
+    min-height: 200px;
+    box-shadow: none;
+  }
+
+  /* ── Prev/Next buttons ── */
+  .mtpa-carousel-btn {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s ease;
+  }
+
+  .mtpa-carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .mtpa-carousel-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ── Dots ── */
+  .mtpa-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 0 1.5rem;
+  }
+
+  .mtpa-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .mtpa-dot--active {
+    background: #ffffff;
+    transform: scale(1.3);
+  }
+
+  /* Stats bar */
+  .mtpa-stats-bar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 24px;
+    align-items: flex-start;
+  }
+}

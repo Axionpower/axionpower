@@ -6,6 +6,9 @@ interface Props {
 }
 
 export default function FaqSection({ data }: Props) {
+    const HeadingTag = (data.headingTag || 'h2') as React.ElementType;
+    const CardTag = (data.cardHeadingTag || 'h3') as React.ElementType;
+
     return (
         <section className="faq-section" style={{ background: data.bgColor }}>
             <div className="faq-container">
@@ -13,12 +16,13 @@ export default function FaqSection({ data }: Props) {
                 <div className="faq-header">
                     <div className="faq-label">
                         <span className="faq-label-bar" />
-                        <span className="faq-label-text">{data.labelText}</span>
+                        <span className="faq-label-text" style={{ ...(data.labelColor && { color: data.labelColor }) }}>{data.labelText}</span>
                     </div>
                     <div className="faq-header-content">
-                        <h2 className="faq-main-heading">{data.heading}</h2>
+                        <HeadingTag className="faq-main-heading" style={{ ...(data.headingColor && { color: data.headingColor }) }}>{data.heading}</HeadingTag>
                         <p
                             className="faq-intro"
+                            style={{ ...(data.bodyColor && { color: data.bodyColor }) }}
                             dangerouslySetInnerHTML={{ __html: data.introText }}
                         />
                     </div>
@@ -32,7 +36,7 @@ export default function FaqSection({ data }: Props) {
                                 <span className="faq-number">
                                     {String(i + 1).padStart(2, "0")}
                                 </span>
-                                <h3 className="faq-question">{faq.question}</h3>
+                                <CardTag className="faq-question" style={{ ...(data.cardTitleColor && { color: data.cardTitleColor }) }}>{faq.question}</CardTag>
                             </div>
                             <div className="faq-answer">
                                 <ul>

@@ -156,17 +156,18 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+    .cab-apps {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
+    }
+
     .cab-apps-grid {
         grid-template-columns: 1fr;
     }
 
     .cab-apps-heading {
         font-size: 24px;
-    }
-
-    .cab-apps {
-        border-radius: 60px 60px 0 0;
-        padding: 3rem 1.5rem 5rem;
     }
 }

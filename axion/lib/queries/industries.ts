@@ -50,7 +50,11 @@ export interface IndustryItem {
 export interface IndustriesData {
     sectionBgColor: string;
     labelText: string;
+    labelColor?: string;
     introHeading: string;
+    headingTag?: string;
+    headingColor?: string;
+    bodyColor?: string;
     industries: IndustryItem[];
 }
 
@@ -58,8 +62,12 @@ export interface IndustriesData {
 export const INDUSTRIES_DEFAULTS: IndustriesData = {
     sectionBgColor: "#f8f9fa",
     labelText: "Industries We Serve",
+    labelColor: "#64748b",
     introHeading:
         '<span class="grey-text">Axion Critical Power Solutions provides mission-critical battery</span> solutions across a range of industries, ensuring continuous uptime, regulatory compliance, and reliable performance.',
+    headingTag: "h2",
+    headingColor: "#0f172a",
+    bodyColor: "#475569",
     industries: [
         {
             title: "Data Centers & Colocation Power Solutions",
@@ -67,7 +75,7 @@ export const INDUSTRIES_DEFAULTS: IndustriesData = {
             description:
                 "Data centers and colocation facilities cannot afford downtime. Axion Critical Power Solutions delivers resilient, scalable, and compliant battery solutions to keep mission-critical infrastructure running 24/7. Our focus on VRLA and wet cell battery systems, lifecycle support, and technical expertise ensures uptime, reliability, and safety.",
             image: null,
-            fallbackImage: "/data-center.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             features: [
                 "VRLA and wet cell batteries for critical infrastructure",
                 "Preventive maintenance, monitoring, & lifecycle management",
@@ -85,7 +93,7 @@ export const INDUSTRIES_DEFAULTS: IndustriesData = {
             description:
                 "Telecommunications networks require uninterrupted power to maintain connectivity, service quality, and emergency communications. Axion Critical Power Solutions provides VRLA and flooded battery systems, engineering support, and lifecycle management to ensure reliable, compliant, and predictable performance across telecom infrastructure.",
             image: null,
-            fallbackImage: "/telecom-power.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             features: [
                 "VRLA and flooded batteries for central offices, cell sites, and data hubs",
                 "Engineering guidance for sizing, redundancy, and system integration",
@@ -103,7 +111,7 @@ export const INDUSTRIES_DEFAULTS: IndustriesData = {
             description:
                 "Utility and substation environments require battery systems that provide long-term reliability, predictable performance, and compliance with industry standards. Axion Critical Power Solutions delivers VRLA and flooded battery systems, along with engineering support, lifecycle services, and technical guidance, to ensure mission-critical DC power applications perform safely and efficiently.",
             image: null,
-            fallbackImage: "/utility-substation.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             features: [
                 "VRLA and flooded batteries for substations and utility infrastructure",
                 "Technical consultation for battery sizing, configuration, and system integration",
@@ -121,7 +129,7 @@ export const INDUSTRIES_DEFAULTS: IndustriesData = {
             description:
                 "Healthcare facilities require uninterrupted power to protect life-safety systems, critical medical equipment, and essential operations. Axion Critical Power Solutions delivers reliable VRLA and wet cell battery systems, along with technical consultation, monitoring, and lifecycle support, to ensure mission-critical healthcare environments remain powered, safe, and compliant.",
             image: null,
-            fallbackImage: "/healthcare-power.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             features: [
                 "VRLA and wet cell batteries for hospitals and medical centers",
                 "Engineering support for system sizing, redundancy, and UPS integration",
@@ -139,7 +147,7 @@ export const INDUSTRIES_DEFAULTS: IndustriesData = {
             description:
                 "Industrial and infrastructure facilities require uninterrupted power for process control, safety systems, and critical operations. Axion Critical Power Solutions provides VRLA and wet cell battery systems along with technical consultation, monitoring, and lifecycle support to ensure durable, reliable, and compliant power for demanding industrial environments.",
             image: null,
-            fallbackImage: "/industrial-power.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             features: [
                 "VRLA and wet cell batteries for industrial and infrastructure systems",
                 "Engineering support for sizing, redundancy, and UPS/DC integration",
@@ -180,7 +188,16 @@ function mergeWithDefaults(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any
 ): IndustriesData {
-    const merged = { ...INDUSTRIES_DEFAULTS, ...data };
+    const merged: IndustriesData = {
+        sectionBgColor: data.sectionBgColor || INDUSTRIES_DEFAULTS.sectionBgColor,
+        labelText: data.labelText || INDUSTRIES_DEFAULTS.labelText,
+        labelColor: data.labelColor || INDUSTRIES_DEFAULTS.labelColor,
+        introHeading: data.introHeading || INDUSTRIES_DEFAULTS.introHeading,
+        headingTag: data.headingTag || INDUSTRIES_DEFAULTS.headingTag,
+        headingColor: data.headingColor || INDUSTRIES_DEFAULTS.headingColor,
+        bodyColor: data.bodyColor || INDUSTRIES_DEFAULTS.bodyColor,
+        industries: [],
+    };
     if (data.industriesList?.length) {
         merged.industries = data.industriesList.map(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,0 +1,318 @@
+/* ─── Section ──────────────────────────────────────────────────────────────── */
+.us-hero {
+    position: relative;
+    width: 100%;
+    min-height: 900px;
+    background-color: #0a0e1a;
+    background-image: url("https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    padding-bottom: 300px;
+}
+
+.us-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,14,26,0.97) 0%, rgba(10,14,26,0.85) 50%, rgba(10,14,26,0.60) 100%);
+}
+
+/* ─── Inner ─────────────────────────────────────────────────────────────────── */
+.us-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 150px 120px 100px;
+    gap: 60px;
+}
+
+/* ─── Left column ───────────────────────────────────────────────────────────── */
+.us-hero-left {
+    flex: 0 0 520px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Breadcrumb ────────────────────────────────────────────────────────────── */
+.us-hero-breadcrumb-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+
+.us-hero-breadcrumb {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(99,222,247,1);
+    letter-spacing: 0.06em;
+}
+
+/* ─── Pill ──────────────────────────────────────────────────────────────────── */
+.us-hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(99,222,247,0.12);
+    border: 1px solid rgba(99,222,247,0.3);
+    color: rgba(99,222,247,1);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+/* ─── Heading ───────────────────────────────────────────────────────────────── */
+.us-hero-heading {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+}
+
+.us-hero-heading-accent {
+    color: rgba(99,222,247,1);
+}
+
+/* ─── Accent bar ────────────────────────────────────────────────────────────── */
+.us-hero-accent-bar {
+    width: 320px;
+    height: 4px;
+    background: rgba(99,222,247,1);
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+/* ─── Subtitle ──────────────────────────────────────────────────────────────── */
+.us-hero-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(143,201,249,1);
+    margin: 0 0 28px 0;
+    max-width: 460px;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+.us-hero-buttons {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+.us-hero-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 24px;
+    background: #1e88e5;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.us-hero-btn-primary:hover { background: #1565c0; }
+
+.us-hero-btn-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 24px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.us-hero-btn-ghost:hover { background: rgba(255,255,255,0.07); }
+
+/* ─── Trust badges ──────────────────────────────────────────────────────────── */
+.us-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.us-hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(200,220,245,0.9);
+}
+
+.us-hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(99,222,247,1);
+    flex-shrink: 0;
+}
+
+/* ─── Right — Image card ────────────────────────────────────────────────────── */
+.us-hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.us-hero-image-card {
+    position: relative;
+    width: 480px;
+    height: 520px;
+    background: rgba(14,19,34,0.9);
+    border: 1px solid rgba(99,222,247,0.2);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.us-hero-image-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15,26,51,1) 0%, rgba(10,14,26,1) 100%);
+}
+
+.us-hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 38px,
+        rgba(99,222,247,0.04) 38px,
+        rgba(99,222,247,0.04) 39px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 38px,
+        rgba(99,222,247,0.04) 38px,
+        rgba(99,222,247,0.04) 39px
+    );
+}
+
+/* circuit lines */
+.us-hero-circuit-lines {
+    position: absolute;
+    inset: 0;
+}
+
+.us-hero-circuit-line {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: rgba(99,222,247,0.12);
+}
+
+.us-hero-circuit-line-v {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: rgba(99,222,247,0.12);
+}
+
+.us-hero-circuit-node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(99,222,247,0.6);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(99,222,247,0.5);
+}
+
+/* ─── Caption ───────────────────────────────────────────────────────────────── */
+.us-hero-image-caption {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+}
+
+.us-hero-image-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(99,222,247,0.1);
+    border: 1px solid rgba(99,222,247,0.3);
+    border-radius: 12px;
+    padding: 4px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(99,222,247,1);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.us-hero-image-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(99,222,247,1);
+    animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .us-hero-inner { padding: 120px 48px 80px; gap: 40px; }
+    .us-hero-left { flex: 0 0 440px; }
+    .us-hero-heading { font-size: 44px; }
+    .us-hero-image-card { width: 380px; height: 420px; }
+}
+
+@media (max-width: 900px) {
+    .us-hero { padding-bottom: 260px; }
+    .us-hero-inner { flex-direction: column; padding: 100px 32px 60px; }
+    .us-hero-left { flex: none; width: 100%; }
+    .us-hero-right { width: 100%; justify-content: flex-start; }
+    .us-hero-image-card { width: 100%; height: 300px; }
+}
+
+@media (max-width: 640px) {
+    .us-hero { padding-bottom: 150px; }
+    .us-hero-inner { padding: 80px 20px 48px; }
+    .us-hero-heading { font-size: 34px; }
+    .us-hero-accent-bar { width: 100%; }
+    .us-hero-buttons { flex-direction: column; }
+    .us-hero-btn-primary, .us-hero-btn-ghost { width: 100%; }
+}

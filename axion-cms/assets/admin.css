@@ -4,46 +4,248 @@
 
 /* ── Wrap ── */
 .axion-wrap {
-    max-width: 960px;
+    max-width: 1180px;
     margin: 20px auto;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.axion-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 20px;
-}
-
-/* ── Tabs ── */
-.axion-tabs {
+/* ── Header ── */
+.axion-header {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 14px;
     margin-bottom: 24px;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 0;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    border-radius: 14px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
 }
 
-.axion-tab {
-    display: inline-block;
-    padding: 10px 20px;
+.axion-header__logo {
+    font-size: 32px;
+    line-height: 1;
+    filter: drop-shadow(0 0 8px rgba(245, 199, 20, 0.6));
+}
+
+.axion-header__text {
+    flex: 1;
+}
+
+.axion-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 2px;
+    letter-spacing: -0.01em;
+}
+
+.axion-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ── Layout: Sidebar + Content ── */
+.axion-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* ── Sidebar ── */
+.axion-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 32px;
+}
+
+.axion-sidebar__inner {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Nav Groups ── */
+.axion-nav-group {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.axion-nav-group:last-of-type {
+    border-bottom: none;
+}
+
+.axion-nav-group__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+    cursor: default;
+    background: #f8fafc;
+    user-select: none;
+}
+
+.axion-nav-group__icon {
+    font-size: 15px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.axion-nav-group__label {
+    flex: 1;
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.axion-nav-group__count {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    background: #e2e8f0;
+    border-radius: 10px;
+    padding: 1px 6px;
+    line-height: 1.5;
+}
+
+.axion-nav-group__chevron {
     font-size: 14px;
-    font-weight: 600;
-    color: #64748b;
+    color: #cbd5e1;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.axion-nav-group--open .axion-nav-group__chevron {
+    transform: rotate(90deg);
+    color: #0ea5e9;
+}
+
+.axion-nav-group--open .axion-nav-group__header {
+    background: #f0f9ff;
+    border-bottom: 1px solid #e0f2fe;
+}
+
+.axion-nav-group--open .axion-nav-group__label {
+    color: #0284c7;
+}
+
+/* ── Nav Pages ── */
+.axion-nav-group__pages {
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    display: none;
+}
+
+.axion-nav-group--open .axion-nav-group__pages {
+    display: block;
+}
+
+/* ── Nav Items ── */
+.axion-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
     text-decoration: none;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    transition: all 0.2s;
+    transition: all 0.15s ease;
+    border-left: 3px solid transparent;
 }
 
-.axion-tab:hover {
+.axion-nav-item:hover {
     color: #0ea5e9;
+    background: rgba(14, 165, 233, 0.06);
+    border-left-color: rgba(14, 165, 233, 0.3);
 }
 
-.axion-tab--active {
-    color: #0ea5e9;
-    border-bottom-color: #0ea5e9;
+.axion-nav-item--active {
+    color: #0284c7;
+    background: linear-gradient(to right, rgba(14, 165, 233, 0.12), rgba(14, 165, 233, 0.04));
+    border-left-color: #0ea5e9;
+    font-weight: 700;
+}
+
+.axion-nav-item--active:hover {
+    color: #0284c7;
+}
+
+.axion-nav-item__icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    line-height: 1;
+    opacity: 0.85;
+}
+
+.axion-nav-item__label {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+/* ── Settings nav item ── */
+.axion-nav-settings {
+    border-top: 1px solid #e2e8f0;
+    padding: 6px 0;
+}
+
+.axion-nav-item--settings {
+    color: #64748b;
+    padding-left: 14px;
+}
+
+.axion-nav-item--settings.axion-nav-item--active {
+    color: #475569;
+    background: linear-gradient(to right, rgba(71, 85, 105, 0.1), rgba(71, 85, 105, 0.04));
+    border-left-color: #475569;
+}
+
+/* ── Content Area ── */
+.axion-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Page Header (section list view) ── */
+.axion-page-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.axion-page-header__icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.axion-page-header__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0c4a6e;
+    margin: 0 0 2px;
+}
+
+.axion-page-header__meta {
+    font-size: 12px;
+    color: #0369a1;
+    margin: 0;
+    opacity: 0.8;
 }
 
 /* ── Section Cards ── */
@@ -57,7 +259,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 16px 20px;
+    padding: 14px 18px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 10px;
@@ -77,9 +279,9 @@
 }
 
 .axion-section-card__icon {
-    font-size: 24px;
+    font-size: 22px;
     flex-shrink: 0;
-    width: 40px;
+    width: 36px;
     text-align: center;
 }
 
@@ -88,26 +290,28 @@
 }
 
 .axion-section-card__title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #1e293b;
     margin: 0;
 }
 
 .axion-section-card__status {
-    font-size: 12px;
+    font-size: 11px;
     color: #94a3b8;
     margin: 2px 0 0;
 }
 
 .axion-section-card__arrow {
-    font-size: 18px;
-    color: #94a3b8;
+    font-size: 16px;
+    color: #cbd5e1;
 }
 
 /* ── Section Edit ── */
 .axion-back {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 16px;
     font-size: 13px;
     color: #0ea5e9;
@@ -120,10 +324,10 @@
 }
 
 .axion-section-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: #1e293b;
-    margin: 0 0 24px;
+    margin: 0 0 20px;
 }
 
 /* ── Form ── */
@@ -131,7 +335,7 @@
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    padding: 24px;
+    padding: 22px;
 }
 
 /* ── Field ── */
@@ -284,6 +488,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .axion-reset-btn {
@@ -295,6 +500,18 @@
     background: #fef2f2 !important;
     border-color: #ef4444 !important;
     color: #b91c1c !important;
+}
+
+.axion-view-btn {
+    color: #1d4ed8 !important;
+    border-color: #93c5fd !important;
+    text-decoration: none !important;
+}
+
+.axion-view-btn:hover {
+    background: #eff6ff !important;
+    border-color: #3b82f6 !important;
+    color: #1e40af !important;
 }
 
 /* ── Success Notice ── */
@@ -312,4 +529,12 @@
     background: #fefce8;
     color: #a16207;
     border-color: #fde68a;
+}
+
+/* ── Settings panel ── */
+.axion-section-edit {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
 }

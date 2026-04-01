@@ -1,0 +1,58 @@
+.tc-apps {
+    position: relative; width: 100%;
+    background: #1e88e5;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem; z-index: 2;
+    padding: 6rem 120px 7rem; box-sizing: border-box;
+}
+
+.tc-apps-inner { max-width: 1200px; margin: 0 auto; }
+
+.tc-apps-header { margin-bottom: 48px; }
+
+.tc-apps-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.tc-apps-label-bar { width: 3px; height: 16px; background: rgba(255,255,255,0.6); border-radius: 1px; }
+.tc-apps-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.1em; }
+
+.tc-apps-heading { font-size: 42px; font-weight: 800; line-height: 1.15; color: #fff; margin: 0 0 16px; }
+.tc-apps-heading-accent { color: rgba(217,242,255,1); }
+.tc-apps-desc { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0; }
+
+.tc-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.tc-apps-card {
+    background: rgba(10,14,26,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px; padding: 28px 24px 22px;
+    display: flex; flex-direction: column;
+    transition: background 0.2s, transform 0.2s;
+}
+.tc-apps-card:hover { background: rgba(10,14,26,0.45); transform: translateY(-2px); }
+
+.tc-apps-card-icon-wrap {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+}
+.tc-apps-card-icon { font-size: 22px; }
+.tc-apps-card-title { font-size: 17px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+.tc-apps-card-desc { font-size: 13px; line-height: 1.65; color: rgba(217,242,255,0.85); margin: 0 0 16px; flex: 1; }
+.tc-apps-card-arrow { font-size: 16px; color: rgba(217,242,255,0.7); margin-top: auto; }
+
+@media (max-width: 1100px) {
+    .tc-apps { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .tc-apps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .tc-apps { padding: 4rem 24px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .tc-apps-heading { font-size: 32px; }
+}
+@media (max-width: 480px) {
+    .tc-apps { padding: 3rem 16px 4rem; border-radius: 40px 40px 0 0; }
+    .tc-apps-grid { grid-template-columns: 1fr; }
+    .tc-apps-heading { font-size: 26px; }
+}

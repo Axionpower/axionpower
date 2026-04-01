@@ -5,6 +5,10 @@ import type { FooterData, FooterLink } from "@/lib/queries/footer";
 const DEFAULT_FOOTER: FooterData = {
     phone: "+1 (555) 000-0000",
     email: "info@axionpower.com",
+    logoMain: "AXION",
+    logoSub: "Critical Power Solutions",
+    navColumnTitle: "Navigation",
+    legalColumnTitle: "Legal",
     navLinks: [
         { label: "Home", url: "/" },
         { label: "Products", url: "/vrla-batteries" },
@@ -28,8 +32,8 @@ export default function Footer({ data = DEFAULT_FOOTER }: Props) {
                 {/* Left: Logo + Contact */}
                 <div className="footer-brand">
                     <div className="footer-logo">
-                        <p className="footer-logo-main">AXION</p>
-                        <p className="footer-logo-sub">Critical Power Solutions</p>
+                        <p className="footer-logo-main">{data.logoMain ?? "AXION"}</p>
+                        <p className="footer-logo-sub">{data.logoSub ?? "Critical Power Solutions"}</p>
                     </div>
                     <div className="footer-contact-info">
                         <a href={`tel:${data.phone}`} className="footer-phone">{data.phone}</a>
@@ -39,7 +43,7 @@ export default function Footer({ data = DEFAULT_FOOTER }: Props) {
 
                 {/* Middle: Navigation */}
                 <div className="footer-links-col">
-                    <h3 className="footer-col-title">Navigation</h3>
+                    <h3 className="footer-col-title">{data.navColumnTitle ?? "Navigation"}</h3>
                     <ul className="footer-links">
                         {data.navLinks.map((link: FooterLink, i: number) => (
                             <li key={i}>
@@ -51,7 +55,7 @@ export default function Footer({ data = DEFAULT_FOOTER }: Props) {
 
                 {/* Right: Legal */}
                 <div className="footer-links-col">
-                    <h3 className="footer-col-title">Legal</h3>
+                    <h3 className="footer-col-title">{data.legalColumnTitle ?? "Legal"}</h3>
                     <ul className="footer-links">
                         {data.legalLinks.map((link: FooterLink, i: number) => (
                             <li key={i}>

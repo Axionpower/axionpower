@@ -1,0 +1,212 @@
+.ii-eng {
+  position: relative;
+  background: #0a0e1a;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  z-index: 4;
+  padding: 6rem 120px 7rem;
+  box-sizing: border-box;
+}
+
+.ii-eng-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ii-eng-top {
+  margin-bottom: 52px;
+}
+
+.ii-eng-label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.ii-eng-label-bar {
+  width: 3px;
+  height: 16px;
+  background: rgba(255, 191, 69, 1);
+  border-radius: 1px;
+}
+
+.ii-eng-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 191, 69, 1);
+  letter-spacing: 0.1em;
+}
+
+.ii-eng-heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.ii-eng-heading-accent {
+  color: rgba(255, 191, 69, 1);
+}
+
+.ii-eng-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(178, 204, 229, 1);
+  max-width: 700px;
+}
+
+.ii-eng-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.ii-eng-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ii-eng-service-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.ii-eng-service-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 191, 69, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ii-eng-service-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.ii-eng-service-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(153, 178, 204, 1);
+  margin: 0;
+}
+
+.ii-eng-flow-card {
+  background: rgba(15, 26, 56, 1);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ii-eng-flow-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 191, 69, 1);
+  letter-spacing: 0.1em;
+  margin: 0 0 6px;
+}
+
+.ii-eng-flow-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.ii-eng-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ii-eng-step {
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.ii-eng-step-num {
+  font-size: 18px;
+  font-weight: 800;
+  min-width: 32px;
+  line-height: 1;
+}
+
+.ii-eng-step-content {
+  flex: 1;
+}
+
+.ii-eng-step-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2px;
+}
+
+.ii-eng-step-actor {
+  font-size: 11px;
+  color: rgba(140, 178, 217, 1);
+  margin: 0 0 2px;
+}
+
+.ii-eng-step-output {
+  font-size: 11px;
+  color: rgba(153, 178, 204, 1);
+  margin: 0;
+}
+
+/* Responsive: 1100px */
+@media (max-width: 1100px) {
+  .ii-eng {
+    padding: 5rem 48px;
+    border-radius: 60px 60px 0 0;
+  }
+
+  .ii-eng-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive: 768px */
+@media (max-width: 768px) {
+  .ii-eng {
+    padding: 4rem 24px 80px;
+    border-radius: 50px 50px 0 0;
+    margin-top: -3rem;
+  }
+
+  .ii-eng-heading {
+    font-size: 32px;
+  }
+
+  .ii-eng-services {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive: 480px */
+@media (max-width: 480px) {
+  .ii-eng {
+    padding: 3rem 16px 80px;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .ii-eng-heading {
+    font-size: 26px;
+  }
+}

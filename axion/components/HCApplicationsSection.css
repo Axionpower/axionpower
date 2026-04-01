@@ -1,0 +1,429 @@
+/* ============================================================================
+   APPLICATIONS SECTION - HEALTHCARE (Horizontal Accordion)
+   ============================================================================ */
+
+.hc-apps {
+  background: rgba(30, 136, 229, 1);
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  z-index: 2;
+  position: relative;
+  padding: 6rem 120px 7rem;
+}
+
+.hc-apps__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ────────────────────────────────────────────────────────── */
+
+.hc-apps__header {
+  margin-bottom: 3rem;
+}
+
+.hc-apps__label-bar {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.hc-apps__header-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hc-apps__heading {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.hc-apps__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  padding-top: 0.25rem;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* HORIZONTAL ACCORDION                                                    */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+.hc-apps__accordion {
+  display: flex;
+  gap: 0;
+  height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Single Panel ── */
+.hc-apps__panel {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hc-apps__panel:last-child {
+  border-right: none;
+}
+
+/* ── Collapsed ── */
+.hc-apps__panel--collapsed {
+  flex: 0 0 100px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hc-apps__panel--collapsed:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Active ── */
+.hc-apps__panel--active {
+  flex: 1 1 0%;
+}
+
+/* ── Per-panel accent colors (active background) ── */
+.hc-apps__panel--color-0.hc-apps__panel--active { background: rgba(255, 255, 255, 0.95); }
+.hc-apps__panel--color-1.hc-apps__panel--active { background: rgba(255, 255, 255, 0.95); }
+.hc-apps__panel--color-2.hc-apps__panel--active { background: rgba(255, 255, 255, 0.95); }
+.hc-apps__panel--color-3.hc-apps__panel--active { background: rgba(255, 255, 255, 0.95); }
+.hc-apps__panel--color-4.hc-apps__panel--active { background: rgba(255, 255, 255, 0.95); }
+.hc-apps__panel--color-5.hc-apps__panel--active { background: rgba(255, 255, 255, 0.95); }
+
+/* Tag colors per panel */
+.hc-apps__panel--color-0 .hc-apps__panel-tag { background: rgba(20, 184, 166, 0.1); color: #14b8a6; }
+.hc-apps__panel--color-0 .hc-apps__panel-stat-value { color: #14b8a6; }
+.hc-apps__panel--color-0 .hc-apps__panel-num { color: rgba(255, 255, 255, 1); }
+.hc-apps__panel--color-0.hc-apps__panel--collapsed:hover .hc-apps__panel-tab-title { color: #14b8a6; }
+
+.hc-apps__panel--color-1 .hc-apps__panel-tag { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.hc-apps__panel--color-1 .hc-apps__panel-stat-value { color: #ef4444; }
+.hc-apps__panel--color-1 .hc-apps__panel-num { color: rgba(255, 255, 255, 1); }
+.hc-apps__panel--color-1.hc-apps__panel--collapsed:hover .hc-apps__panel-tab-title { color: #ef4444; }
+
+.hc-apps__panel--color-2 .hc-apps__panel-tag { background: rgba(30, 136, 229, 0.1); color: #1565c0; }
+.hc-apps__panel--color-2 .hc-apps__panel-stat-value { color: #1565c0; }
+.hc-apps__panel--color-2 .hc-apps__panel-num { color: rgba(255, 255, 255, 1); }
+.hc-apps__panel--color-2.hc-apps__panel--collapsed:hover .hc-apps__panel-tab-title { color: #1e88e5; }
+
+.hc-apps__panel--color-3 .hc-apps__panel-tag { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.hc-apps__panel--color-3 .hc-apps__panel-stat-value { color: #10b981; }
+.hc-apps__panel--color-3 .hc-apps__panel-num { color: rgba(255, 255, 255, 1); }
+.hc-apps__panel--color-3.hc-apps__panel--collapsed:hover .hc-apps__panel-tab-title { color: #10b981; }
+
+.hc-apps__panel--color-4 .hc-apps__panel-tag { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.hc-apps__panel--color-4 .hc-apps__panel-stat-value { color: #f59e0b; }
+.hc-apps__panel--color-4 .hc-apps__panel-num { color: rgba(255, 255, 255, 1); }
+.hc-apps__panel--color-4.hc-apps__panel--collapsed:hover .hc-apps__panel-tab-title { color: #f59e0b; }
+
+.hc-apps__panel--color-5 .hc-apps__panel-tag { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.hc-apps__panel--color-5 .hc-apps__panel-stat-value { color: #8b5cf6; }
+.hc-apps__panel--color-5 .hc-apps__panel-num { color: rgba(255, 255, 255, 1); }
+.hc-apps__panel--color-5.hc-apps__panel--collapsed:hover .hc-apps__panel-tab-title { color: #8b5cf6; }
+
+/* ── TAB (collapsed view) ── */
+.hc-apps__panel-tab {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 0.5rem;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.hc-apps__panel--active .hc-apps__panel-tab {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.hc-apps__panel-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.05em;
+}
+
+.hc-apps__panel-tab-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 180px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ── CONTENT (expanded view) ── */
+.hc-apps__panel-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.hc-apps__panel--active .hc-apps__panel-content {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: opacity 0.4s ease 0.15s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.hc-apps__panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 520px;
+}
+
+.hc-apps__panel-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.hc-apps__panel-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(15, 26, 56, 1);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.hc-apps__panel-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(75, 85, 99, 1);
+  margin: 0;
+}
+
+.hc-apps__panel-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 0.25rem;
+}
+
+.hc-apps__panel-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hc-apps__panel-stat-label {
+  font-size: 0.8rem;
+  color: rgba(107, 114, 128, 1);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================ */
+
+@media (max-width: 1100px) {
+  .hc-apps {
+    padding: 5rem 48px 8rem;
+  }
+
+  .hc-apps__heading {
+    font-size: 2.25rem;
+  }
+
+  .hc-apps__header-row {
+    gap: 2rem;
+  }
+
+  .hc-apps__accordion {
+    height: 240px;
+  }
+
+  .hc-apps__panel--collapsed {
+    flex: 0 0 80px;
+  }
+
+  .hc-apps__panel-content {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hc-apps {
+    padding: 4rem 24px 8rem;
+    border-radius: 60px 60px 0 0;
+  }
+
+  .hc-apps__heading {
+    font-size: 1.75rem;
+  }
+
+  .hc-apps__header-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .hc-apps__description {
+    font-size: 1rem;
+  }
+
+  /* Switch to vertical accordion on mobile */
+  .hc-apps__accordion {
+    flex-direction: column;
+    height: auto;
+    border-radius: 14px;
+  }
+
+  .hc-apps__panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hc-apps__panel:last-child {
+    border-bottom: none;
+  }
+
+  .hc-apps__panel--collapsed {
+    flex: 0 0 52px;
+  }
+
+  .hc-apps__panel--active {
+    flex: 0 0 auto;
+    min-height: 180px;
+  }
+
+  .hc-apps__panel-tab {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .hc-apps__panel-tab-title {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    transform: none;
+    max-height: none;
+    font-size: 0.8rem;
+  }
+
+  .hc-apps__panel-content {
+    position: relative;
+    padding: 1.25rem 1.5rem;
+    transform: translateY(-8px);
+  }
+
+  .hc-apps__panel--active .hc-apps__panel-content {
+    transform: translateY(0);
+    transition: opacity 0.4s ease 0.1s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  }
+
+  .hc-apps__panel-inner {
+    max-width: 100%;
+  }
+
+  .hc-apps__panel-title {
+    font-size: 1.05rem;
+  }
+
+  .hc-apps__panel-desc {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hc-apps {
+    padding: 3rem 16px 7rem;
+    border-radius: 40px 40px 0 0;
+    margin-top: -3rem;
+  }
+
+  .hc-apps__label-bar {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hc-apps__heading {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .hc-apps__description {
+    font-size: 0.9rem;
+  }
+
+  .hc-apps__accordion {
+    border-radius: 12px;
+  }
+
+  .hc-apps__panel--collapsed {
+    flex: 0 0 44px;
+  }
+
+  .hc-apps__panel--active {
+    min-height: 160px;
+  }
+
+  .hc-apps__panel-tab {
+    padding: 0 1rem;
+  }
+
+  .hc-apps__panel-tab-title {
+    font-size: 0.75rem;
+  }
+
+  .hc-apps__panel-content {
+    padding: 1rem 1.25rem;
+  }
+
+  .hc-apps__panel-title {
+    font-size: 0.95rem;
+  }
+
+  .hc-apps__panel-desc {
+    font-size: 0.85rem;
+  }
+
+  .hc-apps__panel-stat-value {
+    font-size: 1.25rem;
+  }
+
+  .hc-apps__panel-stat-label {
+    font-size: 0.75rem;
+  }
+}

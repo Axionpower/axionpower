@@ -152,7 +152,11 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+    .wetcell-apps {
+        padding: 3rem 1.5rem 160px;
+    }
+
     .wetcell-apps-grid {
         grid-template-columns: 1fr;
     }

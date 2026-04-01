@@ -123,16 +123,18 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+    .vrla-why {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
+    }
+
     .vrla-why-grid {
         grid-template-columns: 1fr;
     }
 
     .vrla-why-heading {
         font-size: 36px;
-    }
-
-    .vrla-why {
-        padding: 4rem 1.5rem;
     }
 }

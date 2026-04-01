@@ -1,0 +1,438 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.stcta-cta {
+    position: relative;
+    width: 100%;
+    background-color: #0a0e1a;
+    overflow: hidden;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 8;
+    padding: 100px 0 180px 0;
+}
+
+/* ─── Decorative ───────────────────────────────────────────────────────────── */
+.stcta-dots-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(99,222,247,0.08) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stcta-bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stcta-glow-tl {
+    width: 600px;
+    height: 600px;
+    background: rgba(30, 136, 229, 0.18);
+    top: -200px;
+    left: -200px;
+}
+
+.stcta-glow-br {
+    width: 500px;
+    height: 500px;
+    background: rgba(99, 222, 247, 0.12);
+    bottom: -150px;
+    right: -100px;
+}
+
+/* ─── Inner grid ───────────────────────────────────────────────────────────── */
+.stcta-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+/* ─── Left column ──────────────────────────────────────────────────────────── */
+.stcta-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stcta-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(99, 222, 247, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: rgba(99, 222, 247, 0.1);
+    border: 1px solid rgba(99, 222, 247, 0.2);
+    border-radius: 20px;
+    padding: 5px 14px;
+    width: fit-content;
+    margin-bottom: 24px;
+}
+
+.stcta-heading {
+    font-size: 52px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+    white-space: pre-line;
+}
+
+.stcta-accent-line {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(99,222,247,1), rgba(30,136,229,1));
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.stcta-description {
+    font-size: 16px;
+    color: rgba(143, 201, 249, 0.65);
+    line-height: 1.7;
+    margin: 0 0 32px 0;
+    max-width: 480px;
+}
+
+/* Buttons */
+.stcta-buttons {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.stcta-btn {
+    padding: 14px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.stcta-btn-primary {
+    background: rgba(99, 222, 247, 1);
+    color: #0a0e1a;
+    border: 1px solid transparent;
+}
+
+.stcta-btn-primary:hover {
+    background: rgba(128, 232, 255, 1);
+    transform: translateY(-2px);
+}
+
+.stcta-btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.stcta-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Phone */
+.stcta-phone {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+    margin-bottom: 36px;
+}
+
+/* Stats strip */
+.stcta-stats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stcta-stat {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.stcta-stat-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(99, 222, 247, 1);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stcta-stat-label {
+    font-size: 11px;
+    color: rgba(143, 201, 249, 0.5);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stcta-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 20px;
+    flex-shrink: 0;
+}
+
+/* ─── Right column ─────────────────────────────────────────────────────────── */
+.stcta-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Service card */
+.stcta-service-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.stcta-service-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-3px);
+}
+
+/* Colored top bar */
+.stcta-card-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 20px 20px 0 0;
+}
+
+.stcta-bar-cyan { background: rgba(99, 222, 247, 1); }
+.stcta-bar-blue { background: rgba(143, 194, 255, 1); }
+
+/* Card header */
+.stcta-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+    margin-top: 4px;
+}
+
+.stcta-card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.stcta-card-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 3px 8px;
+    margin-bottom: 6px;
+}
+
+.stcta-badge-cyan {
+    background: rgba(99, 222, 247, 0.15);
+    color: rgba(99, 222, 247, 1);
+}
+
+.stcta-badge-blue {
+    background: rgba(143, 194, 255, 0.15);
+    color: rgba(143, 194, 255, 1);
+}
+
+.stcta-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.stcta-card-desc {
+    font-size: 13px;
+    color: rgba(143, 201, 249, 0.55);
+    line-height: 1.6;
+    margin: 0 0 14px 0;
+}
+
+/* Features */
+.stcta-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.stcta-card-features li {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stcta-check {
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.stcta-check-cyan { color: rgba(99, 222, 247, 1); }
+.stcta-check-blue { color: rgba(143, 194, 255, 1); }
+
+/* Card button */
+.stcta-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    width: 100%;
+    margin-top: auto;
+    border: 1px solid transparent;
+}
+
+.stcta-card-btn-cyan {
+    background: rgba(99, 222, 247, 0.1);
+    border-color: rgba(99, 222, 247, 0.3);
+    color: rgba(99, 222, 247, 1);
+}
+
+.stcta-card-btn-cyan:hover {
+    background: rgba(99, 222, 247, 0.18);
+    border-color: rgba(99, 222, 247, 0.7);
+}
+
+.stcta-card-btn-blue {
+    background: rgba(143, 194, 255, 0.1);
+    border-color: rgba(143, 194, 255, 0.3);
+    color: rgba(143, 194, 255, 1);
+}
+
+.stcta-card-btn-blue:hover {
+    background: rgba(143, 194, 255, 0.18);
+    border-color: rgba(143, 194, 255, 0.7);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .stcta-inner {
+        gap: 60px;
+        padding: 0 48px;
+    }
+
+    .stcta-heading {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 900px) {
+    .stcta-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 0 40px;
+    }
+
+    .stcta-right {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .stcta-service-card {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .stcta-cta {
+        padding: 70px 0 160px 0;
+    }
+
+    .stcta-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 24px;
+    }
+
+    .stcta-heading {
+        font-size: 34px;
+    }
+
+    .stcta-right {
+        flex-direction: column;
+    }
+
+    .stcta-buttons {
+        flex-direction: column;
+    }
+
+    .stcta-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .stcta-inner {
+        padding: 0 16px;
+    }
+
+    .stcta-heading {
+        font-size: 28px;
+    }
+
+    .stcta-description {
+        font-size: 14px;
+    }
+
+    .stcta-stats {
+        gap: 0;
+    }
+
+    .stcta-stat-divider {
+        margin: 0 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .stcta-cta {
+        border-radius: 50px 50px 0 0;
+        margin-top: -100px;
+        padding-bottom: 200px;
+    }
+}

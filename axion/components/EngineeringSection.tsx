@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./EngineeringSection.css";
@@ -8,6 +9,8 @@ interface Props {
 }
 
 export default function EngineeringSection({ data }: Props) {
+    const HeadingTag = (data.headingTag || 'h2') as React.ElementType;
+    const SubTag = (data.subheadingTag || 'h3') as React.ElementType;
     return (
         <section className="engineering-section" style={{ background: data.bgColor }}>
             {/* Decorative floating images */}
@@ -26,10 +29,10 @@ export default function EngineeringSection({ data }: Props) {
 
             {/* Center content */}
             <div className="eng-content">
-                <h2 className="eng-title">{data.title}</h2>
-                <p className="eng-description">{data.description}</p>
+                <HeadingTag className="eng-title" style={{ ...(data.headingColor && { color: data.headingColor }), ...(data.headingFontWeight && { fontWeight: data.headingFontWeight }) }}>{data.title}</HeadingTag>
+                <p className="eng-description" style={{ ...(data.bodyColor && { color: data.bodyColor }), ...(data.bodyFontSize && { fontSize: data.bodyFontSize }) }}>{data.description}</p>
 
-                <h3 className="eng-highlights-title">{data.highlightsTitle}</h3>
+                <SubTag className="eng-highlights-title" style={{ ...(data.headingColor && { color: data.headingColor }) }}>{data.highlightsTitle}</SubTag>
                 <div className="eng-highlights">
                     {data.highlights.map((h: string, i: number) => (
                         <span key={i} className="eng-pill">{h}</span>

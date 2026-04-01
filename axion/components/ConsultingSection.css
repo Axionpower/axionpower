@@ -145,11 +145,29 @@
     left: -40px;
 }
 
-/* ── Responsive ── */
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .consulting-section {
+        border-radius: 60px 60px 0 0;
+    }
+
+    .consulting-container {
+        padding: 0 1.5rem;
+        gap: 2.5rem;
+    }
+}
+
+/* ── Responsive 768px ── */
 @media (max-width: 768px) {
+    .consulting-section {
+        border-radius: 40px 40px 0 0;
+        padding: 3.5rem 0 7rem;
+    }
+
     .consulting-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 1.25rem;
     }
 
     .consulting-heading {
@@ -162,5 +180,45 @@
 
     .consulting-tooltip {
         display: none;
+    }
+}
+
+/* ── Responsive 480px ── */
+@media (max-width: 480px) {
+    .consulting-section {
+        border-radius: 20px 20px 0 0;
+        padding: 2.5rem 0 5rem;
+    }
+
+    .consulting-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .consulting-label {
+        margin-bottom: 1rem;
+    }
+
+    .consulting-heading {
+        font-size: clamp(22px, 5vw, 28px);
+        margin-bottom: 1rem;
+    }
+
+    .consulting-desc {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+    }
+
+    .consulting-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 12px;
+    }
+
+    .consulting-image-wrap {
+        max-width: 100%;
+        border-radius: 12px;
     }
 }

@@ -1,0 +1,79 @@
+.tc-why {
+    position: relative; width: 100%;
+    background: #0a0e1a;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem; z-index: 7;
+    padding: 6rem 120px 7rem; box-sizing: border-box;
+}
+.tc-why-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; gap: 64px; align-items: flex-start;
+}
+
+/* ── Left ─────────────────────────────────────────────────────────────── */
+.tc-why-left { flex: 1; display: flex; flex-direction: column; }
+
+.tc-why-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.tc-why-label-bar { width: 3px; height: 16px; background: rgba(99,222,247,1); border-radius: 1px; }
+.tc-why-label { font-size: 11px; font-weight: 700; color: rgba(99,222,247,1); letter-spacing: 0.1em; }
+
+.tc-why-heading { font-size: 38px; font-weight: 800; line-height: 1.2; color: #fff; margin: 0 0 16px; }
+.tc-why-heading-accent { color: rgba(99,222,247,1); }
+.tc-why-desc { font-size: 15px; line-height: 1.7; color: rgba(153,178,204,1); margin: 0 0 32px; }
+
+.tc-why-reasons { display: flex; flex-direction: column; gap: 0; }
+.tc-why-reason {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.tc-why-reason:last-child { border-bottom: none; }
+.tc-why-reason-num { font-size: 20px; font-weight: 800; color: #1e88e5; flex-shrink: 0; width: 36px; padding-top: 2px; }
+.tc-why-reason-title { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 4px; }
+.tc-why-reason-desc { font-size: 13px; line-height: 1.6; color: rgba(153,178,204,1); margin: 0; }
+
+/* ── Right ────────────────────────────────────────────────────────────── */
+.tc-why-right { flex: 0 0 380px; }
+
+.tc-why-uptime-card {
+    background: rgba(15,26,56,1);
+    border: 1px solid rgba(99,222,247,0.15);
+    border-radius: 20px; padding: 28px;
+}
+.tc-why-uptime-label { font-size: 10px; font-weight: 700; color: rgba(99,222,247,1); letter-spacing: 0.1em; margin: 0 0 8px; }
+.tc-why-uptime-value { font-size: 52px; font-weight: 900; color: #fff; line-height: 1; margin: 0 0 8px; }
+.tc-why-uptime-desc { font-size: 13px; color: rgba(153,191,229,1); margin: 0 0 20px; line-height: 1.5; }
+.tc-why-uptime-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 16px; }
+
+.tc-why-uptime-stats { display: flex; gap: 0; margin-bottom: 24px; }
+.tc-why-uptime-stat {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    padding: 10px 8px; border-right: 1px solid rgba(255,255,255,0.07);
+}
+.tc-why-uptime-stat:last-child { border-right: none; }
+.tc-why-uptime-stat-val { font-size: 18px; font-weight: 800; color: rgba(99,222,247,1); }
+.tc-why-uptime-stat-lbl { font-size: 11px; color: rgba(140,178,217,1); margin-top: 3px; text-align: center; }
+
+.tc-why-uptime-chart { display: flex; align-items: flex-end; gap: 8px; height: 80px; }
+.tc-why-chart-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; }
+.tc-why-chart-bar-wrap { flex: 1; width: 100%; position: relative; }
+.tc-why-chart-bar-bg { position: absolute; inset: 0; background: rgba(30,136,229,0.15); border-radius: 4px 4px 0 0; }
+.tc-why-chart-bar-fill { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(99,222,247,0.6); border-radius: 4px 4px 0 0; }
+.tc-why-chart-label { font-size: 10px; color: rgba(128,166,204,1); flex-shrink: 0; }
+
+@media (max-width: 1100px) {
+    .tc-why { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .tc-why-right { flex: 0 0 320px; }
+}
+@media (max-width: 900px) {
+    .tc-why-inner { flex-direction: column; }
+    .tc-why-right { flex: none; width: 100%; }
+}
+@media (max-width: 768px) {
+    .tc-why { padding: 4rem 24px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .tc-why-heading { font-size: 28px; }
+}
+@media (max-width: 480px) {
+    .tc-why { padding: 3rem 16px 4rem; border-radius: 40px 40px 0 0; }
+    .tc-why-heading { font-size: 22px; }
+    .tc-why-uptime-value { font-size: 40px; }
+}

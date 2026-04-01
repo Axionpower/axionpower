@@ -1,0 +1,137 @@
+.us-apps {
+    position: relative;
+    width: 100%;
+    background: rgba(10,31,46,1);
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 2;
+    padding: 4rem 120px 220px;
+    box-sizing: border-box;
+}
+
+.us-apps-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Label ─────────────────────────────────────────────────────────────────── */
+.us-apps-label-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+    justify-content: center;
+}
+
+.us-apps-label-bar {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    max-width: 200px;
+}
+
+.us-apps-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+}
+
+/* ─── Section heading / description ─────────────────────────────────────────── */
+.us-apps-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 12px 0;
+}
+
+.us-apps-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(143,201,249,1);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 36px;
+}
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+.us-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+}
+
+/* ─── Card ──────────────────────────────────────────────────────────────────── */
+.us-apps-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 24px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    transition: background 0.2s;
+    cursor: default;
+}
+
+.us-apps-card:hover {
+    background: rgba(99,222,247,0.06);
+    border-color: rgba(99,222,247,0.2);
+}
+
+.us-apps-card-number {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+}
+
+.us-apps-icon-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(99,222,247,0.15);
+    border: 1px solid rgba(99,222,247,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.us-apps-icon { font-size: 18px; }
+
+.us-apps-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.us-apps-card-desc {
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.5);
+    margin: 4px 0 0 0;
+    flex: 1;
+}
+
+.us-apps-arrow {
+    font-size: 14px;
+    color: rgba(99,222,247,1);
+    margin-top: auto;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .us-apps { padding: 3rem 48px; border-radius: 60px 60px 0 0; }
+    .us-apps-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+
+@media (max-width: 640px) {
+    .us-apps { padding: 50px 20px 110px; border-radius: 50px 50px 0 0; margin-top: -60px; }
+    .us-apps-grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,294 @@
+.qse-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 6;
+  overflow: hidden;
+}
+
+.qse-inner {
+  padding: 80px 100px 260px;
+}
+
+/* Header area */
+.qse-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.qse-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #1e88e5;
+  border-radius: 2px;
+}
+
+.qse-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e88e5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.qse-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+}
+
+.qse-body {
+  font-size: 16px;
+  color: #555555;
+  max-width: 600px;
+  line-height: 1.7;
+  margin: 0 0 50px 0;
+}
+
+/* Content layout */
+.qse-content {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* Lifecycle diagram */
+.qse-lifecycle {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.qse-lifecycle-center {
+  width: 140px;
+  height: 140px;
+  background-color: #1e88e5;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(30, 136, 229, 0.3);
+}
+
+.qse-lifecycle-center-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+  white-space: pre-line;
+}
+
+.qse-orbit-ring {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 2px dashed rgba(30, 136, 229, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.qse-orbit-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Position orbiting circles at top, right, bottom, left of the orbit ring */
+/* The orbit ring is child 1, so orbit circles are children 2-5 */
+.qse-orbit-circle:nth-child(2) {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.qse-orbit-circle:nth-child(3) {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.qse-orbit-circle:nth-child(4) {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.qse-orbit-circle:nth-child(5) {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.qse-orbit-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+/* Info cards */
+.qse-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  flex: 1;
+}
+
+.qse-card {
+  background-color: #f5f8ff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.qse-card-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.qse-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.qse-card-badge {
+  display: inline-block;
+  background-color: #eef4ff;
+  color: #1e88e5;
+  border-radius: 11px;
+  padding: 3px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 8px;
+  width: fit-content;
+}
+
+.qse-card-description {
+  font-size: 13px;
+  color: #555555;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .qse-content {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .qse-lifecycle {
+    width: 300px;
+    height: 300px;
+  }
+
+  .qse-orbit-ring {
+    width: 240px;
+    height: 240px;
+  }
+
+  .qse-lifecycle-center {
+    width: 110px;
+    height: 110px;
+  }
+
+  .qse-orbit-circle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .qse-orbit-label {
+    font-size: 10px;
+  }
+
+  .qse-cards {
+    width: 100%;
+  }
+
+  .qse-inner {
+    padding: 60px 48px 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .qse-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .qse-inner {
+    padding: 40px 24px 160px;
+  }
+
+  .qse-heading {
+    font-size: 28px;
+  }
+
+  .qse-body {
+    max-width: 100%;
+  }
+
+  .qse-lifecycle {
+    width: 260px;
+    height: 260px;
+  }
+
+  .qse-orbit-ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .qse-lifecycle-center {
+    width: 90px;
+    height: 90px;
+  }
+
+  .qse-lifecycle-center-text {
+    font-size: 11px;
+  }
+
+  .qse-orbit-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .qse-orbit-label {
+    font-size: 9px;
+  }
+
+  .qse-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,168 @@
+.ru-disposal {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem;
+    z-index: 5;
+    padding: 6rem 120px 7rem;
+    box-sizing: border-box;
+}
+
+.ru-disposal-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.ru-disposal-header { margin-bottom: 40px; }
+
+.ru-disposal-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ru-disposal-label-bar {
+    width: 3px;
+    height: 16px;
+    background: rgba(255,191,69,1);
+    border-radius: 1px;
+}
+
+.ru-disposal-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,191,69,1);
+    letter-spacing: 0.1em;
+}
+
+.ru-disposal-heading {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0a0e1a;
+    margin: 0 0 14px 0;
+}
+
+.ru-disposal-desc {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #4a6080;
+    max-width: 680px;
+    margin: 0;
+}
+
+/* ─── Wide card ─────────────────────────────────────────────────────────────── */
+.ru-disposal-wide-card {
+    background: #1e88e5;
+    border-top: 4px solid transparent;
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 20px;
+}
+
+/* ─── Small cards row ───────────────────────────────────────────────────────── */
+.ru-disposal-small-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.ru-disposal-small-card {
+    background: #1e88e5;
+    border-top: 4px solid transparent;
+    border-radius: 20px;
+    padding: 28px;
+}
+
+/* ─── Card shared ───────────────────────────────────────────────────────────── */
+.ru-disposal-card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.ru-disposal-card-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ru-disposal-card-icon { font-size: 24px; }
+
+.ru-disposal-card-number {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+}
+
+.ru-disposal-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.ru-disposal-card-desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(200,230,255,0.85);
+    margin: 0 0 16px 0;
+}
+
+/* ─── Features ──────────────────────────────────────────────────────────────── */
+.ru-disposal-features {
+    list-style: none;
+    margin: 0 0 16px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ru-disposal-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(200,230,255,0.85);
+    line-height: 1.5;
+}
+
+.ru-disposal-feature-check {
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+/* ─── Link ──────────────────────────────────────────────────────────────────── */
+.ru-disposal-link {
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.ru-disposal-link:hover { opacity: 0.75; }
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ru-disposal { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+}
+
+@media (max-width: 640px) {
+    .ru-disposal { padding: 4rem 20px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .ru-disposal-heading { font-size: 30px; }
+    .ru-disposal-small-row { grid-template-columns: 1fr; }
+}

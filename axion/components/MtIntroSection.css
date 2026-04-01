@@ -1,0 +1,151 @@
+.mti-section {
+  position: relative;
+  width: 100%;
+  background-color: #1e88e5;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.mti-inner {
+  padding: 80px 100px 260px;
+}
+
+.mti-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mti-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.mti-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mti-heading {
+  font-size: 50px;
+  font-weight: 800;
+  color: white;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.mti-body {
+  font-size: 17px;
+  color: #e8f4ff;
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0 0 50px 0;
+}
+
+/* Cards row — always 4 in a row */
+.mti-cards {
+  display: flex;
+  gap: 24px;
+}
+
+.mti-card {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 200px;
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mti-card > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.mti-card-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.mti-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+.mti-card-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* Responsive: Tablet and below (max-width: 1100px) */
+@media (max-width: 1100px) {
+  .mti-inner {
+    padding: 60px 48px 200px;
+  }
+
+  .mti-cards {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mti-card {
+    flex: 1 1 calc(50% - 8px);
+    height: auto;
+    min-height: 180px;
+  }
+}
+
+/* Responsive: Mobile (max-width: 640px) */
+@media (max-width: 640px) {
+  .mti-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .mti-inner {
+    padding: 40px 24px 160px;
+  }
+
+  .mti-heading {
+    font-size: 28px;
+  }
+
+  .mti-card {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Stack: icon → title vertically, centered */
+  .mti-card > div:first-child {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mti-card-desc {
+    text-align: center;
+  }
+}

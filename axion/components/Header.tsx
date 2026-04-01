@@ -17,7 +17,15 @@ interface NavItem {
 
 const NAV_LINKS: NavItem[] = [
     { label: "HOME", href: "/" },
-    { label: "ABOUT US", href: "/about" },
+    {
+        label: "ABOUT US",
+        href: "/about",
+        children: [
+            { label: "About Axion", href: "/about" },
+            { label: "Sustainability & Compliance", href: "/sustainability-compliance" },
+            { label: "Quality, Safety & Compliance", href: "/quality-safety-compliance" },
+        ],
+    },
     {
         label: "PRODUCT",
         href: "/product",
@@ -27,7 +35,36 @@ const NAV_LINKS: NavItem[] = [
             { label: "Stationary Battery Cabinets", href: "/battery-cabinets" },
         ],
     },
-    { label: "SERVICES", href: "/services" },
+    {
+        label: "SERVICES",
+        href: "/services",
+        children: [
+            { label: "Maintenance & Monitoring", href: "/maintenance-monitoring" },
+            { label: "Emergency Support & Service Contracts", href: "/emergency-support" },
+            { label: "Safety Training & Documentation", href: "/safety-training-documentation" },
+            { label: "Replacement & Upgrades", href: "/replacement-upgrades" },
+        ],
+    },
+    {
+        label: "INDUSTRIES",
+        href: "/industries",
+        children: [
+            { label: "Utilities & Substations", href: "/utilities-substations" },
+            { label: "Telecommunications", href: "/telecommunications" },
+            { label: "Industrial & Infrastructure", href: "/industrial-infrastructure" },
+            { label: "Healthcare Power", href: "/healthcare" },
+            { label: "Data Centers & Colocation", href: "/data-centers" },
+        ],
+    },
+    {
+        label: "RESOURCES",
+        href: "/engineering-resources",
+        children: [
+            { label: "Engineering Resources", href: "/engineering-resources" },
+            { label: "Consulting Engineer Hub", href: "/consulting-engineer-hub" },
+            { label: "FAQs", href: "/faqs" },
+        ],
+    },
     { label: "CONTACT", href: "/contact" },
 ];
 

@@ -143,8 +143,26 @@
     line-height: 1.4;
 }
 
-/* ── Responsive ── */
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .compliance-section {
+        border-radius: 60px 60px 0 0;
+        min-height: auto;
+        padding: 4rem 0 6rem;
+    }
+}
+
+/* ── Responsive 768px ── */
 @media (max-width: 768px) {
+    .compliance-section {
+        border-radius: 40px 40px 0 0;
+        padding: 3rem 0 5rem;
+    }
+
+    .compliance-container {
+        padding: 1.5rem 1.25rem;
+    }
+
     .compliance-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -161,5 +179,83 @@
     .card-image-wrap {
         width: 100%;
         height: 200px;
+    }
+}
+
+/* ── Responsive 480px ── */
+@media (max-width: 480px) {
+    .compliance-section {
+        border-radius: 24px 24px 0 0;
+        padding: 0 0 5rem;
+        min-height: auto;
+    }
+
+    .compliance-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .compliance-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .compliance-heading {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .compliance-card {
+        gap: 1rem;
+        padding: 0.9rem;
+        margin-bottom: 1.2rem;
+        flex-direction: column;
+    }
+
+    .card-image-wrap {
+        width: 100%;
+        height: 160px;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-content {
+        min-width: 0;
+    }
+
+    .card-description {
+        font-size: 0.75rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .card-button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.65rem;
+    }
+
+    .highlights-section {
+        margin-top: 0;
+    }
+
+    .highlights-title {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .highlights-list {
+        gap: 0.4rem;
+    }
+
+    .highlight-item {
+        gap: 0.5rem;
+    }
+
+    .highlight-item span {
+        font-size: 0.75rem;
+        line-height: 1.3;
     }
 }

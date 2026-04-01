@@ -48,10 +48,16 @@ export interface ServicesData {
     midBgColor: string;
     bottomBgColor: string;
     labelText: string;
+    labelColor?: string;
     introHeading: string;
+    headingTag?: string;
+    cardHeadingTag?: string;
+    headingColor?: string;
+    cardTitleColor?: string;
     introButtonLabel: string;
     introButtonUrl: string;
     services: ServiceItem[];
+    bodyColor?: string;
 }
 
 // ── Default values ──
@@ -60,17 +66,23 @@ export const SERVICES_DEFAULTS: ServicesData = {
     midBgColor: "#0369a1",
     bottomBgColor: "#0c4a6e",
     labelText: "Our Services",
+    labelColor: "#ffffff",
     introHeading:
         "Axion Critical Power Solutions offers comprehensive services to ensure your critical power systems remain reliable, compliant, and optimized throughout their lifecycle. From preventive maintenance to emergency support, we help you maximize uptime and minimize operational risk.",
     introButtonLabel: "VIEW MORE",
     introButtonUrl: "/services",
+    headingTag: "h2",
+    cardHeadingTag: "h3",
+    headingColor: "#0f172a",
+    cardTitleColor: undefined,
+    bodyColor: "#475569",
     services: [
         {
             title: "Maintenance and Monitoring",
             description:
                 "Keep your UPS and DC power systems performing at peak efficiency with proactive maintenance and battery health monitoring. Axion helps prevent unexpected downtime and extends system life.",
             image: null,
-            fallbackImage: "/maintenance-monitoring.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             buttonLabel: "Schedule Maintenance & Monitoring",
             buttonUrl: "/services/maintenance",
             isFeatured: false,
@@ -80,7 +92,7 @@ export const SERVICES_DEFAULTS: ServicesData = {
             description:
                 "Rapid response for urgent power issues. Our service contracts provide priority support, emergency replacements, and expert guidance to restore uptime quickly.",
             image: null,
-            fallbackImage: "/maintenance-monitoring.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             buttonLabel: "Request Emergency Support",
             buttonUrl: "/services/emergency",
             isFeatured: false,
@@ -90,7 +102,7 @@ export const SERVICES_DEFAULTS: ServicesData = {
             description:
                 "Plan and execute battery replacements or system upgrades with minimal disruption. Axion coordinates lifecycle transitions for VRLA and flooded batteries in mission-critical environments.",
             image: null,
-            fallbackImage: "/maintenance-monitoring.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             buttonLabel: "Plan Replacement & Upgrades",
             buttonUrl: "/services/replacement",
             isFeatured: false,
@@ -100,7 +112,7 @@ export const SERVICES_DEFAULTS: ServicesData = {
             description:
                 "Ensure your teams handle batteries safely and effectively. Axion provides training, operational manuals, and compliance documentation to reduce risk and support long-term reliability.",
             image: null,
-            fallbackImage: "/maintenance-monitoring.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             buttonLabel: "Access Safety Training & Documentation",
             buttonUrl: "/services/training",
             isFeatured: false,
@@ -129,7 +141,20 @@ function mergeWithDefaults(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any
 ): ServicesData {
-    const merged = { ...SERVICES_DEFAULTS, ...data };
+    const merged: ServicesData = {
+        introBgColor: data.introBgColor || SERVICES_DEFAULTS.introBgColor,
+        midBgColor: data.midBgColor || SERVICES_DEFAULTS.midBgColor,
+        bottomBgColor: data.bottomBgColor || SERVICES_DEFAULTS.bottomBgColor,
+        labelText: data.labelText || SERVICES_DEFAULTS.labelText,
+        labelColor: data.labelColor || SERVICES_DEFAULTS.labelColor,
+        introHeading: data.introHeading || SERVICES_DEFAULTS.introHeading,
+        headingTag: data.headingTag || SERVICES_DEFAULTS.headingTag,
+        headingColor: data.headingColor || SERVICES_DEFAULTS.headingColor,
+        introButtonLabel: data.introButtonLabel || SERVICES_DEFAULTS.introButtonLabel,
+        introButtonUrl: data.introButtonUrl || SERVICES_DEFAULTS.introButtonUrl,
+        bodyColor: data.bodyColor || SERVICES_DEFAULTS.bodyColor,
+        services: [],
+    };
     if (data.servicesList?.length) {
         merged.services = data.servicesList.map(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any

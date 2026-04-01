@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import "./VrlaApplicationsSection.css";
 
@@ -11,22 +12,22 @@ const DEFAULT_CARDS: AppCard[] = [
     {
         title: "Data Center UPS Systems",
         description: "Supporting continuous IT operations and redundancy",
-        image: "/images/app-datacenter.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
     {
         title: "Telecommunications",
         description: "Ensuring network continuity and uptime",
-        image: "/images/app-telecom.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
     {
         title: "Healthcare Facilities",
         description: "Powering life-safety and essential electrical systems",
-        image: "/images/app-healthcare.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
     {
         title: "Commercial & Industrial UPS Installations",
         description: "Reliable backup for critical operations",
-        image: "/images/app-industrial.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
 ];
 
@@ -44,22 +45,65 @@ interface VrlaApplicationsProps {
     label?: string;
     heading?: string;
     cards?: AppCard[];
+    headingTag?: string;
+    cardHeadingTag?: string;
+    headingColor?: string;
+    headingFontSize?: string;
+    headingFontWeight?: string;
+    headingFontFamily?: string;
+    labelColor?: string;
+    bgColor?: string;
+    marginTopOverlap?: string;
+    borderRadiusTop?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
 }
 
 export default function VrlaApplicationsSection({
     label = "Typical Applications",
     heading = "VRLA batteries are widely used in critical environments, including",
     cards = DEFAULT_CARDS,
+    headingTag,
+    cardHeadingTag,
+    headingColor,
+    headingFontSize,
+    headingFontWeight,
+    headingFontFamily,
+    labelColor,
+    bgColor,
+    marginTopOverlap,
+    borderRadiusTop,
+    paddingTop, paddingBottom, paddingLeft, paddingRight,
 }: VrlaApplicationsProps) {
+    const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
+    const HeadingTag = (headingTag || 'h2') as React.ElementType;
     return (
-        <section className="vrla-apps">
-            <div className="vrla-apps-inner">
+        <section className="vrla-apps" style={{
+            ...(bgColor && { backgroundColor: bgColor }),
+            ...(marginTopOverlap && { marginTop: `-${marginTopOverlap}` }),
+            ...(borderRadiusTop && { borderRadius: `${borderRadiusTop} ${borderRadiusTop} 0 0` }),
+        }}>
+            <div className="vrla-apps-inner" style={{
+                ...(paddingTop && { paddingTop }),
+                ...(paddingBottom && { paddingBottom }),
+                ...(paddingLeft && { paddingLeft }),
+                ...(paddingRight && { paddingRight }),
+            }}>
                 <div className="vrla-apps-label">
                     <span className="vrla-apps-label-bar" />
-                    <span className="vrla-apps-label-text">{label}</span>
+                    <span className="vrla-apps-label-text" style={{ ...(labelColor && { color: labelColor }) }}>{label}</span>
                 </div>
 
-                <h2 className="vrla-apps-heading">{heading}</h2>
+                <HeadingTag className="vrla-apps-heading" style={{
+                    ...(headingColor && { color: headingColor }),
+                    ...(headingFontSize && { fontSize: headingFontSize }),
+                    ...(headingFontWeight && { fontWeight: headingFontWeight }),
+                    ...(headingFontFamily && { fontFamily: headingFontFamily }),
+                }}>
+                    {heading}
+                </HeadingTag>
 
                 <div className="vrla-apps-grid">
                     {cards.map((card, i) => (
@@ -74,7 +118,7 @@ export default function VrlaApplicationsSection({
                             </div>
                             <div className="vrla-app-card-overlay" />
                             <div className="vrla-app-card-content">
-                                <h3 className="vrla-app-card-title">{card.title}</h3>
+                                <CardTag className="vrla-app-card-title">{card.title}</CardTag>
                                 <div className="vrla-app-card-bottom">
                                     <p className="vrla-app-card-desc">{card.description}</p>
                                     <ArrowIcon />

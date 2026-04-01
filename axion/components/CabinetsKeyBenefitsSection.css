@@ -74,10 +74,11 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .cabinets-benefits {
-        padding: 3rem 1.5rem 4rem;
-        border-radius: 40px 40px 0 0;
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
     }
 
     .cabinets-benefits-heading {

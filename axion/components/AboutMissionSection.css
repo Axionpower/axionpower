@@ -1,0 +1,170 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.am-section {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem;
+    z-index: 3;
+    display: flex;
+    align-items: flex-start;
+    gap: 64px;
+    padding: 64px 80px 120px;
+    box-sizing: border-box;
+}
+
+/* ─── Left image ──────────────────────────────────────────────────────────── */
+.am-image-wrap {
+    position: relative;
+    width: 440px;
+    min-width: 440px;
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.am-image {
+    object-fit: cover;
+}
+
+/* ─── Quote overlay ───────────────────────────────────────────────────────── */
+.am-quote {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1e88e5;
+    padding: 18px 22px;
+}
+
+.am-quote-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ─── Right content ───────────────────────────────────────────────────────── */
+.am-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 8px;
+}
+
+/* ─── Label row ───────────────────────────────────────────────────────────── */
+.am-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.am-label-bar {
+    width: 3px;
+    height: 18px;
+    background: #1e88e5;
+    flex-shrink: 0;
+}
+
+.am-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e88e5;
+    letter-spacing: 0.06em;
+}
+
+/* ─── Heading ─────────────────────────────────────────────────────────────── */
+.am-heading {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 50px;
+    color: #0d1b2e;
+    margin: 0 0 18px 0;
+}
+
+/* ─── Body ────────────────────────────────────────────────────────────────── */
+.am-body {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #4a5568;
+    margin: 0 0 36px 0;
+    max-width: 540px;
+}
+
+/* ─── Feature cards row ───────────────────────────────────────────────────── */
+.am-cards {
+    display: flex;
+    gap: 16px;
+}
+
+/* ─── Single card ─────────────────────────────────────────────────────────── */
+.am-card {
+    flex: 1;
+    border: 1px solid #e8edf4;
+    border-top: 3px solid #1e88e5;
+    border-radius: 10px;
+    padding: 18px 16px 20px;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.am-card-icon {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.am-card-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0d1b2e;
+    margin: 0;
+}
+
+.am-card-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: #7a8fa6;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .am-section {
+        flex-direction: column;
+        padding: 48px 40px 64px;
+    }
+    .am-image-wrap {
+        width: 100%;
+        min-width: unset;
+        height: 340px;
+    }
+}
+
+@media (max-width: 640px) {
+    .am-section {
+        border-radius: 32px 32px 0 0;
+        /* Extra bottom padding so Approach section's -3rem overlap can't cut content */
+        padding: 40px 20px 100px;
+        gap: 36px;
+        /* Content first, image below on mobile */
+        flex-direction: column-reverse;
+    }
+    .am-heading {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .am-cards {
+        flex-direction: column;
+    }
+    .am-image-wrap {
+        height: 260px;
+    }
+}

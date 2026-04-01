@@ -42,6 +42,36 @@
     color: #fff;
 }
 
+/* ── Breadcrumb ── */
+.wetcell-breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e88e5;
+    margin-bottom: 22px;
+    letter-spacing: 0.04em;
+}
+
+.wetcell-breadcrumb a {
+    color: #1e88e5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.wetcell-breadcrumb a:hover {
+    color: #ffffff;
+}
+
+.wetcell-breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 4px;
+}
+
+.wetcell-breadcrumb span:last-child {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 /* ── Heading ── */
 .wetcell-hero-heading {
     font-size: 44px;
@@ -144,7 +174,19 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .wetcell-hero-content {
+        padding: 6rem 2rem 3rem 3rem;
+    }
+}
+@media (max-width: 640px) {
+    .wetcell-hero {
+        min-height: auto;
+        padding-bottom: 130px;
+    }
+
     .wetcell-hero-heading {
         font-size: 32px;
     }
@@ -154,6 +196,6 @@
     }
 
     .wetcell-hero-content {
-        padding: 5rem 1.5rem 3rem;
+        padding: 90px 1.5rem 0;
     }
 }

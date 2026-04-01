@@ -32,8 +32,14 @@ export interface FaqData {
     bgColor: string;
     labelText: string;
     heading: string;
+    headingTag?: string;
+    headingColor?: string;
     introText: string;
+    labelColor?: string;
+    bodyColor?: string;
     faqs: FaqItem[];
+  cardHeadingTag?: string;
+  cardTitleColor?: string;
 }
 
 // ── Default values ──
@@ -41,6 +47,8 @@ export const FAQ_DEFAULTS: FaqData = {
     bgColor: "#f8f9fa",
     labelText: "Frequently Asked Questions",
     heading: "Answers for Critical Power Battery Systems",
+    headingTag: "h2",
+    headingColor: "#0f172a",
     introText:
         '<span class="blue-text">Have questions about VRLA or flooded (wet cell)</span> batteries? Axion Critical Power Solutions provides clear, reliable answers to common questions about battery performance, maintenance, warranties, and end-of-life management.',
     faqs: [
@@ -91,7 +99,11 @@ function mergeWithDefaults(
         bgColor: data.bgColor || FAQ_DEFAULTS.bgColor,
         labelText: data.labelText || FAQ_DEFAULTS.labelText,
         heading: data.heading || FAQ_DEFAULTS.heading,
+        headingTag: data.headingTag || FAQ_DEFAULTS.headingTag,
+        headingColor: data.headingColor || FAQ_DEFAULTS.headingColor,
         introText: data.introText || FAQ_DEFAULTS.introText,
+        labelColor: data.labelColor,
+        bodyColor: data.bodyColor,
         faqs: data.faqsList?.length
             ? data.faqsList.map(
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any

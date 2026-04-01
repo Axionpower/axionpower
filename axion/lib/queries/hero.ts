@@ -190,13 +190,20 @@ export interface HeroData {
   overlayOpacity: number;
   headingText: string;
   headingTag: string;
+  subheadingTag?: string;
   headingColor: string;
   headingFontSize: number;
   headingFontSizeMobile: number;
+  headingFontWeight?: string;
+  headingFontFamily?: string;
   subheadingText: string;
   subheadingColor: string;
   subheadingFontSize: number;
   subheadingFontSizeMobile: number;
+  subheadingFontWeight?: string;
+  bodyFontSize?: string;
+  bodyFontWeight?: string;
+  accentColor?: string;
   sectionMinHeight: number;
   contentAlignment: string;
   contentMaxWidth: number;
@@ -212,13 +219,20 @@ export const HERO_DEFAULTS: HeroData = {
   overlayOpacity: 50,
   headingText: "Reliable Battery Solutions for\nMission-Critical Power Systems",
   headingTag: "h1",
+  subheadingTag: "h2",
   headingColor: "#FFFFFF",
   headingFontSize: 38,
   headingFontSizeMobile: 24,
+  headingFontWeight: "700",
+  headingFontFamily: undefined,
   subheadingText: "Axion Critical Power Solutions specializes in VRLA and wet cell batteries for critical power applications where reliability is non-negotiable.",
   subheadingColor: "#CCCCCC",
   subheadingFontSize: 16,
   subheadingFontSizeMobile: 14,
+  subheadingFontWeight: "400",
+  bodyFontSize: "14px",
+  bodyFontWeight: "400",
+  accentColor: "#0EA5E9",
   sectionMinHeight: 100,
   contentAlignment: "center",
   contentMaxWidth: 800,

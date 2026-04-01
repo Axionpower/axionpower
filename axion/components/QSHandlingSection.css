@@ -1,0 +1,277 @@
+/* QSHandlingSection - Safe Handling & Installation */
+
+.qsh-section {
+  position: relative;
+  width: 100%;
+  background-color: #1565c0;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.qsh-inner {
+  display: flex;
+  gap: 60px;
+  padding: 80px 100px 260px;
+  align-items: flex-start;
+}
+
+.qsh-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Label row */
+.qsh-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.qsh-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+}
+
+.qsh-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Heading and body */
+.qsh-heading {
+  font-size: 46px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 16px 0 20px;
+  line-height: 1.15;
+}
+
+.qsh-body {
+  font-size: 16px;
+  color: #c5ddf0;
+  line-height: 1.7;
+  margin: 0 0 32px;
+  max-width: 760px;
+}
+
+/* Cards stack */
+.qsh-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Handling cards */
+.qsh-card {
+  background-color: #1976d2;
+  border-radius: 18px;
+  padding: 22px 24px;
+  position: relative;
+}
+
+.qsh-card-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.qsh-card-number {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.qsh-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.qsh-card-description {
+  font-size: 13px;
+  color: #c5ddf0;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* Checks row */
+.qsh-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.qsh-check-item {
+  font-size: 11px;
+  color: #ffffff;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+.qsh-check-mark {
+  font-weight: bold;
+  color: #90caf9;
+}
+
+/* Right column */
+.qsh-right {
+  width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qsh-image-card {
+  width: 100%;
+  height: 440px;
+  background-color: #0d47a1;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(160deg, #1565c0 0%, #0d47a1 100%);
+}
+
+.qsh-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Secondary image */
+.qsh-image-card-2 {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1565c0 0%, #0d47a1 100%);
+}
+
+.qsh-image-card-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Decorative lines */
+.qsh-decorative-line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Stat badge */
+.qsh-stat-badge {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px 28px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.qsh-stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.qsh-stat-label {
+  font-size: 12px;
+  color: #90caf9;
+  margin-top: 4px;
+  white-space: pre-line;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .qsh-inner {
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 48px 100px;
+    align-items: stretch;
+  }
+
+  .qsh-image-card-2 {
+    height: 180px;
+  }
+
+  .qsh-right {
+    width: 100%;
+  }
+
+  .qsh-image-card {
+    height: 320px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .qsh-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .qsh-inner {
+    padding: 48px 24px 160px;
+  }
+
+  .qsh-heading {
+    font-size: 32px;
+  }
+
+  .qsh-body {
+    font-size: 15px;
+  }
+
+  .qsh-card {
+    padding: 16px 18px;
+  }
+
+  .qsh-card-title {
+    font-size: 16px;
+  }
+
+  .qsh-card-description {
+    font-size: 12px;
+  }
+
+  .qsh-checks {
+    gap: 8px;
+  }
+
+  .qsh-check-item {
+    font-size: 10px;
+  }
+
+  .qsh-image-card {
+    height: 260px;
+  }
+
+  .qsh-stat-badge {
+    bottom: 16px;
+    padding: 12px 20px;
+  }
+
+  .qsh-stat-value {
+    font-size: 24px;
+  }
+}

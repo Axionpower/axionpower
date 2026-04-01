@@ -7,7 +7,7 @@
     margin-top: -6rem;
     padding: 3rem 0 2.5rem;
     background: linear-gradient(135deg, #0EA5E9 0%, #1d6fd1 50%, #2563EB 100%);
-    border-radius: 60px 60px 0 0;
+    border-radius: 100px 100px 0 0;
     z-index: 1;
 }
 
@@ -41,12 +41,24 @@
     margin: 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
+
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .wetcell-about-content {
+        padding: 1rem 1.5rem 0;
+    }
+
+    .wetcell-about-desc {
+        font-size: 28px;
+    }
+}
+
+/* ── Responsive 640px ── */
+@media (max-width: 640px) {
     .wetcell-about-section {
-        margin-top: -4rem;
-        padding: 3rem 1.5rem 2.5rem;
-        border-radius: 40px 40px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
+        border-radius: 50px 50px 0 0;
     }
 
     .wetcell-about-desc {

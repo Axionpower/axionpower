@@ -58,9 +58,9 @@ return [
             'fields' => [
                 ['name' => 'bg_color', 'label' => 'Background Color', 'type' => 'text', 'default' => '#0369a1', 'placeholder' => '#0369a1'],
                 ['name' => 'label_text', 'label' => 'Label Text', 'type' => 'text', 'default' => 'ABOUT US'],
-                ['name' => 'heading', 'label' => 'Heading', 'type' => 'text', 'default' => 'Powering Critical Systems with Proven Battery Technology'],
-                ['name' => 'description_left', 'label' => 'Description (Left Column)', 'type' => 'textarea', 'rows' => 5, 'default' => 'Axion Critical Power Solutions provides dependable battery technologies designed to support uninterrupted power in mission-critical environments. We supply high-performance VRLA and flooded (wet cell) battery solutions, backed by technical expertise, responsive support, and a strong understanding of critical power systems.'],
-                ['name' => 'description_right', 'label' => 'Description (Right Column)', 'type' => 'textarea', 'rows' => 5, 'default' => 'Our focus is simple: deliver reliable, compliant, and long-term battery solutions that protect critical infrastructure.'],
+                ['name' => 'heading', 'label' => 'Heading', 'type' => 'text', 'default' => 'About Axion Critical Power Solutions'],
+                ['name' => 'description_left', 'label' => 'Description (Left Column)', 'type' => 'textarea', 'rows' => 5, 'default' => 'Axion Critical Power Solutions is dedicated to supplying reliable battery systems for mission-critical power applications. Our focus is on VRLA and wet cell batteries used in UPS systems, DC power plants, and standby power environments.'],
+                ['name' => 'description_right', 'label' => 'Description (Right Column)', 'type' => 'textarea', 'rows' => 5, 'default' => 'We work closely with consulting engineers, contractors, and end users to ensure each battery solution is properly specified, compliant, and aligned with long-term operational requirements. Our approach is practical, technically sound, and reliability-driven.'],
                 ['name' => 'button_text', 'label' => 'Button Text', 'type' => 'text', 'default' => 'ABOUT US'],
                 ['name' => 'button_link', 'label' => 'Button Link', 'type' => 'text', 'default' => '/about'],
                 [
@@ -68,11 +68,10 @@ return [
                     'label' => 'Approach Tags',
                     'type' => 'repeater',
                     'default_rows' => [
-                        ['tag' => 'Reliability First'],
-                        ['tag' => 'Technical Integrity'],
-                        ['tag' => 'Safety & Compliance'],
-                        ['tag' => 'Accountability'],
-                        ['tag' => 'Customer Partnership'],
+                        ['tag' => 'Reliability-first mindset'],
+                        ['tag' => 'Technical accuracy and transparency'],
+                        ['tag' => 'Long-term customer partnerships'],
+                        ['tag' => 'Commitment to safety and compliance'],
                     ],
                     'sub_fields' => [
                         ['name' => 'tag', 'label' => 'Tag', 'type' => 'text'],
@@ -83,9 +82,10 @@ return [
                     'label' => 'Stats',
                     'type' => 'repeater',
                     'default_rows' => [
-                        ['number' => '500+', 'label' => 'Battery Systems Deployed'],
-                        ['number' => '15+', 'label' => 'Years of Experience'],
-                        ['number' => '24/7', 'label' => 'Technical Support Available'],
+                        ['number' => '500+',  'label' => 'Battery Systems Deployed'],
+                        ['number' => '15+',   'label' => 'Years of Experience'],
+                        ['number' => '24/7',  'label' => 'Technical Support Available'],
+                        ['number' => '100%',  'label' => 'Compliance Focus'],
                     ],
                     'sub_fields' => [
                         ['name' => 'number', 'label' => 'Number', 'type' => 'text'],
@@ -300,10 +300,23 @@ return [
             'icon' => '📞',
             'fields' => [
                 ['name' => 'heading', 'label' => 'Heading', 'type' => 'text', 'default' => 'Get Expert Guidance on Your Battery Systems'],
-                ['name' => 'description', 'label' => 'Description', 'type' => 'textarea', 'rows' => 3, 'default' => 'Connect with Axion Critical Power Solutions to discuss your mission-critical power requirements, upcoming battery replacements, or technical inquiries. Our team provides engineering guidance, lifecycle support, and system recommendations.'],
+                ['name' => 'description', 'label' => 'Description', 'type' => 'textarea', 'rows' => 3, 'default' => 'Connect with Axion Critical Power Solutions to discuss your mission-critical power requirements, upcoming battery replacements, or technical inquiries. Our team provides engineering guidance, lifecycle support, and system recommendations to ensure reliable, compliant, and safe battery solutions.'],
                 ['name' => 'phone', 'label' => 'Phone', 'type' => 'text', 'default' => ''],
                 ['name' => 'email', 'label' => 'Email', 'type' => 'text', 'default' => ''],
                 ['name' => 'address', 'label' => 'Address', 'type' => 'textarea', 'rows' => 2, 'default' => ''],
+                [
+                    'name' => 'highlights',
+                    'label' => 'Key Highlights',
+                    'type' => 'repeater',
+                    'default_rows' => [
+                        ['text' => 'Request a quote for VRLA or flooded battery systems'],
+                        ['text' => 'Technical consultation for UPS, DC, or backup power systems'],
+                        ['text' => 'General inquiries about solutions, compliance, or lifecycle support'],
+                    ],
+                    'sub_fields' => [
+                        ['name' => 'text', 'label' => 'Highlight', 'type' => 'text'],
+                    ]
+                ],
             ],
         ],
 

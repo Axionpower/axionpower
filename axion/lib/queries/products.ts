@@ -76,6 +76,10 @@ export interface ProductsData {
     introButtonUrl: string;
     cardsBgColor: string;
     products: ProductCard[];
+    highlightsLabel?: string;
+    applicationsLabel?: string;
+  cardHeadingTag?: string;
+  cardTitleColor?: string;
 }
 
 // ── Default values ──
@@ -90,13 +94,15 @@ export const PRODUCTS_DEFAULTS: ProductsData = {
     introButtonLabel: "VIEW MORE",
     introButtonUrl: "/products",
     cardsBgColor: "#0a0a14",
+    highlightsLabel: "Key Highlights",
+    applicationsLabel: "Typical Applications:",
     products: [
         {
             name: "VRLA Batteries",
             description:
                 "Axion Critical Power Solutions provides high-performance, low-maintenance VRLA (Valve-Regulated Lead-Acid) batteries for mission-critical applications. Sealed and reliable, they are ideal for UPS, DC power plants, and standby systems where space efficiency, predictable performance, and operational reliability are essential.",
             image: null,
-            fallbackImage: "/vrla-batteries.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             highlights: [
                 "Maintenance-free operation",
                 "Compact footprint",
@@ -119,7 +125,7 @@ export const PRODUCTS_DEFAULTS: ProductsData = {
             description:
                 "Axion Critical Power Solutions offers robust Wet Cell (Flooded Lead-Acid) batteries for large-scale, mission-critical DC power systems. Ideal for utility, substation, and industrial applications, these batteries deliver long life, durability, and reliable performance while being fully supported through the lifecycle from selection to replacement and recycling.",
             image: null,
-            fallbackImage: "/wet-cell-batteries.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             highlights: [
                 "Long design life",
                 "Proven, field-tested technology",
@@ -142,7 +148,7 @@ export const PRODUCTS_DEFAULTS: ProductsData = {
             description:
                 "Axion Critical Power Solutions provides engineered stationary battery cabinet solutions designed to integrate seamlessly with UPS and DC power systems. Our cabinets are built for safety, durability, and optimal battery performance in mission-critical environments, including data centers, healthcare facilities, and industrial operations.",
             image: null,
-            fallbackImage: "/battery-cabinets.png",
+            fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
             highlights: [
                 "Maintenance-free operation",
                 "Compact footprint",
@@ -209,6 +215,8 @@ export async function getProductsData(): Promise<ProductsData> {
         if (ax && (ax.heading || ax.label || ax.products)) {
             const merged = { ...PRODUCTS_DEFAULTS };
             if (ax.label) merged.labelText = ax.label;
+            if (ax.highlights_label) merged.highlightsLabel = ax.highlights_label;
+            if (ax.applications_label) merged.applicationsLabel = ax.applications_label;
             if (ax.heading) merged.introHeading = ax.heading;
             if (ax.description) merged.introHeading = ax.description;
             if (Array.isArray(ax.products) && ax.products.length > 0) {

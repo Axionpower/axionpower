@@ -31,32 +31,43 @@ const CONTACT_QUERY = `
 export interface ContactData {
   labelText: string;
   heading: string;
+  headingTag?: string;
+  headingColor?: string;
   description: string;
+  bodyColor?: string;
   highlightsTitle: string;
+  highlightsTag?: string;
+  highlightsColor?: string;
   highlights: string[];
   buttonLabel: string;
   buttonUrl: string;
   image: { node: { sourceUrl: string; altText: string } } | null;
   fallbackImage: string;
+  labelColor?: string;
 }
 
 // ── Default values ──
 export const CONTACT_DEFAULTS: ContactData = {
   labelText: "Contact Axion Critical Power Solutions",
   heading: "Get Expert Guidance on Your Battery Systems",
+  headingTag: "h2",
+  headingColor: "#0f172a",
   description:
     "Connect with Axion Critical Power Solutions to discuss your mission-critical power requirements, upcoming battery replacements, or technical inquiries. Our team provides engineering guidance, lifecycle support, and system recommendations to ensure reliable, compliant, and safe battery solutions.",
   highlightsTitle: "Key Highlights",
+  highlightsTag: "h3",
+  highlightsColor: "#ffffff",
   highlights: [
-    "Maintenance-free operation",
-    "Compact footprint",
-    "High power density",
-    "Proven reliability in critical environments",
+    "Request a quote for VRLA or flooded battery systems",
+    "Technical consultation for UPS, DC, or backup power systems",
+    "General inquiries about solutions, compliance, or lifecycle support",
   ],
   buttonLabel: "Contact Axion Today",
   buttonUrl: "/contact",
   image: null,
-  fallbackImage: "/contact-business.png",
+  fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+  labelColor: "#ffffff",
+  bodyColor: "rgba(255,255,255,0.85)",
 };
 
 // ── Merge helper ──
@@ -67,8 +78,13 @@ function mergeWithDefaults(
   return {
     labelText: data.labelText || CONTACT_DEFAULTS.labelText,
     heading: data.heading || CONTACT_DEFAULTS.heading,
+    headingTag: data.headingTag || CONTACT_DEFAULTS.headingTag,
+    headingColor: data.headingColor || CONTACT_DEFAULTS.headingColor,
     description: data.description || CONTACT_DEFAULTS.description,
+    bodyColor: data.bodyColor || CONTACT_DEFAULTS.bodyColor,
     highlightsTitle: data.highlightsTitle || CONTACT_DEFAULTS.highlightsTitle,
+    highlightsTag: data.highlightsTag || CONTACT_DEFAULTS.highlightsTag,
+    highlightsColor: data.highlightsColor || CONTACT_DEFAULTS.highlightsColor,
     highlights: data.highlightsList?.length
       ? data.highlightsList.map((h: { text: string }) => h.text)
       : CONTACT_DEFAULTS.highlights,
@@ -76,6 +92,7 @@ function mergeWithDefaults(
     buttonUrl: data.buttonUrl || CONTACT_DEFAULTS.buttonUrl,
     image: data.image || CONTACT_DEFAULTS.image,
     fallbackImage: CONTACT_DEFAULTS.fallbackImage,
+    labelColor: data.labelColor || CONTACT_DEFAULTS.labelColor,
   };
 }
 

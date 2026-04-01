@@ -1,0 +1,94 @@
+/* ============================================================
+   DC CTA SECTION  — z-index 8
+   ============================================================ */
+.dc-cta {
+  background: rgba(30,136,229,1);
+  padding: 6rem 120px 7rem;
+  box-sizing: border-box;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 8;
+}
+.dc-cta-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+}
+
+/* LEFT */
+.dc-cta-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: rgba(0,217,255,1); display: block; margin-bottom: 14px;
+}
+.dc-cta-heading {
+  font-size: 44px; font-weight: 800; color: #fff;
+  margin: 0 0 16px; line-height: 1.15;
+}
+.dc-cta-desc {
+  font-size: 15px; color: rgba(209,224,245,1); line-height: 1.7; margin: 0 0 32px;
+}
+
+.dc-cta-value-props {
+  display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;
+}
+.dc-cta-vp {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,.1); border-radius: 10px; padding: 14px 18px;
+}
+.dc-cta-vp-title { font-size: 16px; font-weight: 700; color: #fff; min-width: 120px; }
+.dc-cta-vp-caption { font-size: 12px; color: rgba(209,224,245,1); }
+
+.dc-cta-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.dc-cta-btn {
+  padding: 14px 28px; border-radius: 8px;
+  font-weight: 700; font-size: 14px; text-decoration: none;
+  display: inline-block; transition: all .2s;
+}
+.dc-cta-btn--primary { background: #fff; color: rgba(30,136,229,1); }
+.dc-cta-btn--primary:hover { background: rgba(240,248,255,1); }
+.dc-cta-btn--outline { border: 2px solid rgba(255,255,255,.5); color: #fff; }
+.dc-cta-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+/* RIGHT — FORM CARD */
+.dc-cta-form-card {
+  background: #0a0e1a;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba(0,217,255,.15);
+}
+.dc-cta-form-heading { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+.dc-cta-form-sub { font-size: 13px; color: rgba(128,153,191,1); margin: 0 0 24px; }
+
+.dc-cta-fields { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+.dc-cta-field { display: flex; flex-direction: column; gap: 6px; }
+.dc-cta-field-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: rgba(128,153,191,1); text-transform: uppercase; }
+.dc-cta-field-input {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px; padding: 11px 14px;
+  font-size: 13px; color: rgba(178,204,229,1);
+  outline: none; transition: border-color .2s;
+}
+.dc-cta-field-input:focus { border-color: rgba(0,217,255,.5); }
+.dc-cta-field-input::placeholder { color: rgba(100,130,160,1); }
+
+.dc-cta-form-btn {
+  width: 100%; padding: 14px;
+  background: rgba(0,217,255,1); color: #001a24;
+  font-weight: 800; font-size: 14px;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: background .2s;
+}
+.dc-cta-form-btn:hover { background: rgba(0,190,220,1); }
+
+@media (max-width: 1100px) { .dc-cta { padding: 5rem 48px 8rem; } .dc-cta-heading { font-size: 36px; } }
+@media (max-width: 768px) {
+  .dc-cta { padding: 4rem 24px 8rem; border-radius: 60px 60px 0 0; }
+  .dc-cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .dc-cta-heading { font-size: 30px; }
+}
+@media (max-width: 480px) {
+  .dc-cta { padding: 3rem 16px 7rem; border-radius: 40px 40px 0 0; }
+  .dc-cta-heading { font-size: 26px; }
+  .dc-cta-buttons { flex-direction: column; }
+  .dc-cta-btn { text-align: center; }
+}

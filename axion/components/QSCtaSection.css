@@ -1,0 +1,171 @@
+.qsc-section {
+  position: relative;
+  width: 100%;
+  background-color: #1e88e5;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 7;
+  overflow: hidden;
+}
+
+.qsc-top-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+.qsc-decorative-ellipse {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  bottom: -200px;
+  right: -300px;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.qsc-content {
+  padding: 72px 100px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.qsc-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.qsc-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.qsc-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.qsc-heading {
+  font-size: 38px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 16px 0 20px 0;
+  line-height: 1.2;
+}
+
+.qsc-body {
+  font-size: 17px;
+  color: #e0f0ff;
+  margin: 0 0 36px 0;
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.qsc-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.qsc-btn-primary,
+.qsc-btn-ghost {
+  border: none;
+  border-radius: 26px;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.qsc-btn-primary {
+  background-color: #ffffff;
+  color: #1e88e5;
+}
+
+.qsc-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.qsc-btn-ghost {
+  background-color: transparent;
+  border: 1.5px solid #ffffff;
+  color: #ffffff;
+}
+
+.qsc-btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .qsc-content {
+    padding: 60px 48px 80px;
+  }
+
+  .qsc-heading {
+    font-size: 30px;
+  }
+
+  .qsc-body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .qsc-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .qsc-content {
+    padding: 40px 24px 160px;
+  }
+
+  .qsc-heading {
+    font-size: 24px;
+  }
+
+  .qsc-body {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .qsc-buttons {
+    flex-direction: column;
+  }
+
+  .qsc-btn-primary,
+  .qsc-btn-ghost {
+    width: 100%;
+  }
+
+  .qsc-decorative-ellipse {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -200px;
+  }
+}

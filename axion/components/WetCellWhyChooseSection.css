@@ -123,16 +123,18 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+    .wetcell-why {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
+    }
+
     .wetcell-why-grid {
         grid-template-columns: 1fr;
     }
 
     .wetcell-why-heading {
         font-size: 36px;
-    }
-
-    .wetcell-why {
-        padding: 4rem 1.5rem;
     }
 }

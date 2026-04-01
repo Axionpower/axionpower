@@ -108,15 +108,17 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
+    .cabinets-feat-section {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 0 160px;
+    }
+
     .cabinets-feat-container {
         grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .cabinets-feat-section {
-        border-radius: 60px 60px 0 0;
-        padding: 3.5rem 0 5rem;
+        padding: 0 1.5rem;
     }
 
     .cabinets-feat-list li {

@@ -1,0 +1,290 @@
+.us-battech {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 3;
+    padding: 6rem 120px 220px;
+    box-sizing: border-box;
+}
+
+.us-battech-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.us-battech-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+/* Row 1: section label (left) + quote (right) */
+.us-battech-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Row 2: big heading (left) + description (right) — same row */
+.us-battech-header-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.us-battech-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.us-battech-label-bar {
+    width: 3px;
+    height: 16px;
+    background: #1e88e5;
+    border-radius: 1px;
+}
+
+.us-battech-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1e88e5;
+    letter-spacing: 0.1em;
+}
+
+.us-battech-heading {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0a0e1a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.us-battech-section-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(10,14,26,0.55);
+    margin: 0;
+    padding-top: 6px;
+}
+
+.us-battech-quote-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+.us-battech-quote-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.us-battech-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0a0e1a;
+}
+
+.us-battech-quote {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0a0e1a;
+    margin: 0;
+    text-align: right;
+    line-height: 1.35;
+    max-width: 500px;
+}
+
+/* ─── Cards row ─────────────────────────────────────────────────────────────── */
+.us-battech-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 340px;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* ─── Tech card ─────────────────────────────────────────────────────────────── */
+.us-battech-card {
+    background: #f8fafc;
+    border: 1px solid #e2eaf3;
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.us-battech-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.us-battech-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0a0e1a;
+    margin: 0;
+}
+
+.us-battech-card-subtitle {
+    font-size: 12px;
+    color: rgba(10,14,26,0.55);
+    margin: 2px 0 0 0;
+    font-weight: 500;
+}
+
+.us-battech-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 1px solid;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.us-battech-card-divider {
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+}
+
+.us-battech-card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a6080;
+    margin: 0 0 20px 0;
+}
+
+.us-battech-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.us-battech-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #2a3a4a;
+    line-height: 1.5;
+}
+
+.us-battech-feature-arrow {
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ─── Image card ─────────────────────────────────────────────────────────────── */
+.us-battech-image-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.us-battech-image-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(14,19,34,1) 0%, rgba(10,14,26,1) 100%);
+}
+
+.us-battech-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 28px,
+        rgba(99,222,247,0.06) 28px,
+        rgba(99,222,247,0.06) 29px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 28px,
+        rgba(99,222,247,0.06) 28px,
+        rgba(99,222,247,0.06) 29px
+    );
+}
+
+.us-battech-battery-visual {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.us-battech-battery-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.us-battech-battery-row {
+    display: flex;
+    gap: 8px;
+}
+
+.us-battech-battery-cell {
+    width: 56px;
+    height: 40px;
+    background: rgba(99,222,247,0.1);
+    border: 1px solid rgba(99,222,247,0.25);
+    border-radius: 6px;
+}
+
+.us-battech-image-caption {
+    position: relative;
+    z-index: 1;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+    text-align: center;
+    padding: 12px;
+    background: rgba(0,0,0,0.3);
+    margin: 0;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .us-battech { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .us-battech-header-bottom { gap: 24px; }
+    .us-battech-heading { font-size: 28px; }
+    .us-battech-cards { grid-template-columns: 1fr 1fr; }
+    .us-battech-image-card { grid-column: 1 / -1; min-height: 200px; }
+}
+
+@media (max-width: 700px) {
+    .us-battech { padding: 50px 20px 110px; border-radius: 50px 50px 0 0; margin-top: -60px; }
+    .us-battech-header-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .us-battech-header-bottom { grid-template-columns: 1fr; gap: 12px; }
+    .us-battech-quote-row { justify-content: flex-start; }
+    .us-battech-quote { text-align: left; font-size: 16px; }
+    .us-battech-heading { font-size: 24px; }
+    .us-battech-cards { grid-template-columns: 1fr; }
+    .us-battech-image-card { grid-column: auto; min-height: 200px; }
+}

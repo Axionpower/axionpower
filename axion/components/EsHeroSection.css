@@ -1,0 +1,225 @@
+/* Emergency Support Hero Section */
+.es-hero {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  overflow: hidden;
+  background-color: #050810;
+  background-image: url("https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.es-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5, 8, 16, 0.95) 0%, rgba(6, 13, 26, 0.85) 50%, rgba(5, 8, 16, 0.9) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.es-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 61, 61, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 61, 61, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.es-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 130px 120px 260px 120px;
+}
+
+.es-breadcrumb {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e88e5;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.es-heading {
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: white;
+  margin: 24px 0 0 0;
+  white-space: pre-line;
+  max-width: 700px;
+}
+
+.es-accent-bar {
+  width: 120px;
+  height: 5px;
+  background-color: #ff3d3d;
+  border-radius: 2px;
+  margin: 8px 0 0 0;
+}
+
+.es-subtext {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #d0dcf0;
+  max-width: 820px;
+  margin: 14px 0 0 0;
+  white-space: pre-line;
+}
+
+.es-stats-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: nowrap;
+}
+
+.es-stat-box {
+  width: 200px;
+  height: 68px;
+  background-color: #0d1528;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.es-stat-icon {
+  font-size: 22px;
+  color: #ff6b6b;
+  flex-shrink: 0;
+}
+
+.es-stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+}
+
+.es-stat-label {
+  font-size: 12px;
+  color: #8aaabb;
+  display: block;
+  margin-top: 2px;
+}
+
+.es-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  flex-wrap: nowrap;
+}
+
+.es-btn-primary {
+  padding: 15px 32px;
+  background-color: #ff3d3d;
+  color: white;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.es-btn-primary:hover {
+  background-color: #e63030;
+}
+
+.es-btn-ghost {
+  padding: 15px 32px;
+  background-color: transparent;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.es-btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+/* Responsive: Tablet */
+@media (max-width: 1100px) {
+  .es-hero {
+    min-height: auto;
+  }
+
+  .es-content {
+    padding: 130px 48px 200px 48px;
+    max-width: none;
+  }
+
+  .es-heading {
+    font-size: 44px;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 640px) {
+  .es-hero {
+    min-height: auto;
+  }
+
+  .es-content {
+    /* 90px top clears the ~60px mobile header so breadcrumb is visible */
+    padding: 90px 24px 120px 24px;
+  }
+
+  .es-heading {
+    font-size: 30px;
+    margin-top: 14px;
+  }
+
+  .es-accent-bar {
+    width: 80px;
+    height: 4px;
+    margin-top: 6px;
+  }
+
+  .es-subtext {
+    font-size: 15px;
+    margin-top: 12px;
+  }
+
+  .es-stats-row {
+    flex-direction: column;
+    margin-top: 24px;
+    gap: 10px;
+  }
+
+  .es-stat-box {
+    width: 100%;
+    height: auto;
+    padding: 12px 16px;
+  }
+
+  .es-buttons {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .es-btn-primary,
+  .es-btn-ghost {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,171 @@
+/* ============================================================
+   DC HERO SECTION
+   ============================================================ */
+.dc-hero {
+  background: #0a0e1a;
+  padding: 7rem 120px 7rem;
+  box-sizing: border-box;
+}
+.dc-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* LEFT */
+.dc-hero-breadcrumb {
+  font-size: 12px;
+  color: rgba(128,153,191,1);
+  letter-spacing: .1em;
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+.dc-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,217,255,.08);
+  border: 1px solid rgba(0,217,255,.25);
+  border-radius: 20px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+}
+.dc-hero-pill span { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: .08em; }
+.dc-hero-pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(0,217,255,1);
+  display: inline-block;
+  animation: dc-pulse 2s infinite;
+}
+@keyframes dc-pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+
+.dc-hero-heading {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 16px;
+  white-space: pre-line;
+}
+.dc-hero-accent-bar {
+  width: 60px; height: 3px;
+  background: rgba(0,217,255,1);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.dc-hero-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(153,184,219,1);
+  margin: 0 0 28px;
+}
+.dc-hero-features {
+  list-style: none;
+  padding: 0; margin: 0 0 32px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.dc-hero-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(209,224,245,1);
+  line-height: 1.5;
+}
+.dc-hero-feature-arrow {
+  color: rgba(0,217,255,1);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.dc-hero-btn {
+  display: inline-block;
+  background: rgba(30,136,229,1);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.dc-hero-btn:hover { background: rgba(25,110,185,1); }
+
+/* RIGHT — STATUS CARD */
+.dc-hero-card {
+  background: rgba(10,18,36,1);
+  border: 1px solid rgba(0,217,255,.15);
+  border-radius: 16px;
+  padding: 24px;
+}
+.dc-hero-card-header { margin-bottom: 20px; }
+.dc-hero-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.dc-hero-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: rgba(0,217,255,1);
+}
+.dc-hero-card-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(74,222,138,1);
+  animation: dc-pulse 1.8s infinite;
+}
+.dc-hero-card-subtitle {
+  font-size: 11px;
+  color: rgba(128,153,191,1);
+  letter-spacing: .08em;
+  margin: 0;
+}
+
+.dc-hero-status-rows { display: flex; flex-direction: column; gap: 0; margin-bottom: 16px; }
+.dc-hero-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.04);
+  margin-bottom: 6px;
+}
+.dc-hero-status-label { font-size: 13px; color: rgba(178,204,229,1); font-weight: 500; }
+.dc-hero-status-value { font-size: 12px; font-weight: 700; letter-spacing: .05em; }
+
+.dc-hero-stat-tile {
+  background: rgba(0,217,255,.06);
+  border: 1px solid rgba(0,217,255,.2);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.dc-hero-stat-value { font-size: 32px; font-weight: 800; color: rgba(0,217,255,1); }
+.dc-hero-stat-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: rgba(0,77,102,1); background: rgba(0,217,255,1); padding: 2px 8px; border-radius: 4px; }
+.dc-hero-stat-caption { font-size: 11px; color: rgba(128,153,191,1); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .dc-hero { padding: 120px 48px 8rem; }
+  .dc-hero-heading { font-size: 44px; }
+}
+@media (max-width: 768px) {
+  .dc-hero { padding: 100px 24px 8rem; }
+  .dc-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .dc-hero-heading { font-size: 36px; }
+}
+@media (max-width: 480px) {
+  .dc-hero { padding: 90px 16px 7rem; }
+  .dc-hero-heading { font-size: 28px; }
+  .dc-hero-btn { width: 100%; text-align: center; }
+}

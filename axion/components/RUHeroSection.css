@@ -1,0 +1,334 @@
+/* ─── Section ──────────────────────────────────────────────────────────────── */
+.ru-hero {
+    position: relative;
+    width: 100%;
+    min-height: 760px;
+    background-color: #0a0e1a;
+    background-image: url("https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.ru-hero-overlay-v {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,14,26,0.92) 0%, rgba(10,14,26,0.75) 50%, rgba(10,14,26,0.97) 100%);
+}
+
+.ru-hero-overlay-h {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(10,14,26,0.98) 0%, rgba(10,14,26,0.6) 55%, rgba(10,14,26,0.2) 100%);
+}
+
+/* ─── Inner layout ─────────────────────────────────────────────────────────── */
+.ru-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 140px 120px 100px;
+    gap: 60px;
+}
+
+/* ─── Left column ──────────────────────────────────────────────────────────── */
+.ru-hero-left {
+    flex: 0 0 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Breadcrumb ───────────────────────────────────────────────────────────── */
+.ru-hero-breadcrumb-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+.ru-hero-breadcrumb {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,191,69,1);
+    letter-spacing: 0.06em;
+}
+
+/* ─── Heading ──────────────────────────────────────────────────────────────── */
+.ru-hero-heading {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+}
+
+/* ─── Accent bar ───────────────────────────────────────────────────────────── */
+.ru-hero-accent-bar {
+    width: 360px;
+    height: 4px;
+    background: rgba(255,191,69,1);
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+/* ─── Subtitle ─────────────────────────────────────────────────────────────── */
+.ru-hero-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(200,215,235,1);
+    margin: 0 0 16px 0;
+    max-width: 460px;
+}
+
+/* ─── Trust badge ──────────────────────────────────────────────────────────── */
+.ru-hero-trust {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(166,227,161,1);
+    margin-bottom: 28px;
+}
+
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
+.ru-hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.ru-hero-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 24px;
+    background: #1e88e5;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.ru-hero-btn-primary:hover { background: #1976d2; }
+
+.ru-hero-btn-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 24px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.ru-hero-btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+/* ─── Stats ────────────────────────────────────────────────────────────────── */
+.ru-hero-stats {
+    display: flex;
+    gap: 32px;
+}
+
+.ru-hero-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.ru-hero-stat-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(255,191,69,1);
+    line-height: 1.1;
+}
+
+.ru-hero-stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(160,185,210,1);
+    margin-top: 3px;
+}
+
+/* ─── Right — Dashboard card ───────────────────────────────────────────────── */
+.ru-hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ru-hero-card {
+    background: rgba(15,22,40,0.95);
+    border: 1px solid rgba(255,191,69,0.2);
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+    width: 440px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+}
+
+.ru-hero-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.ru-hero-card-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.ru-dot-red   { background: rgba(255,80,80,1); }
+.ru-dot-amber { background: rgba(255,191,69,1); }
+.ru-dot-green { background: rgba(100,220,100,1); }
+
+.ru-hero-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,191,69,1);
+    margin-left: 4px;
+}
+
+.ru-hero-card-sub {
+    font-size: 12px;
+    color: rgba(160,185,210,0.7);
+    margin: 0 0 20px 0;
+}
+
+/* ─── Progress bars ─────────────────────────────────────────────────────────── */
+.ru-hero-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ru-hero-bar-item { display: flex; flex-direction: column; gap: 6px; }
+
+.ru-hero-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ru-hero-bar-name {
+    font-size: 11px;
+    color: rgba(200,215,235,0.8);
+}
+
+.ru-hero-bar-status {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.ru-hero-bar-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.ru-hero-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+/* ─── Divider ──────────────────────────────────────────────────────────────── */
+.ru-hero-card-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 20px 0 14px;
+}
+
+/* ─── Upcoming replacements ─────────────────────────────────────────────────── */
+.ru-hero-upcoming-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,191,69,0.8);
+    letter-spacing: 0.06em;
+    margin: 0 0 10px 0;
+}
+
+.ru-hero-upcoming {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ru-hero-upcoming-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.ru-hero-upcoming-sys {
+    flex: 1;
+    font-size: 12px;
+    color: rgba(220,235,250,1);
+    font-weight: 500;
+}
+
+.ru-hero-upcoming-date {
+    font-size: 11px;
+    color: rgba(160,185,210,0.7);
+}
+
+.ru-hero-upcoming-priority {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.priority-critical {
+    background: rgba(255,80,80,0.15);
+    color: rgba(255,80,80,1);
+}
+
+.priority-planned {
+    background: rgba(255,191,69,0.15);
+    color: rgba(255,191,69,1);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .ru-hero-inner { padding: 120px 48px 80px; gap: 40px; }
+    .ru-hero-left { flex: 0 0 420px; }
+    .ru-hero-heading { font-size: 44px; }
+    .ru-hero-accent-bar { width: 280px; }
+    .ru-hero-card { width: 380px; }
+}
+
+@media (max-width: 900px) {
+    .ru-hero-inner { flex-direction: column; padding: 100px 32px 60px; }
+    .ru-hero-left { flex: none; width: 100%; }
+    .ru-hero-right { width: 100%; justify-content: flex-start; }
+    .ru-hero-card { width: 100%; }
+}
+
+@media (max-width: 640px) {
+    .ru-hero-inner { padding: 80px 20px 48px; }
+    .ru-hero-heading { font-size: 34px; }
+    .ru-hero-accent-bar { width: 100%; }
+    .ru-hero-buttons { flex-direction: column; }
+    .ru-hero-btn-primary, .ru-hero-btn-ghost { width: 100%; }
+    .ru-hero-stats { flex-wrap: wrap; gap: 20px; }
+}

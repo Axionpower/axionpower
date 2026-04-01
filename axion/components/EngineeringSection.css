@@ -152,10 +152,33 @@
     box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
 }
 
-/* ── Responsive ── */
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .engineering-section {
+        border-radius: 60px 60px 0 0;
+    }
+
+    .eng-float-img.pos-1,
+    .eng-float-img.pos-2,
+    .eng-float-img.pos-3 {
+        width: 160px;
+        height: 120px;
+    }
+
+    .eng-float-img.pos-4,
+    .eng-float-img.pos-5 {
+        width: 130px;
+    }
+
+    .eng-content {
+        padding: 8rem 2rem 0;
+    }
+}
+
+/* ── Responsive 768px ── */
 @media (max-width: 768px) {
     .engineering-section {
-        border-radius: 50px 50px 0 0;
+        border-radius: 40px 40px 0 0;
         padding: 3rem 0 3rem;
     }
 
@@ -164,7 +187,7 @@
     }
 
     .eng-content {
-        padding: 1rem 1.5rem 0;
+        padding: 1rem 1.25rem 0;
     }
 
     .eng-title {
@@ -176,5 +199,72 @@
         padding: 0.45rem 1.2rem;
         white-space: normal;
         text-align: center;
+    }
+}
+
+/* ── Responsive 480px ── */
+@media (max-width: 480px) {
+    .engineering-section {
+        border-radius: 24px 24px 0 0;
+        padding: 2rem 0 2rem;
+    }
+
+    /* Show left/right edge images — half-clipped by section overflow:hidden */
+    .eng-float-img.pos-4 {
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -45px;
+        width: 100px;
+        height: 140px;
+        border-radius: 0 10px 10px 0;
+        opacity: 0.6;
+    }
+
+    .eng-float-img.pos-5 {
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -45px;
+        width: 100px;
+        height: 140px;
+        border-radius: 10px 0 0 10px;
+        opacity: 0.6;
+    }
+
+    .eng-content {
+        padding: 1rem 1rem 0;
+        max-width: 100%;
+    }
+
+    .eng-title {
+        font-size: 20px;
+        margin: 0 0 1rem;
+    }
+
+    .eng-description {
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0 0 1.5rem;
+    }
+
+    .eng-highlights-title {
+        font-size: 16px;
+        margin: 0 0 1rem;
+    }
+
+    .eng-highlights {
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .eng-pill {
+        padding: 0.4rem 1rem;
+        font-size: 11px;
+    }
+
+    .eng-cta-btn {
+        padding: 0.55rem 1.75rem;
+        font-size: 12px;
     }
 }

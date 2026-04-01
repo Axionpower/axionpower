@@ -1,0 +1,254 @@
+/* ── HCLifecycleSection ── */
+
+.hc-life-section {
+  background-color: white;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  padding: 6rem 2rem 7rem;
+  position: relative;
+  z-index: 6;
+}
+
+.hc-life-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.hc-life-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.hc-life-label {
+  display: inline-block;
+  background-color: rgba(20, 184, 166, 0.1);
+  color: rgba(20, 184, 166, 1);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hc-life-heading {
+  margin: 1.5rem 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgba(15, 23, 42, 1);
+}
+
+.hc-life-heading-line1 {
+  display: block;
+}
+
+.hc-life-heading-line2 {
+  display: block;
+  color: rgba(20, 184, 166, 1);
+}
+
+.hc-life-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(51, 65, 85, 1);
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+}
+
+/* Lifecycle Phases */
+.hc-life-phases-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin: 4rem 0;
+}
+
+.hc-life-phase-card {
+  background-color: white;
+  border-top: 3px solid rgba(20, 184, 166, 1);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.hc-life-phase-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(20, 184, 166, 0.1);
+}
+
+.hc-life-phase-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.hc-life-phase-number {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(20, 184, 166, 1);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.hc-life-phase-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 1);
+  margin: 0.75rem 0 0.5rem 0;
+}
+
+.hc-life-phase-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(100, 116, 139, 1);
+  margin: 0;
+}
+
+/* Stats Container */
+.hc-life-stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(226, 232, 240, 1);
+}
+
+.hc-life-stat-tile {
+  text-align: center;
+}
+
+.hc-life-stat-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: rgba(20, 184, 166, 1);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.hc-life-stat-label {
+  font-size: 0.95rem;
+  color: rgba(100, 116, 139, 1);
+  line-height: 1.4;
+}
+
+/* ── Responsive Design ── */
+
+@media (max-width: 1100px) {
+  .hc-life-section {
+    padding: 5rem 2rem 8rem;
+  }
+
+  .hc-life-heading {
+    font-size: 2.5rem;
+  }
+
+  .hc-life-phases-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hc-life-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hc-life-section {
+    padding: 4rem 1.5rem 8rem;
+    margin-top: -4rem;
+  }
+
+  .hc-life-heading {
+    font-size: 2rem;
+  }
+
+  .hc-life-description {
+    font-size: 1rem;
+  }
+
+  .hc-life-phases-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hc-life-phase-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .hc-life-phase-icon {
+    font-size: 2rem;
+  }
+
+  .hc-life-phase-title {
+    font-size: 1rem;
+  }
+
+  .hc-life-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hc-life-stat-value {
+    font-size: 1.75rem;
+  }
+
+  .hc-life-stat-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hc-life-section {
+    padding: 3rem 1rem 7rem;
+    margin-top: -3rem;
+  }
+
+  .hc-life-heading {
+    font-size: 1.5rem;
+  }
+
+  .hc-life-description {
+    font-size: 0.9rem;
+  }
+
+  .hc-life-label {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .hc-life-phases-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .hc-life-phase-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .hc-life-stats-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+
+  .hc-life-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .hc-life-stat-label {
+    font-size: 0.8rem;
+  }
+}

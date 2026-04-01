@@ -1,0 +1,549 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.sth-hero {
+    position: relative;
+    width: 100%;
+    min-height: 760px;
+    background-color: #0a0e1a;
+    overflow: hidden;
+    padding: 120px 0 300px 0;
+}
+
+/* ─── Decorative glows ─────────────────────────────────────────────────────── */
+.sth-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.sth-glow-blue {
+    width: 400px;
+    height: 400px;
+    background: rgba(30, 136, 229, 0.15);
+    top: 100px;
+    left: -150px;
+}
+
+.sth-glow-cyan {
+    width: 350px;
+    height: 350px;
+    background: rgba(99, 222, 247, 0.12);
+    bottom: 200px;
+    right: -100px;
+}
+
+.sth-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, rgba(99, 222, 247, 0.3) 2px, transparent 2px),
+        radial-gradient(circle, rgba(143, 201, 249, 0.2) 1px, transparent 1px);
+    background-size: 120px 120px, 300px 300px;
+    background-position: 0 0, 50px 50px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* ─── Container ────────────────────────────────────────────────────────────── */
+.sth-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 0 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* ─── Left column ──────────────────────────────────────────────────────────── */
+.sth-left {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 630px;
+}
+
+/* Vertical line */
+.sth-vertical-line {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #1e88e5;
+}
+
+/* Breadcrumb */
+.sth-breadcrumb {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(143, 201, 249, 0.75);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Heading */
+.sth-heading {
+    font-size: 60px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    white-space: pre-line;
+}
+
+/* Cyan accent rect */
+.sth-accent-rect {
+    width: 340px;
+    height: 4px;
+    background-color: rgba(99, 222, 247, 1);
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+/* Subtitle */
+.sth-subtitle {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(143, 201, 249, 0.75);
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    max-width: 580px;
+}
+
+/* Trust badge */
+.sth-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: rgba(99, 222, 247, 1);
+    font-weight: 600;
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+/* Buttons */
+.sth-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.sth-btn {
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.sth-btn-primary {
+    background-color: #1e88e5;
+    color: #ffffff;
+}
+
+.sth-btn-primary:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
+}
+
+.sth-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sth-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Divider */
+.sth-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 24px;
+}
+
+/* Stats row */
+.sth-stats {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+}
+
+.sth-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 24px;
+}
+
+.sth-stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: rgba(99, 222, 247, 1);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.sth-stat-label {
+    font-size: 11px;
+    color: rgba(143, 201, 249, 0.55);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sth-stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-self: center;
+    margin: 0 12px;
+}
+
+/* ─── Right column - Dashboard ─────────────────────────────────────────────── */
+.sth-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px 0 0;
+}
+
+.sth-dashboard {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 620px;
+    overflow: hidden;
+}
+
+/* Dashboard header */
+.sth-dashboard-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.sth-dots-container {
+    display: flex;
+    gap: 6px;
+}
+
+.sth-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.sth-dot-red {
+    background-color: #ff5252;
+}
+
+.sth-dot-yellow {
+    background-color: #ffb74d;
+}
+
+.sth-dot-green {
+    background-color: #66bb6a;
+}
+
+.sth-dashboard-title {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.sth-live-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #66bb6a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Dashboard content */
+.sth-dashboard-content {
+    padding: 20px 24px;
+}
+
+/* Stat cards */
+.sth-dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.sth-dashboard-stat-card {
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sth-stat-card-cyan {
+    background-color: rgba(99, 222, 247, 0.1);
+    border: 1px solid rgba(99, 222, 247, 0.2);
+}
+
+.sth-stat-card-green {
+    background-color: rgba(102, 187, 106, 0.1);
+    border: 1px solid rgba(102, 187, 106, 0.2);
+}
+
+.sth-dashboard-stat-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.sth-dashboard-stat-label {
+    font-size: 11px;
+    color: rgba(143, 201, 249, 0.6);
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Progress modules */
+.sth-dashboard-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.sth-module {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sth-module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sth-module-name {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.sth-module-percent {
+    font-size: 11px;
+    color: rgba(99, 222, 247, 1);
+    font-weight: 700;
+}
+
+.sth-progress-bar {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.sth-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(99, 222, 247, 0.8), rgba(99, 222, 247, 1));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Certifications */
+.sth-dashboard-certs {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 16px;
+}
+
+.sth-certs-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sth-cert-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.sth-cert-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.sth-cert-dot-green {
+    background-color: #66bb6a;
+}
+
+.sth-cert-dot-blue {
+    background-color: #42a5f5;
+}
+
+.sth-cert-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.sth-cert-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    background-color: rgba(99, 222, 247, 0.15);
+    color: rgba(99, 222, 247, 1);
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Column separator */
+.sth-column-separator {
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    bottom: 120px;
+    width: 1px;
+    background: linear-gradient(180deg,
+        rgba(99, 222, 247, 0) 0%,
+        rgba(99, 222, 247, 0.3) 50%,
+        rgba(99, 222, 247, 0) 100%
+    );
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .sth-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 40px;
+    }
+
+    .sth-left {
+        width: 100%;
+    }
+
+    .sth-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .sth-heading {
+        font-size: 48px;
+    }
+
+    .sth-column-separator {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .sth-hero {
+        min-height: auto;
+        padding: 90px 0 260px 0;
+    }
+
+    .sth-container {
+        padding: 0 24px;
+        gap: 32px;
+    }
+
+    .sth-heading {
+        font-size: 36px;
+    }
+
+    .sth-left {
+        width: 100%;
+    }
+
+    .sth-vertical-line {
+        display: none;
+    }
+
+    .sth-accent-rect {
+        width: 200px;
+    }
+
+    .sth-stats {
+        flex-wrap: wrap;
+    }
+
+    .sth-stat {
+        padding-right: 16px;
+    }
+
+    .sth-dashboard {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sth-container {
+        padding: 0 16px;
+    }
+
+    .sth-heading {
+        font-size: 28px;
+    }
+
+    .sth-subtitle {
+        font-size: 15px;
+    }
+
+    .sth-buttons {
+        flex-direction: column;
+    }
+
+    .sth-btn {
+        width: 100%;
+    }
+
+    .sth-dashboard-modules {
+        gap: 8px;
+    }
+
+    .sth-stats {
+        gap: 12px;
+    }
+
+    .sth-stat-divider {
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 640px) {
+    .sth-hero {
+        padding-bottom: 150px;
+    }
+}

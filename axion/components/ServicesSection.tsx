@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./ServicesSection.css";
@@ -7,9 +8,9 @@ interface Props {
     data: ServicesData;
 }
 
-function ArrowIcon() {
+function ArrowIcon({ extraClass = "" }: { extraClass?: string }) {
     return (
-        <div className="service-card-arrow">
+        <div className={`service-card-arrow${extraClass ? ` ${extraClass}` : ""}`}>
             <svg viewBox="0 0 24 24" fill="none" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
@@ -17,7 +18,8 @@ function ArrowIcon() {
     );
 }
 
-function ServiceCard({ item }: { item: ServiceItem }) {
+function ServiceCard({ item, cardHeadingTag, cardTitleColor }: { item: ServiceItem; cardHeadingTag?: string; cardTitleColor?: string }) {
+    const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
     const imgSrc = item.image?.node?.sourceUrl || item.fallbackImage || null;
 
     return (
@@ -36,18 +38,26 @@ function ServiceCard({ item }: { item: ServiceItem }) {
             <div className="service-card-bg-overlay" />
 
             <div className="service-card-content">
-                <h3>{item.title}</h3>
+                <CardTag style={{ ...(cardTitleColor && { color: cardTitleColor }) }}>{item.title}</CardTag>
                 <p>{item.description}</p>
-                <Link href={item.buttonUrl || "#"} className="service-card-btn">
-                    {item.buttonLabel}
-                </Link>
+                {/* footer: button + arrow on same row — mobile only */}
+                <div className="service-card-footer">
+                    <Link href={item.buttonUrl || "#"} className="service-card-btn">
+                        {item.buttonLabel}
+                    </Link>
+                    <ArrowIcon extraClass="arrow-mobile" />
+                </div>
             </div>
-            <ArrowIcon />
+
+            {/* Arrow on far right, vertically centered — desktop only */}
+            <ArrowIcon extraClass="arrow-desktop" />
         </div>
     );
 }
 
 export default function ServicesSection({ data }: Props) {
+    const HeadingTag = (data.headingTag || 'h2') as React.ElementType;
+
     return (
         <>
             {/* ── Intro Block ── */}
@@ -58,9 +68,9 @@ export default function ServicesSection({ data }: Props) {
                 <div className="services-intro-container">
                     <div className="services-label">
                         <span className="services-label-bar" />
-                        <span className="services-label-text">{data.labelText}</span>
+                        <span className="services-label-text" style={{ ...(data.labelColor && { color: data.labelColor }) }}>{data.labelText}</span>
                     </div>
-                    <p className="services-intro-heading">{data.introHeading}</p>
+                    <HeadingTag className="services-intro-heading" style={{ ...(data.headingColor && { color: data.headingColor }) }}>{data.introHeading}</HeadingTag>
                     <Link href={data.introButtonUrl || "/services"} className="services-intro-btn">
                         {data.introButtonLabel}
                     </Link>
@@ -74,7 +84,7 @@ export default function ServicesSection({ data }: Props) {
             >
                 <div className="services-cards-container">
                     {data.services.map((item, i) => (
-                        <ServiceCard key={i} item={item} />
+                        <ServiceCard key={i} item={item} cardHeadingTag={data.cardHeadingTag} cardTitleColor={data.cardTitleColor} />
                     ))}
                 </div>
             </section>

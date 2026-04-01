@@ -70,10 +70,12 @@ class Axion_GraphQL
                     'resolve' => function ($page) {
                         global $wpdb;
                         $prefix  = 'axion_' . $page['slug'] . '_';
+                        // esc_like() escapes wildcard chars (%, _) inside the prefix before adding our own %
+                        $like    = $wpdb->esc_like($prefix) . '%';
                         $results = $wpdb->get_results(
                             $wpdb->prepare(
                                 "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE %s",
-                                $prefix . '%'
+                                $like
                             )
                         );
 

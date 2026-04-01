@@ -8,6 +8,8 @@ interface Props {
 }
 
 export default function ConsultingSection({ data }: Props) {
+    const HeadingTag = (data.headingTag || 'h2') as React.ElementType;
+
     return (
         <section className="consulting-section">
             <div className="consulting-container">
@@ -15,10 +17,10 @@ export default function ConsultingSection({ data }: Props) {
                 <div className="consulting-left">
                     <div className="consulting-label">
                         <span className="consulting-label-bar" />
-                        <span className="consulting-label-text">{data.labelText}</span>
+                        <span className="consulting-label-text" style={{ ...(data.labelColor && { color: data.labelColor }) }}>{data.labelText}</span>
                     </div>
-                    <h2 className="consulting-heading">{data.heading}</h2>
-                    <p className="consulting-desc">{data.description}</p>
+                    <HeadingTag className="consulting-heading" style={{ ...(data.headingColor && { color: data.headingColor }) }}>{data.heading}</HeadingTag>
+                    <p className="consulting-desc" style={{ ...(data.bodyColor && { color: data.bodyColor }) }}>{data.description}</p>
                     <Link href={data.buttonUrl || "#"} className="consulting-btn">
                         {data.buttonLabel}
                     </Link>

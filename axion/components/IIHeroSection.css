@@ -1,0 +1,368 @@
+/* ============================================================================
+   HERO SECTION - Industrial & Infrastructure
+   ============================================================================ */
+
+.ii-hero {
+  background: #0a0e1a;
+  padding: 7rem 120px 200px;
+  box-sizing: border-box;
+}
+
+.ii-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ============================================================================
+   LEFT COLUMN - TEXT & BADGES
+   ============================================================================ */
+
+.ii-hero-breadcrumb {
+  font-size: 12px;
+  color: rgba(128, 153, 191, 1);
+  letter-spacing: 0.1em;
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+
+.ii-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+}
+
+.ii-hero-pill span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.ii-hero-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 191, 69, 1);
+  display: inline-block;
+}
+
+.ii-hero-heading {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.ii-hero-heading-accent {
+  color: rgba(255, 191, 69, 1);
+}
+
+.ii-hero-accent-bar {
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 191, 69, 1);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.ii-hero-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(178, 204, 229, 1);
+  margin: 0 0 32px;
+}
+
+.ii-hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.ii-hero-btn-primary {
+  background: rgba(30, 136, 229, 1);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.ii-hero-btn-primary:hover {
+  background: rgba(25, 110, 185, 1);
+}
+
+.ii-hero-btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, background 0.2s;
+  background: transparent;
+}
+
+.ii-hero-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ii-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ii-hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* ============================================================================
+   RIGHT COLUMN - INDUSTRIAL POWER DASHBOARD CARD
+   ============================================================================ */
+
+.ii-hero-card {
+  background: rgba(15, 26, 56, 1);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ii-hero-card-header {
+  margin-bottom: 16px;
+}
+
+.ii-hero-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 191, 69, 1);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ii-hero-card-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ii-hero-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(74, 222, 138, 1);
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ii-hero-facilities {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.ii-hero-facility {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.ii-hero-facility-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.ii-hero-facility-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ii-hero-facility-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ii-hero-facility-label {
+  font-size: 12px;
+  color: rgba(178, 204, 229, 1);
+  font-weight: 500;
+}
+
+.ii-hero-facility-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ii-hero-facility-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.ii-hero-facility-pct {
+  font-size: 11px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ii-hero-bar-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ii-hero-bar-fill {
+  height: 3px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.ii-hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ii-hero-stat {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ii-hero-stat-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(255, 191, 69, 1);
+}
+
+.ii-hero-stat-label {
+  font-size: 10px;
+  color: rgba(140, 178, 217, 1);
+}
+
+/* ============================================================================
+   RESPONSIVE - 1100px
+   ============================================================================ */
+
+@media (max-width: 1100px) {
+  .ii-hero {
+    padding: 120px 48px 180px;
+  }
+
+  .ii-hero-heading {
+    font-size: 44px;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE - 768px
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .ii-hero {
+    padding: 100px 24px 140px;
+  }
+
+  .ii-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ii-hero-heading {
+    font-size: 36px;
+  }
+
+  .ii-hero-card {
+    margin-top: 20px;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE - 480px
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .ii-hero {
+    padding: 90px 16px 120px;
+  }
+
+  .ii-hero-heading {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .ii-hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ii-hero-btn-primary,
+  .ii-hero-btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ii-hero-subtitle {
+    font-size: 14px;
+  }
+
+  .ii-hero-badges {
+    gap: 6px;
+  }
+
+  .ii-hero-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}

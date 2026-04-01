@@ -1,3 +1,4 @@
+import React from "react";
 import "./WetCellWhyChooseSection.css";
 
 interface WhyCard {
@@ -34,22 +35,63 @@ interface WetCellWhyChooseProps {
     headingHighlight?: string;
     headingLine3?: string;
     cards?: WhyCard[];
+    headingTag?: string;
+    headingColor?: string;
+    headingFontSize?: string;
+    headingFontWeight?: string;
+    headingFontFamily?: string;
+    cardHeadingTag?: string;
+    bgColor?: string;
+    highlightColor?: string;
+    marginTopOverlap?: string;
+    borderRadiusTop?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
 }
 
 export default function WetCellWhyChooseSection({
-    headingLine1 = "Why",
-    headingHighlight = "Choose",
-    headingLine3 = "Us?",
+    headingLine1 = "Why Choose",
+    headingHighlight = "Axion",
+    headingLine3 = "Wet Cell Batteries",
     cards = DEFAULT_CARDS,
+    headingTag,
+    headingColor,
+    headingFontSize,
+    headingFontWeight,
+    headingFontFamily,
+    cardHeadingTag,
+    bgColor,
+    highlightColor,
+    marginTopOverlap,
+    borderRadiusTop,
+    paddingTop, paddingBottom, paddingLeft, paddingRight,
 }: WetCellWhyChooseProps) {
+    const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
+    const HeadingTag = (headingTag || 'h2') as React.ElementType;
     return (
-        <section className="wetcell-why">
-            <div className="wetcell-why-inner">
-                <h2 className="wetcell-why-heading">
+        <section className="wetcell-why" style={{
+            ...(bgColor && { backgroundColor: bgColor }),
+            ...(marginTopOverlap && { marginTop: `-${marginTopOverlap}` }),
+            ...(borderRadiusTop && { borderRadius: `${borderRadiusTop} ${borderRadiusTop} 0 0` }),
+        }}>
+            <div className="wetcell-why-inner" style={{
+                ...(paddingTop && { paddingTop }),
+                ...(paddingBottom && { paddingBottom }),
+                ...(paddingLeft && { paddingLeft }),
+                ...(paddingRight && { paddingRight }),
+            }}>
+                <HeadingTag className="wetcell-why-heading" style={{
+                    ...(headingColor && { color: headingColor }),
+                    ...(headingFontSize && { fontSize: headingFontSize }),
+                    ...(headingFontWeight && { fontWeight: headingFontWeight }),
+                    ...(headingFontFamily && { fontFamily: headingFontFamily }),
+                }}>
                     {headingLine1}
-                    <span className="highlight">{headingHighlight}</span>
+                    <span className="highlight" style={{ ...(highlightColor && { color: highlightColor }) }}>{headingHighlight}</span>
                     {headingLine3}
-                </h2>
+                </HeadingTag>
 
                 <div className="wetcell-why-grid">
                     {cards.map((card, i) => (

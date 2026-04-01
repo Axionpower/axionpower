@@ -1,0 +1,144 @@
+/* ============================================================
+   ERAppNotesSection — dark blue bg, z-index 5, stacked
+   ============================================================ */
+.er-notes {
+  background: #1565c0;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 5;
+  padding: 100px 0 7rem;
+}
+
+.er-notes__container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.er-notes__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.er-notes__label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(251,146,60,1);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.er-notes__heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.er-notes__subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Grid */
+.er-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.er-notes__card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.er-notes__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.er-notes__card-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.er-notes__card-tech {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+.er-notes__card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.er-notes__card-summary {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.er-notes__key-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.er-notes__key-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+.er-notes__kp-check {
+  color: rgba(251,146,60,1);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .er-notes__container { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .er-notes { padding: 80px 0 80px; border-radius: 60px 60px 0 0; }
+  .er-notes__grid { grid-template-columns: 1fr; }
+  .er-notes__heading { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  .er-notes { padding: 60px 0 80px; border-radius: 32px 32px 0 0; }
+}

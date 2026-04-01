@@ -70,12 +70,23 @@ class Axion_Redirects
             return;
 
         $from = sanitize_text_field($_POST['redirect_from'] ?? '');
-        $to = esc_url_raw($_POST['redirect_to'] ?? '');
+        $to   = esc_url_raw(trim($_POST['redirect_to'] ?? ''));
         $type = intval($_POST['redirect_type'] ?? 301);
         $note = sanitize_text_field($_POST['redirect_note'] ?? '');
 
         if (!$from || !$to)
             return;
+
+        // ── Prevent open redirect to external untrusted domains ──
+        // Allow: relative paths (/about) and same-origin absolute URLs only
+        $parsed = wp_parse_url($to);
+        if (!empty($parsed['host'])) {
+            $site_host = wp_parse_url(home_url(), PHP_URL_HOST);
+            if ($parsed['host'] !== $site_host) {
+                wp_safe_redirect(admin_url('admin.php?page=axion-redirects&error=external_url'));
+                exit;
+            }
+        }
 
         $redirects = self::get_redirects();
         $redirects[] = [

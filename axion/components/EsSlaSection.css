@@ -1,0 +1,308 @@
+/* EsSlaSection - Service Level Agreements */
+
+.essa-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.essa-inner {
+  padding: 80px 120px 260px;
+}
+
+/* Label row */
+.essa-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.essa-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #1e88e5;
+  border-radius: 2px;
+}
+
+.essa-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e88e5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.essa-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.essa-body {
+  font-size: 17px;
+  color: #555555;
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0 0 40px 0;
+}
+
+/* Tiers row */
+.essa-tiers {
+  display: flex;
+  gap: 40px;
+}
+
+.essa-tier-card {
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 420px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 4px solid transparent;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.essa-tier-card.standard {
+  background-color: #f5f8ff;
+  border-top-color: #1e88e5;
+}
+
+.essa-tier-card.priority {
+  background-color: #fffaf0;
+  border-top-color: #ff8c00;
+}
+
+.essa-tier-card.critical {
+  background-color: #fff5f5;
+  border-top-color: #ff3d3d;
+}
+
+/* Tier label with colored dot */
+.essa-tier-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.essa-tier-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.essa-tier-card.standard .essa-tier-label { color: #1e88e5; }
+.essa-tier-card.standard .essa-tier-dot   { background-color: #1e88e5; }
+
+.essa-tier-card.priority .essa-tier-label { color: #ff8c00; }
+.essa-tier-card.priority .essa-tier-dot   { background-color: #ff8c00; }
+
+.essa-tier-card.critical .essa-tier-label { color: #ff3d3d; }
+.essa-tier-card.critical .essa-tier-dot   { background-color: #ff3d3d; }
+
+.essa-response-subtitle {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+.essa-response-time {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 6px 0 0 0;
+}
+
+/* Divider between response time and features */
+.essa-tier-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 20px 0 0 0;
+}
+
+/* MOST POPULAR badge */
+.essa-most-popular {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.essa-most-popular-badge {
+  background-color: #ff8c00;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+}
+
+/* Features list */
+.essa-features {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.essa-feature-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.essa-feature-checkmark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: white;
+}
+
+.essa-tier-card.standard .essa-feature-checkmark {
+  background-color: rgba(30, 136, 229, 0.1);
+  color: #1e88e5;
+}
+
+.essa-tier-card.priority .essa-feature-checkmark {
+  background-color: rgba(255, 140, 0, 0.1);
+  color: #ff8c00;
+}
+
+.essa-tier-card.critical .essa-feature-checkmark {
+  background-color: rgba(255, 61, 61, 0.1);
+  color: #ff3d3d;
+}
+
+.essa-feature-text {
+  font-size: 13px;
+  color: #444444;
+  line-height: 1.5;
+}
+
+/* Dot indicators — hidden on desktop, shown on mobile */
+.essa-carousel-dots {
+  display: none;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .essa-tiers {
+    gap: 20px;
+  }
+
+  .essa-inner {
+    padding: 60px 48px 200px;
+  }
+}
+
+/* Responsive 640px — horizontal snap carousel */
+@media (max-width: 640px) {
+  .essa-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+    overflow: visible; /* allow carousel to render outside clipping */
+  }
+
+  .essa-inner {
+    padding: 40px 0 120px;
+    overflow-x: hidden; /* clip at inner level so section border-radius still clips */
+  }
+
+  /* Re-apply horizontal padding to text content only */
+  .essa-label-row,
+  .essa-heading,
+  .essa-body {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .essa-heading {
+    font-size: 26px;
+  }
+
+  .essa-body {
+    font-size: 15px;
+  }
+
+  /* ── Carousel container ── */
+  .essa-tiers {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* First card inset + last card outset to match page gutter */
+    padding: 8px 24px 20px;
+    /* Hide scrollbar for clean look */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .essa-tiers::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Each card: fixed equal width ── */
+  .essa-tier-card {
+    flex: 0 0 88vw;
+    max-width: 380px;
+    min-height: auto;
+    scroll-snap-align: start;
+    /* Restore border-radius that gets flattened by flex */
+    border-radius: 20px;
+  }
+
+  /* Scroll-hint: right edge of next card peeks through */
+  .essa-tiers::after {
+    content: '';
+    flex: 0 0 8px;
+    display: block;
+  }
+
+  /* ── Dot indicators below carousel ── */
+  .essa-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 4px;
+    padding: 0 24px;
+  }
+
+  .essa-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d0d9e8;
+    flex-shrink: 0;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  .essa-dot--active {
+    background-color: #1e88e5;
+    transform: scale(1.25);
+  }
+}

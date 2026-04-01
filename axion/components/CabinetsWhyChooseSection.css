@@ -123,17 +123,18 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+    .cab-why {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
+    }
+
     .cab-why-grid {
         grid-template-columns: 1fr;
     }
 
     .cab-why-heading {
         font-size: 36px;
-    }
-
-    .cab-why {
-        padding: 4rem 1.5rem;
-        border-radius: 60px 60px 0 0;
     }
 }

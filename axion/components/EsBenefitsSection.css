@@ -1,0 +1,245 @@
+/* EsBenefitsSection - Benefits & Industries Supported */
+
+.esb-section {
+  position: relative;
+  width: 100%;
+  background-color: #1565c0;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.esb-inner {
+  padding: 80px 120px 260px;
+}
+
+/* Label row */
+.esb-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.esb-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.esb-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.esb-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 12px 0 40px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+/* Content layout */
+.esb-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+.esb-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Benefits rows */
+.esb-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.esb-benefit {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 20px;
+  background-color: #1976d2;
+  border-radius: 14px;
+  width: 100%;
+  min-height: 72px;
+  border-left: 3px solid transparent;
+}
+
+/* Colored left border per benefit — applied in TSX via class */
+.esb-benefit.accent-red    { border-left-color: #ff3d3d; }
+.esb-benefit.accent-green  { border-left-color: #00c864; }
+.esb-benefit.accent-orange { border-left-color: #ff8c00; }
+
+.esb-benefit-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.esb-benefit-icon {
+  font-size: 18px;
+}
+
+.esb-benefit-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.esb-benefit-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.esb-benefit-desc {
+  font-size: 12px;
+  color: #c5ddf0;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* Right column - Industries panel */
+.esb-right {
+  width: 520px;
+  flex-shrink: 0;
+}
+
+.esb-industries-panel {
+  background-color: #0a0e1a;
+  border-radius: 20px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid #ff3d3d;
+}
+
+.esb-industries-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.esb-industries-subtitle {
+  font-size: 13px;
+  color: #8aaabb;
+  margin-bottom: 16px;
+}
+
+.esb-industries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.esb-industry {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.esb-industry:last-child {
+  margin-bottom: 0;
+}
+
+.esb-industry-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+.esb-industry-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.esb-industry-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.esb-industry-subtitle {
+  font-size: 12px;
+  color: #8aaabb;
+  margin-top: 3px;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .esb-content {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .esb-right {
+    width: 100%;
+  }
+
+  .esb-benefit {
+    width: 100%;
+  }
+
+  .esb-inner {
+    padding: 60px 48px 200px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .esb-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .esb-inner {
+    padding: 40px 24px 120px;
+  }
+
+  .esb-heading {
+    font-size: 28px;
+  }
+
+  .esb-benefit {
+    padding: 12px 16px;
+    width: 100%;
+    height: auto;
+    min-height: 70px;
+  }
+
+  .esb-industries-panel {
+    height: auto;
+    min-height: 400px;
+  }
+}

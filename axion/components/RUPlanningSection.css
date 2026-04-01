@@ -1,0 +1,196 @@
+.ru-plan {
+    position: relative;
+    width: 100%;
+    background: #0a0e1a;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem;
+    z-index: 3;
+    padding: 6rem 120px 7rem;
+    box-sizing: border-box;
+}
+
+.ru-plan-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.ru-plan-header {
+    margin-bottom: 48px;
+}
+
+.ru-plan-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ru-plan-label-bar {
+    width: 3px;
+    height: 16px;
+    background: rgba(255,191,69,1);
+    border-radius: 1px;
+}
+
+.ru-plan-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,191,69,1);
+    letter-spacing: 0.1em;
+}
+
+.ru-plan-heading {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.ru-plan-desc {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(200,215,235,0.8);
+    max-width: 640px;
+    margin: 0 0 14px 0;
+}
+
+.ru-plan-trust {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(166,227,161,1);
+}
+
+/* ─── Body layout ───────────────────────────────────────────────────────────── */
+.ru-plan-body {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* ─── Process cards ─────────────────────────────────────────────────────────── */
+.ru-plan-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.ru-plan-card {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 28px 24px 24px;
+    overflow: hidden;
+}
+
+.ru-plan-card-number {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+    user-select: none;
+}
+
+.ru-plan-card-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,191,69,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.ru-plan-card-icon { font-size: 22px; }
+
+.ru-plan-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+}
+
+.ru-plan-card-desc {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(200,215,235,0.75);
+    margin: 0;
+}
+
+/* ─── Checklist card ────────────────────────────────────────────────────────── */
+.ru-plan-checklist {
+    flex: 0 0 320px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,191,69,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.ru-plan-checklist-top {
+    height: 6px;
+    background: rgba(255,191,69,1);
+}
+
+.ru-plan-checklist-body {
+    padding: 24px;
+}
+
+.ru-plan-checklist-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,191,69,1);
+    margin: 0 0 20px 0;
+}
+
+.ru-plan-checklist-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ru-plan-checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(200,215,235,0.85);
+}
+
+.ru-plan-check-icon {
+    color: rgba(255,191,69,1);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ru-plan { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .ru-plan-checklist { flex: 0 0 280px; }
+}
+
+@media (max-width: 900px) {
+    .ru-plan-body { flex-direction: column; }
+    .ru-plan-checklist { flex: none; width: 100%; }
+}
+
+@media (max-width: 640px) {
+    .ru-plan { padding: 4rem 20px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .ru-plan-heading { font-size: 32px; }
+    .ru-plan-cards { grid-template-columns: 1fr; }
+}

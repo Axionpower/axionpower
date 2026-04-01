@@ -1,0 +1,344 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.sti-intro {
+    position: relative;
+    width: 100%;
+    min-height: 820px;
+    background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+    overflow: hidden;
+    border-radius: 100px 100px 0 0;
+    margin-top: -200px;
+    z-index: 2;
+    padding-bottom: 220px;
+}
+
+/* ─── Decorative glows ─────────────────────────────────────────────────────── */
+.sti-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.sti-glow-left {
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    top: -200px;
+    left: -200px;
+}
+
+.sti-glow-right {
+    width: 450px;
+    height: 450px;
+    background: rgba(99, 222, 247, 0.1);
+    bottom: -150px;
+    right: -150px;
+}
+
+/* ─── Container ────────────────────────────────────────────────────────────── */
+.sti-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 80px 80px 60px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* ─── Left column ──────────────────────────────────────────────────────────── */
+.sti-left {
+    display: flex;
+    flex-direction: column;
+    width: 680px;
+}
+
+/* Label pill */
+.sti-label-pill {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+/* Heading */
+.sti-heading {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    white-space: pre-line;
+}
+
+/* Accent rect */
+.sti-accent-rect {
+    width: 60px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+/* Description */
+.sti-description {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(197, 221, 240, 1);
+    line-height: 1.7;
+    margin: 0 0 32px 0;
+    max-width: 620px;
+}
+
+/* Stats row */
+.sti-stats {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.sti-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.sti-stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.sti-stat-label {
+    font-size: 11px;
+    color: rgba(144, 202, 249, 1);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sti-stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    align-self: center;
+    margin: 0 12px;
+}
+
+/* Buttons */
+.sti-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sti-btn {
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.sti-btn-primary {
+    background-color: rgba(10, 14, 26, 0.9);
+    color: #ffffff;
+}
+
+.sti-btn-primary:hover {
+    background-color: rgba(10, 14, 26, 1);
+    transform: translateY(-2px);
+}
+
+.sti-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.sti-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Right column - panels ────────────────────────────────────────────────── */
+.sti-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 40px;
+}
+
+.sti-panel {
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sti-panel-training {
+    background-color: rgba(10, 14, 26, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: 210px;
+    justify-content: space-between;
+}
+
+.sti-panel-docs {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 220px;
+    justify-content: space-between;
+}
+
+.sti-panel-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.sti-panel-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+}
+
+.sti-panel-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sti-panel-item {
+    font-size: 13px;
+    color: rgba(197, 221, 240, 1);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.sti-panel-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(99, 222, 247, 1);
+    background-color: rgba(99, 222, 247, 0.15);
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .sti-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 40px;
+    }
+
+    .sti-left {
+        width: 100%;
+    }
+
+    .sti-right {
+        padding-left: 0;
+    }
+
+    .sti-heading {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sti-intro {
+        min-height: auto;
+    }
+
+    .sti-container {
+        padding: 30px 24px;
+    }
+
+    .sti-heading {
+        font-size: 32px;
+    }
+
+    .sti-left {
+        width: 100%;
+    }
+
+    .sti-buttons {
+        flex-direction: column;
+    }
+
+    .sti-btn {
+        width: 100%;
+    }
+
+    .sti-panel {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .sti-right {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sti-container {
+        padding: 32px 16px;
+        gap: 24px;
+    }
+
+    .sti-heading {
+        font-size: 28px;
+    }
+
+    .sti-description {
+        font-size: 14px;
+    }
+
+    .sti-stats {
+        gap: 12px;
+    }
+
+    .sti-stat {
+        padding-right: 12px;
+    }
+
+    .sti-stat-divider {
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 640px) {
+    .sti-intro {
+        border-radius: 50px 50px 0 0;
+        margin-top: -60px;
+        padding-top: 50px;
+        padding-bottom: 110px;
+    }
+}

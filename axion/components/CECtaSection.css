@@ -1,0 +1,112 @@
+/* ============================================================
+   CECtaSection — dark bg, z-index 8, stacked, centered
+   ============================================================ */
+.ce-cta {
+  background: #111827;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 8;
+  padding: 120px 0 140px;
+  text-align: center;
+}
+
+.ce-cta__container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ce-cta__label {
+  display: inline-block;
+  background: rgba(56,214,138,0.12);
+  color: rgba(56,214,138,1);
+  border: 1px solid rgba(56,214,138,0.3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.ce-cta__heading {
+  display: flex;
+  flex-direction: column;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.ce-cta__heading-line { display: block; }
+
+.ce-cta__heading-accent { color: rgba(56,214,138,1); }
+
+.ce-cta__description {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin: 0 0 40px;
+  max-width: 600px;
+}
+
+.ce-cta__buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ce-cta__btn {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.ce-cta__btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.ce-cta__btn--primary {
+  background: rgba(56,214,138,1);
+  color: #0a0e1a;
+}
+
+.ce-cta__btn--secondary {
+  background: transparent;
+  color: rgba(56,214,138,1);
+  border: 1.5px solid rgba(56,214,138,0.4);
+}
+
+.ce-cta__trust {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .ce-cta__container { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .ce-cta { padding: 90px 0 120px; border-radius: 60px 60px 0 0; }
+  .ce-cta__heading { font-size: 36px; }
+  .ce-cta__buttons { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .ce-cta { border-radius: 32px 32px 0 0; }
+  .ce-cta__heading { font-size: 28px; }
+  .ce-cta__btn { width: 100%; text-align: center; }
+}

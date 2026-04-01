@@ -1,0 +1,270 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.saf-section {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 100px 100px 0 0;
+    margin-top: -6rem;
+    z-index: 6;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* ─── Inner layout
+     Figma: left col x:100 w:640 | gap:60 | right col x:800 w:560 | margin-right:80
+     Section height: 850px, top padding: 90px, content height: 500px
+     Bottom space: 850 - 90 - 500 = 260px
+─────────────────────────────────────────────────────────────────── */
+.saf-inner {
+    display: flex;
+    align-items: flex-start;
+    padding: 90px 80px 140px 100px;
+    gap: 60px;
+    box-sizing: border-box;
+    min-height: unset;
+}
+
+/* ─── Left column (Figma: w:640) ─────────────────────────────────────────── */
+.saf-left {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Label row ───────────────────────────────────────────────────────────── */
+.saf-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.saf-label-bar {
+    width: 4px;
+    height: 18px;
+    background: #1e88e5;
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+.saf-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e88e5;
+    letter-spacing: 0.08em;
+}
+
+/* ─── Heading
+     Figma: heading y:38, body y:154, heading height ~96px → gap ≈ 20px
+─────────────────────────────────────────────────────────────────── */
+.saf-heading {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1a1a2e;
+    margin: 0 0 20px 0;
+}
+
+/* ─── Body
+     Figma: body y:154, items y:256, body height ~80px → gap ≈ 22px
+─────────────────────────────────────────────────────────────────── */
+.saf-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #555555;
+    margin: 0 0 22px 0;
+    max-width: 580px;
+}
+
+/* ─── Items ───────────────────────────────────────────────────────────────── */
+.saf-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.saf-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 12px 16px;
+}
+
+.saf-item--tinted {
+    background: #f5f8ff;
+}
+
+.saf-item-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1e88e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+}
+
+.saf-item-icon {
+    line-height: 1;
+}
+
+.saf-item-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.saf-item-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.saf-item-desc {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* ─── Certification badges ────────────────────────────────────────────────── */
+.saf-certs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.saf-cert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f0f5ff;
+    border-radius: 14px;
+    padding: 8px 22px 10px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.saf-cert-abbr {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e88e5;
+    line-height: 1.2;
+}
+
+.saf-cert-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #888888;
+    letter-spacing: 0.02em;
+}
+
+/* ─── Right column: dark image card
+     Figma: x:800 w:560 h:500 → left pad 100, gap 60, left col 640, then 60 gap, right 560
+     1440 - 100(pad-l) - 640(left) - 60(gap) - 560(right) - 80(pad-r) = 0 ✓
+─────────────────────────────────────────────────────────────────── */
+.saf-right {
+    width: 560px;
+    height: 500px;
+    flex-shrink: 0;
+    background: #071828;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.saf-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.saf-image-placeholder {
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(30, 136, 229, 0.06) 0px,
+            rgba(30, 136, 229, 0.06) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+}
+
+/* ─── Image overlay badge ─────────────────────────────────────────────────── */
+.saf-image-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(10, 14, 26, 0.9);
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.saf-image-badge-main {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.saf-image-badge-sub {
+    font-size: 12px;
+    color: #90caf9;
+    line-height: 1;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .saf-section {
+        border-radius: 60px 60px 0 0;
+    }
+    .saf-inner {
+        flex-direction: column;
+        padding: 60px 48px 80px;
+        min-height: auto;
+        gap: 48px;
+    }
+    .saf-left {
+        width: 100%;
+    }
+    .saf-right {
+        width: 100%;
+        height: 360px;
+    }
+}
+
+@media (max-width: 640px) {
+    .saf-section {
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+    }
+    .saf-inner {
+        padding: 48px 24px 110px;
+    }
+    .saf-heading {
+        font-size: 30px;
+    }
+    /* Certs: 2×2 grid on mobile */
+    .saf-certs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .saf-cert {
+        width: 100%;
+    }
+}

@@ -1,0 +1,209 @@
+.ru-lifecycle {
+    position: relative;
+    width: 100%;
+    background: #1565c0;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem;
+    z-index: 8;
+    padding: 6rem 120px 7rem;
+    box-sizing: border-box;
+}
+
+.ru-lifecycle-inner {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Left ──────────────────────────────────────────────────────────────────── */
+.ru-lifecycle-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ru-lifecycle-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.ru-lifecycle-label-bar {
+    width: 3px;
+    height: 16px;
+    background: rgba(255,191,69,1);
+    border-radius: 1px;
+}
+
+.ru-lifecycle-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,191,69,1);
+    letter-spacing: 0.1em;
+}
+
+.ru-lifecycle-heading {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.ru-lifecycle-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(200,225,255,0.8);
+    margin: 0 0 28px 0;
+}
+
+/* ─── Feature cards ─────────────────────────────────────────────────────────── */
+.ru-lifecycle-features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.ru-lifecycle-feature {
+    display: flex;
+    gap: 16px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid;
+    border-radius: 16px;
+    padding: 18px 20px;
+    align-items: flex-start;
+}
+
+.ru-lifecycle-feature-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ru-lifecycle-feature-num { font-size: 13px; }
+
+.ru-lifecycle-feature-body { flex: 1; }
+
+.ru-lifecycle-feature-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.ru-lifecycle-feature-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(200,225,255,0.75);
+    margin: 0 0 8px 0;
+}
+
+.ru-lifecycle-feature-link {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.ru-lifecycle-feature-link:hover { opacity: 0.75; }
+
+.ru-lifecycle-bottom-note {
+    font-size: 12px;
+    color: rgba(255,191,69,0.75);
+    font-style: italic;
+    margin: 0;
+}
+
+/* ─── Right — Steps ─────────────────────────────────────────────────────────── */
+.ru-lifecycle-right {
+    flex: 0 0 320px;
+}
+
+.ru-lifecycle-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.ru-lifecycle-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+}
+
+.ru-lifecycle-step:last-child { border-bottom: none; }
+
+.ru-lifecycle-step--active {
+    background: rgba(255,191,69,0.06);
+}
+
+.ru-lifecycle-step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: rgba(200,225,255,0.7);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ru-lifecycle-step-content { flex: 1; }
+
+.ru-lifecycle-step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(200,225,255,0.85);
+    margin: 0 0 2px 0;
+}
+
+.ru-lifecycle-step-desc {
+    font-size: 11px;
+    color: rgba(200,225,255,0.5);
+    margin: 0;
+}
+
+.ru-lifecycle-step-active-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,191,69,1);
+    flex-shrink: 0;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ru-lifecycle { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .ru-lifecycle-inner { gap: 48px; }
+    .ru-lifecycle-right { flex: 0 0 280px; }
+}
+
+@media (max-width: 900px) {
+    .ru-lifecycle-inner { flex-direction: column; gap: 40px; }
+    .ru-lifecycle-right { flex: none; width: 100%; }
+}
+
+@media (max-width: 640px) {
+    .ru-lifecycle { padding: 4rem 20px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .ru-lifecycle-heading { font-size: 30px; }
+}

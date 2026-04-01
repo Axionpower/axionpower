@@ -1,0 +1,176 @@
+/* ============================================================
+   ERGuidesSection — dark bg, z-index 3, stacked
+   ============================================================ */
+.er-guides {
+  background: #0a0e1a;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 3;
+  padding: 100px 0 7rem;
+}
+
+.er-guides__container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.er-guides__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.er-guides__label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(251,146,60,1);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.er-guides__heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.er-guides__subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Grid */
+.er-guides__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.er-guides__card {
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s;
+}
+
+.er-guides__card:hover { border-color: rgba(251,146,60,0.3); }
+
+.er-guides__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.er-guides__card-num {
+  font-size: 36px;
+  font-weight: 900;
+  color: rgba(251,146,60,0.15);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.er-guides__card-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.er-guides__card-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(251,146,60,1);
+  background: rgba(251,146,60,0.1);
+  border: 1px solid rgba(251,146,60,0.2);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.er-guides__card-format {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+}
+
+.er-guides__card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.er-guides__card-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.er-guides__card-topics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.er-guides__topic {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+}
+
+.er-guides__topic-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(251,146,60,1);
+  flex-shrink: 0;
+}
+
+.er-guides__card-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(251,146,60,1);
+  text-decoration: none;
+  margin-top: 6px;
+  transition: opacity 0.15s;
+}
+
+.er-guides__card-link:hover { opacity: 0.75; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .er-guides__container { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .er-guides { padding: 80px 0 80px; border-radius: 60px 60px 0 0; }
+  .er-guides__grid { grid-template-columns: 1fr; }
+  .er-guides__heading { font-size: 32px; }
+}
+
+@media (max-width: 480px) {
+  .er-guides { padding: 60px 0 80px; border-radius: 32px 32px 0 0; }
+}

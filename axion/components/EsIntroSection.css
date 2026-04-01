@@ -1,0 +1,130 @@
+.esi-section {
+  position: relative;
+  width: 100%;
+  background-color: #c62828;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.esi-inner {
+  padding: 80px 100px 260px;
+}
+
+.esi-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.esi-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.esi-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.esi-heading {
+  font-size: 50px;
+  font-weight: 800;
+  color: white;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.esi-body {
+  font-size: 17px;
+  color: #ffcdd2;
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0 0 50px 0;
+}
+
+/* Cards row — always 4 in a row */
+.esi-cards {
+  display: flex;
+  gap: 24px;
+}
+
+.esi-card {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 200px;
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.esi-card-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.esi-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+.esi-card-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+/* Responsive: Tablet and below (max-width: 1100px) */
+@media (max-width: 1100px) {
+  .esi-inner {
+    padding: 60px 48px 200px;
+  }
+
+  .esi-cards {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .esi-card {
+    flex: 1 1 calc(50% - 8px);
+    height: auto;
+    min-height: 180px;
+  }
+}
+
+/* Responsive: Mobile (max-width: 640px) */
+@media (max-width: 640px) {
+  .esi-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .esi-inner {
+    padding: 40px 24px 120px;
+  }
+
+  .esi-heading {
+    font-size: 28px;
+  }
+
+  .esi-card {
+    width: 100%;
+  }
+}

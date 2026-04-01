@@ -1,0 +1,205 @@
+/* MtBenefitsSection - Benefits & Industries */
+
+.mtb-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 6;
+  overflow: hidden;
+}
+
+.mtb-inner {
+  padding: 80px 100px 260px;
+}
+
+/* Label row */
+.mtb-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mtb-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #1e88e5;
+  border-radius: 2px;
+}
+
+.mtb-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e88e5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mtb-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 12px 0 40px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+/* Content layout */
+.mtb-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.mtb-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Benefits rows */
+.mtb-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mtb-benefit {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 24px;
+  border-radius: 14px;
+  min-height: 80px;
+}
+
+.mtb-benefit:nth-child(odd) {
+  background-color: #f5f8ff;
+}
+
+.mtb-benefit:nth-child(even) {
+  background-color: #eef4ff;
+}
+
+.mtb-benefit-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+}
+
+.mtb-benefit-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.mtb-benefit-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.mtb-benefit-desc {
+  font-size: 13px;
+  color: #555555;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* Right column - Industries panel */
+.mtb-right {
+  width: 420px;
+  flex-shrink: 0;
+}
+
+.mtb-industries-panel {
+  background-color: #0a0e1a;
+  border-radius: 20px;
+  padding: 32px 28px;
+}
+
+.mtb-industries-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.mtb-industries {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mtb-industry {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.mtb-industry:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mtb-industry-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.mtb-industry-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.mtb-industry-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.mtb-industry-subtitle {
+  font-size: 11px;
+  color: #6a8a9e;
+  margin-top: 3px;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .mtb-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .mtb-right {
+    width: 100%;
+  }
+
+  .mtb-inner {
+    padding: 60px 48px 200px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .mtb-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .mtb-inner {
+    padding: 40px 24px 160px;
+  }
+
+  .mtb-heading {
+    font-size: 28px;
+  }
+
+  .mtb-benefit {
+    padding: 14px 18px;
+  }
+}

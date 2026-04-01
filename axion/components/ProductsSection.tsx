@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./ProductsSection.css";
@@ -32,19 +33,20 @@ function LightningBolt({ position, icon, color = "#0EA5E9" }: {
     );
 }
 
-function ProductCardItem({ product, index }: { product: ProductCard; index: number }) {
+function ProductCardItem({ product, index, highlightsLabel = "Key Highlights", applicationsLabel = "Typical Applications:", cardHeadingTag, cardTitleColor }: { product: ProductCard; index: number; highlightsLabel?: string; applicationsLabel?: string; cardHeadingTag?: string; cardTitleColor?: string }) {
+    const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
     const isReversed = index % 2 === 1;
     const num = String(index + 1).padStart(2, "0");
 
     const textContent = (
         <div className="product-text">
             <span className="product-number">{num}</span>
-            <h3 className="product-name">{product.name}</h3>
+            <CardTag className="product-name" style={{ ...(cardTitleColor && { color: cardTitleColor }) }}>{product.name}</CardTag>
             <p className="product-description">{product.description}</p>
 
             {product.highlights.length > 0 && (
                 <>
-                    <h4 className="product-highlights-title">Key Highlights</h4>
+                    <h4 className="product-highlights-title">{highlightsLabel}</h4>
                     <div className="product-tags">
                         {product.highlights.map((h, i) => (
                             <span key={i} className="product-tag">{h}</span>
@@ -55,7 +57,7 @@ function ProductCardItem({ product, index }: { product: ProductCard; index: numb
 
             {product.applications.length > 0 && (
                 <>
-                    <h4 className="product-apps-title">Typical Applications:</h4>
+                    <h4 className="product-apps-title">{applicationsLabel}</h4>
                     <div className="product-apps-tags product-tags">
                         {product.applications.map((a, i) => (
                             <span key={i} className="product-tag">{a}</span>
@@ -119,7 +121,7 @@ export default function ProductsSection({ data }: Props) {
             <section className="products-cards" style={{ background: data.cardsBgColor }}>
                 <div className="products-cards-container">
                     {data.products.map((product, i) => (
-                        <ProductCardItem key={i} product={product} index={i} />
+                        <ProductCardItem key={i} product={product} index={i} highlightsLabel={data.highlightsLabel} applicationsLabel={data.applicationsLabel} cardHeadingTag={data.cardHeadingTag} cardTitleColor={data.cardTitleColor} />
                     ))}
                 </div>
             </section>

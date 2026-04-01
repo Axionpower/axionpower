@@ -20,8 +20,10 @@
     margin: 0 0 2.5rem;
 }
 
-/* ── Grid ── */
-.wetcell-benefits-grid {
+/* ════════════════════════
+   DESKTOP GRID
+   ════════════════════════ */
+.wetcell-benefits-desktop {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
@@ -29,7 +31,12 @@
     margin: 0 auto;
 }
 
-/* ── Card ── */
+/* Hide carousel on desktop */
+.wetcell-benefits-mobile {
+    display: none;
+}
+
+/* ── Card base ── */
 .wetcell-benefit-card {
     background: #ffffff;
     border-radius: 14px;
@@ -73,18 +80,110 @@
     margin: 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
+/* ════════════════════════
+   MOBILE CAROUSEL (≤640px)
+   ════════════════════════ */
+@media (max-width: 640px) {
     .wetcell-benefits {
-        padding: 3rem 1.5rem 4rem;
-        border-radius: 40px 40px 0 0;
+        padding: 3rem 0 160px;
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
     }
 
     .wetcell-benefits-heading {
         font-size: 22px;
+        padding: 0 1.5rem;
     }
 
-    .wetcell-benefits-grid {
-        grid-template-columns: 1fr;
+    /* Hide desktop grid */
+    .wetcell-benefits-desktop {
+        display: none;
+    }
+
+    /* Show mobile carousel */
+    .wetcell-benefits-mobile {
+        display: flex;
+    }
+
+    /* ── Carousel wrapper: prev btn + track + next btn ── */
+    .wetcell-benefits-carousel-wrap {
+        align-items: center;
+        gap: 8px;
+        padding: 0 12px;
+        position: relative;
+    }
+
+    /* ── Track ── */
+    .wetcell-benefits-track {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        flex: 1;
+        min-width: 0;
+        scrollbar-width: none;
+        padding: 0.25rem 0 0.5rem;
+    }
+
+    .wetcell-benefits-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .wetcell-benefits-track .wetcell-benefit-card {
+        flex: 0 0 78vw;
+        max-width: 300px;
+        scroll-snap-align: center;
+    }
+
+    /* ── Prev / Next buttons ── */
+    .wetcell-carousel-btn {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease;
+        padding: 0;
+    }
+
+    .wetcell-carousel-btn:hover {
+        background: rgba(255, 255, 255, 0.35);
+    }
+
+    .wetcell-carousel-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* ── Dots ── */
+    .wetcell-carousel-dots {
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 0 1.5rem;
+    }
+
+    .wetcell-carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.35);
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .wetcell-carousel-dot--active {
+        background: #ffffff;
+        transform: scale(1.3);
     }
 }

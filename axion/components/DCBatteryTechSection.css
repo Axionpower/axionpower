@@ -1,0 +1,98 @@
+/* ============================================================
+   DC BATTERY TECH SECTION  — z-index 3
+   ============================================================ */
+.dc-batt {
+  background: #fff;
+  padding: 6rem 120px 7rem;
+  box-sizing: border-box;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 3;
+}
+.dc-batt-inner { max-width: 1100px; margin: 0 auto; }
+
+.dc-batt-header { text-align: center; margin-bottom: 48px; }
+.dc-batt-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: rgba(0,100,140,1);
+  background: rgba(0,217,255,.1);
+  border: 1px solid rgba(0,217,255,.3);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 16px;
+}
+.dc-batt-heading {
+  font-size: 40px;
+  font-weight: 800;
+  color: #0a0e1a;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  white-space: pre-line;
+}
+.dc-batt-desc { font-size: 16px; color: rgba(80,100,130,1); margin: 0; }
+
+/* TABLE */
+.dc-batt-table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,.08); margin-bottom: 24px; }
+.dc-batt-table { width: 100%; border-collapse: collapse; }
+
+.dc-batt-th {
+  padding: 20px 24px;
+  text-align: left;
+  background: #0a0e1a;
+  border-bottom: 2px solid rgba(255,255,255,.1);
+}
+.dc-batt-th-spec { width: 22%; color: rgba(128,153,191,1); font-size: 11px; letter-spacing: .1em; font-weight: 700; }
+.dc-batt-th-vrla, .dc-batt-th-wet { width: 39%; }
+
+.dc-batt-col-badge {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  margin-bottom: 4px;
+}
+.dc-batt-col-badge--vrla { color: rgba(0,217,255,1); }
+.dc-batt-col-badge--wet  { color: rgba(30,136,229,1); }
+.dc-batt-col-sub { font-size: 11px; color: rgba(128,153,191,1); font-weight: 400; }
+
+.dc-batt-row { transition: background .15s; }
+.dc-batt-row--even { background: rgba(240,246,255,1); }
+.dc-batt-row:hover { background: rgba(220,238,255,1); }
+
+.dc-batt-td {
+  padding: 16px 24px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(220,232,248,1);
+  vertical-align: middle;
+}
+.dc-batt-td-spec { font-weight: 600; color: #0a0e1a; }
+.dc-batt-td-vrla { color: rgba(30,50,90,1); }
+.dc-batt-td-wet  { color: rgba(30,50,90,1); }
+
+/* RECOMMENDATION */
+.dc-batt-recommendation {
+  background: #0a0e1a;
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.dc-batt-rec-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: rgba(0,217,255,1);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+.dc-batt-rec-text { font-size: 14px; color: rgba(209,224,245,1); line-height: 1.6; }
+
+@media (max-width: 1100px) { .dc-batt { padding: 5rem 48px 8rem; } .dc-batt-heading { font-size: 32px; } }
+@media (max-width: 768px)  { .dc-batt { padding: 4rem 24px 8rem; border-radius: 60px 60px 0 0; } .dc-batt-heading { font-size: 26px; } }
+@media (max-width: 480px)  { .dc-batt { padding: 3rem 16px 7rem; border-radius: 40px 40px 0 0; } .dc-batt-heading { font-size: 22px; } .dc-batt-td { padding: 12px 14px; font-size: 12px; } }

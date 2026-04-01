@@ -159,11 +159,35 @@
     line-height: 1.5;
 }
 
-/* ── Responsive ── */
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .about-section {
+        border-radius: 60px 60px 0 0;
+    }
+
+    .about-top {
+        gap: 2.5rem;
+    }
+
+    .about-heading {
+        font-size: 2rem;
+    }
+}
+
+/* ── Responsive 768px ── */
 @media (max-width: 768px) {
+    .about-section {
+        border-radius: 40px 40px 0 0;
+        padding: 3.5rem 0 6rem;
+    }
+
+    .about-container {
+        padding: 0 1.25rem;
+    }
+
     .about-top {
         flex-direction: column;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .about-heading {
@@ -183,5 +207,87 @@
 
     .about-stat:first-child {
         border-left: none;
+    }
+}
+
+/* ── Responsive 480px ── */
+@media (max-width: 480px) {
+    .about-section {
+        border-radius: 24px 24px 0 0;
+        padding: 2.5rem 0 4rem;
+    }
+
+    .about-container {
+        padding: 0 1rem;
+    }
+
+    .about-top {
+        gap: 1.5rem;
+    }
+
+    .about-label {
+        margin-bottom: 1rem;
+    }
+
+    .about-label-text {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .about-heading {
+        font-size: 1.5rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .about-btn {
+        padding: 0.55rem 1.2rem;
+        font-size: 0.7rem;
+    }
+
+    .about-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-approach-title {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-tags {
+        gap: 0.5rem;
+    }
+
+    .about-tag {
+        padding: 0.35rem 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 1.8rem;
+        padding-bottom: 2rem;
+        margin-top: 0;
+        gap: 1.2rem;
+    }
+
+    .about-stat {
+        padding: 0 0.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        border-left: none;
+    }
+
+    .about-stat:first-child {
+        border-left: none;
+    }
+
+    .stat-value {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .stat-desc {
+        font-size: 0.7rem;
     }
 }

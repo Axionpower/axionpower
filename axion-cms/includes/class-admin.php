@@ -12,6 +12,54 @@ class Axion_Admin
 
     private static $pages = [];
 
+    // ─── Page groups for sidebar navigation ───
+    private static $groups = [
+        'Main'       => [
+            'icon'  => '🏠',
+            'pages' => ['home', 'about', 'contact'],
+        ],
+        'Resources'  => [
+            'icon'  => '📚',
+            'pages' => ['engineering-resources', 'consulting-engineer-hub', 'faqs'],
+        ],
+        'Industries' => [
+            'icon'  => '🏭',
+            'pages' => ['data-centers', 'healthcare', 'industrial-infrastructure', 'telecommunications', 'utilities-substations'],
+        ],
+        'Products'   => [
+            'icon'  => '📦',
+            'pages' => ['vrla-batteries', 'wet-cell-batteries', 'battery-cabinets'],
+        ],
+        'Services'   => [
+            'icon'  => '🔧',
+            'pages' => ['maintenance', 'emergency-support', 'replacement-upgrades', 'safety-training', 'quality-safety', 'sustainability'],
+        ],
+    ];
+
+    // ─── Per-page icons ───
+    private static $page_icons = [
+        'home'                    => '🏠',
+        'about'                   => '👥',
+        'contact'                 => '📬',
+        'engineering-resources'   => '⚙️',
+        'consulting-engineer-hub' => '🔬',
+        'faqs'                    => '❓',
+        'data-centers'            => '🖥️',
+        'healthcare'              => '🏥',
+        'industrial-infrastructure' => '🏗️',
+        'telecommunications'      => '📡',
+        'utilities-substations'   => '⚡',
+        'vrla-batteries'          => '🔋',
+        'wet-cell-batteries'      => '🪫',
+        'battery-cabinets'        => '🗄️',
+        'maintenance'             => '🔩',
+        'emergency-support'       => '🚨',
+        'replacement-upgrades'    => '🔄',
+        'safety-training'         => '🛡️',
+        'quality-safety'          => '✅',
+        'sustainability'          => '🌱',
+    ];
+
     public static function init()
     {
         self::load_pages();
@@ -151,47 +199,122 @@ class Axion_Admin
     // ─── Render admin page ───
     public static function render_page()
     {
-        $current_page = isset($_GET['axion_page']) ? sanitize_text_field($_GET['axion_page']) : '';
+        $current_page    = isset($_GET['axion_page'])    ? sanitize_text_field($_GET['axion_page'])    : '';
         $current_section = isset($_GET['axion_section']) ? sanitize_text_field($_GET['axion_section']) : '';
-        $show_settings = isset($_GET['axion_settings']);
+        $show_settings   = isset($_GET['axion_settings']);
 
         if (!$current_page && !$show_settings && !empty(self::$pages)) {
             $current_page = array_key_first(self::$pages);
         }
 
-        echo '<div class="wrap axion-wrap">';
-        echo '<h1 class="axion-title">⚡ Axion CMS</h1>';
-
-        // ── Page Tabs ──
-        echo '<div class="axion-tabs">';
-        foreach (self::$pages as $slug => $page) {
-            $active = ($slug === $current_page && !$show_settings) ? ' axion-tab--active' : '';
-            $url = admin_url('admin.php?page=axion-cms&axion_page=' . $slug);
-            echo '<a href="' . esc_url($url) . '" class="axion-tab' . $active . '">' . esc_html($page['label']) . '</a>';
+        // Determine which group is active (for open/highlight state)
+        $active_group = '';
+        foreach (self::$groups as $group_name => $group) {
+            if (in_array($current_page, $group['pages'], true)) {
+                $active_group = $group_name;
+                break;
+            }
         }
-        $settings_active = $show_settings ? ' axion-tab--active' : '';
-        $settings_url = admin_url('admin.php?page=axion-cms&axion_settings=1');
-        echo '<a href="' . esc_url($settings_url) . '" class="axion-tab' . $settings_active . '">⚙ Settings</a>';
+
+        echo '<div class="wrap axion-wrap">';
+
+        // ── Header ──
+        echo '<div class="axion-header">';
+        echo '<div class="axion-header__logo">⚡</div>';
+        echo '<div class="axion-header__text">';
+        echo '<h1 class="axion-title">Axion CMS</h1>';
+        echo '<p class="axion-subtitle">Content Management System</p>';
         echo '</div>';
+        echo '</div>';
+
+        // ── Main layout: sidebar + content ──
+        echo '<div class="axion-layout">';
+
+        // ── Sidebar ──
+        echo '<nav class="axion-sidebar">';
+        echo '<div class="axion-sidebar__inner">';
+
+        foreach (self::$groups as $group_name => $group) {
+            $is_group_active = ($group_name === $active_group && !$show_settings);
+            $group_class = 'axion-nav-group' . ($is_group_active ? ' axion-nav-group--open' : '');
+
+            echo '<div class="' . $group_class . '">';
+
+            // Group header (clickable toggle)
+            $first_page_in_group = $group['pages'][0] ?? '';
+            $group_url = $first_page_in_group ? admin_url('admin.php?page=axion-cms&axion_page=' . $first_page_in_group) : '#';
+            echo '<div class="axion-nav-group__header">';
+            echo '<span class="axion-nav-group__icon">' . esc_html($group['icon']) . '</span>';
+            echo '<span class="axion-nav-group__label">' . esc_html($group_name) . '</span>';
+            echo '<span class="axion-nav-group__count">' . count($group['pages']) . '</span>';
+            echo '<span class="axion-nav-group__chevron">›</span>';
+            echo '</div>';
+
+            // Pages within group
+            echo '<ul class="axion-nav-group__pages">';
+            foreach ($group['pages'] as $slug) {
+                if (!isset(self::$pages[$slug])) continue;
+                $page = self::$pages[$slug];
+                $is_active = ($slug === $current_page && !$show_settings);
+                $page_url  = admin_url('admin.php?page=axion-cms&axion_page=' . $slug);
+                $icon      = self::$page_icons[$slug] ?? '📄';
+                $item_class = 'axion-nav-item' . ($is_active ? ' axion-nav-item--active' : '');
+
+                echo '<li>';
+                echo '<a href="' . esc_url($page_url) . '" class="' . $item_class . '">';
+                echo '<span class="axion-nav-item__icon">' . esc_html($icon) . '</span>';
+                echo '<span class="axion-nav-item__label">' . esc_html($page['label']) . '</span>';
+                echo '</a>';
+                echo '</li>';
+            }
+            echo '</ul>';
+            echo '</div>'; // .axion-nav-group
+        }
+
+        // Settings item at the bottom
+        $settings_active_class = $show_settings ? ' axion-nav-item--active' : '';
+        $settings_url = admin_url('admin.php?page=axion-cms&axion_settings=1');
+        echo '<div class="axion-nav-settings">';
+        echo '<a href="' . esc_url($settings_url) . '" class="axion-nav-item axion-nav-item--settings' . $settings_active_class . '">';
+        echo '<span class="axion-nav-item__icon">⚙️</span>';
+        echo '<span class="axion-nav-item__label">Settings</span>';
+        echo '</a>';
+        echo '</div>';
+
+        echo '</div>'; // .axion-sidebar__inner
+        echo '</nav>'; // .axion-sidebar
+
+        // ── Content area ──
+        echo '<div class="axion-content">';
 
         if ($show_settings) {
             self::render_settings();
         } elseif ($current_page && isset(self::$pages[$current_page])) {
             $page_config = self::$pages[$current_page];
+            $page_icon   = self::$page_icons[$current_page] ?? '📄';
 
             if ($current_section && isset($page_config['sections'][$current_section])) {
                 self::render_section_fields($current_page, $current_section, $page_config['sections'][$current_section]);
             } else {
-                // ── Show section list ──
+                // ── Page header ──
+                echo '<div class="axion-page-header">';
+                echo '<span class="axion-page-header__icon">' . esc_html($page_icon) . '</span>';
+                echo '<div class="axion-page-header__text">';
+                echo '<h2 class="axion-page-header__title">' . esc_html($page_config['label']) . '</h2>';
+                echo '<p class="axion-page-header__meta">' . count($page_config['sections']) . ' sections · Click a section to edit</p>';
+                echo '</div>';
+                echo '</div>';
+
+                // ── Section cards ──
                 echo '<div class="axion-sections">';
                 foreach ($page_config['sections'] as $sec_slug => $section) {
-                    $sec_url = admin_url('admin.php?page=axion-cms&axion_page=' . $current_page . '&axion_section=' . $sec_slug);
-                    $data = self::get_section_data($current_page, $sec_slug);
+                    $sec_url  = admin_url('admin.php?page=axion-cms&axion_page=' . $current_page . '&axion_section=' . $sec_slug);
+                    $data     = self::get_section_data($current_page, $sec_slug);
                     $has_data = !empty($data);
                     $status_class = $has_data ? 'axion-section-card--filled' : '';
 
                     echo '<a href="' . esc_url($sec_url) . '" class="axion-section-card ' . $status_class . '">';
-                    echo '<div class="axion-section-card__icon">' . ($section['icon'] ?? '📄') . '</div>';
+                    echo '<div class="axion-section-card__icon">' . esc_html($section['icon'] ?? '📄') . '</div>';
                     echo '<div class="axion-section-card__info">';
                     echo '<h3 class="axion-section-card__title">' . esc_html($section['label']) . '</h3>';
                     echo '<p class="axion-section-card__status">' . ($has_data ? '✅ Configured' : '⚪ Using defaults') . '</p>';
@@ -203,7 +326,9 @@ class Axion_Admin
             }
         }
 
-        echo '</div>';
+        echo '</div>'; // .axion-content
+        echo '</div>'; // .axion-layout
+        echo '</div>'; // .axion-wrap
     }
 
     // ─── Render Settings tab ───
@@ -250,7 +375,7 @@ class Axion_Admin
 
         echo '<div class="axion-section-edit">';
         echo '<a href="' . esc_url($back_url) . '" class="axion-back">← Back to sections</a>';
-        echo '<h2 class="axion-section-title">' . ($section['icon'] ?? '') . ' ' . esc_html($section['label']) . '</h2>';
+        echo '<h2 class="axion-section-title">' . esc_html($section['icon'] ?? '') . ' ' . esc_html($section['label']) . '</h2>';
 
         // Success notices
         if (isset($_GET['saved'])) {
@@ -267,9 +392,16 @@ class Axion_Admin
 
         foreach ($section['fields'] as $field) {
             // Show saved value; if none saved yet, show the plugin default
-            $value = isset($data[$field['name']])
-                ? $data[$field['name']]
-                : ($field['default'] ?? '');
+            $type = $field['type'] ?? 'text';
+            if (isset($data[$field['name']])) {
+                $value = $data[$field['name']];
+            } elseif ($type === 'repeater') {
+                $value = $field['default_rows'] ?? [];
+            } elseif ($type === 'image') {
+                $value = 0;
+            } else {
+                $value = $field['default'] ?? '';
+            }
             Axion_Fields::render($field, $value);
         }
 
@@ -281,6 +413,12 @@ class Axion_Admin
             'axion_reset_nonce'
         );
         echo ' <a href="' . esc_url($reset_url) . '" class="button axion-reset-btn" onclick="return confirm(\'Are you sure? This will delete all saved data for this section and revert to defaults.\');">Reset to Default</a>';
+        // ── View Page link ──
+        $nextjs_url = rtrim(get_option('axion_nextjs_url', ''), '/');
+        if ($nextjs_url) {
+            $path = ($page_slug === 'home') ? '' : '/' . $page_slug;
+            echo ' <a href="' . esc_url($nextjs_url . $path) . '" class="button axion-view-btn" target="_blank" rel="noopener noreferrer">👁 View Page →</a>';
+        }
         echo '</div>';
         echo '</form>';
         echo '</div>';

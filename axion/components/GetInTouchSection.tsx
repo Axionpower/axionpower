@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import type { GetInTouchConfig } from "@/lib/queries/contact-page";
 import "./GetInTouchSection.css";
 
 // ── Types ──
@@ -21,7 +22,11 @@ interface FormTab {
 interface FormConfig {
     label: string;
     heading: string;
+    headingTag?: string;
     buttonLabel: string;
+    sendingLabel?: string;
+    successMessage?: string;
+    errorMessage?: string;
     tabs: FormTab[];
 }
 
@@ -107,28 +112,14 @@ function FieldIcon({ type, name }: { type: string; name: string }) {
     );
 }
 
-export default function GetInTouchSection() {
-    const [config, setConfig] = useState<FormConfig>(DEFAULT_CONFIG);
+interface Props { data?: GetInTouchConfig; }
+
+export default function GetInTouchSection({ data }: Props = {}) {
+    const config: FormConfig = (data as FormConfig) ?? DEFAULT_CONFIG;
+    const HeadingTag = (config.headingTag || 'h2') as React.ElementType;
     const [activeTab, setActiveTab] = useState(0);
     const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
     const [formData, setFormData] = useState<Record<string, string>>({});
-
-    // Fetch form config from WordPress on mount
-    useEffect(() => {
-        const wpUrl = process.env.NEXT_PUBLIC_WP_GRAPHQL_URL?.replace("/graphql", "");
-        if (!wpUrl) return;
-
-        fetch(`${wpUrl}/wp-json/axion/v1/form-config?t=${Date.now()}`, { cache: "no-store" })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data && data.tabs && data.tabs.length > 0) {
-                    setConfig(data);
-                }
-            })
-            .catch(() => {
-                // Silently fall back to defaults
-            });
-    }, []);
 
     const currentForm = config.tabs[activeTab] || config.tabs[0];
 
@@ -197,14 +188,14 @@ export default function GetInTouchSection() {
         <div className="getintouch-section">
             <div className="getintouch-card">
                 <p className="git-label">{config.label}</p>
-                <h2 className="git-heading">
+                <HeadingTag className="git-heading">
                     {headingParts.map((part, i) => (
                         <span key={i}>
                             {part}
                             {i < headingParts.length - 1 && <br />}
                         </span>
                     ))}
-                </h2>
+                </HeadingTag>
 
                 {/* Tabs */}
                 <div className="git-tabs">
@@ -268,17 +259,17 @@ export default function GetInTouchSection() {
                     {/* Submit */}
                     <div className="git-submit-row">
                         <button type="submit" className="git-submit-btn" disabled={status === "sending"}>
-                            {status === "sending" ? "Sending..." : config.buttonLabel}
+                            {status === "sending" ? (config.sendingLabel ?? "Sending...") : (config.buttonLabel ?? "Send Message")}
                             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                             </svg>
                         </button>
 
                         {status === "success" && (
-                            <div className="git-status success">Your message has been sent successfully! We&apos;ll get back to you soon.</div>
+                            <div className="git-status success">{config.successMessage ?? "Your message has been sent successfully! We'll get back to you soon."}</div>
                         )}
                         {status === "error" && (
-                            <div className="git-status error">Something went wrong. Please try again later.</div>
+                            <div className="git-status error">{config.errorMessage ?? "Something went wrong. Please try again later."}</div>
                         )}
                     </div>
                 </form>

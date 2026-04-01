@@ -30,30 +30,38 @@ const CONSULTING_QUERY = `
 export interface ConsultingData {
   labelText: string;
   heading: string;
+  headingTag?: string;
+  headingColor?: string;
   description: string;
+  bodyColor?: string;
   buttonLabel: string;
   buttonUrl: string;
   image: { node: { sourceUrl: string; altText: string } } | null;
   fallbackImage: string;
   tooltips: string[];
+  labelColor?: string;
 }
 
 // ── Default values ──
 export const CONSULTING_DEFAULTS: ConsultingData = {
   labelText: "Consulting Engineer Hub",
   heading: "Technical Support for Specifiers & Engineers",
+  headingTag: "h2",
+  headingColor: "#0f172a",
   description:
     "Axion Critical Power Solutions provides a dedicated hub for consulting engineers, specifiers, and project managers. Access technical guidance, basis-of-design resources, and ready-to-use specification language to streamline critical power project design, documentation, and approval.",
   buttonLabel: "Visit Our Consulting Engineer Hub",
-  buttonUrl: "/consulting",
+  buttonUrl: "/consulting-engineer-hub",
   image: null,
-  fallbackImage: "/consulting-engineers.png",
+  fallbackImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
   tooltips: [
     "Specification support and project guidance for VRLA and flooded batteries",
     "Basis-of-design documentation and selection criteria",
     "Ready-to-use cut sheets and datasheets for battery systems",
     "CSI / MasterFormat language templates for consistent documentation",
   ],
+  labelColor: "#ffffff",
+  bodyColor: "rgba(255,255,255,0.85)",
 };
 
 // ── Merge helper ──
@@ -64,7 +72,10 @@ function mergeWithDefaults(
   return {
     labelText: data.labelText || CONSULTING_DEFAULTS.labelText,
     heading: data.heading || CONSULTING_DEFAULTS.heading,
+    headingTag: data.headingTag || CONSULTING_DEFAULTS.headingTag,
+    headingColor: data.headingColor || CONSULTING_DEFAULTS.headingColor,
     description: data.description || CONSULTING_DEFAULTS.description,
+    bodyColor: data.bodyColor || CONSULTING_DEFAULTS.bodyColor,
     buttonLabel: data.buttonLabel || CONSULTING_DEFAULTS.buttonLabel,
     buttonUrl: data.buttonUrl || CONSULTING_DEFAULTS.buttonUrl,
     image: data.image || CONSULTING_DEFAULTS.image,
@@ -72,6 +83,7 @@ function mergeWithDefaults(
     tooltips: data.tooltipsList?.length
       ? data.tooltipsList.map((t: { text: string }) => t.text)
       : CONSULTING_DEFAULTS.tooltips,
+    labelColor: data.labelColor || CONSULTING_DEFAULTS.labelColor,
   };
 }
 

@@ -71,6 +71,17 @@ class Axion_Submissions
     {
         global $wpdb;
 
+        // ── Rate limiting: max 5 submissions per IP per hour ──
+        $ip         = sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+        $rate_key   = 'axion_rate_' . md5($ip);
+        $rate_count = (int) get_transient($rate_key);
+
+        if ($rate_count >= 5) {
+            return new \WP_REST_Response(['error' => 'Too many submissions. Please try again later.'], 429);
+        }
+
+        set_transient($rate_key, $rate_count + 1, HOUR_IN_SECONDS);
+
         $params = $request->get_json_params();
         $form_type = sanitize_text_field($params['form_type'] ?? 'Unknown');
         $fields = $params['fields'] ?? [];
@@ -104,14 +115,20 @@ class Axion_Submissions
 
         // Optional: send email notification
         $admin_email = get_option('admin_email');
-        $subject = "New {$form_type} Submission – Axion";
+        // Strip newlines from form_type to prevent email header injection
+        $safe_form_type = str_replace(["\r", "\n"], ' ', $form_type);
+        $subject = "New {$safe_form_type} Submission – Axion";
         $body = "A new form submission has been received.\n\n";
-        $body .= "Form Type: {$form_type}\n";
+        $body .= "Form Type: {$safe_form_type}\n";
         $body .= "Submitted: " . current_time('mysql') . "\n\n";
         foreach ($sanitized as $key => $value) {
-            $body .= ucfirst(str_replace(['_', '-'], ' ', $key)) . ": {$value}\n";
+            $safe_key   = str_replace(["\r", "\n"], ' ', $key);
+            $safe_value = str_replace(["\r", "\n"], ' ', $value);
+            $body .= ucfirst(str_replace(['_', '-'], ' ', $safe_key)) . ": {$safe_value}\n";
         }
-        wp_mail($admin_email, $subject, $body);
+        // Explicit headers prevent Content-Type injection
+        $headers = ['Content-Type: text/plain; charset=UTF-8'];
+        wp_mail($admin_email, $subject, $body, $headers);
 
         return new \WP_REST_Response(['success' => true, 'message' => 'Submission received'], 200);
     }
@@ -209,7 +226,11 @@ class Axion_Submissions
         $total_pages = ceil($total / $per_page);
 
         $submissions = $wpdb->get_results(
-            "SELECT * FROM " . self::$table_name . $where . " ORDER BY submitted_at DESC LIMIT $per_page OFFSET $offset"
+            $wpdb->prepare(
+                "SELECT * FROM " . self::$table_name . $where . " ORDER BY submitted_at DESC LIMIT %d OFFSET %d",
+                $per_page,
+                $offset
+            )
         );
 
         // Get unique form types for filter

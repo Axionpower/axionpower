@@ -5,18 +5,34 @@ import "./VrlaHeroSection.css";
 interface VrlaHeroData {
     backgroundImage?: string;
     heading?: string;
+    headingTag?: string;
     headingHighlight?: string;
+    headingColor?: string;
     description?: string;
+    bodyColor?: string;
     keyHighlights?: string[];
     typicalApplications?: string[];
     ctaLabel?: string;
     ctaUrl?: string;
+    breadcrumb?: string;
+    breadcrumbColor?: string;
+    btnBg?: string;
+    btnFg?: string;
+    highlightColor?: string;
+    headingFontSize?: string;
+    bodyFontSize?: string;
+    sectionMinHeight?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
 }
 
 const DEFAULTS: VrlaHeroData = {
-    backgroundImage: "/images/vrla-hero-bg.png",
+    backgroundImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     heading: "VRLA",
+    headingTag: "h1",
     headingHighlight: "BATTERIES",
+    headingColor: "#FFFFFF",
     description:
         "Axion Critical Power Solutions provides high-performance, low-maintenance VRLA (Valve-Regulated Lead-Acid) batteries for mission-critical applications. Sealed and reliable, they are ideal for UPS, DC power plants, and standby systems where space efficiency, predictable performance, and operational reliability are essential.",
     keyHighlights: [
@@ -33,6 +49,8 @@ const DEFAULTS: VrlaHeroData = {
     ],
     ctaLabel: "Speak with an Expert",
     ctaUrl: "#contact",
+    bodyColor: "#cbd5e1",
+    breadcrumb: "VRLA Batteries",
 };
 
 function CircleIcon() {
@@ -47,9 +65,15 @@ function CircleIcon() {
 
 export default function VrlaHeroSection({ data }: { data?: VrlaHeroData }) {
     const d = { ...DEFAULTS, ...data };
+    const HeadingTag = (d.headingTag || 'h1') as React.ElementType;
 
     return (
-        <section className="vrla-hero">
+        <section className="vrla-hero" style={{
+            ...(d.sectionMinHeight && { minHeight: d.sectionMinHeight }),
+            ...(d.paddingBottom && { paddingBottom: d.paddingBottom }),
+            ...(d.paddingLeft && { paddingLeft: d.paddingLeft }),
+            ...(d.paddingRight && { paddingRight: d.paddingRight }),
+        }}>
             {d.backgroundImage && (
                 <div className="vrla-hero-bg">
                     <Image
@@ -64,27 +88,28 @@ export default function VrlaHeroSection({ data }: { data?: VrlaHeroData }) {
             <div className="vrla-hero-overlay" />
 
             <div className="vrla-hero-content">
-                <h1 className="vrla-hero-heading">
-                    {d.heading} <span className="highlight">{d.headingHighlight}</span>
-                </h1>
+                <nav className="vrla-breadcrumb" aria-label="Breadcrumb" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>
+                    <Link href="/" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>Home</Link>
+                    <span className="vrla-breadcrumb-sep"> / </span>
+                    <span>{d.breadcrumb}</span>
+                </nav>
 
-                <p className="vrla-hero-desc">{d.description}</p>
+                <HeadingTag className="vrla-hero-heading" style={{
+                    ...(d.headingColor && { color: d.headingColor }),
+                    ...(d.headingFontSize && { fontSize: d.headingFontSize }),
+                }}>
+                    {d.heading} <span className="highlight" style={{ ...(d.highlightColor && { color: d.highlightColor }) }}>{d.headingHighlight}</span>
+                </HeadingTag>
 
-                <div className="vrla-hero-columns">
-                    <div>
-                        <h2 className="vrla-hero-col-title">Key Highlights</h2>
-                        <ul className="vrla-hero-list">
-                            {d.keyHighlights?.map((item, i) => (
-                                <li key={i}>
-                                    <CircleIcon />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                <p className="vrla-hero-desc" style={{
+                    ...(d.bodyColor && { color: d.bodyColor }),
+                    ...(d.bodyFontSize && { fontSize: d.bodyFontSize }),
+                }}>{d.description}</p>
 
-                <Link href={d.ctaUrl || "#"} className="vrla-hero-cta">
+                <Link href={d.ctaUrl || "#"} className="vrla-hero-cta" style={{
+                    ...(d.btnBg && { backgroundColor: d.btnBg }),
+                    ...(d.btnFg && { color: d.btnFg }),
+                }}>
                     {d.ctaLabel}
                 </Link>
             </div>

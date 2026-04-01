@@ -94,29 +94,84 @@
     margin: 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
+/* ── Mobile cards (hidden on desktop) ── */
+.cab-approach-mobile-cards {
+    display: none;
+}
+
+/* ── Responsive 640px ── */
+@media (max-width: 640px) {
     .cab-approach {
-        border-radius: 60px 60px 0 0;
-        padding: 3rem 1.5rem 4rem;
-    }
-
-    .cab-approach-timeline {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    .cab-approach-line {
-        display: none;
+        border-radius: 50px 50px 0 0;
+        margin-top: -3rem;
+        padding: 3rem 1.5rem 160px;
     }
 
     .cab-approach-desc {
-        font-size: 18px;
+        font-size: 17px;
+        margin: 0 0 2rem;
     }
-}
 
-@media (max-width: 480px) {
+    /* Hide desktop timeline on mobile */
     .cab-approach-timeline {
-        grid-template-columns: 1fr;
+        display: none;
+    }
+
+    /* Show mobile cards */
+    .cab-approach-mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cab-approach-mobile-card {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 1rem 1.25rem;
+        backdrop-filter: blur(4px);
+        transition: background 0.2s ease;
+    }
+
+    .cab-approach-mobile-card:hover {
+        background: rgba(255, 255, 255, 0.18);
+    }
+
+    .cab-approach-mobile-img-wrap {
+        flex-shrink: 0;
+        width: 80px;
+        height: 60px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+
+    .cab-approach-mobile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cab-approach-mobile-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .cab-approach-mobile-step {
+        font-size: 22px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.35);
+        line-height: 1;
+    }
+
+    .cab-approach-mobile-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        line-height: 1.45;
+        margin: 0;
     }
 }

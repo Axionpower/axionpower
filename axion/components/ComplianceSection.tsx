@@ -60,7 +60,7 @@ function ColumnCard({ col, cardBgColor, cardBorderColor, cardBorderRadius }: {
                         />
                     ) : (
                         <Image
-                            src={col.heading.includes("Sustainability") ? "/sustainability.png" : "/quality.png"}
+                            src="https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"
                             alt={col.heading}
                             width={240}
                             height={180}

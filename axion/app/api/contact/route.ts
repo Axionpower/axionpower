@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// RFC-5322 inspired — requires TLD of at least 2 chars
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+// Allowed form types — prevents injection via arbitrary form_type values
+const ALLOWED_FORM_TYPES = ["contact", "quote", "support", "general"];
 
 export async function POST(req: NextRequest) {
     try {
@@ -14,6 +18,8 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             );
         }
+        // Sanitise: strip to alphanumeric/dash/underscore only
+        const safeFormType = formType.replace(/[^a-zA-Z0-9_\- ]/g, "").trim().slice(0, 50);
 
         // ── Validate required fields ──
         const errors: string[] = [];
@@ -39,24 +45,33 @@ export async function POST(req: NextRequest) {
         }
 
         // ── Forward to WordPress REST API ──
-        const wpUrl = process.env.NEXT_PUBLIC_WP_GRAPHQL_URL?.replace("/graphql", "");
-        const wpRestUrl = `${wpUrl}/wp-json/axion/v1/contact-form`;
+        // WP_URL is a private server-side env var (not NEXT_PUBLIC_) to avoid
+        // exposing the WordPress origin in client-side bundles.
+        const wpBase = process.env.WP_URL
+            || process.env.NEXT_PUBLIC_WP_GRAPHQL_URL?.replace("/graphql", "");
 
-        try {
-            const wpRes = await fetch(wpRestUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    form_type: formType,
-                    fields,
-                }),
-            });
+        if (!wpBase) {
+            console.error("WP_URL not configured");
+            return NextResponse.json({ error: "Service unavailable." }, { status: 503 });
+        }
 
-            if (!wpRes.ok) {
-                console.warn("WordPress API returned:", wpRes.status);
-            }
-        } catch (wpError) {
-            console.warn("Could not reach WordPress API:", wpError);
+        const wpRestUrl = `${wpBase}/wp-json/axion/v1/contact-form`;
+
+        const wpRes = await fetch(wpRestUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                form_type: safeFormType,
+                fields,
+            }),
+        });
+
+        if (!wpRes.ok) {
+            console.error("WordPress API returned:", wpRes.status);
+            return NextResponse.json(
+                { error: "Could not save your submission. Please try again." },
+                { status: 502 }
+            );
         }
 
         return NextResponse.json({ success: true });

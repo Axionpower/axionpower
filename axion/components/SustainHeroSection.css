@@ -1,0 +1,157 @@
+/* ─── Section wrapper ─────────────────────────────────────────────────────── */
+.sh-hero {
+    position: relative;
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+    background-color: #0a0e1a;
+    background-image: url("https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* ─── Overlay ─────────────────────────────────────────────────────────────── */
+.sh-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        rgba(10, 14, 26, 0.97) 0%,
+        rgba(7, 24, 40, 0.88) 50%,
+        rgba(10, 14, 26, 0.75) 100%
+    );
+}
+
+/* ─── Subtle grid lines ───────────────────────────────────────────────────── */
+.sh-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(30, 136, 229, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 136, 229, 0.04) 1px, transparent 1px);
+    background-size: 116px 116px;
+    pointer-events: none;
+}
+
+/* ─── Top-right badge ─────────────────────────────────────────────────────── */
+.sh-badge-top {
+    position: absolute;
+    top: 130px;
+    right: 120px;
+    background: rgba(30, 136, 229, 0.15);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    z-index: 2;
+}
+
+/* ─── Content ─────────────────────────────────────────────────────────────── */
+.sh-content {
+    position: absolute;
+    top: 130px;
+    left: 120px;
+    width: 760px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+/* ─── Breadcrumb ──────────────────────────────────────────────────────────── */
+.sh-breadcrumb {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e88e5;
+    letter-spacing: 0.04em;
+    margin-bottom: 22px;
+}
+
+/* ─── Heading ─────────────────────────────────────────────────────────────── */
+.sh-heading {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.18;
+    color: #ffffff;
+    margin: 0 0 22px 0;
+}
+
+/* ─── Blue accent bar ─────────────────────────────────────────────────────── */
+.sh-accent-bar {
+    width: 72px;
+    height: 5px;
+    background-color: #1e88e5;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+/* ─── Subtext ─────────────────────────────────────────────────────────────── */
+.sh-subtext {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #d0dcef;
+    max-width: 640px;
+    margin: 0 0 36px 0;
+}
+
+/* ─── Pill row ────────────────────────────────────────────────────────────── */
+.sh-pills {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sh-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .sh-content {
+        left: 48px;
+        width: calc(100% - 96px);
+    }
+    .sh-badge-top {
+        display: none;
+    }
+    .sh-heading {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .sh-hero {
+        height: auto;
+        padding-bottom: 130px;
+    }
+    .sh-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 90px 24px 0;
+    }
+    .sh-heading {
+        font-size: 32px;
+    }
+    .sh-pills {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .sh-pill {
+        width: 100%;
+        justify-content: center;
+    }
+}

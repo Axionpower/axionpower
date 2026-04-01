@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import "./CabinetsApplicationsSection.css";
 
@@ -11,22 +12,22 @@ const DEFAULT_CARDS: AppCard[] = [
     {
         title: "Data Center UPS Systems",
         description: "Supporting continuous IT operations and redundancy",
-        image: "/images/app-datacenter.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
     {
         title: "Telecommunications",
         description: "Ensuring network continuity and uptime",
-        image: "/images/app-telecom.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
     {
         title: "Healthcare Facilities",
         description: "Powering life-safety and essential electrical systems",
-        image: "/images/app-healthcare.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
     {
         title: "Commercial & Industrial UPS Installations",
         description: "Reliable backup for critical operations",
-        image: "/images/app-industrial.png",
+        image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     },
 ];
 
@@ -44,22 +45,65 @@ interface CabinetsApplicationsProps {
     label?: string;
     heading?: string;
     cards?: AppCard[];
+    headingTag?: string;
+    headingColor?: string;
+    headingFontSize?: string;
+    headingFontWeight?: string;
+    headingFontFamily?: string;
+    cardHeadingTag?: string;
+    labelColor?: string;
+    bgColor?: string;
+    marginTopOverlap?: string;
+    borderRadiusTop?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
 }
 
 export default function CabinetsApplicationsSection({
     label = "Typical Applications",
     heading = "Battery cabinets are deployed across critical infrastructure, including",
     cards = DEFAULT_CARDS,
+    headingTag,
+    headingColor,
+    headingFontSize,
+    headingFontWeight,
+    headingFontFamily,
+    cardHeadingTag,
+    labelColor,
+    bgColor,
+    marginTopOverlap,
+    borderRadiusTop,
+    paddingTop, paddingBottom, paddingLeft, paddingRight,
 }: CabinetsApplicationsProps) {
+    const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
+    const HeadingTag = (headingTag || 'h2') as React.ElementType;
     return (
-        <section className="cab-apps">
-            <div className="cab-apps-inner">
+        <section className="cab-apps" style={{
+            ...(bgColor && { backgroundColor: bgColor }),
+            ...(marginTopOverlap && { marginTop: `-${marginTopOverlap}` }),
+            ...(borderRadiusTop && { borderRadius: `${borderRadiusTop} ${borderRadiusTop} 0 0` }),
+        }}>
+            <div className="cab-apps-inner" style={{
+                ...(paddingTop && { paddingTop }),
+                ...(paddingBottom && { paddingBottom }),
+                ...(paddingLeft && { paddingLeft }),
+                ...(paddingRight && { paddingRight }),
+            }}>
                 <div className="cab-apps-label">
                     <span className="cab-apps-label-bar" />
-                    <span className="cab-apps-label-text">{label}</span>
+                    <span className="cab-apps-label-text" style={{ ...(labelColor && { color: labelColor }) }}>{label}</span>
                 </div>
 
-                <h2 className="cab-apps-heading">{heading}</h2>
+                <HeadingTag className="cab-apps-heading" style={{
+                    ...(headingColor && { color: headingColor }),
+                    ...(headingFontSize && { fontSize: headingFontSize }),
+                    ...(headingFontWeight && { fontWeight: headingFontWeight }),
+                    ...(headingFontFamily && { fontFamily: headingFontFamily }),
+                }}>
+                    {heading}
+                </HeadingTag>
 
                 <div className="cab-apps-grid">
                     {cards.map((card, i) => (
@@ -74,7 +118,7 @@ export default function CabinetsApplicationsSection({
                             </div>
                             <div className="cab-app-card-overlay" />
                             <div className="cab-app-card-content">
-                                <h3 className="cab-app-card-title">{card.title}</h3>
+                                <CardTag className="cab-app-card-title">{card.title}</CardTag>
                                 <div className="cab-app-card-bottom">
                                     <p className="cab-app-card-desc">{card.description}</p>
                                     <ArrowIcon />

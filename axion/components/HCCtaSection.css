@@ -1,0 +1,254 @@
+/* ── HCCtaSection ── */
+
+.hc-cta-section {
+  background-color: rgba(30, 136, 229, 1);
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  padding: 6rem 2rem 7rem;
+  position: relative;
+  z-index: 8;
+}
+
+.hc-cta-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+.hc-cta-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hc-cta-label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hc-cta-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  margin: 1.5rem 0;
+}
+
+.hc-cta-heading-line {
+  display: block;
+}
+
+.hc-cta-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 1.5rem 0;
+}
+
+/* Button Row */
+.hc-cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0 3.5rem 0;
+  flex-wrap: wrap;
+}
+
+.hc-cta-btn {
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hc-cta-btn-primary {
+  background-color: white;
+  color: rgba(30, 136, 229, 1);
+}
+
+.hc-cta-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hc-cta-btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.hc-cta-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.hc-cta-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.hc-cta-link:hover {
+  border-bottom-color: white;
+}
+
+/* Stats */
+.hc-cta-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.hc-cta-stat-tile {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.hc-cta-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.hc-cta-stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+/* ── Responsive Design ── */
+
+@media (max-width: 1100px) {
+  .hc-cta-section {
+    padding: 5rem 2rem 8rem;
+  }
+
+  .hc-cta-heading {
+    font-size: 2.5rem;
+  }
+
+  .hc-cta-buttons {
+    gap: 1rem;
+  }
+
+  .hc-cta-stats {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hc-cta-section {
+    padding: 4rem 1.5rem 8rem;
+    margin-top: -4rem;
+  }
+
+  .hc-cta-heading {
+    font-size: 2rem;
+  }
+
+  .hc-cta-description {
+    font-size: 1rem;
+  }
+
+  .hc-cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0 2.5rem 0;
+  }
+
+  .hc-cta-btn {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .hc-cta-link {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  .hc-cta-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hc-cta-stat-value {
+    font-size: 1.75rem;
+  }
+
+  .hc-cta-stat-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hc-cta-section {
+    padding: 3rem 1rem 7rem;
+    margin-top: -3rem;
+  }
+
+  .hc-cta-heading {
+    font-size: 1.5rem;
+  }
+
+  .hc-cta-description {
+    font-size: 0.9rem;
+  }
+
+  .hc-cta-label {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .hc-cta-buttons {
+    margin: 1.5rem 0 2rem 0;
+  }
+
+  .hc-cta-btn {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .hc-cta-link {
+    font-size: 0.9rem;
+  }
+
+  .hc-cta-stats {
+    gap: 1rem;
+  }
+
+  .hc-cta-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .hc-cta-stat-label {
+    font-size: 0.8rem;
+  }
+
+  .hc-cta-stat-tile {
+    padding: 1.25rem 1rem;
+  }
+}

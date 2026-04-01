@@ -1,0 +1,227 @@
+.ii-cta {
+  position: relative;
+  background: rgba(30, 136, 229, 1);
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  z-index: 8;
+  padding: 6rem 120px 7rem;
+  box-sizing: border-box;
+}
+
+.ii-cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ii-cta-label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  justify-content: center;
+}
+
+.ii-cta-label-bar {
+  width: 3px;
+  height: 16px;
+  background: rgba(255, 237, 191, 1);
+  border-radius: 1px;
+}
+
+.ii-cta-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.ii-cta-heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.ii-cta-heading-accent {
+  color: rgba(255, 237, 191, 1);
+}
+
+.ii-cta-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(229, 242, 255, 1);
+  max-width: 640px;
+  margin: 0 0 36px;
+}
+
+.ii-cta-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.ii-cta-btn-primary {
+  background: rgba(10, 14, 26, 1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+
+.ii-cta-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.ii-cta-btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.ii-cta-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.ii-cta-btn-text {
+  background: transparent;
+  color: rgba(217, 242, 255, 1);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+
+.ii-cta-btn-text:hover {
+  color: #fff;
+}
+
+.ii-cta-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.ii-cta-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.ii-cta-card-top {
+  height: 4px;
+  width: 100%;
+}
+
+.ii-cta-card-body {
+  padding: 20px;
+  text-align: left;
+}
+
+.ii-cta-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ii-cta-card-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0a0e1a;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.ii-cta-card-icon {
+  font-size: 20px;
+}
+
+.ii-cta-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.ii-cta-card-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(229, 242, 255, 1);
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .ii-cta {
+    padding: 5rem 48px;
+    border-radius: 60px 60px 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ii-cta {
+    padding: 4rem 24px 150px;
+    border-radius: 50px 50px 0 0;
+    margin-top: -3rem;
+  }
+
+  .ii-cta-heading {
+    font-size: 32px;
+  }
+
+  .ii-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ii-cta-btn-primary,
+  .ii-cta-btn-outline,
+  .ii-cta-btn-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .ii-cta {
+    padding: 3rem 16px 150px;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .ii-cta-heading {
+    font-size: 26px;
+  }
+
+  .ii-cta-cards {
+    grid-template-columns: 1fr;
+  }
+}

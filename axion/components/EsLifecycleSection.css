@@ -1,0 +1,308 @@
+/* EsLifecycleSection - Lifecycle Steps */
+
+.esl-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 6;
+  overflow: hidden;
+}
+
+.esl-inner {
+  padding: 80px 120px 260px;
+}
+
+/* Label row */
+.esl-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.esl-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #1e88e5;
+  border-radius: 2px;
+}
+
+.esl-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e88e5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.esl-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 12px 0 24px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.esl-body {
+  font-size: 17px;
+  color: #555555;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 0 60px 0;
+}
+
+/* Steps container */
+.esl-steps-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 60px;
+}
+
+/* Connector line */
+.esl-connector-line {
+  position: absolute;
+  top: 24px;
+  left: 80px;
+  right: 80px;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: 0;
+}
+
+/* Individual step */
+.esl-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.esl-step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f5f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.esl-step-icon {
+  font-size: 24px;
+  color: #666666;
+}
+
+.esl-step-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666666;
+  margin-top: 16px;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Active step */
+.esl-step.active .esl-step-circle {
+  background-color: #ff3d3d;
+}
+
+.esl-step.active .esl-step-icon {
+  color: #ffffff;
+}
+
+.esl-step.active .esl-step-title {
+  color: #ff3d3d;
+  font-weight: 700;
+}
+
+/* "You are here" badge */
+.esl-step.active .esl-you-are-here {
+  display: inline-flex;
+  background-color: #ff3d3d;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.esl-step:not(.active) .esl-you-are-here {
+  display: none;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .esl-inner {
+    padding: 60px 48px 200px;
+  }
+
+  .esl-heading {
+    font-size: 36px;
+  }
+
+  .esl-steps-container {
+    flex-wrap: wrap;
+  }
+
+  .esl-connector-line {
+    display: none;
+  }
+
+  .esl-step {
+    width: 140px;
+    margin: 20px;
+  }
+}
+
+/* ─────────────────────────────────
+   Responsive 640px — Vertical cards
+   ───────────────────────────────── */
+@media (max-width: 640px) {
+  .esl-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .esl-inner {
+    padding: 40px 20px 120px;
+  }
+
+  .esl-heading {
+    font-size: 26px;
+  }
+
+  .esl-body {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  /* ── Vertical timeline ── */
+  .esl-steps-container {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-top: 24px;
+    position: relative;
+  }
+
+  /* Vertical connecting line on left */
+  .esl-steps-container::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background-color: #e0e0e0;
+    z-index: 0;
+  }
+
+  .esl-connector-line {
+    display: none;
+  }
+
+  /* Each step: horizontal row */
+  .esl-step {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 10px 10px 10px 0;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+    gap: 14px;
+  }
+
+  .esl-step-circle {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .esl-step-icon {
+    font-size: 18px;
+  }
+
+  /* Text + badge wrapper */
+  .esl-step-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-top: 6px;
+  }
+
+  .esl-step-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre-line;
+    color: #666666;
+    line-height: 1.4;
+  }
+
+  /* ── Active step — highlighted card ── */
+  .esl-step.active {
+    background-color: #fff0f0;
+    border: 1.5px solid #ff3d3d;
+    border-radius: 14px;
+    padding: 12px 14px 12px 10px;
+    margin: 6px -4px;
+  }
+
+  .esl-step.active .esl-step-circle {
+    background-color: #ff3d3d;
+  }
+
+  .esl-step.active .esl-step-icon {
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+  .esl-step.active .esl-step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #cc1a1a;
+  }
+
+  .esl-step.active .esl-you-are-here {
+    display: inline-flex;
+    background-color: #ff3d3d;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 0;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* Desktop: esl-step-text just stacks its children centered */
+@media (min-width: 641px) {
+  .esl-step-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+  }
+}

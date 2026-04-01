@@ -1,0 +1,171 @@
+/* EsContractsSection - Service Contracts */
+
+.esc-section {
+  position: relative;
+  width: 100%;
+  background-color: #0a0e1a;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 4;
+  overflow: hidden;
+}
+
+.esc-inner {
+  padding: 80px 100px 260px;
+}
+
+/* Label row */
+.esc-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.esc-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #e53935;
+  border-radius: 2px;
+}
+
+.esc-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e53935;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.esc-heading {
+  font-size: 46px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.esc-body {
+  font-size: 16px;
+  color: #8aaabb;
+  max-width: 600px;
+  line-height: 1.7;
+  margin: 0 0 50px 0;
+}
+
+/* Tiers container */
+.esc-tiers {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.esc-tier {
+  flex: 1 1 0;
+  min-width: 0;
+  background-color: #0d1b2a;
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.esc-tier-featured {
+  border-color: #e53935;
+  box-shadow: 0 0 30px rgba(229, 57, 53, 0.2);
+}
+
+.esc-tier-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e53935;
+  color: #ffffff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.esc-tier-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.esc-tier-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.esc-tier-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.esc-tier-feature {
+  font-size: 13px;
+  color: #8aaabb;
+  line-height: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.esc-tier-feature::before {
+  content: "✓";
+  color: #e53935;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.esc-tier-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e53935;
+  margin: 24px 0 0 0;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .esc-tiers {
+    flex-wrap: wrap;
+  }
+
+  .esc-tier {
+    flex: 1 1 280px;
+  }
+
+  .esc-inner {
+    padding: 60px 48px 200px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .esc-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .esc-inner {
+    padding: 40px 24px 120px;
+  }
+
+  .esc-heading {
+    font-size: 28px;
+  }
+
+  .esc-tiers {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .esc-tier {
+    flex: none;
+  }
+}

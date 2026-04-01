@@ -19,9 +19,10 @@ import { getEngineeringData } from "@/lib/queries/engineering";
 import { getConsultingData } from "@/lib/queries/consulting";
 import { getFaqData } from "@/lib/queries/faq";
 import { getContactData } from "@/lib/queries/contact";
+import { getGetInTouchData } from "@/lib/queries/contact-page";
 
 export default async function HomePage() {
-  const [heroData, aboutData, complianceData, productsData, servicesData, industriesData, engineeringData, consultingData, faqData, contactData] = await Promise.all([
+  const [heroData, aboutData, complianceData, productsData, servicesData, industriesData, engineeringData, consultingData, faqData, contactData, gitData] = await Promise.all([
     getHeroData(),
     getAboutData(),
     getComplianceData(),
@@ -32,6 +33,7 @@ export default async function HomePage() {
     getConsultingData(),
     getFaqData(),
     getContactData(),
+    getGetInTouchData(),
   ]);
 
   return (
@@ -46,7 +48,7 @@ export default async function HomePage() {
       <ConsultingSection data={consultingData} />
       <FaqSection data={faqData} />
       <ContactSection data={contactData} />
-      <GetInTouchSection />
+      <GetInTouchSection data={gitData} />
     </main>
   );
 }

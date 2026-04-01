@@ -1,0 +1,383 @@
+/* EsTechniciansSection - Technicians & Timeline */
+
+.estc-section {
+  position: relative;
+  width: 100%;
+  background-color: #0a0e1a;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 4;
+  overflow: hidden;
+}
+
+.estc-ellipse {
+  position: absolute;
+  top: -100px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 61, 61, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.estc-inner {
+  position: relative;
+  padding: 80px 120px 260px;
+}
+
+/* Label row */
+.estc-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.estc-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #ff6b6b;
+  border-radius: 2px;
+}
+
+.estc-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff6b6b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.estc-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 12px 0 16px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+.estc-body {
+  font-size: 17px;
+  color: #8aaabb;
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0 0 40px 0;
+}
+
+/* Content two-column layout */
+.estc-content {
+  display: flex;
+  gap: 80px;
+  margin-top: 40px;
+  align-items: stretch; /* both columns same height */
+}
+
+.estc-left {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Timeline track — centered on the circle column (22px wide circle at left side) */
+.estc-timeline-track {
+  position: absolute;
+  left: 10px;  /* center of 22px circle */
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #1e2a3a;
+}
+
+.estc-timeline-progress {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 2px;
+  height: 75%;
+  background: linear-gradient(to bottom, #ff3d3d 0%, rgba(255, 61, 61, 0.4) 100%);
+}
+
+/* Timeline steps */
+.estc-steps {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.estc-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.estc-time-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.estc-time-badge.standard {
+  background-color: rgba(30, 136, 229, 0.2);
+  color: #4da3ff;
+}
+
+.estc-time-badge.priority {
+  background-color: rgba(0, 200, 100, 0.2);
+  color: #00e676;
+}
+
+.estc-time-badge.critical {
+  background-color: rgba(255, 61, 61, 0.2);
+  color: #ff6b6b;
+}
+
+.estc-step-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 16px; /* align with card content vertically */
+}
+
+.estc-step-circle.standard {
+  background-color: #1e88e5;
+}
+
+.estc-step-circle.priority {
+  background-color: #ff8c00;
+}
+
+.estc-step-circle.critical {
+  background-color: #ff3d3d;
+}
+
+.estc-step-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* Connector line from circle to card */
+.estc-step-circle::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 2px;
+  background-color: inherit;
+  opacity: 0.4;
+}
+
+.estc-step-card {
+  background-color: #0d1b2a;
+  border-radius: 16px;
+  padding: 16px 20px;
+  flex: 1;
+  border-left: 3px solid transparent;
+}
+
+.estc-step-card.critical { border-left-color: #ff3d3d; }
+.estc-step-card.standard { border-left-color: #1e88e5; }
+.estc-step-card.priority { border-left-color: #00c864; }
+
+.estc-step-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.estc-step-card-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.estc-step-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.estc-step-card-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.estc-step-card-number {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  flex-shrink: 0;
+  min-width: 24px;
+}
+
+.estc-step-card-desc {
+  font-size: 13px;
+  color: #8aaabb;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Right column - Expertise cards */
+.estc-right {
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.estc-expertise-card {
+  background-color: #0d1b2a;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.estc-expertise-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.estc-expertise-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.estc-expertise-icon-wrap.green  { background-color: rgba(0, 200, 100, 0.15); }
+.estc-expertise-icon-wrap.blue   { background-color: rgba(30, 136, 229, 0.15); }
+.estc-expertise-icon-wrap.yellow { background-color: rgba(255, 193, 7, 0.15); }
+
+.estc-expertise-icon {
+  font-size: 24px;
+}
+
+.estc-expertise-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+  line-height: 1.3;
+}
+
+.estc-expertise-desc {
+  font-size: 13px;
+  color: #8aaabb;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .estc-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .estc-right {
+    width: 100%;
+  }
+
+  .estc-timeline-track,
+  .estc-timeline-progress {
+    display: none;
+  }
+
+  .estc-step {
+    gap: 16px;
+  }
+
+  .estc-step-circle {
+    margin: 0;
+  }
+
+  .estc-step-circle::after {
+    display: none;
+  }
+
+  .estc-time-badge {
+    width: auto;
+  }
+
+  .estc-inner {
+    padding: 60px 48px 200px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .estc-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .estc-inner {
+    padding: 40px 24px 120px;
+  }
+
+  .estc-heading {
+    font-size: 28px;
+  }
+
+  .estc-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .estc-right {
+    width: 100%;
+  }
+
+  .estc-expertise-card {
+    min-height: auto;
+  }
+
+  .estc-left {
+    position: relative;
+  }
+
+  /* Re-enable the vertical connecting line on mobile */
+  .estc-timeline-track,
+  .estc-timeline-progress {
+    display: block;
+  }
+
+  .estc-step {
+    gap: 12px;
+  }
+
+  .estc-step-circle {
+    margin-top: 0;
+  }
+
+  .estc-time-badge {
+    display: none;
+  }
+}

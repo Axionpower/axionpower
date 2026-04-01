@@ -219,8 +219,21 @@
     border: 1px solid #fecaca;
 }
 
-/* ── Responsive ── */
+/* ── Responsive 1100px ── */
+@media (max-width: 1100px) {
+    .getintouch-section {
+        border-radius: 60px 60px 0 0;
+        padding: 3rem 1.5rem 8rem;
+    }
+}
+
+/* ── Responsive 768px ── */
 @media (max-width: 768px) {
+    .getintouch-section {
+        border-radius: 40px 40px 0 0;
+        padding: 3rem 1.25rem 8rem;
+    }
+
     .getintouch-card {
         padding: 2rem 1.5rem;
         border-radius: 18px;
@@ -240,5 +253,108 @@
 
     .git-field {
         border-right: none;
+    }
+}
+
+/* ── Responsive 480px ── */
+@media (max-width: 480px) {
+    .getintouch-section {
+        border-radius: 20px 20px 0 0;
+        padding: 2.5rem 1rem 6rem;
+    }
+
+    .getintouch-card {
+        padding: 1.75rem 1.25rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .git-label {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.75rem;
+    }
+
+    .git-heading {
+        font-size: 20px;
+        margin-bottom: 1.25rem;
+    }
+
+    .git-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .git-tab {
+        padding: 0.5rem 1.25rem;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .git-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .git-row {
+        grid-template-columns: 1fr;
+    }
+
+    .git-field {
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid #f1f5f9;
+        border-right: none;
+        gap: 0.6rem;
+    }
+
+    .git-row.full .git-field {
+        border-right: none;
+    }
+
+    .git-field-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .git-field input,
+    .git-field textarea,
+    .git-field select {
+        font-size: 16px;
+        padding: 0 0.25rem;
+    }
+
+    .git-field input::placeholder,
+    .git-field textarea::placeholder {
+        font-size: 14px;
+    }
+
+    .git-select-wrap select {
+        padding-right: 1.25rem;
+    }
+
+    .git-submit-row {
+        padding: 1.25rem 1rem 0;
+    }
+
+    .git-submit-btn {
+        gap: 0.4rem;
+        padding: 0.6rem 1.5rem;
+        font-size: 12px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .git-submit-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .git-status {
+        padding: 0.7rem 1rem;
+        font-size: 12px;
+        margin-top: 0.75rem;
+        border-radius: 6px;
     }
 }

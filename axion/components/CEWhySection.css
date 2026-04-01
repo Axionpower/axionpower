@@ -1,0 +1,132 @@
+/* ============================================================
+   CEWhySection — dark bg, z-index 7, stacked
+   ============================================================ */
+.ce-why {
+  background: #0a0e1a;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 7;
+  padding: 100px 0 120px;
+}
+
+.ce-why__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.ce-why__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.ce-why__label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(56,214,138,1);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.ce-why__heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Stats strip */
+.ce-why__stats {
+  display: flex;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.ce-why__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+
+.ce-why__stat:last-child { border-right: none; }
+
+.ce-why__stat-value {
+  font-size: 26px;
+  font-weight: 900;
+  color: rgba(56,214,138,1);
+  line-height: 1;
+}
+
+.ce-why__stat-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Reason cards */
+.ce-why__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.ce-why__card {
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 28px 22px;
+  transition: border-color 0.2s;
+}
+
+.ce-why__card:hover { border-color: rgba(56,214,138,0.3); }
+
+.ce-why__card-icon {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.ce-why__card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+.ce-why__card-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .ce-why__container { padding: 0 24px; }
+  .ce-why__cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .ce-why { padding: 80px 0 80px; border-radius: 60px 60px 0 0; }
+  .ce-why__heading { font-size: 30px; }
+  .ce-why__stats { flex-wrap: wrap; }
+  .ce-why__stat { width: 50%; border-bottom: 1px solid rgba(255,255,255,0.07); }
+}
+
+@media (max-width: 480px) {
+  .ce-why { border-radius: 32px 32px 0 0; padding-bottom: 80px; }
+  .ce-why__cards { grid-template-columns: 1fr; }
+  .ce-why__stat { width: 100%; }
+}

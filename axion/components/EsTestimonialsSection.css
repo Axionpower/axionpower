@@ -1,0 +1,137 @@
+/* EsTestimonialsSection - Testimonials */
+
+.est-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 100px 100px 0 0;
+  margin-top: -200px;
+  z-index: 6;
+  overflow: hidden;
+}
+
+.est-inner {
+  padding: 80px 100px 260px;
+}
+
+/* Label row */
+.est-label-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.est-label-bar {
+  width: 4px;
+  height: 22px;
+  background-color: #e53935;
+  border-radius: 2px;
+}
+
+.est-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e53935;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.est-heading {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 12px 0 40px 0;
+  line-height: 1.15;
+  white-space: pre-line;
+}
+
+/* Testimonial cards row */
+.est-cards {
+  display: flex;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.est-card {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: auto;
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fff5f5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.est-card-stars {
+  font-size: 16px;
+  color: #e53935;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.est-card-quote {
+  font-size: 15px;
+  color: #444444;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.est-card-author {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 4px 0;
+}
+
+.est-card-role {
+  font-size: 12px;
+  color: #777777;
+}
+
+/* Responsive 1100px */
+@media (max-width: 1100px) {
+  .est-inner {
+    padding: 60px 48px 200px;
+  }
+
+  .est-cards {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .est-card {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 280px;
+  }
+}
+
+/* Responsive 640px */
+@media (max-width: 640px) {
+  .est-section {
+    border-radius: 50px 50px 0 0;
+    margin-top: -100px;
+  }
+
+  .est-inner {
+    padding: 40px 24px 120px;
+  }
+
+  .est-heading {
+    font-size: 28px;
+  }
+
+  .est-cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .est-card {
+    width: 100%;
+    min-width: auto;
+  }
+}

@@ -1,7 +1,7 @@
 <?php
 /**
  * Axion CMS – Field Renderers
- * Renders HTML form fields: text, textarea, select, image, repeater
+ * Renders HTML form fields: text, textarea, select, image, repeater, color, number
  */
 
 if (!defined('ABSPATH'))
@@ -42,6 +42,12 @@ class Axion_Fields
                 break;
             case 'repeater':
                 self::render_repeater($name, $value, $field);
+                break;
+            case 'color':
+                self::render_color($name, $value, $field);
+                break;
+            case 'number':
+                self::render_number($name, $value, $field);
                 break;
         }
 
@@ -103,6 +109,41 @@ class Axion_Fields
         echo '<button type="button" class="button axion-image-upload" data-target="' . $name . '">Select Image</button>';
         if ($value) {
             echo ' <button type="button" class="button axion-image-remove" data-target="' . $name . '">Remove</button>';
+        }
+        echo '</div>';
+    }
+
+    // ─── Color ───
+    private static function render_color($name, $value, $field)
+    {
+        $default = esc_attr($field['default'] ?? '#1e88e5');
+        $val     = $value ?: $default;
+        echo '<div class="axion-color-field" style="display:flex;align-items:center;gap:10px;">';
+        // Native color swatch
+        echo '<input type="color" id="' . $name . '_swatch" value="' . esc_attr($val) . '"'
+            . ' style="width:44px;height:36px;padding:2px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:none;"'
+            . ' oninput="document.getElementById(\'' . $name . '_hex\').value=this.value;document.getElementById(\'' . $name . '\').value=this.value;" />';
+        // Hex text input
+        echo '<input type="text" id="' . $name . '_hex" value="' . esc_attr($val) . '" placeholder="#000000"'
+            . ' class="axion-input" style="width:120px;"'
+            . ' oninput="if(/^#[0-9A-Fa-f]{6}$/.test(this.value)){document.getElementById(\'' . $name . '_swatch\').value=this.value;document.getElementById(\'' . $name . '\').value=this.value;}" />';
+        // Hidden real field that gets submitted
+        echo '<input type="hidden" id="' . $name . '" name="' . $name . '" value="' . esc_attr($val) . '" />';
+        echo '</div>';
+    }
+
+    // ─── Number ───
+    private static function render_number($name, $value, $field)
+    {
+        $min  = isset($field['min'])  ? ' min="'  . intval($field['min'])  . '"' : '';
+        $max  = isset($field['max'])  ? ' max="'  . intval($field['max'])  . '"' : '';
+        $step = isset($field['step']) ? ' step="' . esc_attr($field['step']) . '"' : ' step="1"';
+        $unit = $field['unit'] ?? '';
+        $placeholder = esc_attr($field['placeholder'] ?? '');
+        echo '<div style="display:flex;align-items:center;gap:6px;">';
+        echo '<input type="number" id="' . $name . '" name="' . $name . '" value="' . esc_attr($value) . '" placeholder="' . $placeholder . '" class="axion-input" style="width:100px;"' . $min . $max . $step . ' />';
+        if ($unit) {
+            echo '<span style="font-size:13px;color:#666;">' . esc_html($unit) . '</span>';
         }
         echo '</div>';
     }

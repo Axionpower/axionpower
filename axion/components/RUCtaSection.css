@@ -1,0 +1,205 @@
+.ru-cta {
+    position: relative;
+    width: 100%;
+    background: #0a0e1a;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem;
+    z-index: 9;
+    padding: 6rem 120px 7rem;
+    box-sizing: border-box;
+}
+
+.ru-cta-inner {
+    display: flex;
+    gap: 28px;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Main card ─────────────────────────────────────────────────────────────── */
+.ru-cta-main {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,191,69,0.15);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.ru-cta-main-top {
+    height: 6px;
+    background: rgba(255,191,69,1);
+}
+
+.ru-cta-main-body {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ru-cta-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ru-cta-label-bar {
+    width: 3px;
+    height: 16px;
+    background: rgba(255,191,69,1);
+    border-radius: 1px;
+}
+
+.ru-cta-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,191,69,1);
+    letter-spacing: 0.1em;
+}
+
+.ru-cta-heading {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.ru-cta-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(200,215,235,0.8);
+    margin: 0 0 28px 0;
+}
+
+.ru-cta-buttons {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.ru-cta-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    padding: 0 22px;
+    border-radius: 23px;
+    background: rgba(255,191,69,1);
+    color: #0a0e1a;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.ru-cta-btn-primary:hover { opacity: 0.88; }
+
+.ru-cta-btn-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    padding: 0 22px;
+    border-radius: 23px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.ru-cta-btn-ghost:hover { background: rgba(255,255,255,0.06); }
+
+.ru-cta-phone {
+    font-size: 13px;
+    color: rgba(200,215,235,0.6);
+    margin: 0;
+    margin-top: auto;
+}
+
+/* ─── Service mini-cards ────────────────────────────────────────────────────── */
+.ru-cta-cards {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ru-cta-card {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.ru-cta-card-top { height: 5px; }
+
+.ru-cta-card-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ru-cta-card-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.ru-cta-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.ru-cta-card-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(200,215,235,0.7);
+    margin: 0 0 16px 0;
+    flex: 1;
+}
+
+.ru-cta-card-link {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    margin-top: auto;
+}
+
+.ru-cta-card-link:hover { opacity: 0.75; }
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ru-cta { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .ru-cta-cards { flex: 0 0 260px; }
+}
+
+@media (max-width: 900px) {
+    .ru-cta-inner { flex-direction: column; }
+    .ru-cta-cards { flex: none; flex-direction: row; }
+    .ru-cta-card { flex: 1; }
+}
+
+@media (max-width: 640px) {
+    .ru-cta { padding: 4rem 20px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .ru-cta-heading { font-size: 30px; }
+    .ru-cta-cards { flex-direction: column; }
+    .ru-cta-buttons { flex-direction: column; }
+    .ru-cta-btn-primary, .ru-cta-btn-ghost { width: 100%; }
+}

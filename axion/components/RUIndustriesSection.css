@@ -1,0 +1,124 @@
+.ru-industries {
+    position: relative;
+    width: 100%;
+    background: #0a0e1a;
+    border-radius: 100px 100px 0 0;
+    margin-top: -5rem;
+    z-index: 7;
+    padding: 6rem 120px 7rem;
+    box-sizing: border-box;
+}
+
+.ru-industries-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.ru-industries-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.ru-industries-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ru-industries-label-bar {
+    width: 3px;
+    height: 16px;
+    background: rgba(255,191,69,1);
+    border-radius: 1px;
+}
+
+.ru-industries-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,191,69,1);
+    letter-spacing: 0.1em;
+}
+
+.ru-industries-heading {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+}
+
+.ru-industries-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(200,215,235,0.75);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+.ru-industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ─── Card ──────────────────────────────────────────────────────────────────── */
+.ru-industries-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ru-industries-icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.ru-industries-icon { font-size: 22px; }
+
+.ru-industries-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.ru-industries-card-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(200,215,235,0.7);
+    margin: 0 0 16px 0;
+    flex: 1;
+}
+
+.ru-industries-card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: auto;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .ru-industries { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .ru-industries-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .ru-industries { padding: 4rem 20px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .ru-industries-heading { font-size: 30px; }
+    .ru-industries-grid { grid-template-columns: 1fr; }
+}

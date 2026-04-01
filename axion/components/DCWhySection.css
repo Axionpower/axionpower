@@ -1,0 +1,81 @@
+/* ============================================================
+   DC WHY CHOOSE AXION  — z-index 7
+   ============================================================ */
+.dc-why {
+  background: #0a0e1a;
+  padding: 6rem 120px 7rem;
+  box-sizing: border-box;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 7;
+}
+.dc-why-inner { max-width: 1200px; margin: 0 auto; }
+
+.dc-why-header { margin-bottom: 40px; }
+.dc-why-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: rgba(0,217,255,1); display: block; margin-bottom: 14px;
+}
+.dc-why-heading {
+  font-size: 40px; font-weight: 800; color: #fff;
+  margin: 0; line-height: 1.2; white-space: pre-line;
+}
+
+.dc-why-stats {
+  display: flex; flex-wrap: wrap; gap: 0;
+  margin-bottom: 40px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.dc-why-stat {
+  flex: 1; min-width: 120px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+.dc-why-stat:last-child { border-right: none; }
+.dc-why-stat-value { font-size: 26px; font-weight: 800; color: rgba(0,217,255,1); margin-bottom: 6px; }
+.dc-why-stat-label { font-size: 11px; color: rgba(178,204,229,1); line-height: 1.4; }
+
+.dc-why-reasons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.dc-why-reason {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex; gap: 14px; align-items: flex-start;
+  transition: background .2s;
+}
+.dc-why-reason:hover { background: rgba(255,255,255,.07); }
+.dc-why-reason-check {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(0,217,255,.15); color: rgba(0,217,255,1);
+  font-size: 14px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.dc-why-reason-title { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 6px; }
+.dc-why-reason-desc  { font-size: 13px; color: rgba(178,204,229,1); margin: 0; line-height: 1.6; }
+
+@media (max-width: 1100px) { .dc-why { padding: 5rem 48px 8rem; } .dc-why-heading { font-size: 32px; } }
+@media (max-width: 768px) {
+  .dc-why { padding: 4rem 24px 8rem; border-radius: 60px 60px 0 0; }
+  .dc-why-reasons { grid-template-columns: 1fr 1fr; }
+  .dc-why-stats { flex-wrap: wrap; }
+  .dc-why-stat { min-width: 45%; }
+}
+@media (max-width: 480px) {
+  .dc-why { padding: 3rem 16px 7rem; border-radius: 40px 40px 0 0; }
+  .dc-why-reasons { grid-template-columns: 1fr; }
+  .dc-why-heading { font-size: 26px; }
+  .dc-why-stats { display: grid; grid-template-columns: 1fr 1fr; }
+  .dc-why-stat { min-width: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .dc-why-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.08); }
+  .dc-why-stat:last-child { border-bottom: none; }
+}

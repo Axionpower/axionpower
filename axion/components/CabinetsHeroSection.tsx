@@ -5,17 +5,33 @@ import "./CabinetsHeroSection.css";
 interface CabinetsHeroData {
     backgroundImage?: string;
     heading?: string;
+    headingTag?: string;
     headingHighlight?: string;
+    headingColor?: string;
     description?: string;
+    bodyColor?: string;
     keyHighlights?: string[];
     ctaLabel?: string;
     ctaUrl?: string;
+    breadcrumb?: string;
+    breadcrumbColor?: string;
+    btnBg?: string;
+    btnFg?: string;
+    highlightColor?: string;
+    headingFontSize?: string;
+    bodyFontSize?: string;
+    sectionMinHeight?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
 }
 
 const DEFAULTS: CabinetsHeroData = {
-    backgroundImage: "/images/vrla-hero-bg.png",
+    backgroundImage: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
     heading: "STATIONARY BATTERY",
+    headingTag: "h1",
     headingHighlight: "CABINETS",
+    headingColor: "#FFFFFF",
     description:
         "Axion Critical Power Solutions provides robust, purpose-built stationary battery cabinets designed to house and protect critical battery systems. Engineered for safety, ventilation, and easy maintenance access, our cabinets support VRLA, flooded, and lithium-ion installations across data centers, telecom facilities, and industrial environments.",
     keyHighlights: [
@@ -26,6 +42,8 @@ const DEFAULTS: CabinetsHeroData = {
     ],
     ctaLabel: "Speak with an Expert",
     ctaUrl: "#contact",
+    bodyColor: "#cbd5e1",
+    breadcrumb: "Battery Cabinets",
 };
 
 function CircleIcon() {
@@ -40,9 +58,15 @@ function CircleIcon() {
 
 export default function CabinetsHeroSection({ data }: { data?: CabinetsHeroData }) {
     const d = { ...DEFAULTS, ...data };
+    const HeadingTag = (d.headingTag || 'h1') as React.ElementType;
 
     return (
-        <section className="cabinets-hero">
+        <section className="cabinets-hero" style={{
+            ...(d.sectionMinHeight && { minHeight: d.sectionMinHeight }),
+            ...(d.paddingBottom && { paddingBottom: d.paddingBottom }),
+            ...(d.paddingLeft && { paddingLeft: d.paddingLeft }),
+            ...(d.paddingRight && { paddingRight: d.paddingRight }),
+        }}>
             {d.backgroundImage && (
                 <div className="cabinets-hero-bg">
                     <Image
@@ -57,27 +81,28 @@ export default function CabinetsHeroSection({ data }: { data?: CabinetsHeroData 
             <div className="cabinets-hero-overlay" />
 
             <div className="cabinets-hero-content">
-                <h1 className="cabinets-hero-heading">
-                    {d.heading} <span className="highlight">{d.headingHighlight}</span>
-                </h1>
+                <nav className="cabinets-breadcrumb" aria-label="Breadcrumb" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>
+                    <Link href="/" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>Home</Link>
+                    <span className="cabinets-breadcrumb-sep"> / </span>
+                    <span>{d.breadcrumb}</span>
+                </nav>
 
-                <p className="cabinets-hero-desc">{d.description}</p>
+                <HeadingTag className="cabinets-hero-heading" style={{
+                    ...(d.headingColor && { color: d.headingColor }),
+                    ...(d.headingFontSize && { fontSize: d.headingFontSize }),
+                }}>
+                    {d.heading} <span className="highlight" style={{ ...(d.highlightColor && { color: d.highlightColor }) }}>{d.headingHighlight}</span>
+                </HeadingTag>
 
-                <div className="cabinets-hero-columns">
-                    <div>
-                        <h2 className="cabinets-hero-col-title">Key Highlights</h2>
-                        <ul className="cabinets-hero-list">
-                            {d.keyHighlights?.map((item, i) => (
-                                <li key={i}>
-                                    <CircleIcon />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                <p className="cabinets-hero-desc" style={{
+                    ...(d.bodyColor && { color: d.bodyColor }),
+                    ...(d.bodyFontSize && { fontSize: d.bodyFontSize }),
+                }}>{d.description}</p>
 
-                <Link href={d.ctaUrl || "#"} className="cabinets-hero-cta">
+                <Link href={d.ctaUrl || "#"} className="cabinets-hero-cta" style={{
+                    ...(d.btnBg && { backgroundColor: d.btnBg }),
+                    ...(d.btnFg && { color: d.btnFg }),
+                }}>
                     {d.ctaLabel}
                 </Link>
             </div>

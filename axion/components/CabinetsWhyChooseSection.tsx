@@ -1,3 +1,4 @@
+import React from "react";
 import "./CabinetsWhyChooseSection.css";
 
 interface WhyCard {
@@ -34,6 +35,19 @@ interface CabinetsWhyChooseProps {
     headingHighlight?: string;
     headingLine3?: string;
     cards?: WhyCard[];
+    headingTag?: string;
+    cardHeadingTag?: string;
+    headingColor?: string;
+    headingFontSize?: string;
+    headingFontWeight?: string;
+    bgColor?: string;
+    highlightColor?: string;
+    marginTopOverlap?: string;
+    borderRadiusTop?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
 }
 
 export default function CabinetsWhyChooseSection({
@@ -41,15 +55,40 @@ export default function CabinetsWhyChooseSection({
     headingHighlight = "Choose",
     headingLine3 = "Us?",
     cards = DEFAULT_CARDS,
+    headingTag,
+    cardHeadingTag,
+    headingColor,
+    headingFontSize,
+    headingFontWeight,
+    bgColor,
+    highlightColor,
+    marginTopOverlap,
+    borderRadiusTop,
+    paddingTop, paddingBottom, paddingLeft, paddingRight,
 }: CabinetsWhyChooseProps) {
+    const HeadingTag = (headingTag || 'h2') as React.ElementType;
+    const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
     return (
-        <section className="cab-why">
-            <div className="cab-why-inner">
-                <h2 className="cab-why-heading">
+        <section className="cab-why" style={{
+            ...(bgColor && { backgroundColor: bgColor }),
+            ...(marginTopOverlap && { marginTop: `-${marginTopOverlap}` }),
+            ...(borderRadiusTop && { borderRadius: `${borderRadiusTop} ${borderRadiusTop} 0 0` }),
+        }}>
+            <div className="cab-why-inner" style={{
+                ...(paddingTop && { paddingTop }),
+                ...(paddingBottom && { paddingBottom }),
+                ...(paddingLeft && { paddingLeft }),
+                ...(paddingRight && { paddingRight }),
+            }}>
+                <HeadingTag className="cab-why-heading" style={{
+                    ...(headingColor && { color: headingColor }),
+                    ...(headingFontSize && { fontSize: headingFontSize }),
+                    ...(headingFontWeight && { fontWeight: headingFontWeight }),
+                }}>
                     {headingLine1}
-                    <span className="highlight">{headingHighlight}</span>
+                    <span className="highlight" style={{ ...(highlightColor && { color: highlightColor }) }}>{headingHighlight}</span>
                     {headingLine3}
-                </h2>
+                </HeadingTag>
 
                 <div className="cab-why-grid">
                     {cards.map((card, i) => (

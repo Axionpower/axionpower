@@ -1,0 +1,146 @@
+/* ============================================================
+   ERStandardsSection — white bg, z-index 6, stacked
+   ============================================================ */
+.er-std {
+  background: #ffffff;
+  border-radius: 100px 100px 0 0;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 6;
+  padding: 100px 0 7rem;
+}
+
+.er-std__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.er-std__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.er-std__label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(251,146,60,1);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.er-std__heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0a0e1a;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.er-std__subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Grid — 5 columns (2 rows of 5) */
+.er-std__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.er-std__card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.er-std__card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+.er-std__card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.er-std__card-code {
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(251,146,60,1);
+  letter-spacing: 0.04em;
+}
+
+.er-std__card-body {
+  font-size: 9px;
+  font-weight: 800;
+  color: #9ca3af;
+  letter-spacing: 0.1em;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.er-std__card-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0a0e1a;
+  margin: 0;
+}
+
+.er-std__card-scope {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.er-std__card-applies {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-top: auto;
+}
+
+.er-std__applies-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.er-std__applies-value {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(251,146,60,1);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .er-std__grid { grid-template-columns: repeat(3, 1fr); }
+  .er-std__container { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .er-std { padding: 80px 0 80px; border-radius: 60px 60px 0 0; }
+  .er-std__grid { grid-template-columns: repeat(2, 1fr); }
+  .er-std__heading { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  .er-std { padding: 60px 0 80px; border-radius: 32px 32px 0 0; }
+  .er-std__grid { grid-template-columns: 1fr; }
+}
