@@ -23,9 +23,9 @@
     align-items: center;
     gap: 0.6rem;
     margin-bottom: 1.5rem;
-    border-left: 3px solid #ffffff;
+    border-left: 3px solid #0a0a14;
     padding-left: 0.7rem;
-    color: #ffffff;
+    color: #0a0a14;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -33,7 +33,7 @@
 
 /* ── Description ── */
 .cabinets-about-desc {
-    color: rgba(255, 255, 255, 0.95);
+    color: #1a1a2e;
     font-size: 36px;
     line-height: 1.4;
     font-weight: 700;

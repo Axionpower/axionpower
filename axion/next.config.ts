@@ -26,6 +26,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline'",
       `img-src 'self' data: https://${wpHostname} https://violet-tarsier-674356.hostingersite.com`,
+      `media-src 'self' https://${wpHostname} https://violet-tarsier-674356.hostingersite.com blob:`,
       "font-src 'self' data:",
       "connect-src 'self'",
       "frame-ancestors 'none'",
@@ -36,6 +37,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
+    qualities: [75, 85, 90],
     remotePatterns: [
       {
         protocol: "https",

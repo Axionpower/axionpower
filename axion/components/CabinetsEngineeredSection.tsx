@@ -1,11 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./CabinetsEngineeredSection.css";
 
 interface CabinetsEngineeredProps {
     label?: string;
     description?: string;
     image?: string;
+    videoUrl?: string;
     bgColor?: string;
     labelColor?: string;
     bodyColor?: string;
@@ -24,6 +25,7 @@ export default function CabinetsEngineeredSection({
     label = "Engineered Cabinet Solutions for Critical Power",
     description = "Axion provides factory-assembled battery cabinets that integrate seamlessly with leading UPS platforms. Selection is based on system requirements such as UPS model, runtime, room layout, ventilation, and seismic considerations.\nOur technical team works closely with engineers, contractors, and end users to ensure cabinet solutions meet operational, safety, and compliance standards.",
     image = "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+    videoUrl,
     bgColor, labelColor, bodyColor, accentColor, labelFontSize, bodyFontSize,
     marginTopOverlap, borderRadiusTop,
     paddingTop, paddingBottom, paddingLeft, paddingRight,
@@ -60,8 +62,9 @@ export default function CabinetsEngineeredSection({
                 </div>
                 <div className="cabinets-eng-image">
                     <div className="cabinets-eng-bolt top-left" />
-                    <Image
-                        src={image}
+                    <CmsMedia
+                        imageUrl={image}
+                        videoUrl={videoUrl}
                         alt="Engineer inspecting battery cabinet"
                         width={500}
                         height={400}

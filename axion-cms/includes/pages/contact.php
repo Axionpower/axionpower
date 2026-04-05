@@ -12,7 +12,7 @@ return [
         // ─── HERO ───
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '📞',
+            'icon'  => 'phone',
             'fields' => [
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image', 'description' => 'Recommended: 1920×700px. Server room / data center photo works well.'],
                 ['name' => 'badge',       'label' => 'Badge Text',   'type' => 'text',     'default' => 'CONTACT US'],
@@ -27,7 +27,7 @@ return [
         // ─── CONTACT INFO ───
         'contact-info' => [
             'label' => 'Contact Information',
-            'icon'  => '📋',
+            'icon'  => 'clipboard',
             'fields' => [
                 ['name' => 'customer_service_phone1', 'label' => 'Customer Service Phone 1', 'type' => 'text',     'default' => '343 434 43435'],
                 ['name' => 'customer_service_phone2', 'label' => 'Customer Service Phone 2', 'type' => 'text',     'default' => '334 444 4245'],
@@ -41,7 +41,7 @@ return [
         // ─── WHY CONTACT AXION ───
         'why-contact' => [
             'label' => 'Why Contact Axion Section',
-            'icon'  => '✅',
+            'icon'  => 'check-circle',
             'fields' => [
                 ['name' => 'heading',     'label' => 'Heading',     'type' => 'text',     'default' => 'Why Contact Axion?'],
                 ['name' => 'description', 'label' => 'Description', 'type' => 'textarea', 'rows' => 2, 'default' => ''],
@@ -66,7 +66,7 @@ return [
         // ─── CTA ───
         'cta' => [
             'label' => 'CTA Section',
-            'icon'  => '🚀',
+            'icon'  => 'trending-up',
             'fields' => [
                 ['name' => 'cta1_label', 'label' => 'CTA 1 Label', 'type' => 'text', 'default' => 'Speak with an Axion technical expert today'],
                 ['name' => 'cta1_url',   'label' => 'CTA 1 URL',   'type' => 'text', 'default' => '#contact-form'],

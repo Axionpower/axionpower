@@ -19,7 +19,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🌿',
+            'icon'   => 'target',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -83,7 +83,7 @@ return [
         // ══════════════════════════════════════════════════
         'intro' => [
             'label'  => 'Introduction Section',
-            'icon'   => '📘',
+            'icon'   => 'file-text',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -149,7 +149,7 @@ return [
 
         'intro-steps' => [
             'label'  => 'Introduction – Lifecycle Steps',
-            'icon'   => '🔄',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 [
                     'name'  => 'steps', 'label' => 'Lifecycle Steps', 'type' => 'repeater',
@@ -163,7 +163,7 @@ return [
 
         'intro-badges' => [
             'label'  => 'Introduction – Stat Badges',
-            'icon'   => '🏅',
+            'icon'   => 'file-text',
             'fields' => [
                 [
                     'name'  => 'badges', 'label' => 'Stat Badges', 'type' => 'repeater',
@@ -182,7 +182,7 @@ return [
         // ══════════════════════════════════════════════════
         'recycling' => [
             'label'  => 'Recycling Programs Section',
-            'icon'   => '♻️',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -246,7 +246,7 @@ return [
 
         'recycling-items' => [
             'label'  => 'Recycling Programs – List Items',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 [
                     'name'  => 'items', 'label' => 'Recycling Items', 'type' => 'repeater',
@@ -264,7 +264,7 @@ return [
         // ══════════════════════════════════════════════════
         'compliance' => [
             'label'  => 'Environmental Compliance Section',
-            'icon'   => '📜',
+            'icon'   => 'file-text',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -318,7 +318,7 @@ return [
 
         'compliance-cards' => [
             'label'  => 'Environmental Compliance – Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Compliance Cards', 'type' => 'repeater',
@@ -337,7 +337,7 @@ return [
         // ══════════════════════════════════════════════════
         'sourcing' => [
             'label'  => 'Responsible Sourcing Section',
-            'icon'   => '🌱',
+            'icon'   => 'leaf',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -390,7 +390,7 @@ return [
 
         'sourcing-cards' => [
             'label'  => 'Responsible Sourcing – Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Sourcing Cards', 'type' => 'repeater',
@@ -411,7 +411,7 @@ return [
         // ══════════════════════════════════════════════════
         'safety' => [
             'label'  => 'Safety & Handling Section',
-            'icon'   => '🦺',
+            'icon'   => 'file-text',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -480,7 +480,7 @@ return [
 
         'safety-items' => [
             'label'  => 'Safety & Handling – List Items',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 [
                     'name'  => 'items', 'label' => 'Safety Items', 'type' => 'repeater',
@@ -506,7 +506,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'CTA Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',

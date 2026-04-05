@@ -1,4 +1,4 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./ComplianceSection.css";
 import type { ComplianceData, ComplianceColumn } from "@/lib/queries/compliance";
@@ -51,16 +51,18 @@ function ColumnCard({ col, cardBgColor, cardBorderColor, cardBorderRadius }: {
             >
                 <div className="card-image-wrap">
                     {col.image?.node?.sourceUrl ? (
-                        <Image
-                            src={col.image.node.sourceUrl}
+                        <CmsMedia
+                            imageUrl={col.image.node.sourceUrl}
+                            videoUrl={col.videoUrl}
                             alt={col.image.node.altText || col.heading}
                             width={240}
                             height={180}
                             className="card-image"
                         />
                     ) : (
-                        <Image
-                            src="https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"
+                        <CmsMedia
+                            imageUrl="https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"
+                            videoUrl={col.videoUrl}
                             alt={col.heading}
                             width={240}
                             height={180}

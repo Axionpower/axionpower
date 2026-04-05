@@ -49,7 +49,7 @@ export async function getAxionSection<T = Record<string, unknown>>(
 
         return parsed as T;
     } catch (error) {
-        console.error(`Failed to fetch axion section ${pageSlug}/${sectionSlug}:`, error);
+        console.error(`[AXION FAIL ${pageSlug}/${sectionSlug}]:`, error);
         return null;
     }
 }

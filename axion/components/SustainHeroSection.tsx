@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import "./SustainHeroSection.css";
 import type { SustainHeroData } from "@/lib/queries/sustainability";
@@ -12,7 +13,6 @@ export default function SustainHeroSection({ data }: Props) {
 
     // Merge background image with CMS overrides
     const finalSectionStyle: React.CSSProperties = {
-        backgroundImage: `url(${data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"})`,
         ...(o.bgColor       && { backgroundColor: o.bgColor }),
         ...(o.sectionHeight && { height:    o.sectionHeight }),
         ...(o.minHeight     && { minHeight: o.minHeight }),
@@ -28,7 +28,12 @@ export default function SustainHeroSection({ data }: Props) {
     const headingLines = data.heading.split("\n");
 
     return (
-        <section className="sh-hero" style={finalSectionStyle}>
+        <HeroBackground
+            imageUrl={data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+            videoUrl={data.backgroundVideoUrl}
+            className="sh-hero"
+            style={Object.keys(finalSectionStyle).length ? finalSectionStyle : undefined}
+        >
             {/* Background layers */}
             <div className="sh-overlay" aria-hidden="true" />
             <div className="sh-grid" aria-hidden="true" />
@@ -97,6 +102,6 @@ export default function SustainHeroSection({ data }: Props) {
                     ))}
                 </div>
             </div>
-        </section>
+        </HeroBackground>
     );
 }

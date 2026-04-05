@@ -14,7 +14,7 @@ return [
         // ====================================================================
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 ['name' => 'bg_image',    'label' => '🖼 Hero Background Image', 'type' => 'image',    'description' => 'Optional full-width hero background photo. Recommended: 1920×1080px. Leave empty for default dark background.'],
                 ['name' => 'accent_color','label' => '🎨 Accent Color',          'type' => 'color',    'default' => '#38d68a', 'description' => 'Primary accent color used on buttons, highlights, and stat values across this page.'],
@@ -66,7 +66,7 @@ return [
         // ====================================================================
         'resources-downloads' => [
             'label'  => 'Resources & Downloads',
-            'icon'   => '📁',
+            'icon'   => 'file-text',
             'fields' => [
                 ['name' => 'bg_color',    'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#ffffff'],
                 ['name' => 'label',       'label' => 'Section Label',               'type' => 'text',     'default' => 'TECHNICAL RESOURCES'],
@@ -101,7 +101,7 @@ return [
         // ====================================================================
         'battery-selection' => [
             'label'  => 'Battery Selection Guide',
-            'icon'   => '🔋',
+            'icon'   => 'battery',
             'fields' => [
                 ['name' => 'bg_color',          'label' => '🎨 Section Background Color',    'type' => 'color',    'default' => '#0a0e1a'],
                 ['name' => 'label',             'label' => 'Section Label',                  'type' => 'text',     'default' => 'BATTERY SELECTION GUIDE'],
@@ -140,7 +140,7 @@ return [
         // ====================================================================
         'specification-support' => [
             'label'  => 'Specification Support',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#ffffff'],
                 ['name' => 'label',    'label' => 'Section Label',               'type' => 'text',     'default' => 'SPECIFICATION SUPPORT'],
@@ -171,7 +171,7 @@ return [
         // ====================================================================
         'standards-codes' => [
             'label'  => 'Standards & Codes',
-            'icon'   => '🛡',
+            'icon'   => 'shield',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#0a0e1a'],
                 ['name' => 'label',    'label' => 'Section Label',               'type' => 'text',     'default' => 'STANDARDS & CODES'],
@@ -219,7 +219,7 @@ return [
         // ====================================================================
         'project-applications' => [
             'label'  => 'Project Applications',
-            'icon'   => '🏭',
+            'icon'   => 'factory',
             'fields' => [
                 ['name' => 'bg_color',       'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#ffffff'],
                 ['name' => 'label',          'label' => 'Section Label',               'type' => 'text',     'default' => 'PROJECT APPLICATIONS'],
@@ -253,7 +253,7 @@ return [
         // ====================================================================
         'why-axion' => [
             'label'  => 'Why Axion for Engineers',
-            'icon'   => '⭐',
+            'icon'   => 'star',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a'],
                 ['name' => 'label',    'label' => 'Section Label',               'type' => 'text',  'default' => 'WHY AXION'],
@@ -298,7 +298,7 @@ return [
         // ====================================================================
         'cta' => [
             'label'  => 'Call to Action',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 ['name' => 'bg_color',      'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#1565c0'],
                 ['name' => 'label',         'label' => 'Label',                       'type' => 'text',     'default' => 'READY TO SPECIFY?'],

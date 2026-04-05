@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./EngineeringSection.css";
 import type { EngineeringData } from "@/lib/queries/engineering";
@@ -16,9 +16,10 @@ export default function EngineeringSection({ data }: Props) {
             {/* Decorative floating images */}
             <div className="eng-floating-images">
                 {data.decorImages.map((img, i) => (
-                    <Image
+                    <CmsMedia
                         key={i}
-                        src={img.image?.node?.sourceUrl || img.fallback}
+                        imageUrl={img.image?.node?.sourceUrl || img.fallback}
+                        videoUrl={img.videoUrl}
                         alt={img.image?.node?.altText || `Engineering ${i + 1}`}
                         width={160}
                         height={120}

@@ -125,13 +125,18 @@ export async function getFaqData(): Promise<FaqData> {
         const { getAxionSection } = await import("@/lib/queries/axion-cms");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const ax = await getAxionSection<any>("home", "faq");
-        if (ax && (ax.heading || ax.faqs)) {
+        if (ax && (ax.heading || ax.label_text || ax.faqs)) {
             const merged = { ...FAQ_DEFAULTS };
+            if (ax.bg_color) merged.bgColor = ax.bg_color;
+            if (ax.label_text) merged.labelText = ax.label_text;
+            if (ax.label_color) merged.labelColor = ax.label_color;
             if (ax.heading) merged.heading = ax.heading;
+            if (ax.heading_color) merged.headingColor = ax.heading_color;
+            if (ax.intro_text) merged.introText = ax.intro_text;
             if (Array.isArray(ax.faqs) && ax.faqs.length > 0) {
                 merged.faqs = ax.faqs.map((f: { question: string; answer: string }) => ({
                     question: f.question,
-                    answers: [f.answer],
+                    answers: (f.answer || "").split("\n").filter(Boolean),
                 }));
             }
             return merged;

@@ -1,5 +1,5 @@
 "use client";
-
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import Link from "next/link";
 import "./STHeroSection.css";
@@ -11,18 +11,11 @@ interface Props {
 
 export default function STHeroSection({ data }: Props) {
     return (
-        <section
+    <HeroBackground
+            imageUrl={data.bgImage}
+            videoUrl={data.bgVideoUrl}
             className="sth-hero"
-            style={
-                {
-                    '--accent': data.accentColor,
-                    ...(data.bgImage ? {
-                        backgroundImage: `url(${data.bgImage})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    } : {}),
-                } as React.CSSProperties
-            }
+            style={{ '--accent': data.accentColor } as React.CSSProperties}
         >
             {/* Decorative elements */}
             <div className="sth-glow sth-glow-blue" aria-hidden="true" />
@@ -176,6 +169,6 @@ export default function STHeroSection({ data }: Props) {
 
             {/* Column separator */}
             <div className="sth-column-separator" aria-hidden="true" />
-        </section>
+        </HeroBackground>
     );
 }

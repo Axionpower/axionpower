@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./ProductsSection.css";
 import type { ProductsData, ProductCard } from "@/lib/queries/products";
@@ -16,8 +16,8 @@ function LightningBolt({ position, icon, color = "#0EA5E9" }: {
     return (
         <div className={`bolt-pad ${position}`}>
             {icon?.node?.sourceUrl ? (
-                <Image
-                    src={icon.node.sourceUrl}
+                <CmsMedia
+                    imageUrl={icon.node.sourceUrl}
                     alt={icon.node.altText || "decoration"}
                     width={55}
                     height={110}
@@ -75,8 +75,9 @@ function ProductCardItem({ product, index, highlightsLabel = "Key Highlights", a
     const imageContent = (
         <div className="product-image-wrap">
             <LightningBolt position="top-left" icon={product.iconTop} color="#ffffff" />
-            <Image
-                src={product.image?.node?.sourceUrl || product.fallbackImage}
+            <CmsMedia
+                imageUrl={product.image?.node?.sourceUrl || product.fallbackImage}
+                videoUrl={product.videoUrl}
                 alt={product.image?.node?.altText || product.name}
                 width={520}
                 height={400}

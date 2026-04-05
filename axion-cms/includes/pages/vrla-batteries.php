@@ -17,7 +17,7 @@ return [
         // ════════════════════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -86,7 +86,7 @@ return [
         // ════════════════════════════════════════════════════
         'about' => [
             'label' => 'About Section',
-            'icon'  => '📋',
+            'icon'  => 'clipboard',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label_text', 'label' => 'Label Text', 'type' => 'text',
@@ -127,7 +127,7 @@ return [
         // ════════════════════════════════════════════════════
         'applications' => [
             'label' => 'Typical Applications',
-            'icon'  => '📱',
+            'icon'  => 'smartphone',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label', 'label' => 'Section Label', 'type' => 'text',
@@ -136,10 +136,33 @@ return [
                     'default' => 'VRLA batteries are widely used in critical environments, including'],
                 [
                     'name'  => 'cards', 'label' => 'Application Cards', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title'       => 'Data Center UPS Systems',
+                            'description' => 'Supporting continuous IT operations and redundancy',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Telecommunications',
+                            'description' => 'Ensuring network continuity and uptime',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Healthcare Facilities',
+                            'description' => 'Powering life-safety and essential electrical systems',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Commercial & Industrial UPS Installations',
+                            'description' => 'Reliable backup for critical operations',
+                            'image'       => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title',       'label' => 'Title',       'type' => 'text'],
                         ['name' => 'description', 'label' => 'Description', 'type' => 'text'],
-                        ['name' => 'image',       'label' => 'Image',       'type' => 'image'],
+                        ['name' => 'image',       'label' => 'Card Image',  'type' => 'image',
+                            'description' => 'Recommended: 600×400px. Background image for the card.'],
                     ],
                 ],
                 // ── ⬆ Section Stacking ──
@@ -179,17 +202,40 @@ return [
         // ════════════════════════════════════════════════════
         'key-benefits' => [
             'label' => 'Key Benefits',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 // ── Content ──
                 ['name' => 'heading', 'label' => 'Heading', 'type' => 'text',
                     'default' => 'Key Benefits'],
                 [
                     'name'  => 'cards', 'label' => 'Benefit Cards', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title'       => 'Maintenance-Free Operation',
+                            'description' => 'No need for regular electrolyte checks — sealed design requires zero water top-up.',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Compact Footprint',
+                            'description' => 'Ideal for space-constrained installations where rack density matters.',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'High Power Density',
+                            'description' => 'Delivers reliable power in a smaller form factor across all critical applications.',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Proven Reliability',
+                            'description' => 'Field-tested in mission-critical environments including data centres, telecom, and healthcare.',
+                            'image'       => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title',       'label' => 'Title',       'type' => 'text'],
                         ['name' => 'description', 'label' => 'Description', 'type' => 'text'],
-                        ['name' => 'image',       'label' => 'Image',       'type' => 'image'],
+                        ['name' => 'image',       'label' => 'Card Image',  'type' => 'image',
+                            'description' => 'Recommended: 600×400px. Background image for the card.'],
                     ],
                 ],
                 // ── ⬆ Section Stacking ──
@@ -228,7 +274,7 @@ return [
         // ════════════════════════════════════════════════════
         'why-choose' => [
             'label' => 'Why Choose Us',
-            'icon'  => '👍',
+            'icon'  => 'thumbs-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'heading_line1',      'label' => 'Heading Line 1',             'type' => 'text', 'default' => 'Why Choose'],

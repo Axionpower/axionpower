@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./WetCellKeyBenefitsSection.css";
 
 interface BenefitCard {
     title: string;
     description: string;
     image: string;
+    videoUrl?: string;
 }
 
 const DEFAULT_CARDS: BenefitCard[] = [
@@ -154,7 +155,7 @@ export default function WetCellKeyBenefitsSection({
                 {cards.map((card, i) => (
                     <div key={i} className="wetcell-benefit-card">
                         <div className="wetcell-benefit-card-img">
-                            <Image src={card.image} alt={card.title} fill style={{ objectFit: "cover" }} />
+                            <CmsMedia imageUrl={card.image} videoUrl={card.videoUrl} alt={card.title} fill />
                         </div>
                         <div className="wetcell-benefit-card-body">
                             <CardTag className="wetcell-benefit-card-title">{card.title}</CardTag>
@@ -176,7 +177,7 @@ export default function WetCellKeyBenefitsSection({
                     {cards.map((card, i) => (
                         <div key={i} className="wetcell-benefit-card">
                             <div className="wetcell-benefit-card-img">
-                                <Image src={card.image} alt={card.title} fill style={{ objectFit: "cover" }} />
+                                <CmsMedia imageUrl={card.image} videoUrl={card.videoUrl} alt={card.title} fill />
                             </div>
                             <div className="wetcell-benefit-card-body">
                                 <CardTag className="wetcell-benefit-card-title">{card.title}</CardTag>

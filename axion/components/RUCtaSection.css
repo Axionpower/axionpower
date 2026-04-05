@@ -5,7 +5,7 @@
     border-radius: 100px 100px 0 0;
     margin-top: -5rem;
     z-index: 9;
-    padding: 6rem 120px 7rem;
+    padding: 6rem 120px 13rem;
     box-sizing: border-box;
 }
 
@@ -186,7 +186,7 @@
 
 /* ─── Responsive ────────────────────────────────────────────────────────────── */
 @media (max-width: 1100px) {
-    .ru-cta { padding: 5rem 48px 6rem; border-radius: 60px 60px 0 0; }
+    .ru-cta { padding: 5rem 48px 12rem; border-radius: 60px 60px 0 0; }
     .ru-cta-cards { flex: 0 0 260px; }
 }
 
@@ -197,7 +197,7 @@
 }
 
 @media (max-width: 640px) {
-    .ru-cta { padding: 4rem 20px 5rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
+    .ru-cta { padding: 4rem 20px 11rem; border-radius: 50px 50px 0 0; margin-top: -3rem; }
     .ru-cta-heading { font-size: 30px; }
     .ru-cta-cards { flex-direction: column; }
     .ru-cta-buttons { flex-direction: column; }

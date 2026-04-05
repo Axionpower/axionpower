@@ -25,6 +25,7 @@ export interface CEHeroData {
   panelResources: CEHeroResource[];
   btnLabel: string; btnUrl: string;
   bgImage?: string;
+  bgVideoUrl?: string;
   accentColor: string;
 }
 export async function getCEHeroData(): Promise<CEHeroData> {
@@ -58,6 +59,7 @@ export async function getCEHeroData(): Promise<CEHeroData> {
     btnLabel:    val(raw.btn_label)    ?? "Request Spec Support →",
     btnUrl:      val(raw.btn_url)      ?? "/contact",
     bgImage:     val(raw.bg_image),
+    bgVideoUrl:  val(raw.bg_image_video_url),
     accentColor: val(raw.accent_color) ?? "rgba(56,214,138,1)",
   };
 }

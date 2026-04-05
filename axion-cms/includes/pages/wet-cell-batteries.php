@@ -17,7 +17,7 @@ return [
         // ════════════════════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -79,7 +79,7 @@ return [
         // ════════════════════════════════════════════════════
         'about' => [
             'label' => 'About Section',
-            'icon'  => '📋',
+            'icon'  => 'clipboard',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label_text', 'label' => 'Label Text', 'type' => 'text',
@@ -120,7 +120,7 @@ return [
         // ════════════════════════════════════════════════════
         'applications' => [
             'label' => 'Typical Applications',
-            'icon'  => '📱',
+            'icon'  => 'smartphone',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label', 'label' => 'Section Label', 'type' => 'text',
@@ -129,10 +129,33 @@ return [
                     'default' => 'Wet cell batteries deliver proven performance in high-demand environments'],
                 [
                     'name'  => 'cards', 'label' => 'Application Cards', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title'       => 'Utility Substations',
+                            'description' => 'Long-duration backup for grid-level critical infrastructure',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Large-Scale UPS Systems',
+                            'description' => 'High-capacity power protection for enterprise facilities',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Industrial Power Plants',
+                            'description' => 'Reliable standby power for heavy industrial operations',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Telecommunications Central Offices',
+                            'description' => 'Sustained backup for mission-critical network hubs',
+                            'image'       => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title',       'label' => 'Title',       'type' => 'text'],
                         ['name' => 'description', 'label' => 'Description', 'type' => 'text'],
-                        ['name' => 'image',       'label' => 'Image',       'type' => 'image'],
+                        ['name' => 'image',       'label' => 'Card Image',  'type' => 'image',
+                            'description' => 'Recommended: 600×400px. Background image for the card.'],
                     ],
                 ],
                 // ── ⬆ Section Stacking ──
@@ -172,17 +195,40 @@ return [
         // ════════════════════════════════════════════════════
         'key-benefits' => [
             'label' => 'Key Benefits',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 // ── Content ──
                 ['name' => 'heading', 'label' => 'Heading', 'type' => 'text',
                     'default' => 'Key Benefits'],
                 [
                     'name'  => 'cards', 'label' => 'Benefit Cards', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title'       => 'Extended Service Life',
+                            'description' => '20+ year design life in properly maintained float service applications.',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Deep Cycle Capability',
+                            'description' => 'Superior tolerance for repeated deep discharges without capacity loss.',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'High Capacity Output',
+                            'description' => 'Available in large ampere-hour ratings for extended runtime requirements.',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Proven Track Record',
+                            'description' => 'Decades of reliable performance in utility, telecom, and industrial deployments.',
+                            'image'       => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title',       'label' => 'Title',       'type' => 'text'],
                         ['name' => 'description', 'label' => 'Description', 'type' => 'text'],
-                        ['name' => 'image',       'label' => 'Image',       'type' => 'image'],
+                        ['name' => 'image',       'label' => 'Card Image',  'type' => 'image',
+                            'description' => 'Recommended: 600×400px. Background image for the card.'],
                     ],
                 ],
                 // ── ⬆ Section Stacking ──
@@ -221,7 +267,7 @@ return [
         // ════════════════════════════════════════════════════
         'why-choose' => [
             'label' => 'Why Choose Us',
-            'icon'  => '👍',
+            'icon'  => 'thumbs-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'heading_line1',     'label' => 'Heading Line 1',             'type' => 'text', 'default' => 'Why Choose'],

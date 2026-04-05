@@ -25,6 +25,7 @@ export interface FAQHeroData  {
   topics: FAQTopicNav[];
   btnLabel: string; btnUrl: string;
   bgImage?: string;
+  bgVideoUrl?: string;
   accentColor: string;
   bgColor?: string;
 }
@@ -63,6 +64,7 @@ export async function getFAQHeroData(): Promise<FAQHeroData> {
     btnLabel:    val(raw.btn_label)    ?? "View Full FAQs for Engineers & Buyers →",
     btnUrl:      val(raw.btn_url)      ?? "/contact",
     bgImage:     val(raw.bg_image),
+    bgVideoUrl:  val(raw.bg_image_video_url),
     accentColor: val(raw.accent_color) ?? "rgba(245,199,20,1)",
     bgColor:     val(raw.bg_color),
   };
@@ -151,7 +153,10 @@ export async function getFAQLifespanData(): Promise<FAQLifespanData> {
             ],
           },
         ],
-    bgColor: val(raw.bg_color),
+    // CSS default for this section is #ffffff (white). If CMS stored the old
+    // wrong default (#0a0e1a), ignore it so the CSS white background takes over
+    // and dark text stays visible.
+    bgColor: (() => { const v = val(raw.bg_color); return v === '#0a0e1a' ? undefined : v; })(),
   };
 }
 
@@ -213,7 +218,10 @@ export async function getFAQLeadTimesData(): Promise<FAQLeadTimesData> {
           "Axion ensures documentation and compliance are supported throughout lifecycle",
           "Warranty claims coordination managed by Axion on your behalf",
         ],
-    bgColor: val(raw.bg_color),
+    // CSS default for this section is #0a0e1a (dark). If CMS stored the old
+    // wrong default (#ffffff), ignore it so the CSS dark background takes over
+    // and white text stays visible.
+    bgColor: (() => { const v = val(raw.bg_color); return v === '#ffffff' ? undefined : v; })(),
   };
 }
 
@@ -263,7 +271,10 @@ export async function getFAQEndOfLifeData(): Promise<FAQEndOfLifeData> {
           { standard: "EPA / RCRA",              detail: "Battery recycling standards" },
           { standard: "Zero Landfill Policy",    detail: "Lead-acid batteries are fully recyclable" },
         ],
-    bgColor: val(raw.bg_color),
+    // CSS default for this section is #1e88e5 (blue). If CMS stored the old
+    // wrong default (#0a0e1a), ignore it so the CSS blue background takes over
+    // and white text stays visible.
+    bgColor: (() => { const v = val(raw.bg_color); return v === '#0a0e1a' ? undefined : v; })(),
   };
 }
 
@@ -290,7 +301,10 @@ export async function getFAQWhyData(): Promise<FAQWhyData> {
           { icon: "✓", title: "Informed Decisions", description: "Supports better system decisions, enhancing overall reliability and safety." },
           { icon: "★", title: "Builds Trust",        description: "Establishes confidence with clients, contractors, and technical stakeholders." },
         ],
-    bgColor: val(raw.bg_color),
+    // CSS default for this section is #1565c0 (dark blue). If CMS stored the old
+    // wrong default (#ffffff), ignore it so the CSS dark-blue background takes over
+    // and white text stays visible.
+    bgColor: (() => { const v = val(raw.bg_color); return v === '#ffffff' ? undefined : v; })(),
   };
 }
 

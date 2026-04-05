@@ -16,7 +16,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 ['name' => 'bg_image', 'label' => '🖼 Hero Background Image', 'type' => 'image', 'description' => 'Optional full-width hero background photo. Recommended: 1920×1080px. Leave empty for default dark background.'],
                 ['name' => 'accent_color', 'label' => '🎨 Accent Color', 'type' => 'color', 'default' => '#00d9ff', 'description' => 'Primary accent color used on buttons, highlights, and stat values across this page.'],
@@ -51,7 +51,7 @@ return [
         // ══════════════════════════════════════════════════
         'applications' => [
             'label'  => 'Applications Section',
-            'icon'   => '🏭',
+            'icon'   => 'factory',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',     'default' => 'APPLICATIONS'],
@@ -83,7 +83,7 @@ return [
         // ══════════════════════════════════════════════════
         'battery-technologies' => [
             'label'  => 'Battery Technologies Comparison Section',
-            'icon'   => '🔋',
+            'icon'   => 'battery',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#ffffff', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',          'label' => 'Section Label', 'type' => 'text',     'default' => 'BATTERY TECHNOLOGIES'],
@@ -117,7 +117,7 @@ return [
         // ══════════════════════════════════════════════════
         'engineering-support' => [
             'label'  => 'Axion Solutions Section',
-            'icon'   => '🔧',
+            'icon'   => 'wrench',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',     'default' => 'SOLUTIONS'],
@@ -149,7 +149,7 @@ return [
         // ══════════════════════════════════════════════════
         'quality-compliance' => [
             'label'  => 'Compliance, Safety & Sustainability Section',
-            'icon'   => '✅',
+            'icon'   => 'check-circle',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#ffffff', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',     'default' => 'COMPLIANCE, SAFETY & SUSTAINABILITY'],
@@ -198,7 +198,7 @@ return [
         // ══════════════════════════════════════════════════
         'lifecycle-support' => [
             'label'  => 'Lifecycle Support Section',
-            'icon'   => '🔄',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',     'default' => 'LIFECYCLE SUPPORT'],
@@ -243,7 +243,7 @@ return [
         // ══════════════════════════════════════════════════
         'why-axion' => [
             'label'  => 'Why Choose Axion Section',
-            'icon'   => '⭐',
+            'icon'   => 'star',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#ffffff', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
@@ -288,7 +288,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'Call to Action Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#1e88e5', 'description' => 'Override the section background color. Leave as default unless rebranding.'],
                 ['name' => 'label',          'label' => 'Section Label',     'type' => 'text',     'default' => 'POWER YOUR UPTIME'],

@@ -112,6 +112,7 @@ export interface EsHeroStat {
 
 export interface EsHeroData {
     backgroundImageUrl?: string;
+    backgroundVideoUrl?: string;
     breadcrumb: string;
     heading: string;
     subtext: string;
@@ -145,6 +146,7 @@ export async function getEsHeroData(): Promise<EsHeroData> {
 
     return {
         backgroundImageUrl: val(sec?.background_image_url) ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        backgroundVideoUrl: val(sec?.background_image_video_url),
         breadcrumb: val(sec?.breadcrumb) ?? "HOME / SERVICES / EMERGENCY SUPPORT",
         heading: val(sec?.heading) ?? "Emergency Support\n& Service Contracts",
         subtext:

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./ContactSection.css";
 import type { ContactData } from "@/lib/queries/contact";
@@ -27,8 +27,9 @@ export default function ContactSection({ data }: Props) {
                             style={{ backgroundImage: `url(${imgSrc})` }}
                         >
                             <div className="contact-frame-inner">
-                                <Image
-                                    src={imgSrc}
+                                <CmsMedia
+                                    imageUrl={imgSrc}
+                                    videoUrl={data.videoUrl}
                                     alt={imgAlt}
                                     width={340}
                                     height={440}

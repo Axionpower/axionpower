@@ -33,6 +33,7 @@ const ENGINEERING_QUERY = `
 export interface DecorImage {
   image: { node: { sourceUrl: string; altText: string } } | null;
   fallback: string;
+  videoUrl?: string;
 }
 
 export interface EngineeringData {
@@ -123,20 +124,25 @@ export async function getEngineeringData(): Promise<EngineeringData> {
     const { getAxionSection } = await import("@/lib/queries/axion-cms");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ax = await getAxionSection<any>("home", "engineering");
-    if (ax && (ax.heading || ax.label)) {
+    if (ax && (ax.heading || ax.bg_color)) {
       const merged = { ...ENGINEERING_DEFAULTS };
-      if (ax.label) merged.title = ax.label;
+      if (ax.bg_color) merged.bgColor = ax.bg_color;
       if (ax.heading) merged.title = ax.heading;
       if (ax.description) merged.description = ax.description;
-      if (ax.heading_tag) merged.headingTag = ax.heading_tag;
-      if (ax.subheading_tag) merged.subheadingTag = ax.subheading_tag;
       if (ax.heading_color) merged.headingColor = ax.heading_color;
-      if (ax.heading_font_weight) merged.headingFontWeight = ax.heading_font_weight;
       if (ax.body_color) merged.bodyColor = ax.body_color;
-      if (ax.body_font_size) merged.bodyFontSize = ax.body_font_size;
       if (ax.accent_color) merged.accentColor = ax.accent_color;
+      if (ax.highlights_title) merged.highlightsTitle = ax.highlights_title;
+      if (ax.button_label) merged.buttonLabel = ax.button_label;
+      if (ax.button_url) merged.buttonUrl = ax.button_url;
       if (Array.isArray(ax.features)) {
-        merged.highlights = ax.features.map((f: { title: string; description?: string }) => f.title || f.description || "");
+        merged.highlights = ax.features.map((f: { title: string }) => f.title).filter(Boolean);
+      }
+      if (Array.isArray(ax.decor_images) && ax.decor_images.length > 0) {
+        merged.decorImages = ax.decor_images.map((d: { image_url?: string }, i: number) => ({
+          image: d.image_url ? { node: { sourceUrl: d.image_url, altText: `Engineering ${i + 1}` } } : null,
+          fallback: ENGINEERING_DEFAULTS.decorImages[i]?.fallback || ENGINEERING_DEFAULTS.decorImages[0].fallback,
+        }));
       }
       return merged;
     }

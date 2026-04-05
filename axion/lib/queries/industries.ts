@@ -40,6 +40,7 @@ export interface IndustryItem {
     description: string;
     image: { node: { sourceUrl: string; altText: string } } | null;
     fallbackImage: string;
+    videoUrl?: string;
     features: string[];
     buttonLabel: string;
     buttonUrl: string;
@@ -217,18 +218,32 @@ export async function getIndustriesData(): Promise<IndustriesData> {
         const { getAxionSection } = await import("@/lib/queries/axion-cms");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const ax = await getAxionSection<any>("home", "industries");
-        if (ax && (ax.heading || ax.label || ax.industries)) {
-            const merged = { ...INDUSTRIES_DEFAULTS };
-            if (ax.label) merged.labelText = ax.label;
-            if (ax.heading) merged.introHeading = ax.heading;
+        if (ax && (ax.intro_heading || ax.label_text || ax.industries)) {
+            const parseLines = (text: string): string[] =>
+                (text || "").split("\n").map(s => s.trim()).filter(Boolean);
+            const merged: IndustriesData = {
+                sectionBgColor: ax.section_bg_color || INDUSTRIES_DEFAULTS.sectionBgColor,
+                labelText: ax.label_text || INDUSTRIES_DEFAULTS.labelText,
+                labelColor: ax.label_color || INDUSTRIES_DEFAULTS.labelColor,
+                introHeading: ax.intro_heading || INDUSTRIES_DEFAULTS.introHeading,
+                headingTag: INDUSTRIES_DEFAULTS.headingTag,
+                headingColor: ax.heading_color || INDUSTRIES_DEFAULTS.headingColor,
+                bodyColor: ax.body_color || INDUSTRIES_DEFAULTS.bodyColor,
+                industries: INDUSTRIES_DEFAULTS.industries,
+            };
             if (Array.isArray(ax.industries) && ax.industries.length > 0) {
-                merged.industries = ax.industries.map((ind: { title: string; description: string; image_url?: string }, i: number) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                merged.industries = ax.industries.map((ind: any, i: number) => {
                     const def = INDUSTRIES_DEFAULTS.industries[i] || INDUSTRIES_DEFAULTS.industries[0];
                     return {
                         ...def,
                         title: ind.title || def.title,
+                        subtitle: ind.subtitle || def.subtitle,
                         description: ind.description || def.description,
                         image: ind.image_url ? { node: { sourceUrl: ind.image_url, altText: ind.title } } : def.image,
+                        features: ind.features ? parseLines(ind.features) : def.features,
+                        buttonLabel: ind.button_label || def.buttonLabel,
+                        buttonUrl: ind.button_url || def.buttonUrl,
                     };
                 });
             }

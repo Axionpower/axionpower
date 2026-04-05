@@ -23,6 +23,10 @@ function img(raw: Raw, field: string): string | undefined {
     return val(raw?.[field + "_url"] || raw?.[field] || "");
 }
 
+function vid(raw: Raw, field: string): string | undefined {
+    return val(raw?.[field + "_video_url"] || "");
+}
+
 function px(raw: Raw, field: string): string | undefined {
     const v = raw?.[field];
     if (v === null || v === undefined || v === "" || v === 0) return undefined;
@@ -34,6 +38,7 @@ function px(raw: Raw, field: string): string | undefined {
 // ═══════════════════════════════
 export interface VrlaHeroData {
     backgroundImage?: string;
+    backgroundVideoUrl?: string;
     heading?: string;
     headingTag?: string;
     headingHighlight?: string;
@@ -71,6 +76,7 @@ export async function getVrlaHeroData(): Promise<Partial<VrlaHeroData> | undefin
 
     return compact({
         backgroundImage: img(ax, "background_image"),
+        backgroundVideoUrl: vid(ax, "background_image"),
         breadcrumb: val(ax.breadcrumb),
         heading: val(ax.heading),
         headingHighlight: val(ax.heading_highlight),

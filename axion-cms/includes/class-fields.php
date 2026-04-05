@@ -12,8 +12,11 @@ class Axion_Fields
 
     /**
      * Render a single field based on its type
+     * @param array $field   Field config
+     * @param mixed $value   Current saved value
+     * @param array $all_data All saved data for the section (used to find companion video URLs)
      */
-    public static function render($field, $value)
+    public static function render($field, $value, $all_data = [])
     {
         $name = esc_attr($field['name']);
         $label = esc_html($field['label']);
@@ -38,7 +41,10 @@ class Axion_Fields
                 self::render_select($name, $value, $field);
                 break;
             case 'image':
-                self::render_image($name, $value);
+                // Look up the companion video URL from saved data
+                $video_key = $field['name'] . '_video_url';
+                $video_value = $all_data[$video_key] ?? '';
+                self::render_image($name, $value, $video_value);
                 break;
             case 'repeater':
                 self::render_repeater($name, $value, $field);
@@ -95,21 +101,53 @@ class Axion_Fields
         echo '</select>';
     }
 
-    // ─── Image ───
-    private static function render_image($name, $value)
+    // ─── Image (Media Library + URL paste + Video URL) ───
+    private static function render_image($name, $value, $video_value = '')
     {
-        $img_url = $value ? wp_get_attachment_url($value) : '';
+        // Determine if value is an attachment ID or a URL string
+        $is_url = ($value && !is_numeric($value));
+        $img_url = '';
+        if ($is_url) {
+            $img_url = $value;
+        } elseif ($value && is_numeric($value) && (int)$value > 0) {
+            $img_url = wp_get_attachment_url((int)$value);
+        }
+
         echo '<div class="axion-image-field">';
         echo '<input type="hidden" id="' . $name . '" name="' . $name . '" value="' . esc_attr($value) . '" />';
-        echo '<div class="axion-image-preview" id="' . $name . '_preview">';
+
+        // Preview
+        echo '<div class="axion-image-preview" id="' . $name . '_preview" style="margin-bottom:8px;">';
         if ($img_url) {
-            echo '<img src="' . esc_url($img_url) . '" />';
+            echo '<img src="' . esc_url($img_url) . '" style="max-width:200px;max-height:150px;border-radius:6px;border:1px solid #ddd;" />';
         }
         echo '</div>';
-        echo '<button type="button" class="button axion-image-upload" data-target="' . $name . '">Select Image</button>';
-        if ($value) {
-            echo ' <button type="button" class="button axion-image-remove" data-target="' . $name . '">Remove</button>';
+
+        // Buttons row
+        echo '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">';
+        echo '<button type="button" class="button axion-image-upload" data-target="' . $name . '">📁 Media Library</button>';
+        echo '<button type="button" class="button axion-image-remove" data-target="' . $name . '" style="' . ($value ? '' : 'display:none;') . '">✕ Remove</button>';
+        echo '</div>';
+
+        // URL paste input
+        echo '<input type="text" id="' . $name . '_url_input" class="axion-input axion-image-url-input" data-target="' . $name . '" value="' . ($is_url ? esc_attr($value) : '') . '" placeholder="Or paste image URL here (https://...)" style="width:100%;max-width:500px;" />';
+        echo '<p class="axion-field__desc" style="margin-top:4px;font-size:11px;color:#999;">Supports: JPG, PNG, WEBP, SVG, GIF — from Media Library or any external URL</p>';
+
+        // Build the video URL field name.
+        // For top-level fields:  "bg_image"            → "bg_image_video_url"
+        // For repeater fields:   "products[0][image]"  → "products[0][image_video_url]"
+        // (PHP cannot parse "products[0][image]_video_url" — it overwrites the image key!)
+        if (preg_match('/^(.+)\[([^\]]+)\]$/', $name, $m)) {
+            $video_name = $m[1] . '[' . $m[2] . '_video_url]';
+        } else {
+            $video_name = $name . '_video_url';
         }
+        echo '<div class="axion-video-url-field" style="margin-top:12px;padding:10px 12px;background:#f0f7ff;border:1px solid #bdd8f2;border-radius:8px;">';
+        echo '<label class="axion-field__label" for="' . $video_name . '" style="font-size:12px;font-weight:600;margin-bottom:4px;display:block;color:#1e4a7a;">🎬 Video URL (optional — overrides image)</label>';
+        echo '<input type="text" id="' . $video_name . '" name="' . $video_name . '" value="' . esc_attr($video_value) . '" placeholder="https://example.com/video.mp4" class="axion-input" style="width:100%;max-width:500px;" />';
+        echo '<p class="axion-field__desc" style="margin-top:4px;font-size:11px;color:#666;">Paste a direct .mp4 or .webm URL. If set, this video plays instead of the image.</p>';
+        echo '</div>';
+
         echo '</div>';
     }
 
@@ -186,7 +224,16 @@ class Axion_Fields
             $sf_value = $row[$sf['name']] ?? ($sf['default'] ?? '');
             $sf_copy = $sf;
             $sf_copy['name'] = $sf_name;
-            self::render($sf_copy, $sf_value);
+
+            // For image sub-fields, build the all_data with prefixed video key
+            if (($sf['type'] ?? 'text') === 'image') {
+                $video_key = $sf_name . '_video_url';
+                $video_val = $row[$sf['name'] . '_video_url'] ?? '';
+                $row_data = [$video_key => $video_val];
+                self::render($sf_copy, $sf_value, $row_data);
+            } else {
+                self::render($sf_copy, $sf_value);
+            }
         }
 
         echo '</div></div>';

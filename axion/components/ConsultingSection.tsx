@@ -1,4 +1,4 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./ConsultingSection.css";
 import type { ConsultingData } from "@/lib/queries/consulting";
@@ -29,8 +29,9 @@ export default function ConsultingSection({ data }: Props) {
                 {/* Right Image with Tooltip Cards */}
                 <div className="consulting-right">
                     <div className="consulting-image-wrap">
-                        <Image
-                            src={data.image?.node?.sourceUrl || data.fallbackImage}
+                        <CmsMedia
+                            imageUrl={data.image?.node?.sourceUrl || data.fallbackImage}
+                            videoUrl={data.videoUrl}
                             alt={data.image?.node?.altText || "Consulting Engineers"}
                             width={420}
                             height={500}

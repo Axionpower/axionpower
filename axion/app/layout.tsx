@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from "@/components/JsonLd";
+import { getHeaderData } from "@/lib/queries/header";
+import { getFooterData } from "@/lib/queries/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -71,21 +73,39 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let headerData;
+  let footerData;
+  try {
+    [headerData, footerData] = await Promise.all([
+      getHeaderData(),
+      getFooterData(),
+    ]);
+  } catch {
+    headerData = undefined;
+    footerData = undefined;
+  }
+
   return (
     <html lang="en">
       <body className={inter.variable} suppressHydrationWarning>
         <OrganizationSchema />
         <WebSiteSchema />
         <LocalBusinessSchema />
-        <Header />
+        <Header
+          logo={headerData?.logo}
+          navigation={headerData?.navigation}
+          cta={headerData?.cta}
+          style={headerData?.style}
+        />
         {children}
-        <Footer />
+        <Footer data={footerData} />
       </body>
     </html>
   );
 }
+

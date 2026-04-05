@@ -168,6 +168,7 @@
   .hc-life-section {
     padding: 4rem 1.5rem 8rem;
     margin-top: -4rem;
+    border-radius: 60px 60px 0 0;
   }
 
   .hc-life-heading {
@@ -213,6 +214,7 @@
   .hc-life-section {
     padding: 3rem 1rem 7rem;
     margin-top: -3rem;
+    border-radius: 40px 40px 0 0;
   }
 
   .hc-life-heading {
@@ -238,7 +240,7 @@
   }
 
   .hc-life-stats-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding-top: 2rem;
     margin-top: 2rem;

@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import Link from "next/link";
 import "./QSHeroSection.css";
@@ -13,7 +14,6 @@ export default function QSHeroSection({ data }: Props) {
 
     // Merge background image with CMS overrides
     const finalSectionStyle: React.CSSProperties = {
-        backgroundImage: `url(${data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"})`,
         ...(o.bgColor && { backgroundColor: o.bgColor }),
         ...(o.minHeight && { minHeight: o.minHeight }),
     };
@@ -26,7 +26,12 @@ export default function QSHeroSection({ data }: Props) {
     };
 
     return (
-        <section className="qs-hero" style={finalSectionStyle}>
+        <HeroBackground
+            imageUrl={data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+            videoUrl={data.backgroundVideoUrl}
+            className="qs-hero"
+            style={Object.keys(finalSectionStyle).length ? finalSectionStyle : undefined}
+        >
             {/* Background layers */}
             <div className="qs-overlay" aria-hidden="true" />
             <div className="qs-grid" aria-hidden="true" />
@@ -88,6 +93,6 @@ export default function QSHeroSection({ data }: Props) {
                     </Link>
                 )}
             </div>
-        </section>
+        </HeroBackground>
     );
 }

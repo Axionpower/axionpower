@@ -14,50 +14,59 @@ class Axion_Admin
 
     // ─── Page groups for sidebar navigation ───
     private static $groups = [
+        'Global'     => [
+            'icon'  => 'globe',
+            'pages' => ['header'],
+        ],
         'Main'       => [
-            'icon'  => '🏠',
-            'pages' => ['home', 'about', 'contact'],
+            'icon'  => 'home',
+            'pages' => ['home', 'contact'],
+        ],
+        'About'      => [
+            'icon'  => 'users',
+            'pages' => ['about', 'quality-safety', 'sustainability'],
         ],
         'Resources'  => [
-            'icon'  => '📚',
+            'icon'  => 'book-open',
             'pages' => ['engineering-resources', 'consulting-engineer-hub', 'faqs'],
         ],
         'Industries' => [
-            'icon'  => '🏭',
+            'icon'  => 'factory',
             'pages' => ['data-centers', 'healthcare', 'industrial-infrastructure', 'telecommunications', 'utilities-substations'],
         ],
         'Products'   => [
-            'icon'  => '📦',
+            'icon'  => 'package',
             'pages' => ['vrla-batteries', 'wet-cell-batteries', 'battery-cabinets'],
         ],
         'Services'   => [
-            'icon'  => '🔧',
-            'pages' => ['maintenance', 'emergency-support', 'replacement-upgrades', 'safety-training', 'quality-safety', 'sustainability'],
+            'icon'  => 'wrench',
+            'pages' => ['maintenance', 'emergency-support', 'replacement-upgrades', 'safety-training'],
         ],
     ];
 
     // ─── Per-page icons ───
     private static $page_icons = [
-        'home'                    => '🏠',
-        'about'                   => '👥',
-        'contact'                 => '📬',
-        'engineering-resources'   => '⚙️',
-        'consulting-engineer-hub' => '🔬',
-        'faqs'                    => '❓',
-        'data-centers'            => '🖥️',
-        'healthcare'              => '🏥',
-        'industrial-infrastructure' => '🏗️',
-        'telecommunications'      => '📡',
-        'utilities-substations'   => '⚡',
-        'vrla-batteries'          => '🔋',
-        'wet-cell-batteries'      => '🪫',
-        'battery-cabinets'        => '🗄️',
-        'maintenance'             => '🔩',
-        'emergency-support'       => '🚨',
-        'replacement-upgrades'    => '🔄',
-        'safety-training'         => '🛡️',
-        'quality-safety'          => '✅',
-        'sustainability'          => '🌱',
+        'header'                  => 'menu',
+        'home'                    => 'home',
+        'about'                   => 'users',
+        'contact'                 => 'mail',
+        'engineering-resources'   => 'settings',
+        'consulting-engineer-hub' => 'microscope',
+        'faqs'                    => 'help-circle',
+        'data-centers'            => 'monitor',
+        'healthcare'              => 'heart-pulse',
+        'industrial-infrastructure' => 'hard-hat',
+        'telecommunications'      => 'radio',
+        'utilities-substations'   => 'zap',
+        'vrla-batteries'          => 'battery',
+        'wet-cell-batteries'      => 'battery-low',
+        'battery-cabinets'        => 'server',
+        'maintenance'             => 'tool',
+        'emergency-support'       => 'alert-triangle',
+        'replacement-upgrades'    => 'refresh-cw',
+        'safety-training'         => 'shield',
+        'quality-safety'          => 'check-circle',
+        'sustainability'          => 'leaf',
     ];
 
     public static function init()
@@ -124,7 +133,7 @@ class Axion_Admin
         return [
             [
                 'name' => 'heading_tag',
-                'label' => '🏷 Heading Tag',
+                'label' => 'Heading Tag',
                 'type' => 'select',
                 'choices' => [
                     ''   => 'Default',
@@ -140,7 +149,7 @@ class Axion_Admin
             ],
             [
                 'name' => 'heading_font_size',
-                'label' => '🔤 Heading Font Size (px)',
+                'label' => 'Heading Font Size (px)',
                 'type' => 'text',
                 'default' => '',
                 'description' => 'Custom font size in pixels (e.g. 36). Leave empty to use the default size.',
@@ -153,7 +162,7 @@ class Axion_Admin
     {
         return [
             'label' => 'SEO Settings',
-            'icon'  => '🔍',
+            'icon'  => 'search',
             'fields' => [
                 ['name' => 'seo_title', 'label' => 'SEO Title', 'type' => 'text', 'max_chars' => 60, 'description' => 'Overrides the page title tag. Keep under 60 characters.'],
                 ['name' => 'seo_description', 'label' => 'Meta Description', 'type' => 'textarea', 'rows' => 3, 'max_chars' => 160, 'description' => 'Displayed in search results. Keep between 120–160 characters.'],
@@ -220,10 +229,10 @@ class Axion_Admin
 
         // ── Header ──
         echo '<div class="axion-header">';
-        echo '<div class="axion-header__logo">⚡</div>';
+        echo '<div class="axion-header__logo">' . Axion_Icons::get('zap', 32) . '</div>';
         echo '<div class="axion-header__text">';
         echo '<h1 class="axion-title">Axion CMS</h1>';
-        echo '<p class="axion-subtitle">Content Management System</p>';
+        echo '<p class="axion-subtitle">Content Management System &middot; Developed by <a href="https://tecshor.com" target="_blank" rel="noopener" style="color:#0EA5E9;text-decoration:none;">Tecshor</a></p>';
         echo '</div>';
         echo '</div>';
 
@@ -244,10 +253,10 @@ class Axion_Admin
             $first_page_in_group = $group['pages'][0] ?? '';
             $group_url = $first_page_in_group ? admin_url('admin.php?page=axion-cms&axion_page=' . $first_page_in_group) : '#';
             echo '<div class="axion-nav-group__header">';
-            echo '<span class="axion-nav-group__icon">' . esc_html($group['icon']) . '</span>';
+            echo '<span class="axion-nav-group__icon">' . Axion_Icons::get($group['icon'], 16) . '</span>';
             echo '<span class="axion-nav-group__label">' . esc_html($group_name) . '</span>';
             echo '<span class="axion-nav-group__count">' . count($group['pages']) . '</span>';
-            echo '<span class="axion-nav-group__chevron">›</span>';
+            echo '<span class="axion-nav-group__chevron">' . Axion_Icons::get('chevron-right', 14) . '</span>';
             echo '</div>';
 
             // Pages within group
@@ -257,12 +266,12 @@ class Axion_Admin
                 $page = self::$pages[$slug];
                 $is_active = ($slug === $current_page && !$show_settings);
                 $page_url  = admin_url('admin.php?page=axion-cms&axion_page=' . $slug);
-                $icon      = self::$page_icons[$slug] ?? '📄';
+                $icon      = self::$page_icons[$slug] ?? 'file-text';
                 $item_class = 'axion-nav-item' . ($is_active ? ' axion-nav-item--active' : '');
 
                 echo '<li>';
                 echo '<a href="' . esc_url($page_url) . '" class="' . $item_class . '">';
-                echo '<span class="axion-nav-item__icon">' . esc_html($icon) . '</span>';
+                echo '<span class="axion-nav-item__icon">' . Axion_Icons::get($icon, 16) . '</span>';
                 echo '<span class="axion-nav-item__label">' . esc_html($page['label']) . '</span>';
                 echo '</a>';
                 echo '</li>';
@@ -276,7 +285,7 @@ class Axion_Admin
         $settings_url = admin_url('admin.php?page=axion-cms&axion_settings=1');
         echo '<div class="axion-nav-settings">';
         echo '<a href="' . esc_url($settings_url) . '" class="axion-nav-item axion-nav-item--settings' . $settings_active_class . '">';
-        echo '<span class="axion-nav-item__icon">⚙️</span>';
+        echo '<span class="axion-nav-item__icon">' . Axion_Icons::get('settings', 16) . '</span>';
         echo '<span class="axion-nav-item__label">Settings</span>';
         echo '</a>';
         echo '</div>';
@@ -291,14 +300,14 @@ class Axion_Admin
             self::render_settings();
         } elseif ($current_page && isset(self::$pages[$current_page])) {
             $page_config = self::$pages[$current_page];
-            $page_icon   = self::$page_icons[$current_page] ?? '📄';
+            $page_icon   = self::$page_icons[$current_page] ?? 'file-text';
 
             if ($current_section && isset($page_config['sections'][$current_section])) {
                 self::render_section_fields($current_page, $current_section, $page_config['sections'][$current_section]);
             } else {
                 // ── Page header ──
                 echo '<div class="axion-page-header">';
-                echo '<span class="axion-page-header__icon">' . esc_html($page_icon) . '</span>';
+                echo '<span class="axion-page-header__icon">' . Axion_Icons::get($page_icon, 28) . '</span>';
                 echo '<div class="axion-page-header__text">';
                 echo '<h2 class="axion-page-header__title">' . esc_html($page_config['label']) . '</h2>';
                 echo '<p class="axion-page-header__meta">' . count($page_config['sections']) . ' sections · Click a section to edit</p>';
@@ -314,12 +323,12 @@ class Axion_Admin
                     $status_class = $has_data ? 'axion-section-card--filled' : '';
 
                     echo '<a href="' . esc_url($sec_url) . '" class="axion-section-card ' . $status_class . '">';
-                    echo '<div class="axion-section-card__icon">' . esc_html($section['icon'] ?? '📄') . '</div>';
+                    echo '<div class="axion-section-card__icon">' . Axion_Icons::get($section['icon'] ?? 'file-text', 22) . '</div>';
                     echo '<div class="axion-section-card__info">';
                     echo '<h3 class="axion-section-card__title">' . esc_html($section['label']) . '</h3>';
-                    echo '<p class="axion-section-card__status">' . ($has_data ? '✅ Configured' : '⚪ Using defaults') . '</p>';
+                    echo '<p class="axion-section-card__status">' . ($has_data ? Axion_Icons::get('check-circle', 12) . ' Configured' : Axion_Icons::get('circle', 12) . ' Using defaults') . '</p>';
                     echo '</div>';
-                    echo '<span class="axion-section-card__arrow">→</span>';
+                    echo '<span class="axion-section-card__arrow">' . Axion_Icons::get('chevron-right', 16) . '</span>';
                     echo '</a>';
                 }
                 echo '</div>';
@@ -328,7 +337,33 @@ class Axion_Admin
 
         echo '</div>'; // .axion-content
         echo '</div>'; // .axion-layout
+
+        // ── Footer credit ──
+        echo '<div class="axion-footer">';
+        echo '<p style="text-align:center;color:#64748b;font-size:12px;padding:16px 0 8px;margin:0;border-top:1px solid rgba(255,255,255,0.06);">';
+        echo 'Axion CMS v' . AXION_CMS_VERSION . ' &mdash; Designed &amp; Developed by ';
+        echo '<a href="https://tecshor.com" target="_blank" rel="noopener" style="color:#0EA5E9;text-decoration:none;font-weight:600;">Tecshor</a>';
+        echo ' &middot; Enterprise WordPress Solutions';
+        echo '</p>';
+        echo '</div>';
+
         echo '</div>'; // .axion-wrap
+
+        // Inline JS for sidebar nav-group toggling (guaranteed no-cache)
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var headers = document.querySelectorAll(".axion-nav-group__header");
+            for (var i = 0; i < headers.length; i++) {
+                headers[i].addEventListener("click", function(e) {
+                    e.preventDefault();
+                    var group = this.closest(".axion-nav-group");
+                    if (group) {
+                        group.classList.toggle("axion-nav-group--open");
+                    }
+                });
+            }
+        });
+        </script>';
     }
 
     // ─── Render Settings tab ───
@@ -338,10 +373,10 @@ class Axion_Admin
         $revalidate_secret = get_option('axion_revalidate_secret', '');
 
         echo '<div class="axion-section-edit">';
-        echo '<h2 class="axion-section-title">⚙ Integration Settings</h2>';
+        echo '<h2 class="axion-section-title">' . Axion_Icons::get('settings', 22) . ' Integration Settings</h2>';
 
         if (isset($_GET['settings_saved'])) {
-            echo '<div class="axion-notice">✅ Settings saved successfully!</div>';
+            echo '<div class="axion-notice">' . Axion_Icons::get('check-circle', 14) . ' Settings saved successfully!</div>';
         }
 
         echo '<form method="post" class="axion-form">';
@@ -374,15 +409,15 @@ class Axion_Admin
         $back_url = admin_url('admin.php?page=axion-cms&axion_page=' . $page_slug);
 
         echo '<div class="axion-section-edit">';
-        echo '<a href="' . esc_url($back_url) . '" class="axion-back">← Back to sections</a>';
-        echo '<h2 class="axion-section-title">' . esc_html($section['icon'] ?? '') . ' ' . esc_html($section['label']) . '</h2>';
+        echo '<a href="' . esc_url($back_url) . '" class="axion-back">' . Axion_Icons::get('arrow-left', 14) . ' Back to sections</a>';
+        echo '<h2 class="axion-section-title">' . Axion_Icons::get($section['icon'] ?? 'file-text', 22) . ' ' . esc_html($section['label']) . '</h2>';
 
         // Success notices
         if (isset($_GET['saved'])) {
-            echo '<div class="axion-notice">✅ Changes saved successfully!</div>';
+            echo '<div class="axion-notice">' . Axion_Icons::get('check-circle', 14) . ' Changes saved successfully!</div>';
         }
         if (isset($_GET['reset'])) {
-            echo '<div class="axion-notice axion-notice--reset">🔄 Section reset to default values.</div>';
+            echo '<div class="axion-notice axion-notice--reset">' . Axion_Icons::get('refresh-cw', 14) . ' Section reset to default values.</div>';
         }
 
         echo '<form method="post" class="axion-form">';
@@ -402,7 +437,7 @@ class Axion_Admin
             } else {
                 $value = $field['default'] ?? '';
             }
-            Axion_Fields::render($field, $value);
+            Axion_Fields::render($field, $value, $data);
         }
 
         echo '<div class="axion-form__actions">';
@@ -417,7 +452,7 @@ class Axion_Admin
         $nextjs_url = rtrim(get_option('axion_nextjs_url', ''), '/');
         if ($nextjs_url) {
             $path = ($page_slug === 'home') ? '' : '/' . $page_slug;
-            echo ' <a href="' . esc_url($nextjs_url . $path) . '" class="button axion-view-btn" target="_blank" rel="noopener noreferrer">👁 View Page →</a>';
+            echo ' <a href="' . esc_url($nextjs_url . $path) . '" class="button axion-view-btn" target="_blank" rel="noopener noreferrer">' . Axion_Icons::get('eye', 14) . ' View Page</a>';
         }
         echo '</div>';
         echo '</form>';
@@ -457,18 +492,49 @@ class Axion_Admin
                         $clean_row = [];
                         foreach ($field['sub_fields'] as $sf) {
                             $sf_val = $row[$sf['name']] ?? '';
-                            $clean_row[$sf['name']] = ($sf['type'] === 'textarea')
-                                ? sanitize_textarea_field($sf_val)
-                                : sanitize_text_field($sf_val);
+                            $sf_type = $sf['type'] ?? 'text';
+                            if ($sf_type === 'image') {
+                                // Accept attachment ID or URL
+                                if (is_numeric($sf_val) && (int)$sf_val > 0) {
+                                    $clean_row[$sf['name']] = absint($sf_val);
+                                } elseif (filter_var($sf_val, FILTER_VALIDATE_URL)) {
+                                    $clean_row[$sf['name']] = esc_url_raw($sf_val);
+                                } else {
+                                    $clean_row[$sf['name']] = '';
+                                }
+                                // Also save companion video URL for image sub-fields
+                                $video_key = $sf['name'] . '_video_url';
+                                $clean_row[$video_key] = sanitize_text_field($row[$video_key] ?? '');
+                            } elseif ($sf_type === 'textarea') {
+                                $clean_row[$sf['name']] = sanitize_textarea_field($sf_val);
+                            } else {
+                                $clean_row[$sf['name']] = sanitize_text_field($sf_val);
+                            }
                         }
                         $clean[] = $clean_row;
                     }
                 }
                 $data[$name] = $clean;
             } elseif ($type === 'textarea') {
-                $data[$name] = sanitize_textarea_field($_POST[$name] ?? '');
+                // Allow HTML if field has 'html' => true
+                if (!empty($field['html'])) {
+                    $data[$name] = wp_kses_post($_POST[$name] ?? '');
+                } else {
+                    $data[$name] = sanitize_textarea_field($_POST[$name] ?? '');
+                }
             } elseif ($type === 'image') {
-                $data[$name] = absint($_POST[$name] ?? 0);
+                $raw = $_POST[$name] ?? '';
+                // Accept either a numeric attachment ID or a URL string
+                if (is_numeric($raw) && (int)$raw > 0) {
+                    $data[$name] = absint($raw);
+                } elseif (filter_var($raw, FILTER_VALIDATE_URL)) {
+                    $data[$name] = esc_url_raw($raw);
+                } else {
+                    $data[$name] = '';
+                }
+                // Also save companion video URL for this image field
+                $video_key = $name . '_video_url';
+                $data[$video_key] = sanitize_text_field($_POST[$video_key] ?? '');
             } else {
                 $data[$name] = sanitize_text_field($_POST[$name] ?? '');
             }

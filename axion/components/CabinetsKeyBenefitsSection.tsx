@@ -1,11 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./CabinetsKeyBenefitsSection.css";
 
 interface BenefitCard {
     title: string;
     description: string;
     image: string;
+    videoUrl?: string;
 }
 
 const DEFAULT_CARDS: BenefitCard[] = [
@@ -88,11 +89,11 @@ export default function CabinetsKeyBenefitsSection({
                 {cards.map((card, i) => (
                     <div key={i} className="cabinets-benefit-card">
                         <div className="cabinets-benefit-card-img">
-                            <Image
-                                src={card.image}
+                            <CmsMedia
+                                imageUrl={card.image}
+                                videoUrl={card.videoUrl}
                                 alt={card.title}
                                 fill
-                                style={{ objectFit: "cover" }}
                             />
                         </div>
                         <div className="cabinets-benefit-card-body">

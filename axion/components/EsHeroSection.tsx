@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import Link from "next/link";
 import "./EsHeroSection.css";
@@ -12,7 +13,6 @@ export default function EsHeroSection({ data }: Props) {
     const HeadingTag = (o.headingTag || 'h1') as React.ElementType;
 
     const finalSectionStyle: React.CSSProperties = {
-        backgroundImage: `url(${data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"})`,
         ...(o.bgColor && { backgroundColor: o.bgColor }),
         ...(o.minHeight && { minHeight: o.minHeight }),
     };
@@ -25,7 +25,12 @@ export default function EsHeroSection({ data }: Props) {
     };
 
     return (
-        <section className="es-hero" style={finalSectionStyle}>
+        <HeroBackground
+            imageUrl={data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+            videoUrl={data.backgroundVideoUrl}
+            className="es-hero"
+            style={Object.keys(finalSectionStyle).length ? finalSectionStyle : undefined}
+        >
             <div className="es-overlay" aria-hidden="true" />
             <div className="es-grid" aria-hidden="true" />
             <div className="es-content" style={Object.keys(contentStyle).length ? contentStyle : undefined}>
@@ -76,6 +81,6 @@ export default function EsHeroSection({ data }: Props) {
                     </Link>
                 </div>
             </div>
-        </section>
+        </HeroBackground>
     );
 }

@@ -26,6 +26,11 @@ function img(raw: Raw, field: string): string | undefined {
     return val(raw?.[field + "_url"] || raw?.[field] || "");
 }
 
+// ─── vid(): resolve video URL from Axion CMS (companion to image field)
+function vid(raw: Raw, field: string): string | undefined {
+    return val(raw?.[field + "_video_url"] || "");
+}
+
 // ─── px(): convert numeric CMS value to a px string, or undefined if blank
 function px(raw: Raw, field: string): string | undefined {
     const v = raw?.[field];
@@ -38,6 +43,7 @@ function px(raw: Raw, field: string): string | undefined {
 // ═══════════════════════════════
 export interface CabinetsHeroData {
     backgroundImage?: string;
+    backgroundVideoUrl?: string;
     heading?: string;
     headingTag?: string;
     headingHighlight?: string;
@@ -71,6 +77,7 @@ export async function getCabinetsHeroData(): Promise<Partial<CabinetsHeroData> |
     // compact() is critical: CabinetsHeroSection does { ...DEFAULTS, ...data }
     return compact({
         backgroundImage: img(ax, "background_image"),
+        backgroundVideoUrl: vid(ax, "background_image"),
         breadcrumb: val(ax.breadcrumb),
         heading: val(ax.heading),
         headingHighlight: val(ax.heading_highlight),
@@ -141,6 +148,7 @@ export async function getCabinetsEngineeredData(): Promise<{
     label?: string;
     description?: string;
     image?: string;
+    imageVideoUrl?: string;
     bgColor?: string;
     labelColor?: string;
     bodyColor?: string;
@@ -160,6 +168,7 @@ export async function getCabinetsEngineeredData(): Promise<{
         label: val(ax.label_text),
         description: val(ax.description),
         image: img(ax, "image"),
+        imageVideoUrl: vid(ax, "image"),
         bgColor: val(ax.bg_color),
         labelColor: val(ax.label_color),
         bodyColor: val(ax.body_color),
@@ -182,6 +191,7 @@ export interface BenefitCard {
     title: string;
     description: string;
     image: string;
+    videoUrl?: string;
 }
 
 export async function getCabinetsKeyBenefitsData(): Promise<{
@@ -208,6 +218,7 @@ export async function getCabinetsKeyBenefitsData(): Promise<{
             title: c.title || "",
             description: c.description || "",
             image: img(c, "image") || FALLBACK_IMG,
+            videoUrl: vid(c, "image"),
         }))
         : undefined;
 
@@ -236,6 +247,7 @@ export async function getCabinetsFeaturesData(): Promise<{
     label?: string;
     features?: { text: string; bold?: boolean }[];
     image?: string;
+    imageVideoUrl?: string;
     bgColor?: string;
     labelColor?: string;
     bodyColor?: string;
@@ -263,6 +275,7 @@ export async function getCabinetsFeaturesData(): Promise<{
         label: val(ax.label_text),
         features,
         image: img(ax, "image"),
+        imageVideoUrl: vid(ax, "image"),
         bgColor: val(ax.bg_color),
         labelColor: val(ax.label_color),
         bodyColor: val(ax.body_color),
@@ -285,6 +298,7 @@ export interface AppCard {
     title: string;
     description: string;
     image: string;
+    videoUrl?: string;
 }
 
 export async function getCabinetsApplicationsData(): Promise<{
@@ -313,6 +327,7 @@ export async function getCabinetsApplicationsData(): Promise<{
             title: c.title || "",
             description: c.description || "",
             image: img(c, "image") || FALLBACK_IMG,
+            videoUrl: vid(c, "image"),
         }))
         : undefined;
 
@@ -342,7 +357,7 @@ export async function getCabinetsApplicationsData(): Promise<{
 export async function getCabinetsApproachData(): Promise<{
     label?: string;
     description?: string;
-    items?: { title: string; image: string }[];
+    items?: { title: string; image: string; videoUrl?: string }[];
     bgColor?: string;
     labelColor?: string;
     bodyColor?: string;
@@ -364,6 +379,7 @@ export async function getCabinetsApproachData(): Promise<{
         ? ax.items.map((item: Raw) => ({
             title: item.title || "",
             image: img(item, "image") || FALLBACK_IMG,
+            videoUrl: vid(item, "image"),
         }))
         : undefined;
 

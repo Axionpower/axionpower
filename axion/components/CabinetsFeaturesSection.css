@@ -3,7 +3,7 @@
    ══════════════════════════════════════ */
 
 .cabinets-feat-section {
-    background: #0a0a14;
+    background: #ffffff;
     padding: 5rem 0 10rem;
     border-radius: 100px 100px 0 0;
     margin-top: -6rem;
@@ -34,10 +34,11 @@
     margin-bottom: 2rem;
     border-left: 3px solid #0EA5E9;
     padding-left: 0.7rem;
-    color: #0EA5E9;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
+    color: #1a1a2e;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
 }
 
 /* ── Feature list ── */
@@ -51,7 +52,7 @@
 }
 
 .cabinets-feat-list li {
-    color: rgba(255, 255, 255, 0.7);
+    color: #555555;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
@@ -63,19 +64,19 @@
     content: "●";
     position: absolute;
     left: 0;
-    color: rgba(255, 255, 255, 0.5);
+    color: #0EA5E9;
     font-size: 8px;
     top: 6px;
 }
 
 .cabinets-feat-list li.bold {
-    color: #ffffff;
+    color: #1a1a2e;
     font-weight: 700;
     font-size: 18px;
 }
 
 .cabinets-feat-list li.bold::before {
-    color: #ffffff;
+    color: #1a1a2e;
 }
 
 /* ── Image Side ── */
@@ -97,7 +98,7 @@
 .cabinets-feat-pad {
     position: absolute;
     z-index: 2;
-    background: #0a0a14;
+    background: #ffffff;
     padding: 55px 65px;
 }
 

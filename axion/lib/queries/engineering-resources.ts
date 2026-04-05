@@ -26,6 +26,7 @@ export interface ERHeroData {
   btn1Label: string; btn1Url: string;
   btn2Label: string; btn2Url: string;
   bgImage?: string;
+  bgVideoUrl?: string;
   accentColor: string;
 }
 export async function getERHeroData(): Promise<ERHeroData> {
@@ -61,6 +62,7 @@ export async function getERHeroData(): Promise<ERHeroData> {
     btn2Label:   val(raw.btn2_label)   ?? "Request a Document",
     btn2Url:     val(raw.btn2_url)     ?? "/contact",
     bgImage:     val(raw.bg_image),
+    bgVideoUrl:  val(raw.bg_image_video_url),
     accentColor: val(raw.accent_color) ?? "rgba(251,146,60,1)",
   };
 }

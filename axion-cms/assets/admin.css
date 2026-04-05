@@ -84,7 +84,7 @@
     align-items: center;
     gap: 8px;
     padding: 11px 14px;
-    cursor: default;
+    cursor: pointer;
     background: #f8fafc;
     user-select: none;
 }
@@ -537,4 +537,103 @@
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 22px;
+}
+
+/* ── SVG Icons ── */
+.axion-icon {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.axion-header__logo .axion-icon {
+    color: #f5c714;
+    filter: drop-shadow(0 0 8px rgba(245, 199, 20, 0.6));
+}
+
+.axion-nav-group__icon .axion-icon {
+    color: inherit;
+}
+
+.axion-nav-group--open .axion-nav-group__icon .axion-icon {
+    color: #0284c7;
+}
+
+.axion-nav-item__icon .axion-icon {
+    color: inherit;
+    opacity: 0.75;
+}
+
+.axion-nav-item--active .axion-nav-item__icon .axion-icon {
+    opacity: 1;
+    color: #0284c7;
+}
+
+.axion-nav-group__chevron .axion-icon {
+    transition: transform 0.2s ease;
+    color: #cbd5e1;
+}
+
+.axion-nav-group--open .axion-nav-group__chevron .axion-icon {
+    transform: rotate(90deg);
+    color: #0ea5e9;
+}
+
+.axion-page-header__icon .axion-icon {
+    color: #0369a1;
+}
+
+.axion-section-card__icon .axion-icon {
+    color: #64748b;
+}
+
+.axion-section-card:hover .axion-section-card__icon .axion-icon {
+    color: #0ea5e9;
+}
+
+.axion-section-card__status .axion-icon {
+    vertical-align: -1px;
+    margin-right: 2px;
+}
+
+.axion-section-card--filled .axion-section-card__status .axion-icon {
+    color: #22c55e;
+}
+
+.axion-section-card__arrow .axion-icon {
+    color: #cbd5e1;
+}
+
+.axion-section-card:hover .axion-section-card__arrow .axion-icon {
+    color: #0ea5e9;
+}
+
+.axion-section-title .axion-icon {
+    vertical-align: -3px;
+    margin-right: 4px;
+    color: #0369a1;
+}
+
+.axion-back .axion-icon {
+    vertical-align: -2px;
+    margin-right: 2px;
+}
+
+.axion-notice .axion-icon {
+    vertical-align: -2px;
+    margin-right: 4px;
+}
+
+.axion-notice .axion-icon {
+    color: #16a34a;
+}
+
+.axion-notice--reset .axion-icon {
+    color: #a16207;
+}
+
+.axion-view-btn .axion-icon,
+.axion-reset-btn .axion-icon {
+    vertical-align: -2px;
+    margin-right: 3px;
 }

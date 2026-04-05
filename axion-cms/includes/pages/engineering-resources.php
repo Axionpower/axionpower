@@ -14,7 +14,7 @@ return [
         // ====================================================================
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 ['name' => 'bg_image',    'label' => '🖼 Hero Background Image', 'type' => 'image',    'description' => 'Optional full-width hero background photo. Recommended: 1920×1080px. Leave empty for default dark background.'],
                 ['name' => 'accent_color','label' => '🎨 Accent Color',          'type' => 'color',    'default' => '#fb923c', 'description' => 'Primary accent color used on buttons, highlights, and stat values across this page.'],
@@ -68,7 +68,7 @@ return [
         // ====================================================================
         'resource-library' => [
             'label'  => 'Resource Library',
-            'icon'   => '📁',
+            'icon'   => 'file-text',
             'fields' => [
                 ['name' => 'bg_color',      'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#ffffff'],
                 ['name' => 'label',         'label' => 'Section Label',               'type' => 'text',     'default' => 'RESOURCE LIBRARY'],
@@ -111,7 +111,7 @@ return [
         // ====================================================================
         'technical-guides' => [
             'label'  => 'Technical Guides',
-            'icon'   => '📖',
+            'icon'   => 'file-text',
             'fields' => [
                 ['name' => 'bg_color',      'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#0a0e1a'],
                 ['name' => 'label',         'label' => 'Section Label',               'type' => 'text',     'default' => 'TECHNICAL GUIDES'],
@@ -146,7 +146,7 @@ return [
         // ====================================================================
         'sizing-tools' => [
             'label'  => 'Sizing & Selection Tools',
-            'icon'   => '📏',
+            'icon'   => 'file-text',
             'fields' => [
                 ['name' => 'bg_color',            'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#ffffff'],
                 ['name' => 'label',               'label' => 'Section Label',               'type' => 'text',     'default' => 'SIZING & SELECTION TOOLS'],
@@ -184,7 +184,7 @@ return [
         // ====================================================================
         'application-notes' => [
             'label'  => 'Application Notes',
-            'icon'   => '📊',
+            'icon'   => 'bar-chart',
             'fields' => [
                 ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#1565c0'],
                 ['name' => 'label',    'label' => 'Section Label',               'type' => 'text',     'default' => 'APPLICATION NOTES'],
@@ -217,7 +217,7 @@ return [
         // ====================================================================
         'standards-reference' => [
             'label'  => 'Standards Quick Reference',
-            'icon'   => '🛡',
+            'icon'   => 'shield',
             'fields' => [
                 ['name' => 'bg_color',        'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#ffffff'],
                 ['name' => 'label',           'label' => 'Section Label',               'type' => 'text',     'default' => 'STANDARDS REFERENCE'],
@@ -256,7 +256,7 @@ return [
         // ====================================================================
         'engineering-support' => [
             'label'  => 'Engineering Support Programs',
-            'icon'   => '🔧',
+            'icon'   => 'wrench',
             'fields' => [
                 ['name' => 'bg_color',          'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#0a0e1a'],
                 ['name' => 'label',             'label' => 'Section Label',               'type' => 'text',     'default' => 'ENGINEERING SUPPORT'],
@@ -294,7 +294,7 @@ return [
         // ====================================================================
         'cta' => [
             'label'  => 'Call to Action',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 ['name' => 'bg_color',      'label' => '🎨 Section Background Color', 'type' => 'color',    'default' => '#111827'],
                 ['name' => 'label',         'label' => 'Label',                       'type' => 'text',     'default' => 'GET STARTED'],

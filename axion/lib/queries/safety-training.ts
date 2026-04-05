@@ -15,6 +15,7 @@ export interface STHeroData {
     btn2Label: string; btn2Url: string;
     stats: STHeroStat[];
     bgImage?: string;
+    bgVideoUrl?: string;
     accentColor: string;
 }
 export async function getSTHeroData(): Promise<STHeroData> {
@@ -38,6 +39,7 @@ export async function getSTHeroData(): Promise<STHeroData> {
                 { value: "24/7", label: "Emergency Support" },
             ],
         bgImage:     val(sec?.bg_image),
+        bgVideoUrl:  val(sec?.bg_image_video_url),
         accentColor: val(sec?.accent_color) ?? "rgba(99,222,247,1)",
     };
 }

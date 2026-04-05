@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import "./AboutHeroSection.css";
 import type { AboutHeroData } from "@/lib/queries/about-page";
+import HeroBackground from "./HeroBackground";
 
 interface Props {
     data: AboutHeroData;
@@ -11,14 +12,14 @@ interface Props {
 export default function AboutHeroSection({ data }: Props) {
     const HeadingTag = (data.headingTag || 'h1') as React.ElementType;
 
-    const bgStyle = data.backgroundImageUrl
-        ? { backgroundImage: `url(${data.backgroundImageUrl})` }
-        : undefined;
-
     const headingLines = data.heading.split("\n");
 
     return (
-        <section className="ah-hero" style={bgStyle}>
+        <HeroBackground
+            imageUrl={data.backgroundImageUrl}
+            videoUrl={data.backgroundVideoUrl}
+            className="ah-hero"
+        >
             {/* Background layers */}
             <div className="ah-overlay-vertical" aria-hidden="true" />
             <div className="ah-overlay-horizontal" aria-hidden="true" />
@@ -78,6 +79,6 @@ export default function AboutHeroSection({ data }: Props) {
                     </Link>
                 </div>
             </div>
-        </section>
+        </HeroBackground>
     );
 }

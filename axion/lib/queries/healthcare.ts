@@ -20,6 +20,7 @@ export interface HCHeroData {
   badges: string[];
   liveStats: HCHeroLiveStat[];
   bgImage?: string;
+  bgVideoUrl?: string;
   accentColor: string;
 }
 export async function getHCHeroData(): Promise<HCHeroData> {
@@ -52,6 +53,7 @@ export async function getHCHeroData(): Promise<HCHeroData> {
           { label: "Facilities Online", value: "847" },
         ],
     bgImage:     val(sec?.bg_image),
+    bgVideoUrl:  val(sec?.bg_image_video_url),
     accentColor: val(sec?.accent_color) ?? "rgba(20,184,166,1)",
   };
 }

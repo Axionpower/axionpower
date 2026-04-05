@@ -169,6 +169,7 @@ function buildOverrides(sec: Raw): SectionOverrides {
 // ══════════════════════════════════
 export interface SustainHeroData {
     backgroundImageUrl?: string;
+    backgroundVideoUrl?: string;
     breadcrumb: string;
     heading: string;
     subtext: string;
@@ -195,6 +196,7 @@ export async function getSustainHeroData(): Promise<SustainHeroData> {
 
     return {
         backgroundImageUrl: val(sec?.background_image_url) ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        backgroundVideoUrl: val(sec?.background_image_video_url),
         breadcrumb: val(sec?.breadcrumb) ?? "HOME  /  SUSTAINABILITY & COMPLIANCE",
         heading: val(sec?.heading) ?? "Sustainability & Compliance",
         subtext:

@@ -18,6 +18,16 @@ export default function HeroSection({ data }: Props) {
 
     const textAlign = data.contentAlignment || "center";
 
+    // Auto-detect video URLs even if placed in the image field
+    const VIDEO_EXT = /\.(mp4|webm|mov|ogg)(\?.*)?$/i;
+    const bgImageUrl = data.backgroundImage?.node?.sourceUrl;
+    const isImageActuallyVideo = bgImageUrl && VIDEO_EXT.test(bgImageUrl);
+
+    // Resolve: explicit backgroundVideo OR image URL that's actually a video
+    const resolvedVideo = data.backgroundVideo || (isImageActuallyVideo ? bgImageUrl : undefined);
+    // Only use image for <Image> if it's NOT a video file
+    const resolvedImage = !isImageActuallyVideo ? bgImageUrl : undefined;
+
     return (
         <section
             style={{
@@ -31,11 +41,33 @@ export default function HeroSection({ data }: Props) {
                 overflow: "hidden",
             }}
         >
-            {/* ── Background Image (Desktop) ── */}
-            {data.backgroundImage?.node?.sourceUrl && (
+            {/* ── Background Video (Desktop) ── */}
+            {resolvedVideo && (
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster={resolvedImage || undefined}
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        zIndex: 0,
+                    }}
+                    className="hero-bg-desktop"
+                >
+                    <source src={resolvedVideo} type={resolvedVideo.endsWith(".webm") ? "video/webm" : "video/mp4"} />
+                </video>
+            )}
+
+            {/* ── Background Image (Desktop) — shown only if no video ── */}
+            {!resolvedVideo && resolvedImage && (
                 <Image
-                    src={data.backgroundImage.node.sourceUrl}
-                    alt={data.backgroundImage.node.altText || "Hero background"}
+                    src={resolvedImage}
+                    alt={data.backgroundImage?.node?.altText || "Hero background"}
                     fill
                     priority
                     quality={90}
@@ -62,8 +94,8 @@ export default function HeroSection({ data }: Props) {
                 />
             )}
 
-            {/* ── Fallback if no images uploaded yet ── */}
-            {!data.backgroundImage?.node?.sourceUrl && (
+            {/* ── Fallback if no images or video uploaded yet ── */}
+            {!resolvedVideo && !resolvedImage && (
                 <div
                     style={{
                         position: "absolute",

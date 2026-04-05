@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import Link from "next/link";
 import "./MtHeroSection.css";
@@ -12,7 +13,6 @@ export default function MtHeroSection({ data }: Props) {
     const HeadingTag = (o.headingTag || 'h1') as React.ElementType;
 
     const finalSectionStyle: React.CSSProperties = {
-        backgroundImage: `url(${data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"})`,
         ...(o.bgColor && { backgroundColor: o.bgColor }),
         ...(o.minHeight && { minHeight: o.minHeight }),
     };
@@ -25,7 +25,12 @@ export default function MtHeroSection({ data }: Props) {
     };
 
     return (
-        <section className="mt-hero" style={finalSectionStyle}>
+        <HeroBackground
+            imageUrl={data.backgroundImageUrl || "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+            videoUrl={data.backgroundVideoUrl}
+            className="mt-hero"
+            style={Object.keys(finalSectionStyle).length ? finalSectionStyle : undefined}
+        >
             <div className="mt-overlay" aria-hidden="true" />
             <div className="mt-grid" aria-hidden="true" />
             <div className="mt-badge-top">{data.topBadgeText}</div>
@@ -62,6 +67,6 @@ export default function MtHeroSection({ data }: Props) {
                     </Link>
                 </div>
             </div>
-        </section>
+        </HeroBackground>
     );
 }

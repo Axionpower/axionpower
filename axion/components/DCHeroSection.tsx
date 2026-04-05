@@ -1,22 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { DCHeroData } from "@/lib/queries/data-centers";
+import HeroBackground from "./HeroBackground";
 import "./DCHeroSection.css";
 
 export default function DCHeroSection({ data }: { data: DCHeroData }) {
   return (
-    <section
+    <HeroBackground
+      imageUrl={data.bgImage}
+      videoUrl={data.bgVideoUrl}
       className="dc-hero"
-      style={
-        {
-          '--accent': data.accentColor,
-          ...(data.bgImage ? {
-            backgroundImage: `url(${data.bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          } : {}),
-        } as React.CSSProperties
-      }
+      style={{ '--accent': data.accentColor } as React.CSSProperties}
     >
       <div className="dc-hero-inner">
         <div className="dc-hero-left">
@@ -70,6 +64,6 @@ export default function DCHeroSection({ data }: { data: DCHeroData }) {
           </div>
         </div>
       </div>
-    </section>
+    </HeroBackground>
   );
 }

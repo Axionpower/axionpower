@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./ServicesSection.css";
 import type { ServicesData, ServiceItem } from "@/lib/queries/services";
@@ -27,11 +27,11 @@ function ServiceCard({ item, cardHeadingTag, cardTitleColor }: { item: ServiceIt
             {/* Background image – hidden by default, shown on hover via CSS */}
             {imgSrc && (
                 <div className="service-card-bg">
-                    <Image
-                        src={imgSrc}
+                    <CmsMedia
+                        imageUrl={imgSrc}
+                        videoUrl={item.videoUrl}
                         alt={item.image?.node?.altText || item.title}
                         fill
-                        style={{ objectFit: "cover" }}
                     />
                 </div>
             )}

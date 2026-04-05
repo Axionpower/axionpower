@@ -1,20 +1,26 @@
 <?php
 /**
  * Plugin Name: Axion CMS
- * Description: Custom content management for Axion Critical Power Solutions. Manages page sections and fields with a clean admin UI and GraphQL support.
- * Version: 1.0.0
- * Author: Axion
+ * Plugin URI: https://tecshor.com
+ * Description: Enterprise-grade content management system for Axion Critical Power Solutions. Features a modern admin UI with granular section controls, repeater fields, image management, GraphQL API, SEO controls, and real-time frontend revalidation.
+ * Version: 1.2.0
+ * Author: Tecshor
+ * Author URI: https://tecshor.com
  * Text Domain: axion-cms
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
+ * License: Proprietary
  */
 
 if (!defined('ABSPATH'))
     exit;
 
-define('AXION_CMS_VERSION', '1.0.0');
+define('AXION_CMS_VERSION', '1.2.0');
 define('AXION_CMS_PATH', plugin_dir_path(__FILE__));
 define('AXION_CMS_URL', plugin_dir_url(__FILE__));
 
 // ─── Includes ───
+require_once AXION_CMS_PATH . 'includes/class-icons.php';
 require_once AXION_CMS_PATH . 'includes/class-fields.php';
 require_once AXION_CMS_PATH . 'includes/class-admin.php';
 require_once AXION_CMS_PATH . 'includes/class-graphql.php';

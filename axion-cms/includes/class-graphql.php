@@ -104,6 +104,15 @@ class Axion_GraphQL
      */
     private static function is_image_field($key)
     {
+        // Never treat video URL fields as image fields
+        if (preg_match('/_video_url$/', $key)) {
+            return false;
+        }
+        // Never treat already-resolved URL fields as image fields
+        // (prevents infinite loop: col1_image → col1_image_url → col1_image_url_url → ...)
+        if (preg_match('/_url$/', $key)) {
+            return false;
+        }
         return (bool) preg_match('/^image$|_image(_|$)|_bg$|_background$/', $key);
     }
 
@@ -126,10 +135,16 @@ class Axion_GraphQL
                 } else {
                     $value = self::resolve_images($value);
                 }
-            } elseif (is_numeric($value) && (int) $value > 0 && self::is_image_field($key)) {
-                $url = wp_get_attachment_url((int) $value);
-                if ($url) {
-                    $data[$key . '_url'] = $url;
+            } elseif (self::is_image_field($key)) {
+                if (is_numeric($value) && (int) $value > 0) {
+                    // Attachment ID → resolve to URL
+                    $url = wp_get_attachment_url((int) $value);
+                    if ($url) {
+                        $data[$key . '_url'] = $url;
+                    }
+                } elseif (is_string($value) && filter_var($value, FILTER_VALIDATE_URL)) {
+                    // Already a URL string → pass through directly
+                    $data[$key . '_url'] = $value;
                 }
             }
         }

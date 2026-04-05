@@ -1,10 +1,11 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./CabinetsApproachSection.css";
 
 interface ApproachItem {
     title: string;
     image: string;
+    videoUrl?: string;
 }
 
 const DEFAULT_ITEMS: ApproachItem[] = [
@@ -88,8 +89,9 @@ export default function CabinetsApproachSection({
                     {items.map((item, i) => (
                         <div key={i} className="cab-approach-item">
                             <div className="cab-approach-img-wrap">
-                                <Image
-                                    src={item.image}
+                                <CmsMedia
+                                    imageUrl={item.image}
+                                    videoUrl={item.videoUrl}
                                     alt={item.title}
                                     width={160}
                                     height={120}
@@ -113,8 +115,9 @@ export default function CabinetsApproachSection({
                     {items.map((item, i) => (
                         <div key={i} className="cab-approach-mobile-card">
                             <div className="cab-approach-mobile-img-wrap">
-                                <Image
-                                    src={item.image}
+                                <CmsMedia
+                                    imageUrl={item.image}
+                                    videoUrl={item.videoUrl}
                                     alt={item.title}
                                     width={90}
                                     height={70}

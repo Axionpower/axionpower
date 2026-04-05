@@ -1,23 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { CEHeroData } from "@/lib/queries/consulting-engineer-hub";
+import HeroBackground from "./HeroBackground";
 import "./CEHeroSection.css";
 
 export default function CEHeroSection({ data }: { data: CEHeroData }) {
   const lines = data.heading.split("\n");
   return (
-    <section
+    <HeroBackground
+      imageUrl={data.bgImage}
+      videoUrl={data.bgVideoUrl}
       className="ce-hero"
-      style={
-        {
-          '--accent': data.accentColor,
-          ...(data.bgImage ? {
-            backgroundImage: `url(${data.bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          } : {}),
-        } as React.CSSProperties
-      }
+      style={{ '--accent': data.accentColor } as React.CSSProperties}
     >
       <div className="ce-hero__container">
         <div className="ce-hero__grid">
@@ -70,6 +64,6 @@ export default function CEHeroSection({ data }: { data: CEHeroData }) {
 
         </div>
       </div>
-    </section>
+    </HeroBackground>
   );
 }

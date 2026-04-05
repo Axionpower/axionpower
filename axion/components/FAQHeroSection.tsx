@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import Link from "next/link";
 import { FAQHeroData } from "@/lib/queries/faqs";
@@ -6,19 +7,11 @@ import "./FAQHeroSection.css";
 export default function FAQHeroSection({ data }: { data: FAQHeroData }) {
   const lines = data.heading.split("\n");
   return (
-    <section
+    <HeroBackground
+      imageUrl={data.bgImage}
+      videoUrl={data.bgVideoUrl}
       className="faq-hero"
-      style={
-        {
-          '--accent': data.accentColor,
-          ...(data.bgColor ? { background: data.bgColor } : {}),
-          ...(data.bgImage ? {
-            backgroundImage: `url(${data.bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          } : {}),
-        } as React.CSSProperties
-      }
+      style={{ '--accent': data.accentColor, ...(data.bgColor ? { background: data.bgColor } : {}) } as React.CSSProperties}
     >
       <div className="faq-hero__container">
         <div className="faq-hero__grid">
@@ -84,6 +77,6 @@ export default function FAQHeroSection({ data }: { data: FAQHeroData }) {
 
         </div>
       </div>
-    </section>
+    </HeroBackground>
   );
 }

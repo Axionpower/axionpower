@@ -3,7 +3,7 @@
    ══════════════════════════════════════ */
 
 .cabinets-eng-section {
-    background: #0a0a14;
+    background: #ffffff;
     padding: 5rem 0 10rem;
     border-radius: 100px 100px 0 0;
     margin-top: -6rem;
@@ -32,20 +32,21 @@
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    border-left: 3px solid #ffffff;
+    border-left: 3px solid #0EA5E9;
     padding-left: 0.7rem;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
+    color: #1a1a2e;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
 }
 
 /* ── Description ── */
 .cabinets-eng-desc {
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 20px;
-    line-height: 1.55;
-    font-weight: 500;
+    color: #555555;
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -68,7 +69,7 @@
 .cabinets-eng-bolt {
     position: absolute;
     z-index: 2;
-    background: #0a0a14;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -17,7 +17,7 @@ return [
         // ════════════════════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -79,7 +79,7 @@ return [
         // ════════════════════════════════════════════════════
         'about' => [
             'label' => 'About Section',
-            'icon'  => '📋',
+            'icon'  => 'clipboard',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label_text', 'label' => 'Label Text', 'type' => 'text',
@@ -120,7 +120,7 @@ return [
         // ════════════════════════════════════════════════════
         'engineered' => [
             'label' => 'Engineered Section',
-            'icon'  => '🔧',
+            'icon'  => 'wrench',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label_text', 'label' => 'Label / Heading', 'type' => 'text',
@@ -163,17 +163,40 @@ return [
         // ════════════════════════════════════════════════════
         'key-benefits' => [
             'label' => 'Key Benefits',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 // ── Content ──
                 ['name' => 'heading', 'label' => 'Heading', 'type' => 'text',
                     'default' => 'Key Benefits'],
                 [
                     'name'  => 'cards', 'label' => 'Benefit Cards', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title'       => 'Seismic-Rated Construction',
+                            'description' => 'Engineered to withstand Zone 4 seismic requirements',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Integrated Ventilation',
+                            'description' => 'Built-in thermal management for optimal battery life',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Code-Compliant Designs',
+                            'description' => 'Meets UL, NFPA, and IEEE standards out of the box',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Configurable Layouts',
+                            'description' => 'Adaptable for VRLA, flooded, and lithium-ion systems',
+                            'image'       => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title',       'label' => 'Title',       'type' => 'text'],
                         ['name' => 'description', 'label' => 'Description', 'type' => 'text'],
-                        ['name' => 'image',       'label' => 'Image',       'type' => 'image'],
+                        ['name' => 'image',       'label' => 'Card Image',  'type' => 'image',
+                            'description' => 'Recommended: 600×400px. Background image for the card.'],
                     ],
                 ],
                 // ── ⬆ Section Stacking ──
@@ -212,7 +235,7 @@ return [
         // ════════════════════════════════════════════════════
         'features' => [
             'label' => 'Features List',
-            'icon'  => '📝',
+            'icon'  => 'file-text',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label_text', 'label' => 'Label / Heading', 'type' => 'text',
@@ -261,7 +284,7 @@ return [
         // ════════════════════════════════════════════════════
         'applications' => [
             'label' => 'Typical Applications',
-            'icon'  => '📱',
+            'icon'  => 'smartphone',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label', 'label' => 'Section Label', 'type' => 'text',
@@ -270,10 +293,33 @@ return [
                     'default' => 'Battery cabinets are deployed across critical infrastructure, including'],
                 [
                     'name'  => 'cards', 'label' => 'Application Cards', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title'       => 'Data Centers & Colocation',
+                            'description' => 'Secure, ventilated enclosures for high-density UPS battery systems',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Healthcare & Hospitals',
+                            'description' => 'Code-compliant cabinets for life-safety power installations',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Commercial Buildings',
+                            'description' => 'Space-efficient battery housing for building backup systems',
+                            'image'       => 0,
+                        ],
+                        [
+                            'title'       => 'Industrial & Utility Sites',
+                            'description' => 'Rugged cabinets for demanding environments and seismic zones',
+                            'image'       => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title',       'label' => 'Title',       'type' => 'text'],
                         ['name' => 'description', 'label' => 'Description', 'type' => 'text'],
-                        ['name' => 'image',       'label' => 'Image',       'type' => 'image'],
+                        ['name' => 'image',       'label' => 'Card Image',  'type' => 'image',
+                            'description' => 'Recommended: 600×400px. Background image for the card.'],
                     ],
                 ],
                 // ── ⬆ Section Stacking ──
@@ -313,7 +359,7 @@ return [
         // ════════════════════════════════════════════════════
         'approach' => [
             'label' => "Axion's Approach",
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label_text', 'label' => 'Section Label', 'type' => 'text',
@@ -322,6 +368,24 @@ return [
                     'default' => "Axion takes a system-level approach to battery cabinets, ensuring proper alignment between batteries, cabinets, UPS systems, and site conditions.\nSupport includes"],
                 [
                     'name'  => 'items', 'label' => 'Timeline / Step Items', 'type' => 'repeater',
+                    'default_rows' => [
+                        [
+                            'title' => 'Cabinet selection and configuration guidance',
+                            'image' => 0,
+                        ],
+                        [
+                            'title' => 'Coordination with battery and UPS requirements',
+                            'image' => 0,
+                        ],
+                        [
+                            'title' => 'Layout and space planning assistance',
+                            'image' => 0,
+                        ],
+                        [
+                            'title' => 'Compliance and safety considerations',
+                            'image' => 0,
+                        ],
+                    ],
                     'sub_fields' => [
                         ['name' => 'title', 'label' => 'Step Title', 'type' => 'text'],
                         ['name' => 'image', 'label' => 'Step Image', 'type' => 'image',
@@ -350,11 +414,11 @@ return [
                 ['name' => 'body_font_size',  'label' => '🔤 Body Font Size',  'type' => 'number',
                     'default' => '', 'min' => 12, 'max' => 28, 'unit' => 'px'],
                 // ── 🎨 Colors ──
-                ['name' => 'bg_color',       'label' => '🎨 Background Color',  'type' => 'color', 'default' => '#ffffff'],
-                ['name' => 'label_color',    'label' => '🎨 Label Color',       'type' => 'color', 'default' => '#1e88e5'],
-                ['name' => 'body_color',     'label' => '🎨 Description Color', 'type' => 'color', 'default' => '#555555'],
-                ['name' => 'step_bg_color',  'label' => '🎨 Step Card Background', 'type' => 'color', 'default' => '#0a0e1a'],
-                ['name' => 'step_text_color','label' => '🎨 Step Title Color',  'type' => 'color', 'default' => '#ffffff'],
+                ['name' => 'bg_color',       'label' => '🎨 Background Color',     'type' => 'color', 'default' => ''],
+                ['name' => 'label_color',    'label' => '🎨 Label Color',          'type' => 'color', 'default' => '#ffffff'],
+                ['name' => 'body_color',     'label' => '🎨 Description Color',    'type' => 'color', 'default' => '#ffffff'],
+                ['name' => 'step_bg_color',  'label' => '🎨 Step Card Background', 'type' => 'color', 'default' => ''],
+                ['name' => 'step_text_color','label' => '🎨 Step Title Color',     'type' => 'color', 'default' => '#ffffff'],
             ],
         ],
 
@@ -363,7 +427,7 @@ return [
         // ════════════════════════════════════════════════════
         'why-choose' => [
             'label' => 'Why Choose Us',
-            'icon'  => '👍',
+            'icon'  => 'thumbs-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'heading_line1',     'label' => 'Heading Line 1',             'type' => 'text', 'default' => 'Why Choose'],

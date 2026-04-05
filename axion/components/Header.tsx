@@ -15,7 +15,30 @@ interface NavItem {
     children?: SubLink[];
 }
 
-const NAV_LINKS: NavItem[] = [
+interface HeaderProps {
+    logo?: {
+        title: string;
+        subtitle: string;
+        image?: string;
+        link: string;
+    };
+    navigation?: NavItem[];
+    cta?: {
+        text: string;
+        link: string;
+        bgColor?: string;
+        textColor?: string;
+    };
+    style?: {
+        bgColor?: string;
+        textColor?: string;
+        accentColor?: string;
+        dropdownBg?: string;
+        dropdownText?: string;
+    };
+}
+
+const DEFAULT_NAV: NavItem[] = [
     { label: "HOME", href: "/" },
     {
         label: "ABOUT US",
@@ -68,11 +91,19 @@ const NAV_LINKS: NavItem[] = [
     { label: "CONTACT", href: "/contact" },
 ];
 
-export default function Header() {
+export default function Header({ logo, navigation, cta, style }: HeaderProps) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
     const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const NAV_LINKS = navigation && navigation.length > 0 ? navigation : DEFAULT_NAV;
+    const logoTitle = logo?.title || "AXION";
+    const logoSubtitle = logo?.subtitle || "CRITICAL POWER SOLUTIONS";
+    const logoLink = logo?.link || "/";
+    const logoImage = logo?.image || undefined;  // treat empty string as no image
+    const ctaText = cta?.text || "Get In Touch";
+    const ctaLink = cta?.link || "/contact";
 
     // Close dropdown on outside click
     useEffect(() => {
@@ -91,15 +122,27 @@ export default function Header() {
     };
 
     return (
-        <header className="site-header">
+        <header className="site-header" style={{
+            ...(style?.bgColor && { backgroundColor: style.bgColor }),
+        }}>
             {/* ── Blue accent line at top ── */}
-            <div className="header-accent-line" />
+            <div className="header-accent-line" style={{
+                ...(style?.accentColor && { background: style.accentColor }),
+            }} />
 
             <div className="header-inner">
                 {/* ── Logo ── */}
-                <Link href="/" className="header-logo">
-                    <span className="logo-title">AXION</span>
-                    <span className="logo-subtitle">CRITICAL POWER SOLUTIONS</span>
+                <Link href={logoLink} className="header-logo">
+                    {logoImage ? (
+                        // Use regular img to avoid Next.js remote pattern issues with dynamic WP URLs
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={logoImage} alt={logoTitle} width={180} height={40} style={{ objectFit: "contain", maxHeight: 40 }} />
+                    ) : (
+                        <>
+                            <span className="logo-title">{logoTitle}</span>
+                            <span className="logo-subtitle">{logoSubtitle}</span>
+                        </>
+                    )}
                 </Link>
 
                 {/* ── Desktop Nav ── */}
@@ -113,7 +156,9 @@ export default function Header() {
                                 onMouseLeave={handleMouseLeave}
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <Link href={link.href} className="nav-link nav-link-dropdown">
+                                <Link href={link.href} className="nav-link nav-link-dropdown" style={{
+                                    ...(style?.textColor && { color: style.textColor }),
+                                }}>
                                     {link.label}
                                     <svg
                                         className={`dropdown-chevron ${openDropdown === link.label ? "open" : ""}`}
@@ -129,16 +174,22 @@ export default function Header() {
                                         <path d="M6 9l6 6 6-6" />
                                     </svg>
                                 </Link>
-                                <div className={`dropdown-menu ${openDropdown === link.label ? "active" : ""}`}>
+                                <div className={`dropdown-menu ${openDropdown === link.label ? "active" : ""}`} style={{
+                                    ...(style?.dropdownBg && { backgroundColor: style.dropdownBg }),
+                                }}>
                                     {link.children.map((sub) => (
-                                        <Link key={sub.href} href={sub.href} className="dropdown-item">
+                                        <Link key={sub.href} href={sub.href} className="dropdown-item" style={{
+                                            ...(style?.dropdownText && { color: style.dropdownText }),
+                                        }}>
                                             {sub.label}
                                         </Link>
                                     ))}
                                 </div>
                             </div>
                         ) : (
-                            <Link key={link.href} href={link.href} className="nav-link">
+                            <Link key={link.href} href={link.href} className="nav-link" style={{
+                                ...(style?.textColor && { color: style.textColor }),
+                            }}>
                                 {link.label}
                             </Link>
                         )
@@ -146,8 +197,11 @@ export default function Header() {
                 </nav>
 
                 {/* ── CTA Button ── */}
-                <Link href="/contact" className="header-cta">
-                    Get In Touch
+                <Link href={ctaLink} className="header-cta" style={{
+                    ...(cta?.bgColor && { backgroundColor: cta.bgColor }),
+                    ...(cta?.textColor && { color: cta.textColor }),
+                }}>
+                    {ctaText}
                     <svg
                         width="16"
                         height="16"
@@ -185,9 +239,16 @@ export default function Header() {
             {/* ── Mobile Sidebar (slides from right) ── */}
             <div className={`mobile-sidebar ${mobileOpen ? "active" : ""}`}>
                 <div className="mobile-sidebar-header">
-                    <Link href="/" className="header-logo" onClick={() => setMobileOpen(false)}>
-                        <span className="logo-title" style={{ color: "#fff" }}>AXION</span>
-                        <span className="logo-subtitle" style={{ color: "rgba(255,255,255,0.6)" }}>CRITICAL POWER SOLUTIONS</span>
+                    <Link href={logoLink} className="header-logo" onClick={() => setMobileOpen(false)}>
+                        {logoImage ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={logoImage} alt={logoTitle} width={140} height={32} style={{ objectFit: "contain", maxHeight: 32 }} />
+                        ) : (
+                            <>
+                                <span className="logo-title" style={{ color: "#fff" }}>{logoTitle}</span>
+                                <span className="logo-subtitle" style={{ color: "rgba(255,255,255,0.6)" }}>{logoSubtitle}</span>
+                            </>
+                        )}
                     </Link>
                     <button
                         className="mobile-close"
@@ -254,11 +315,15 @@ export default function Header() {
                 </nav>
 
                 <Link
-                    href="/contact"
+                    href={ctaLink}
                     className="header-cta mobile-cta"
                     onClick={() => setMobileOpen(false)}
+                    style={{
+                        ...(cta?.bgColor && { backgroundColor: cta.bgColor }),
+                        ...(cta?.textColor && { color: cta.textColor }),
+                    }}
                 >
-                    Get In Touch
+                    {ctaText}
                     <svg
                         width="16"
                         height="16"

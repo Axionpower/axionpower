@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import Link from "next/link";
 import { ERHeroData } from "@/lib/queries/engineering-resources";
@@ -6,18 +7,11 @@ import "./ERHeroSection.css";
 export default function ERHeroSection({ data }: { data: ERHeroData }) {
   const lines = data.heading.split("\n");
   return (
-    <section
+    <HeroBackground
+      imageUrl={data.bgImage}
+      videoUrl={data.bgVideoUrl}
       className="er-hero"
-      style={
-        {
-          '--accent': data.accentColor,
-          ...(data.bgImage ? {
-            backgroundImage: `url(${data.bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          } : {}),
-        } as React.CSSProperties
-      }
+      style={{ '--accent': data.accentColor } as React.CSSProperties}
     >
       <div className="er-hero__container">
         <div className="er-hero__grid">
@@ -75,6 +69,6 @@ export default function ERHeroSection({ data }: { data: ERHeroData }) {
 
         </div>
       </div>
-    </section>
+    </HeroBackground>
   );
 }

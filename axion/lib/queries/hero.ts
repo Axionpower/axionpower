@@ -186,6 +186,7 @@ export interface HeroCTASecondary {
 export interface HeroData {
   backgroundImage: { node: HeroImageNode } | null;
   backgroundImageMobile?: { node: HeroImageNode } | null;
+  backgroundVideo?: string;
   overlayColor: string;
   overlayOpacity: number;
   headingText: string;
@@ -215,6 +216,7 @@ export interface HeroData {
 export const HERO_DEFAULTS: HeroData = {
   backgroundImage: { node: { sourceUrl: "/hero-bg.png", altText: "Axion Critical Power Solutions" } },
   backgroundImageMobile: null,
+  backgroundVideo: undefined,
   overlayColor: "#000000",
   overlayOpacity: 50,
   headingText: "Reliable Battery Solutions for\nMission-Critical Power Systems",
@@ -276,9 +278,16 @@ function firstValue(
 export async function getHeroData(slug?: string): Promise<HeroData> {
   // ── Try Axion CMS Plugin first ──
   try {
-    const { getAxionSection } = await import("@/lib/queries/axion-cms");
+    const { getAxionSection, getAxionAllSections } = await import("@/lib/queries/axion-cms");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const axion = await getAxionSection<any>("home", "hero");
+    let axion = await getAxionSection<any>("home", "hero");
+
+    // Fallback: if per-section query fails, try allSections
+    if (!axion) {
+      const all = await getAxionAllSections("home");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      axion = (all as any)?.hero ?? null;
+    }
 
     if (axion && axion.heading_text) {
       // Map flat Axion CMS data → nested HeroData format
@@ -289,6 +298,7 @@ export async function getHeroData(slug?: string): Promise<HeroData> {
         backgroundImageMobile: axion.background_image_mobile_url
           ? { node: { sourceUrl: axion.background_image_mobile_url, altText: "Hero background mobile" } }
           : null,
+        backgroundVideo: axion.background_video || axion.background_image_video_url || undefined,
         overlayColor: axion.overlay_color || "#000000",
         overlayOpacity: parseInt(axion.overlay_opacity || "60", 10),
         headingText: axion.heading_text || "Welcome",
@@ -360,7 +370,8 @@ export async function getHeroData(slug?: string): Promise<HeroData> {
 
     return hero;
   } catch (error) {
-    console.error("Failed to fetch hero data:", error);
+    // heros CPT not registered in WP GraphQL — using defaults
+    void error;
     return HERO_DEFAULTS;
   }
 }

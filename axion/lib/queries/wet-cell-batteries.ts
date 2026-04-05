@@ -23,6 +23,10 @@ function img(raw: Raw, field: string): string | undefined {
     return val(raw?.[field + "_url"] || raw?.[field] || "");
 }
 
+function vid(raw: Raw, field: string): string | undefined {
+    return val(raw?.[field + "_video_url"] || "");
+}
+
 function px(raw: Raw, field: string): string | undefined {
     const v = raw?.[field];
     if (v === null || v === undefined || v === "" || v === 0) return undefined;
@@ -34,6 +38,7 @@ function px(raw: Raw, field: string): string | undefined {
 // ═══════════════════════════════
 export interface WetCellHeroData {
     backgroundImage?: string;
+    backgroundVideoUrl?: string;
     heading?: string;
     headingTag?: string;
     headingHighlight?: string;
@@ -67,6 +72,7 @@ export async function getWetCellHeroData(): Promise<Partial<WetCellHeroData> | u
     // compact() is critical: WetCellHeroSection does { ...DEFAULTS, ...data }
     return compact({
         backgroundImage: img(ax, "background_image"),
+        backgroundVideoUrl: vid(ax, "background_image"),
         breadcrumb: val(ax.breadcrumb),
         heading: val(ax.heading),
         headingHighlight: val(ax.heading_highlight),
@@ -221,6 +227,7 @@ export async function getWetCellKeyBenefitsData(): Promise<{
             title: c.title || "",
             description: c.description || "",
             image: img(c, "image") || FALLBACK_IMG,
+            videoUrl: vid(c, "image") || undefined,
         }))
         : undefined;
 

@@ -17,7 +17,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🏢',
+            'icon'  => 'building',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -56,7 +56,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero-stats' => [
             'label' => 'Hero Stats Bar',
-            'icon'  => '📊',
+            'icon'  => 'bar-chart',
             'fields' => [
                 [
                     'name'         => 'stats',
@@ -86,7 +86,8 @@ return [
         // ══════════════════════════════════════════════════
         'intro' => [
             'label' => 'Introduction — Who We Are',
-            'icon'  => '👥',
+            'icon'  => 'users',
+
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',       'label' => 'Section Label',  'type' => 'text',     'default' => 'WHO WE ARE'],
@@ -127,7 +128,7 @@ return [
         // ══════════════════════════════════════════════════
         'mission' => [
             'label' => 'Our Mission',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',     'label' => 'Section Label', 'type' => 'text', 'default' => 'OUR MISSION'],
@@ -168,7 +169,8 @@ return [
         // ══════════════════════════════════════════════════
         'mission-features' => [
             'label' => 'Our Mission — Feature Cards',
-            'icon'  => '⚙️',
+            'icon'  => 'settings',
+
             'fields' => [
                 [
                     'name'         => 'features',
@@ -205,7 +207,8 @@ return [
         // ══════════════════════════════════════════════════
         'approach' => [
             'label' => 'How We Work — Header',
-            'icon'  => '⚙️',
+            'icon'  => 'settings',
+
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text', 'default' => 'OUR APPROACH'],
@@ -241,7 +244,8 @@ return [
         // ══════════════════════════════════════════════════
         'approach-cards' => [
             'label' => 'How We Work — Value Cards',
-            'icon'  => '🃏',
+            'icon'  => 'layers',
+
             'fields' => [
                 [
                     'name'         => 'cards',
@@ -308,7 +312,7 @@ return [
         // ══════════════════════════════════════════════════
         'advantage' => [
             'label' => 'Why Choose Axion — Header',
-            'icon'  => '🏆',
+            'icon'  => 'award',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
@@ -346,7 +350,7 @@ return [
         // ══════════════════════════════════════════════════
         'advantage-stats' => [
             'label' => 'Why Choose Axion — Stats',
-            'icon'  => '📊',
+            'icon'  => 'bar-chart',
             'fields' => [
                 [
                     'name'         => 'stats',
@@ -381,7 +385,8 @@ return [
         // ══════════════════════════════════════════════════
         'advantage-cards' => [
             'label' => 'Why Choose Axion — Feature Cards',
-            'icon'  => '🃏',
+            'icon'  => 'layers',
+
             'fields' => [
                 [
                     'name'         => 'cards',
@@ -392,28 +397,32 @@ return [
                         [
                             'number'       => '01',
                             'number_color' => '#1e88e5',
-                            'icon'         => '⚡',
+                            'icon'         => 'zap',
+
                             'title'        => 'VRLA & Wet Cell Expertise',
                             'description'  => 'Deep specialist knowledge in VRLA and wet cell battery solutions for every critical power application.',
                         ],
                         [
                             'number'       => '02',
                             'number_color' => '#ffffff',
-                            'icon'         => '🏆',
+                            'icon'         => 'award',
+
                             'title'        => 'Proven Track Record',
                             'description'  => 'Trusted by consulting engineers, contractors, and users across industries for over two decades.',
                         ],
                         [
                             'number'       => '03',
                             'number_color' => '#0d1b2a',
-                            'icon'         => '🔄',
+                            'icon'         => 'refresh-cw',
+
                             'title'        => 'Full Lifecycle Support',
                             'description'  => 'From initial specification and procurement through to end-of-life replacement planning and beyond.',
                         ],
                         [
                             'number'       => '04',
                             'number_color' => '#1976d2',
-                            'icon'         => '🔒',
+                            'icon'         => 'lock',
+
                             'title'        => 'Reliable & Compliant',
                             'description'  => 'Every solution is technically sound, standards-compliant, and engineered for maximum long-term uptime.',
                         ],
@@ -454,7 +463,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label' => 'Get In Touch — CTA',
-            'icon'  => '📞',
+            'icon'  => 'phone',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',           'label' => 'Section Label',         'type' => 'text',

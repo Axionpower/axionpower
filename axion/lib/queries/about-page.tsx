@@ -109,6 +109,7 @@ export interface AboutMissionFeature {
 
 export interface AboutMissionData {
     imageUrl?: string;
+    videoUrl?: string;
     imageAlt?: string;
     quote: string;
     label: string;
@@ -153,6 +154,7 @@ export async function getAboutMissionData(): Promise<AboutMissionData> {
 
     return {
         imageUrl: val(sec?.image_url),
+        videoUrl: val(sec?.image_video_url),
         imageAlt: val(sec?.image_alt) ?? "Technician at work",
         quote:    val(sec?.quote)     ?? '"Reliability first. Every system. Every client. Every time."',
         label:    val(sec?.label)     ?? "OUR MISSION",
@@ -219,6 +221,7 @@ export interface AboutHeroStat {
 
 export interface AboutHeroData {
     backgroundImageUrl?: string;
+    backgroundVideoUrl?: string;
     breadcrumb: string;
     heading: string;
     subtext: string;
@@ -258,6 +261,7 @@ export async function getAboutHeroData(): Promise<AboutHeroData> {
 
     return {
         backgroundImageUrl: val(hero?.background_image_url),
+        backgroundVideoUrl: val(hero?.background_image_video_url),
         breadcrumb:     val(hero?.breadcrumb)       ?? "HOME / ABOUT US",
         heading:        val(hero?.heading)          ?? "About Axion Critical Power\nSolutions",
         subtext:        val(hero?.subtext)          ??
@@ -402,6 +406,7 @@ export interface AboutCtaData {
     btnGhostLabel: string;
     btnGhostUrl: string;
     imageUrl?: string;
+    videoUrl?: string;
     imageAlt?: string;
     emergencyText: string;
   headingTag?: string;
@@ -430,6 +435,7 @@ export async function getAboutCtaData(): Promise<AboutCtaData> {
         btnGhostLabel:   val(sec?.btn_ghost_label)   ?? "Request a Quote",
         btnGhostUrl:     val(sec?.btn_ghost_url)     ?? "/contact",
         imageUrl:        val(sec?.image_url),
+        videoUrl:        val(sec?.image_video_url),
         imageAlt:        val(sec?.image_alt)         ?? "Axion technician at work",
         emergencyText:   val(sec?.emergency_text)    ?? "24/7 Emergency: 245 445 34352",
     };

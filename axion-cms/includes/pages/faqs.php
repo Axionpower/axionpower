@@ -14,7 +14,7 @@ return [
         // ====================================================================
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 ['name' => 'breadcrumb', 'label' => 'Breadcrumb Text', 'type' => 'text', 'default' => 'HOME / FAQs', 'description' => 'Breadcrumb navigation text shown above the pill label.'],
                 ['name' => 'label', 'label' => 'Pill Label', 'type' => 'text', 'default' => 'CRITICAL POWER BATTERY SYSTEMS'],
@@ -67,12 +67,12 @@ return [
         // ====================================================================
         'lifespan-maintenance' => [
             'label'  => 'Battery Lifespan & Maintenance',
-            'icon'   => '🔋',
+            'icon'   => 'battery',
             'fields' => [
                 ['name' => 'label',  'label' => 'Section Label', 'type' => 'text', 'default' => 'BATTERY LIFESPAN & MAINTENANCE'],
                 ['name' => 'q1_num','label' => 'Q1 Number Label', 'type' => 'text', 'default' => 'Q1', 'description' => 'Label shown before question 1 (e.g. Q1).'],
                 ['name' => 'q1',    'label' => 'Question 1', 'type' => 'text', 'default' => 'How long do VRLA and flooded (wet cell) batteries last?'],
-                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a', 'description' => 'Override the section background color.'],
+                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#ffffff', 'description' => 'Override the section background color. Default: white (#ffffff).'],
                 [
                     'name' => 'q1_bullets',
                     'label' => 'Question 1 — Answer Bullets',
@@ -141,14 +141,14 @@ return [
         // ====================================================================
         'lead-times-warranty' => [
             'label'  => 'Lead Times & Warranty',
-            'icon'   => '⏱',
+            'icon'   => 'file-text',
             'fields' => [
                 ['name' => 'label',  'label' => 'Section Label', 'type' => 'text', 'default' => 'LEAD TIMES & WARRANTY'],
                 ['name' => 'q3_num','label' => 'Q3 Number Label', 'type' => 'text', 'default' => 'Q3', 'description' => 'Label shown before question 3 (e.g. Q3).'],
                 ['name' => 'q3',    'label' => 'Question 3', 'type' => 'text', 'default' => 'What are typical lead times for battery orders?'],
                 ['name' => 'lead_time_headline', 'label' => 'Lead Time Headline', 'type' => 'text', 'default' => '2 – 8 WEEKS TYPICAL'],
                 ['name' => 'lead_time_desc', 'label' => 'Lead Time Description', 'type' => 'textarea', 'default' => 'Lead times depend on battery type, size, quantity, and project requirements. Axion coordinates directly with manufacturers to provide accurate delivery schedules.'],
-                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#ffffff', 'description' => 'Override the section background color.'],
+                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a', 'description' => 'Override the section background color. Default: dark navy (#0a0e1a).'],
                 [
                     'name' => 'lead_steps',
                     'label' => 'Lead Time Process Steps',
@@ -217,13 +217,13 @@ return [
         // ====================================================================
         'end-of-life' => [
             'label'  => 'End-of-Life Handling',
-            'icon'   => '♻️',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',  'label' => 'Section Label', 'type' => 'text', 'default' => 'END-OF-LIFE HANDLING'],
                 ['name' => 'q5_num','label' => 'Q5 Number Label', 'type' => 'text', 'default' => 'Q5', 'description' => 'Label shown before question 5 (e.g. Q5).'],
                 ['name' => 'q5',    'label' => 'Question 5', 'type' => 'text', 'default' => 'How should batteries be disposed of or recycled?'],
                 ['name' => 'q5_intro', 'label' => 'Answer Introduction', 'type' => 'textarea', 'default' => 'Axion provides environmentally responsible battery recycling in coordination with certified partners, ensuring compliance with federal, provincial, and local regulations.'],
-                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#0a0e1a', 'description' => 'Override the section background color.'],
+                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#1e88e5', 'description' => 'Override the section background color. Default: blue (#1e88e5).'],
                 [
                     'name' => 'recycling_steps',
                     'label' => 'Recycling Process Steps',
@@ -265,11 +265,11 @@ return [
         // ====================================================================
         'why-faqs-matter' => [
             'label'  => 'Why FAQs Matter',
-            'icon'   => '⭐',
+            'icon'   => 'star',
             'fields' => [
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text', 'default' => 'WHY THIS MATTERS'],
                 ['name' => 'heading', 'label' => 'Heading (use \\n for line breaks)', 'type' => 'textarea', 'default' => "FAQs That Build\nConfidence & Clarity"],
-                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#ffffff', 'description' => 'Override the section background color.'],
+                ['name' => 'bg_color', 'label' => '🎨 Section Background Color', 'type' => 'color', 'default' => '#1565c0', 'description' => 'Override the section background color. Default: dark blue (#1565c0).'],
                 [
                     'name' => 'cards',
                     'label' => 'Benefit Cards',
@@ -294,7 +294,7 @@ return [
         // ====================================================================
         'cta' => [
             'label'  => 'Call to Action',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 ['name' => 'label',        'label' => 'Label',                      'type' => 'text',     'default' => 'HAVE MORE QUESTIONS?'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1',              'type' => 'text',     'default' => 'Get Expert Answers from'],

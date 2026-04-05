@@ -59,6 +59,7 @@ export interface ComplianceColumn {
     headingColor: string;
     headingFontSize: number;
     image: { node: { sourceUrl: string; altText: string } } | null;
+    videoUrl?: string;
     description: string;
     descriptionColor: string;
     descriptionFontSize: number;
@@ -191,11 +192,63 @@ function mergeWithDefaults(data: Partial<ComplianceData>): ComplianceData {
 export async function getComplianceData(): Promise<ComplianceData> {
     // ── Try Axion CMS first ──
     try {
-        const { getAxionSection } = await import("@/lib/queries/axion-cms");
+        const { getAxionSection, getAxionAllSections } = await import("@/lib/queries/axion-cms");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const ax = await getAxionSection<any>("home", "compliance");
-        if (ax && (ax.heading || ax.badges)) {
-            return COMPLIANCE_DEFAULTS; // Use defaults with Axion CMS data when fields are added
+        let ax = await getAxionSection<any>("home", "compliance");
+
+        // Fallback: if per-section query fails, try allSections
+        if (!ax) {
+            const all = await getAxionAllSections("home");
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ax = (all as any)?.compliance ?? null;
+        }
+
+        if (ax && (ax.col1_heading || ax.col2_heading)) {
+            // Helper: parse newline-separated highlights text into array
+            const parseHighlights = (text: string): ComplianceHighlight[] =>
+                (text || "").split("\n").filter(Boolean).map(line => ({ text: line.trim() }));
+
+            // Map flat CMS fields → column objects
+            const mapColumn = (prefix: string, defaults: ComplianceColumn): ComplianceColumn => ({
+                heading: ax[`${prefix}_heading`] || defaults.heading,
+                headingTag: ax[`${prefix}_heading_tag`] || defaults.headingTag,
+                headingColor: ax[`${prefix}_heading_color`] || defaults.headingColor,
+                headingFontSize: parseInt(ax[`${prefix}_heading_font_size`] || defaults.headingFontSize, 10),
+                image: ax[`${prefix}_image_url`]
+                    ? { node: { sourceUrl: ax[`${prefix}_image_url`], altText: ax[`${prefix}_heading`] || "" } }
+                    : defaults.image,
+                description: ax[`${prefix}_description`] || defaults.description,
+                descriptionColor: ax[`${prefix}_description_color`] || defaults.descriptionColor,
+                descriptionFontSize: parseInt(ax[`${prefix}_description_font_size`] || defaults.descriptionFontSize, 10),
+                buttonLabel: ax[`${prefix}_button_label`] || defaults.buttonLabel,
+                buttonUrl: ax[`${prefix}_button_url`] || defaults.buttonUrl,
+                buttonBgColor: ax[`${prefix}_button_bg_color`] || defaults.buttonBgColor,
+                buttonTextColor: ax[`${prefix}_button_text_color`] || defaults.buttonTextColor,
+                buttonFontSize: parseInt(ax[`${prefix}_button_font_size`] || defaults.buttonFontSize, 10),
+                buttonRadius: parseInt(ax[`${prefix}_button_radius`] || defaults.buttonRadius, 10),
+                buttonHoverBgColor: defaults.buttonHoverBgColor,
+                highlightsTitle: ax[`${prefix}_highlights_title`] || defaults.highlightsTitle,
+                highlightsTitleTag: defaults.highlightsTitleTag,
+                highlightsTitleColor: ax[`${prefix}_highlights_title_color`] || defaults.highlightsTitleColor,
+                highlightsTitleFontSize: parseInt(ax[`${prefix}_highlights_title_font_size`] || defaults.highlightsTitleFontSize, 10),
+                highlights: ax[`${prefix}_highlights_text`]
+                    ? parseHighlights(ax[`${prefix}_highlights_text`])
+                    : defaults.highlights,
+                highlightsTextColor: ax[`${prefix}_highlights_text_color`] || defaults.highlightsTextColor,
+                highlightsTextFontSize: parseInt(ax[`${prefix}_highlights_text_font_size`] || defaults.highlightsTextFontSize, 10),
+                highlightsIconColor: ax[`${prefix}_highlights_icon_color`] || defaults.highlightsIconColor,
+            });
+
+            return {
+                sectionBgColor: ax.section_bg_color || COMPLIANCE_DEFAULTS.sectionBgColor,
+                cardBgColor: ax.card_bg_color || COMPLIANCE_DEFAULTS.cardBgColor,
+                cardBorderColor: ax.card_border_color || COMPLIANCE_DEFAULTS.cardBorderColor,
+                cardBorderRadius: parseInt(ax.card_border_radius || COMPLIANCE_DEFAULTS.cardBorderRadius, 10),
+                columns: [
+                    mapColumn("col1", DEFAULT_COLUMN_1),
+                    mapColumn("col2", DEFAULT_COLUMN_2),
+                ],
+            };
         }
     } catch (e) { console.log("Axion CMS compliance not available", e); }
 
@@ -212,7 +265,8 @@ export async function getComplianceData(): Promise<ComplianceData> {
 
         return mergeWithDefaults(node.complianceSection);
     } catch (error) {
-        console.error("Failed to fetch compliance data:", error);
+        // compliances CPT not registered in WP GraphQL — using defaults
+        void error;
         return COMPLIANCE_DEFAULTS;
     }
 }

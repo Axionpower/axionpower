@@ -57,6 +57,7 @@ export interface ProductCard {
     description: string;
     image: { node: { sourceUrl: string; altText: string } } | null;
     fallbackImage: string;
+    videoUrl?: string;
     highlights: string[];
     applications: string[];
     buttonLabel: string;
@@ -212,22 +213,46 @@ export async function getProductsData(): Promise<ProductsData> {
         const { getAxionSection } = await import("@/lib/queries/axion-cms");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const ax = await getAxionSection<any>("home", "products");
-        if (ax && (ax.heading || ax.label || ax.products)) {
-            const merged = { ...PRODUCTS_DEFAULTS };
-            if (ax.label) merged.labelText = ax.label;
-            if (ax.highlights_label) merged.highlightsLabel = ax.highlights_label;
-            if (ax.applications_label) merged.applicationsLabel = ax.applications_label;
-            if (ax.heading) merged.introHeading = ax.heading;
-            if (ax.description) merged.introHeading = ax.description;
+        if (ax && (ax.label_text || ax.intro_heading || ax.products)) {
+            // Helper: parse newline-separated text into string array
+            const parseLines = (text: string): string[] =>
+                (text || "").split("\n").map(s => s.trim()).filter(Boolean);
+
+            const merged: ProductsData = {
+                introBgColor: ax.intro_bg_color || PRODUCTS_DEFAULTS.introBgColor,
+                labelText: ax.label_text || PRODUCTS_DEFAULTS.labelText,
+                labelColor: ax.label_color || PRODUCTS_DEFAULTS.labelColor,
+                labelBarColor: ax.label_bar_color || PRODUCTS_DEFAULTS.labelBarColor,
+                introHeading: ax.intro_heading || PRODUCTS_DEFAULTS.introHeading,
+                introHeadingColor: ax.intro_heading_color || PRODUCTS_DEFAULTS.introHeadingColor,
+                introButtonLabel: ax.intro_button_label || PRODUCTS_DEFAULTS.introButtonLabel,
+                introButtonUrl: ax.intro_button_url || PRODUCTS_DEFAULTS.introButtonUrl,
+                cardsBgColor: ax.cards_bg_color || PRODUCTS_DEFAULTS.cardsBgColor,
+                cardHeadingTag: ax.card_heading_tag || PRODUCTS_DEFAULTS.cardHeadingTag,
+                cardTitleColor: ax.card_title_color || PRODUCTS_DEFAULTS.cardTitleColor,
+                highlightsLabel: ax.highlights_label || PRODUCTS_DEFAULTS.highlightsLabel,
+                applicationsLabel: ax.applications_label || PRODUCTS_DEFAULTS.applicationsLabel,
+                products: PRODUCTS_DEFAULTS.products,
+            };
+
             if (Array.isArray(ax.products) && ax.products.length > 0) {
-                merged.products = ax.products.map((p: { title: string; description: string; image_url?: string; link?: string }, i: number) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                merged.products = ax.products.map((p: any, i: number) => {
                     const def = PRODUCTS_DEFAULTS.products[i] || PRODUCTS_DEFAULTS.products[0];
                     return {
-                        ...def,
                         name: p.title || def.name,
                         description: p.description || def.description,
-                        image: p.image_url ? { node: { sourceUrl: p.image_url, altText: p.title } } : def.image,
-                        buttonUrl: p.link || def.buttonUrl,
+                        image: p.image_url
+                            ? { node: { sourceUrl: p.image_url, altText: p.title || "" } }
+                            : def.image,
+                        fallbackImage: def.fallbackImage,
+                        videoUrl: p.image_video_url || undefined,
+                        highlights: p.highlights ? parseLines(p.highlights) : def.highlights,
+                        applications: p.applications ? parseLines(p.applications) : def.applications,
+                        buttonLabel: p.button_label || def.buttonLabel,
+                        buttonUrl: p.button_url || def.buttonUrl,
+                        iconTop: def.iconTop,
+                        iconBottom: def.iconBottom,
                     };
                 });
             }

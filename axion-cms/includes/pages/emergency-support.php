@@ -20,7 +20,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🚨',
+            'icon'   => 'alert-triangle',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -102,7 +102,7 @@ return [
         // ══════════════════════════════════════════════════
         'response' => [
             'label'  => 'Rapid Response Section',
-            'icon'   => '⚡',
+            'icon'   => 'zap',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -176,7 +176,7 @@ return [
 
         'response-cards' => [
             'label'  => 'Rapid Response – Feature Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Response Feature Cards', 'type' => 'repeater',
@@ -197,7 +197,7 @@ return [
         // ══════════════════════════════════════════════════
         'sla' => [
             'label'  => 'SLA Tiers Section',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -245,7 +245,7 @@ return [
 
         'sla-tiers' => [
             'label'  => 'SLA – Tier Definitions',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 [
                     'name'  => 'tiers', 'label' => 'SLA Tier Cards', 'type' => 'repeater',
@@ -271,7 +271,7 @@ return [
         // ══════════════════════════════════════════════════
         'technicians' => [
             'label'  => 'Technician Response Section',
-            'icon'   => '👨‍🔧',
+            'icon'   => 'wrench',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -321,7 +321,7 @@ return [
 
         'technicians-steps' => [
             'label'  => 'Technician Response – Timeline Steps',
-            'icon'   => '⏱',
+            'icon'   => 'file-text',
             'fields' => [
                 [
                     'name'  => 'steps', 'label' => 'Response Timeline Steps', 'type' => 'repeater',
@@ -346,7 +346,7 @@ return [
 
         'technicians-expertise' => [
             'label'  => 'Technician Expertise – Certifications',
-            'icon'   => '📜',
+            'icon'   => 'file-text',
             'fields' => [
                 [
                     'name'  => 'certifications', 'label' => 'Technician Expertise Areas', 'type' => 'repeater',
@@ -366,7 +366,7 @@ return [
         // ══════════════════════════════════════════════════
         'benefits' => [
             'label'  => 'Benefits Section',
-            'icon'   => '🏆',
+            'icon'   => 'award',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -409,7 +409,7 @@ return [
 
         'benefits-cards' => [
             'label'  => 'Benefits – Feature Cards',
-            'icon'   => '✅',
+            'icon'   => 'check-circle',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Benefits Cards', 'type' => 'repeater',
@@ -426,7 +426,7 @@ return [
 
         'benefits-industries' => [
             'label'  => 'Benefits – Industries Served',
-            'icon'   => '🏢',
+            'icon'   => 'building',
             'fields' => [
                 [
                     'name'  => 'industries', 'label' => 'Industries Supported', 'type' => 'repeater',
@@ -446,7 +446,7 @@ return [
         // ══════════════════════════════════════════════════
         'lifecycle' => [
             'label'  => 'Service Lifecycle Section',
-            'icon'   => '🔄',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -502,7 +502,7 @@ return [
 
         'lifecycle-steps' => [
             'label'  => 'Service Lifecycle – Steps',
-            'icon'   => '📍',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 [
                     'name'  => 'steps', 'label' => 'Service Lifecycle Steps', 'type' => 'repeater',
@@ -522,7 +522,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'CTA Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',

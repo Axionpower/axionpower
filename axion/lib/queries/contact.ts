@@ -43,6 +43,7 @@ export interface ContactData {
   buttonUrl: string;
   image: { node: { sourceUrl: string; altText: string } } | null;
   fallbackImage: string;
+  videoUrl?: string;
   labelColor?: string;
 }
 
@@ -103,12 +104,22 @@ export async function getContactData(): Promise<ContactData> {
     const { getAxionSection } = await import("@/lib/queries/axion-cms");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ax = await getAxionSection<any>("home", "contact");
-    if (ax && (ax.heading || ax.phone)) {
+    if (ax && (ax.heading || ax.label_text)) {
       const merged = { ...CONTACT_DEFAULTS };
+      if (ax.label_text) merged.labelText = ax.label_text;
+      if (ax.label_color) merged.labelColor = ax.label_color;
       if (ax.heading) merged.heading = ax.heading;
+      if (ax.heading_color) merged.headingColor = ax.heading_color;
       if (ax.description) merged.description = ax.description;
-      if (ax.phone) merged.highlightsTitle = ax.phone;
-      if (ax.email) merged.description = ax.description || merged.description;
+      if (ax.body_color) merged.bodyColor = ax.body_color;
+      if (ax.highlights_title) merged.highlightsTitle = ax.highlights_title;
+      if (ax.highlights_color) merged.highlightsColor = ax.highlights_color;
+      if (ax.button_label) merged.buttonLabel = ax.button_label;
+      if (ax.button_url) merged.buttonUrl = ax.button_url;
+      if (ax.image_url) merged.image = { node: { sourceUrl: ax.image_url, altText: ax.heading || "" } };
+      if (Array.isArray(ax.highlights) && ax.highlights.length > 0) {
+        merged.highlights = ax.highlights.map((h: { text: string }) => h.text).filter(Boolean);
+      }
       return merged;
     }
   } catch (e) { console.log("Axion CMS contact not available", e); }

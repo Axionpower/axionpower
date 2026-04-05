@@ -16,7 +16,7 @@ return [
         // ═══════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 ['name' => 'breadcrumb',    'label' => 'Breadcrumb Text',  'type' => 'text',     'default' => 'INDUSTRIES  /  TELECOMMUNICATIONS'],
                 ['name' => 'pill',          'label' => 'Pill Badge Text',  'type' => 'text',     'default' => '📡  TELECOMMUNICATIONS'],
@@ -82,7 +82,7 @@ return [
         // ═══════════════════════════════════════
         'applications' => [
             'label' => 'Applications Section',
-            'icon'  => '📡',
+            'icon'  => 'radio',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'APPLICATIONS'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Where Axion Powers'],
@@ -114,7 +114,7 @@ return [
         // ═══════════════════════════════════════
         'battery-technologies' => [
             'label' => 'Battery Technologies Section',
-            'icon'  => '🔋',
+            'icon'  => 'battery',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label',  'type' => 'text',     'default' => 'BATTERY TECHNOLOGIES'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1', 'type' => 'text',     'default' => 'The Right Battery'],
@@ -147,7 +147,7 @@ return [
         // ═══════════════════════════════════════
         'engineering-support' => [
             'label' => 'Engineering Support Section',
-            'icon'  => '🔧',
+            'icon'  => 'wrench',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'ENGINEERING SUPPORT'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Technical Expertise'],
@@ -198,7 +198,7 @@ return [
         // ═══════════════════════════════════════
         'quality-compliance' => [
             'label' => 'Quality & Compliance Section',
-            'icon'  => '🛡️',
+            'icon'  => 'shield',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'QUALITY & COMPLIANCE'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Built to the Highest'],
@@ -243,7 +243,7 @@ return [
         // ═══════════════════════════════════════
         'lifecycle-support' => [
             'label' => 'Lifecycle Support Section',
-            'icon'  => '🔁',
+            'icon'  => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'LIFECYCLE SUPPORT'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Beyond Installation —'],
@@ -293,7 +293,7 @@ return [
         // ═══════════════════════════════════════
         'why-axion' => [
             'label' => 'Why Choose Axion Section',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Telecom networks can\'t afford'],
@@ -340,7 +340,7 @@ return [
         // ═══════════════════════════════════════
         'cta' => [
             'label' => 'CTA Section',
-            'icon'  => '📞',
+            'icon'  => 'phone',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'GET STARTED'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Power Your Telecom Network'],

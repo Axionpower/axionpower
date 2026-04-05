@@ -1,9 +1,10 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./VrlaHeroSection.css";
 
 interface VrlaHeroData {
     backgroundImage?: string;
+    backgroundVideoUrl?: string;
     heading?: string;
     headingTag?: string;
     headingHighlight?: string;
@@ -74,17 +75,15 @@ export default function VrlaHeroSection({ data }: { data?: VrlaHeroData }) {
             ...(d.paddingLeft && { paddingLeft: d.paddingLeft }),
             ...(d.paddingRight && { paddingRight: d.paddingRight }),
         }}>
-            {d.backgroundImage && (
-                <div className="vrla-hero-bg">
-                    <Image
-                        src={d.backgroundImage}
-                        alt="VRLA Batteries"
-                        fill
-                        style={{ objectFit: "cover" }}
-                        priority
-                    />
-                </div>
-            )}
+            <div className="vrla-hero-bg">
+                <CmsMedia
+                    imageUrl={d.backgroundImage}
+                    videoUrl={d.backgroundVideoUrl}
+                    alt="VRLA Batteries"
+                    fill
+                    priority
+                />
+            </div>
             <div className="vrla-hero-overlay" />
 
             <div className="vrla-hero-content">

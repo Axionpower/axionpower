@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { HCHeroData } from "@/lib/queries/healthcare";
+import HeroBackground from "./HeroBackground";
 import "./HCHeroSection.css";
 
 interface HCHeroSectionProps {
@@ -9,18 +10,11 @@ interface HCHeroSectionProps {
 
 export default function HCHeroSection({ data }: HCHeroSectionProps) {
   return (
-    <section
+    <HeroBackground
+      imageUrl={data.bgImage}
+      videoUrl={data.bgVideoUrl}
       className="hc-hero"
-      style={
-        {
-          '--accent': data.accentColor,
-          ...(data.bgImage ? {
-            backgroundImage: `url(${data.bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          } : {}),
-        } as React.CSSProperties
-      }
+      style={{ '--accent': data.accentColor } as React.CSSProperties}
     >
       <div className="hc-hero__container">
         {/* LEFT COLUMN: TEXT CONTENT */}
@@ -85,6 +79,6 @@ export default function HCHeroSection({ data }: HCHeroSectionProps) {
           </div>
         </div>
       </div>
-    </section>
+    </HeroBackground>
   );
 }

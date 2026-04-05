@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./VrlaKeyBenefitsSection.css";
 
 interface BenefitCard {
     title: string;
     description: string;
     image: string;
+    videoUrl?: string;
 }
 
 const DEFAULT_CARDS: BenefitCard[] = [
@@ -158,7 +159,7 @@ export default function VrlaKeyBenefitsSection({
                 {cards.map((card, i) => (
                     <div key={i} className="vrla-benefit-card">
                         <div className="vrla-benefit-card-img">
-                            <Image src={card.image} alt={card.title} fill style={{ objectFit: "cover" }} />
+                            <CmsMedia imageUrl={card.image} videoUrl={card.videoUrl} alt={card.title} fill />
                         </div>
                         <div className="vrla-benefit-card-body">
                             <CardTag className="vrla-benefit-card-title">{card.title}</CardTag>
@@ -182,7 +183,7 @@ export default function VrlaKeyBenefitsSection({
                     {cards.map((card, i) => (
                         <div key={i} className="vrla-benefit-card">
                             <div className="vrla-benefit-card-img">
-                                <Image src={card.image} alt={card.title} fill style={{ objectFit: "cover" }} />
+                                <CmsMedia imageUrl={card.image} videoUrl={card.videoUrl} alt={card.title} fill />
                             </div>
                             <div className="vrla-benefit-card-body">
                                 <CardTag className="vrla-benefit-card-title">{card.title}</CardTag>

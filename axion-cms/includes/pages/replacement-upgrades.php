@@ -15,7 +15,7 @@ return [
         // ═══════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 ['name' => 'breadcrumb',     'label' => 'Breadcrumb Text',    'type' => 'text',     'default' => 'HOME  /  SERVICES  /  REPLACEMENT & UPGRADES'],
                 ['name' => 'heading',        'label' => 'Heading',            'type' => 'text',     'default' => 'Battery Replacement & Technology Upgrades'],
@@ -82,7 +82,7 @@ return [
         // ═══════════════════════════════════════
         'intro' => [
             'label' => 'Intro / Services Section',
-            'icon'  => '📋',
+            'icon'  => 'clipboard',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'OUR SERVICES'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => 'Complete Battery Replacement & Upgrade Services'],
@@ -129,7 +129,7 @@ return [
         // ═══════════════════════════════════════
         'planning' => [
             'label' => 'Replacement Planning Section',
-            'icon'  => '📐',
+            'icon'  => 'layers',
             'fields' => [
                 ['name' => 'label',           'label' => 'Section Label',     'type' => 'text',     'default' => 'REPLACEMENT PLANNING'],
                 ['name' => 'heading',         'label' => 'Heading',           'type' => 'text',     'default' => 'Expert Battery Replacement Planning'],
@@ -176,7 +176,7 @@ return [
         // ═══════════════════════════════════════
         'upgrades' => [
             'label' => 'Technology Upgrades Section',
-            'icon'  => '🔄',
+            'icon'  => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'TECHNOLOGY UPGRADES'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => 'Upgrade to the Latest Battery Technology'],
@@ -212,7 +212,7 @@ return [
         // ═══════════════════════════════════════
         'disposal' => [
             'label' => 'Disposal & Recycling Section',
-            'icon'  => '♻️',
+            'icon'  => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'DISPOSAL & RECYCLING'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => 'Certified Battery Disposal & Recycling'],
@@ -244,7 +244,7 @@ return [
         // ═══════════════════════════════════════
         'benefits' => [
             'label' => 'Benefits / Why Axion Section',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label',    'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
                 ['name' => 'heading',      'label' => 'Heading',          'type' => 'text',     'default' => 'Benefits of Planned Replacement & Upgrades'],
@@ -292,7 +292,7 @@ return [
         // ═══════════════════════════════════════
         'industries' => [
             'label' => 'Industries Supported Section',
-            'icon'  => '🏭',
+            'icon'  => 'factory',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'INDUSTRIES SUPPORTED'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => 'Replacement & Upgrade Services for Every Sector'],
@@ -324,7 +324,7 @@ return [
         // ═══════════════════════════════════════
         'lifecycle' => [
             'label' => 'Lifecycle Integration Section',
-            'icon'  => '🔁',
+            'icon'  => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'INTEGRATED APPROACH'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => 'Integrated Lifecycle Support'],
@@ -377,7 +377,7 @@ return [
         // ═══════════════════════════════════════
         'cta' => [
             'label' => 'CTA / Get Started Section',
-            'icon'  => '📞',
+            'icon'  => 'phone',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label',    'type' => 'text',     'default' => 'GET STARTED'],
                 ['name' => 'heading',     'label' => 'Heading',          'type' => 'text',     'default' => 'Ready to Replace or Upgrade Your Battery Systems?'],

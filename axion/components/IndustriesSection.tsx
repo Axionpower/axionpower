@@ -1,4 +1,4 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./IndustriesSection.css";
 import type { IndustriesData, IndustryItem } from "@/lib/queries/industries";
@@ -15,8 +15,9 @@ function IndustryCard({ item, index }: { item: IndustryItem; index: number }) {
 
     const imageBlock = (
         <div className="industry-image-wrap">
-            <Image
-                src={item.image?.node?.sourceUrl || item.fallbackImage}
+            <CmsMedia
+                imageUrl={item.image?.node?.sourceUrl || item.fallbackImage}
+                videoUrl={item.videoUrl}
                 alt={item.image?.node?.altText || item.title}
                 width={560}
                 height={420}

@@ -1,9 +1,10 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./CabinetsHeroSection.css";
 
 interface CabinetsHeroData {
     backgroundImage?: string;
+    backgroundVideoUrl?: string;
     heading?: string;
     headingTag?: string;
     headingHighlight?: string;
@@ -67,17 +68,15 @@ export default function CabinetsHeroSection({ data }: { data?: CabinetsHeroData 
             ...(d.paddingLeft && { paddingLeft: d.paddingLeft }),
             ...(d.paddingRight && { paddingRight: d.paddingRight }),
         }}>
-            {d.backgroundImage && (
-                <div className="cabinets-hero-bg">
-                    <Image
-                        src={d.backgroundImage}
-                        alt="Stationary Battery Cabinets"
-                        fill
-                        style={{ objectFit: "cover" }}
-                        priority
-                    />
-                </div>
-            )}
+            <div className="cabinets-hero-bg">
+                <CmsMedia
+                    imageUrl={d.backgroundImage}
+                    videoUrl={d.backgroundVideoUrl}
+                    alt="Stationary Battery Cabinets"
+                    fill
+                    priority
+                />
+            </div>
             <div className="cabinets-hero-overlay" />
 
             <div className="cabinets-hero-content">

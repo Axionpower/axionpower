@@ -20,6 +20,7 @@ function val<T>(v: T): T | undefined {
 // ══════════════════════════════════
 export interface ContactHeroData {
     backgroundImageUrl?: string;
+    backgroundVideoUrl?: string;
     badge?: string;
     heading?: string;
     description?: string;
@@ -38,6 +39,7 @@ export async function getContactPageHeroData(): Promise<ContactHeroData> {
     const ax = await getAxionSection<Raw>("contact", "hero");
     return {
         backgroundImageUrl: val(ax?.background_image_url),
+        backgroundVideoUrl: val(ax?.background_image_video_url),
         badge:        val(ax?.badge)        ?? "CONTACT US",
         heading:      val(ax?.heading)      ?? "Contact Axion Critical Power Solutions",
         description:  val(ax?.description)  ??

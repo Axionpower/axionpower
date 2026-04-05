@@ -15,6 +15,7 @@ export interface DCHeroData {
   cardTag: string; cardSubtitle: string;
   statusRows: DCHeroStatusRow[];
   bgImage?: string;
+  bgVideoUrl?: string;
   accentColor: string;
 }
 export async function getDCHeroData(): Promise<DCHeroData> {
@@ -50,6 +51,7 @@ export async function getDCHeroData(): Promise<DCHeroData> {
           { label: "Network",      value: "ACTIVE",     statusColor: "rgba(74,222,138,1)"  },
         ],
     bgImage:     val(sec?.bg_image),
+    bgVideoUrl:  val(sec?.bg_image_video_url),
     accentColor: val(sec?.accent_color) ?? "rgba(0,217,255,1)",
   };
 }

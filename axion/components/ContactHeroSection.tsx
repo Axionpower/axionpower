@@ -1,3 +1,4 @@
+import HeroBackground from "./HeroBackground";
 import React from "react";
 import "./ContactHeroSection.css";
 import type { ContactHeroData } from "@/lib/queries/contact-page";
@@ -9,12 +10,12 @@ interface Props {
 export default function ContactHeroSection({ data }: Props) {
     const HeadingTag = (data.headingTag || 'h1') as React.ElementType;
 
-    const bgStyle = data.backgroundImageUrl
-        ? { backgroundImage: `url(${data.backgroundImageUrl})` }
-        : undefined;
-
     return (
-        <section className="ch-hero" style={bgStyle}>
+        <HeroBackground
+            imageUrl={data.backgroundImageUrl}
+            videoUrl={data.backgroundVideoUrl}
+            className="ch-hero"
+        >
             {/* Gradient overlays — matches other page heroes */}
             <div className="ch-overlay-vertical"   aria-hidden="true" />
             <div className="ch-overlay-horizontal" aria-hidden="true" />
@@ -80,6 +81,6 @@ export default function ContactHeroSection({ data }: Props) {
                     </div>
                 </div>
             </div>
-        </section>
+        </HeroBackground>
     );
 }

@@ -1,95 +1,140 @@
-import { fetchGraphQL } from "@/lib/graphql";
-
-// ── GraphQL Query ──
-const FOOTER_QUERY = `
-  query GetFooterSection {
-    allFooter(first: 1) {
-      nodes {
-        footerSection {
-          phone
-          email
-          copyright
-          navLinks {
-            label
-            url
-          }
-          legalLinks {
-            label
-            url
-          }
-        }
-      }
-    }
-  }
-`;
-
 // ── TypeScript Interfaces ──
+
 export interface FooterLink {
   label: string;
   url: string;
 }
 
-export interface FooterData {
-  phone: string;
-  email: string;
-  copyright: string;
-  navLinks: FooterLink[];
-  legalLinks: FooterLink[];
+export interface FooterColumn {
+  type: "brand" | "links" | "text";
+  // Brand fields
   logoMain?: string;
   logoSub?: string;
-  navColumnTitle?: string;
-  legalColumnTitle?: string;
+  logoImage?: string; // resolved URL
+  phone?: string;
+  email?: string;
+  // Links fields
+  title?: string;
+  links?: FooterLink[];
+  // Text fields
+  content?: string;
+}
+
+export interface FooterData {
+  copyright: string;
+  bgColor: string;
+  textColor: string;
+  headingColor: string;
+  linkHoverColor: string;
+  dividerColor: string;
+  columns: FooterColumn[];
 }
 
 // ── Default values ──
 export const FOOTER_DEFAULTS: FooterData = {
-  phone: "020 3345 3310",
-  email: "enquiries@energy-park.co.uk",
-  copyright: "© 2025 Axion Critical Power Solutions. All rights reserved.",
-  logoMain: "AXION",
-  logoSub: "Critical Power Solutions",
-  navColumnTitle: "Navigation",
-  legalColumnTitle: "Legal",
-  navLinks: [
-    { label: "Solutions", url: "/solutions" },
-    { label: "About Us", url: "/about" },
-    { label: "How We Work", url: "/how-we-work" },
-    { label: "EV Funding", url: "/ev-funding" },
-    { label: "Cost Saving Calculator", url: "/calculator" },
-    { label: "Case Studies", url: "/case-studies" },
-    { label: "News", url: "/news" },
-    { label: "Contact", url: "/contact" },
-  ],
-  legalLinks: [
-    { label: "Terms & Conditions", url: "/terms" },
-    { label: "Privacy Policy", url: "/privacy" },
-    { label: "Modern Slavery Policy", url: "/modern-slavery" },
-    { label: "ESG Policy", url: "/esg" },
-    { label: "Sustainability Policy", url: "/sustainability" },
-    { label: "Our quality and compliance standards", url: "/compliance" },
-    { label: "Committed to Data Transparency", url: "/data-transparency" },
+  copyright: `© ${new Date().getFullYear()} Axion Critical Power Solutions. All rights reserved.`,
+  bgColor: "#0a0e1a",
+  textColor: "rgba(180, 200, 230, 0.7)",
+  headingColor: "#ffffff",
+  linkHoverColor: "#0EA5E9",
+  dividerColor: "rgba(255, 255, 255, 0.08)",
+  columns: [
+    {
+      type: "brand",
+      logoMain: "AXION",
+      logoSub: "Critical Power Solutions",
+      phone: "",
+      email: "",
+    },
+    {
+      type: "links",
+      title: "Products",
+      links: [
+        { label: "VRLA Batteries", url: "/vrla-batteries" },
+        { label: "Wet Cell Batteries", url: "/wet-cell-batteries" },
+        { label: "Battery Cabinets", url: "/battery-cabinets" },
+        { label: "Replacement & Upgrades", url: "/replacement-upgrades" },
+      ],
+    },
+    {
+      type: "links",
+      title: "Services",
+      links: [
+        { label: "Emergency Support", url: "/emergency-support" },
+        { label: "Maintenance & Monitoring", url: "/maintenance-monitoring" },
+        { label: "Safety Training", url: "/safety-training-documentation" },
+        { label: "Quality & Compliance", url: "/quality-safety-compliance" },
+      ],
+    },
+    {
+      type: "links",
+      title: "Industries",
+      links: [
+        { label: "Data Centers & Colocation", url: "/data-centers-colocation" },
+        { label: "Healthcare", url: "/healthcare" },
+        { label: "Industrial Infrastructure", url: "/industrial-infrastructure" },
+        { label: "Telecommunications", url: "/telecommunications" },
+        { label: "Utilities & Substations", url: "/utilities-substations" },
+      ],
+    },
+    {
+      type: "links",
+      title: "Resources",
+      links: [
+        { label: "Engineering Resources", url: "/engineering-resources" },
+        { label: "Consulting Engineer Hub", url: "/consulting-engineer-hub" },
+        { label: "FAQs", url: "/faqs" },
+        { label: "About Us", url: "/about" },
+        { label: "Sustainability", url: "/sustainability-compliance" },
+        { label: "Contact", url: "/contact" },
+      ],
+    },
   ],
 };
 
-// ── Merge helper ──
-function mergeWithDefaults(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any
-): FooterData {
+// ── Helper: parse "Label|/url" lines into link array ──
+function parseLinksText(text: string): FooterLink[] {
+  if (!text) return [];
+  return text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const [label, url] = line.split("|");
+      return { label: label?.trim() || "", url: url?.trim() || "#" };
+    })
+    .filter((l) => l.label);
+}
+
+// ── Map CMS column data → FooterColumn ──
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapColumn(raw: any): FooterColumn {
+  const colType = raw.type || "links";
+
+  if (colType === "brand") {
+    return {
+      type: "brand",
+      logoMain: raw.logo_main || "AXION",
+      logoSub: raw.logo_sub || "",
+      logoImage: raw.logo_image_url || undefined,
+      phone: raw.phone || "",
+      email: raw.email || "",
+    };
+  }
+
+  if (colType === "text") {
+    return {
+      type: "text",
+      title: raw.title || "",
+      content: raw.content || "",
+    };
+  }
+
+  // Default: links
   return {
-    phone: data.phone || FOOTER_DEFAULTS.phone,
-    email: data.email || FOOTER_DEFAULTS.email,
-    copyright: data.copyright || FOOTER_DEFAULTS.copyright,
-    logoMain: data.logoMain || FOOTER_DEFAULTS.logoMain,
-    logoSub: data.logoSub || FOOTER_DEFAULTS.logoSub,
-    navColumnTitle: data.navColumnTitle || FOOTER_DEFAULTS.navColumnTitle,
-    legalColumnTitle: data.legalColumnTitle || FOOTER_DEFAULTS.legalColumnTitle,
-    navLinks: data.navLinks?.length
-      ? data.navLinks
-      : FOOTER_DEFAULTS.navLinks,
-    legalLinks: data.legalLinks?.length
-      ? data.legalLinks
-      : FOOTER_DEFAULTS.legalLinks,
+    type: "links",
+    title: raw.title || "",
+    links: parseLinksText(raw.links_text || ""),
   };
 }
 
@@ -100,40 +145,26 @@ export async function getFooterData(): Promise<FooterData> {
     const { getAxionSection } = await import("@/lib/queries/axion-cms");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ax = await getAxionSection<any>("home", "footer");
-    if (ax && (ax.phone || ax.email || ax.copyright)) {
-      const merged = { ...FOOTER_DEFAULTS };
-      if (ax.phone) merged.phone = ax.phone;
-      if (ax.email) merged.email = ax.email;
-      if (ax.copyright) merged.copyright = ax.copyright;
-      if (ax.logo_main) merged.logoMain = ax.logo_main;
-      if (ax.logo_sub) merged.logoSub = ax.logo_sub;
-      if (ax.nav_column_title) merged.navColumnTitle = ax.nav_column_title;
-      if (ax.legal_column_title) merged.legalColumnTitle = ax.legal_column_title;
-      if (Array.isArray(ax.nav_links)) {
-        merged.navLinks = ax.nav_links.map((l: { label: string; url: string }) => ({ label: l.label, url: l.url }));
-      }
-      if (Array.isArray(ax.legal_links)) {
-        merged.legalLinks = ax.legal_links.map((l: { label: string; url: string }) => ({ label: l.label, url: l.url }));
-      }
-      return merged;
-    }
-  } catch (e) { console.log("Axion CMS footer not available", e); }
-
-  // ── Fallback: old ACF ──
-  try {
-    const data = await fetchGraphQL<{
-      allFooter: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        nodes: { footerSection: any }[];
+    if (ax && (ax.columns || ax.copyright)) {
+      const result: FooterData = {
+        copyright: ax.copyright || FOOTER_DEFAULTS.copyright,
+        bgColor: ax.bg_color || FOOTER_DEFAULTS.bgColor,
+        textColor: ax.text_color || FOOTER_DEFAULTS.textColor,
+        headingColor: ax.heading_color || FOOTER_DEFAULTS.headingColor,
+        linkHoverColor: ax.link_hover_color || FOOTER_DEFAULTS.linkHoverColor,
+        dividerColor: ax.divider_color || FOOTER_DEFAULTS.dividerColor,
+        columns: FOOTER_DEFAULTS.columns,
       };
-    }>(FOOTER_QUERY);
 
-    const node = data?.allFooter?.nodes?.[0];
-    if (!node?.footerSection) return FOOTER_DEFAULTS;
+      if (Array.isArray(ax.columns) && ax.columns.length > 0) {
+        result.columns = ax.columns.map(mapColumn);
+      }
 
-    return mergeWithDefaults(node.footerSection);
-  } catch (error) {
-    console.error("Failed to fetch footer data:", error);
-    return FOOTER_DEFAULTS;
+      return result;
+    }
+  } catch (e) {
+    console.log("Axion CMS footer not available", e);
   }
+
+  return FOOTER_DEFAULTS;
 }

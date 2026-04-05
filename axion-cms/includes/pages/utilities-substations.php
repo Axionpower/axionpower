@@ -16,7 +16,7 @@ return [
         // ═══════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 ['name' => 'breadcrumb',      'label' => 'Breadcrumb Text',    'type' => 'text',     'default' => 'INDUSTRIES  /  UTILITIES & SUBSTATIONS'],
                 ['name' => 'pill',            'label' => 'Pill Badge Text',    'type' => 'text',     'default' => '⚡  UTILITIES & SUBSTATIONS'],
@@ -70,7 +70,7 @@ return [
         // ═══════════════════════════════════════
         'applications' => [
             'label' => 'Applications Section',
-            'icon'  => '⚡',
+            'icon'  => 'zap',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'APPLICATIONS'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => 'Powering Every Layer of the Grid'],
@@ -102,7 +102,7 @@ return [
         // ═══════════════════════════════════════
         'battery-technologies' => [
             'label' => 'Battery Technologies Section',
-            'icon'  => '🔋',
+            'icon'  => 'battery',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label',  'type' => 'text',     'default' => 'BATTERY TECHNOLOGIES'],
                 ['name' => 'heading',      'label' => 'Heading',        'type' => 'text',     'default' => 'The Right Technology for Every Substation'],
@@ -115,7 +115,7 @@ return [
                     'type'         => 'repeater',
                     'default_rows' => [
                         [
-                            'icon'        => '🔋',
+                            'icon'        => 'battery',
                             'name'        => 'Flooded Lead-Acid',
                             'subtitle'    => 'Vented Wet Cell',
                             'badge'       => 'Long-Life',
@@ -124,7 +124,7 @@ return [
                             'features'    => "Long service life for stationary DC systems\nExcellent deep-cycle capability\nHigh tolerance to charge/discharge variations\nProven reliability in mission-critical infrastructure",
                         ],
                         [
-                            'icon'        => '⚡',
+                            'icon'        => 'zap',
                             'name'        => 'VRLA AGM / GEL',
                             'subtitle'    => 'Valve-Regulated',
                             'badge'       => 'Low Maintenance',
@@ -151,7 +151,7 @@ return [
         // ═══════════════════════════════════════
         'engineering-support' => [
             'label' => 'Engineering & Specification Support',
-            'icon'  => '🔧',
+            'icon'  => 'wrench',
             'fields' => [
                 ['name' => 'label',          'label' => 'Section Label',       'type' => 'text',     'default' => 'ENGINEERING & SPECIFICATION SUPPORT'],
                 ['name' => 'heading',        'label' => 'Heading',             'type' => 'text',     'default' => "Your Technical\nPartner from\nDay One."],
@@ -200,7 +200,7 @@ return [
         // ═══════════════════════════════════════
         'quality-compliance' => [
             'label' => 'Quality & Compliance Section',
-            'icon'  => '🛡️',
+            'icon'  => 'shield',
             'fields' => [
                 ['name' => 'label',             'label' => 'Section Label',       'type' => 'text',     'default' => 'COMPLIANT'],
                 ['name' => 'heading',           'label' => 'Heading',             'type' => 'text',     'default' => "Quality, Safety & Compliance\nBuilt Into Every Solution."],
@@ -264,7 +264,7 @@ return [
         // ═══════════════════════════════════════
         'lifecycle-support' => [
             'label' => 'Lifecycle Support Section',
-            'icon'  => '🔁',
+            'icon'  => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'LIFECYCLE SUPPORT'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'text',     'default' => "Support from\nCommissioning to\nEnd-of-Life."],
@@ -294,7 +294,7 @@ return [
         // ═══════════════════════════════════════
         'why-axion' => [
             'label' => 'Why Choose Axion Section',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 ['name' => 'heading',    'label' => 'Heading',    'type' => 'text',     'default' => "Why utilities\nchoose us,\nevery time."],
                 ['name' => 'subheading', 'label' => 'Subheading', 'type' => 'text',     'default' => 'A long-term technical partnership backed by 20+ years of experience.'],
@@ -341,7 +341,7 @@ return [
         // ═══════════════════════════════════════
         'cta' => [
             'label' => 'CTA Section',
-            'icon'  => '📞',
+            'icon'  => 'phone',
             'fields' => [
                 ['name' => 'heading',     'label' => 'Heading',        'type' => 'text',     'default' => "Design reliable, compliant\nutility battery systems"],
                 ['name' => 'accent_text', 'label' => 'Heading Accent', 'type' => 'text',     'default' => 'with Axion.'],

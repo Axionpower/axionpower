@@ -20,7 +20,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🔧',
+            'icon'   => 'wrench',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -80,7 +80,7 @@ return [
         // ══════════════════════════════════════════════════
         'intro' => [
             'label'  => 'Introduction Section',
-            'icon'   => '📘',
+            'icon'   => 'file-text',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -130,7 +130,7 @@ return [
 
         'intro-cards' => [
             'label'  => 'Introduction – Pillar Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Overview Pillar Cards', 'type' => 'repeater',
@@ -153,7 +153,7 @@ return [
         // ══════════════════════════════════════════════════
         'preventive' => [
             'label'  => 'Preventive Maintenance Section',
-            'icon'   => '🔧',
+            'icon'   => 'wrench',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -217,7 +217,7 @@ return [
 
         'preventive-cards' => [
             'label'  => 'Preventive Maintenance – Cards',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Preventive Maintenance Cards', 'type' => 'repeater',
@@ -241,7 +241,7 @@ return [
         // ══════════════════════════════════════════════════
         'remote' => [
             'label'  => 'Remote Monitoring Section',
-            'icon'   => '📡',
+            'icon'   => 'radio',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -314,7 +314,7 @@ return [
 
         'remote-metrics' => [
             'label'  => 'Remote Monitoring – Metric Cards',
-            'icon'   => '📊',
+            'icon'   => 'bar-chart',
             'fields' => [
                 [
                     'name'  => 'metrics', 'label' => 'Monitoring Metric Cards', 'type' => 'repeater',
@@ -338,7 +338,7 @@ return [
         // ══════════════════════════════════════════════════
         'predictive' => [
             'label'  => 'Predictive Analytics Section',
-            'icon'   => '📊',
+            'icon'   => 'bar-chart',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -385,7 +385,7 @@ return [
 
         'predictive-cards' => [
             'label'  => 'Predictive Analytics – Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Predictive Analytics Cards', 'type' => 'repeater',
@@ -405,7 +405,7 @@ return [
 
         'predictive-stats' => [
             'label'  => 'Predictive Analytics – Stats Bar',
-            'icon'   => '📈',
+            'icon'   => 'trending-up',
             'fields' => [
                 [
                     'name'  => 'stats', 'label' => 'Predictive Analytics Stats', 'type' => 'repeater',
@@ -427,7 +427,7 @@ return [
         // ══════════════════════════════════════════════════
         'benefits' => [
             'label'  => 'Benefits & Industries Section',
-            'icon'   => '🏆',
+            'icon'   => 'award',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -470,7 +470,7 @@ return [
 
         'benefits-cards' => [
             'label'  => 'Benefits – Cards',
-            'icon'   => '✅',
+            'icon'   => 'check-circle',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Benefits Cards', 'type' => 'repeater',
@@ -488,7 +488,7 @@ return [
 
         'benefits-industries' => [
             'label'  => 'Benefits – Industries Supported',
-            'icon'   => '🏢',
+            'icon'   => 'building',
             'fields' => [
                 [
                     'name'  => 'industries', 'label' => 'Industries Supported', 'type' => 'repeater',
@@ -510,7 +510,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'CTA Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',

@@ -1,9 +1,10 @@
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import "./WetCellHeroSection.css";
 
 interface WetCellHeroData {
     backgroundImage?: string;
+    backgroundVideoUrl?: string;
     heading?: string;
     headingTag?: string;
     headingHighlight?: string;
@@ -67,17 +68,15 @@ export default function WetCellHeroSection({ data }: { data?: WetCellHeroData })
             ...(d.paddingLeft && { paddingLeft: d.paddingLeft }),
             ...(d.paddingRight && { paddingRight: d.paddingRight }),
         }}>
-            {d.backgroundImage && (
-                <div className="wetcell-hero-bg">
-                    <Image
-                        src={d.backgroundImage}
-                        alt="Wet Cell Batteries"
-                        fill
-                        style={{ objectFit: "cover" }}
-                        priority
-                    />
-                </div>
-            )}
+            <div className="wetcell-hero-bg">
+                <CmsMedia
+                    imageUrl={d.backgroundImage}
+                    videoUrl={d.backgroundVideoUrl}
+                    alt="Wet Cell Batteries"
+                    fill
+                    priority
+                />
+            </div>
             <div className="wetcell-hero-overlay" />
 
             <div className="wetcell-hero-content">

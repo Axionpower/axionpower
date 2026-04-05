@@ -38,6 +38,7 @@ export interface ConsultingData {
   buttonUrl: string;
   image: { node: { sourceUrl: string; altText: string } } | null;
   fallbackImage: string;
+  videoUrl?: string;
   tooltips: string[];
   labelColor?: string;
 }
@@ -97,11 +98,16 @@ export async function getConsultingData(): Promise<ConsultingData> {
     if (ax && (ax.heading || ax.label)) {
       const merged = { ...CONSULTING_DEFAULTS };
       if (ax.label) merged.labelText = ax.label;
+      if (ax.label_color) merged.labelColor = ax.label_color;
       if (ax.heading) merged.heading = ax.heading;
+      if (ax.heading_color) merged.headingColor = ax.heading_color;
       if (ax.description) merged.description = ax.description;
+      if (ax.body_color) merged.bodyColor = ax.body_color;
+      if (ax.button_label) merged.buttonLabel = ax.button_label;
+      if (ax.button_url) merged.buttonUrl = ax.button_url;
       if (ax.image_url) merged.image = { node: { sourceUrl: ax.image_url, altText: ax.heading || "" } };
       if (Array.isArray(ax.points)) {
-        merged.tooltips = ax.points.map((p: { title: string }) => p.title);
+        merged.tooltips = ax.points.map((p: { title: string }) => p.title).filter(Boolean);
       }
       return merged;
     }

@@ -1,11 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./CabinetsFeaturesSection.css";
 
 interface CabinetsFeaturesProps {
     label?: string;
     features?: { text: string; bold?: boolean }[];
     image?: string;
+    videoUrl?: string;
     headingTag?: string;
     cardHeadingTag?: string;
     bgColor?: string;
@@ -35,6 +36,7 @@ export default function CabinetsFeaturesSection({
     label = "Engineered Cabinet Solutions for Critical Power",
     features = DEFAULT_FEATURES,
     image = "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+    videoUrl,
     headingTag,
     cardHeadingTag,
     bgColor, labelColor, bodyColor, iconColor, labelFontSize, bodyFontSize,
@@ -70,8 +72,9 @@ export default function CabinetsFeaturesSection({
                     </ul>
                 </div>
                 <div className="cabinets-feat-image">
-                    <Image
-                        src={image}
+                    <CmsMedia
+                        imageUrl={image}
+                        videoUrl={videoUrl}
                         alt="Seismic map visualization"
                         width={420}
                         height={340}

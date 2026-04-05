@@ -16,7 +16,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 ['name' => 'breadcrumb',    'label' => 'Breadcrumb Text',   'type' => 'text',     'default' => 'INDUSTRIES  /  HEALTHCARE POWER'],
                 ['name' => 'pill',          'label' => 'Pill Badge Text',   'type' => 'text',     'default' => '🏥  HEALTHCARE POWER'],
@@ -52,7 +52,7 @@ return [
         // ══════════════════════════════════════════════════
         'applications' => [
             'label'  => 'Healthcare Applications Section',
-            'icon'   => '⭐',
+            'icon'   => 'star',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'APPLICATIONS'],
                 ['name' => 'count_label', 'label' => 'Count Number',  'type' => 'text',     'default' => '06'],
@@ -86,7 +86,7 @@ return [
         // ══════════════════════════════════════════════════
         'battery-technologies' => [
             'label'  => 'Battery Technologies Section',
-            'icon'   => '🔋',
+            'icon'   => 'battery',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text', 'default' => 'BATTERY TECHNOLOGIES'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text', 'default' => 'Two Technologies.'],
@@ -121,7 +121,7 @@ return [
         // ══════════════════════════════════════════════════
         'engineering-support' => [
             'label'  => 'Engineering & Specification Support Section',
-            'icon'   => '🔧',
+            'icon'   => 'wrench',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'ENGINEERING & SPECIFICATION SUPPORT'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Healthcare Power Systems'],
@@ -167,7 +167,7 @@ return [
         // ══════════════════════════════════════════════════
         'quality-compliance' => [
             'label'  => 'Quality, Safety & Compliance Section',
-            'icon'   => '🛡',
+            'icon'   => 'shield',
             'fields' => [
                 ['name' => 'label',         'label' => 'Section Label',  'type' => 'text',     'default' => 'QUALITY, SAFETY & COMPLIANCE'],
                 ['name' => 'heading_line1', 'label' => 'Heading Line 1', 'type' => 'text',     'default' => 'Zero Compromise'],
@@ -203,7 +203,7 @@ return [
         // ══════════════════════════════════════════════════
         'lifecycle-support' => [
             'label'  => 'Lifecycle Support Section',
-            'icon'   => '🔄',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'LIFECYCLE SUPPORT'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Full Lifecycle Coverage'],
@@ -251,7 +251,7 @@ return [
         // ══════════════════════════════════════════════════
         'why-axion' => [
             'label'  => 'Why Choose Axion Section',
-            'icon'   => '⭐',
+            'icon'   => 'star',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'When lives depend on power,'],
@@ -285,7 +285,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'Call to Action Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label',  'type' => 'text',     'default' => 'CONTACT AXION'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1', 'type' => 'text',     'default' => 'Ensure Uninterrupted Power for'],

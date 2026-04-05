@@ -15,7 +15,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🎯',
+            'icon'   => 'target',
             'fields' => [
                 ['name' => 'breadcrumb',   'label' => 'Breadcrumb Text',  'type' => 'text',
                     'default' => 'HOME  /  SERVICES  /  SAFETY TRAINING'],
@@ -54,7 +54,7 @@ return [
         // ══════════════════════════════════════════════════
         'intro' => [
             'label'  => 'Intro / Overview Section',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label',  'type' => 'text',     'default' => 'OUR SERVICES'],
                 ['name' => 'heading',     'label' => 'Heading',        'type' => 'textarea', 'default' => "Comprehensive\nSafety Training\n& Documentation"],
@@ -87,7 +87,7 @@ return [
         // ══════════════════════════════════════════════════
         'training' => [
             'label'  => 'On-Site Staff Training Section',
-            'icon'   => '🔋',
+            'icon'   => 'battery',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label',  'type' => 'text',     'default' => 'ON-SITE STAFF TRAINING'],
                 ['name' => 'heading',     'label' => 'Heading',        'type' => 'textarea', 'default' => "Expert Training\nfor Critical Teams"],
@@ -153,7 +153,7 @@ return [
         // ══════════════════════════════════════════════════
         'documentation' => [
             'label'  => 'Documentation Section',
-            'icon'   => '📄',
+            'icon'   => 'file-text',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'DOCUMENTATION'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'textarea', 'default' => "Detailed Records for Safe\nOperation & Compliance"],
@@ -197,7 +197,7 @@ return [
         // ══════════════════════════════════════════════════
         'benefits' => [
             'label'  => 'Benefits / Why Choose Axion Section',
-            'icon'   => '✅',
+            'icon'   => 'check-circle',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'textarea', 'default' => "Benefits of\nSafety Training &\nDocumentation"],
@@ -250,7 +250,7 @@ return [
         // ══════════════════════════════════════════════════
         'industries' => [
             'label'  => 'Industries Supported Section',
-            'icon'   => '🏭',
+            'icon'   => 'factory',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'INDUSTRIES SUPPORTED'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'textarea', 'default' => "Training & Documentation\nfor Every Critical Sector"],
@@ -287,7 +287,7 @@ return [
         // ══════════════════════════════════════════════════
         'lifecycle' => [
             'label'  => 'Integrated Lifecycle Support Section',
-            'icon'   => '🔄',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'INTEGRATED APPROACH'],
                 ['name' => 'heading',     'label' => 'Heading',       'type' => 'textarea', 'default' => "Integrated\nLifecycle Support"],
@@ -347,7 +347,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'Call to Action Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label',  'type' => 'text',     'default' => 'GET STARTED'],
                 ['name' => 'heading',     'label' => 'Heading',        'type' => 'textarea', 'default' => "Ready to Protect\nYour Team &\nSystems?"],

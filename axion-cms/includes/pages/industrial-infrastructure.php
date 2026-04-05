@@ -16,7 +16,7 @@ return [
         // ═══════════════════════════════════════
         'hero' => [
             'label' => 'Hero Section',
-            'icon'  => '🎯',
+            'icon'  => 'target',
             'fields' => [
                 ['name' => 'breadcrumb',    'label' => 'Breadcrumb Text',  'type' => 'text',     'default' => 'INDUSTRIES  /  INDUSTRIAL & INFRASTRUCTURE'],
                 ['name' => 'pill',          'label' => 'Pill Badge Text',  'type' => 'text',     'default' => '🏭  INDUSTRIAL & INFRASTRUCTURE'],
@@ -84,7 +84,7 @@ return [
         // ═══════════════════════════════════════
         'applications' => [
             'label' => 'Applications Section',
-            'icon'  => '🏭',
+            'icon'  => 'factory',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'APPLICATIONS'],
                 ['name' => 'heading_line1', 'label' => 'Heading Line 1', 'type' => 'text',     'default' => 'Industrial Environments'],
@@ -116,7 +116,7 @@ return [
         // ═══════════════════════════════════════
         'battery-technologies' => [
             'label' => 'Battery Technologies Section',
-            'icon'  => '🔋',
+            'icon'  => 'battery',
             'fields' => [
                 ['name' => 'label',       'label' => 'Section Label', 'type' => 'text',     'default' => 'BATTERY TECHNOLOGIES'],
                 ['name' => 'heading_line1', 'label' => 'Heading Line 1', 'type' => 'text',     'default' => 'Two Battle-Tested Technologies,'],
@@ -128,7 +128,7 @@ return [
                     'type'         => 'repeater',
                     'default_rows' => [
                         [
-                            'icon'        => '🔋',
+                            'icon'        => 'battery',
                             'name'        => 'VRLA',
                             'subtitle'    => 'Valve-Regulated Lead-Acid',
                             'badge'       => 'Maintenance-Free',
@@ -137,7 +137,7 @@ return [
                             'features'    => "Maintenance-free — no electrolyte checks required\nCompact footprint for equipment rooms & tight spaces\nReliable standby power for controlled environments\nLower upfront cost for standard industrial deployments\nSpill-proof design — safe in enclosed installations",
                         ],
                         [
-                            'icon'        => '⚡',
+                            'icon'        => 'zap',
                             'name'        => 'Wet Cell',
                             'subtitle'    => 'Flooded Lead-Acid',
                             'badge'       => 'Heavy Duty',
@@ -164,7 +164,7 @@ return [
         // ═══════════════════════════════════════
         'engineering-support' => [
             'label' => 'Engineering & Specification Support',
-            'icon'  => '🔧',
+            'icon'  => 'wrench',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'ENGINEERING & SPECIFICATION SUPPORT'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Engineering-Driven,'],
@@ -215,7 +215,7 @@ return [
         // ═══════════════════════════════════════
         'quality-compliance' => [
             'label' => 'Quality & Compliance Section',
-            'icon'  => '🛡️',
+            'icon'  => 'shield',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'QUALITY, SAFETY & COMPLIANCE'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Industrial Environments'],
@@ -261,7 +261,7 @@ return [
         // ═══════════════════════════════════════
         'lifecycle-support' => [
             'label' => 'Lifecycle Support Section',
-            'icon'  => '🔁',
+            'icon'  => 'refresh-cw',
             'fields' => [
                 ['name' => 'label',          'label' => 'Section Label',    'type' => 'text',     'default' => 'LIFECYCLE SUPPORT'],
                 ['name' => 'heading_line1',  'label' => 'Heading Line 1',   'type' => 'text',     'default' => 'End-to-End Support'],
@@ -314,7 +314,7 @@ return [
         // ═══════════════════════════════════════
         'why-axion' => [
             'label' => 'Why Choose Axion Section',
-            'icon'  => '⭐',
+            'icon'  => 'star',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'WHY CHOOSE AXION'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => "Industrial operations can't afford"],
@@ -361,7 +361,7 @@ return [
         // ═══════════════════════════════════════
         'cta' => [
             'label' => 'CTA Section',
-            'icon'  => '📞',
+            'icon'  => 'phone',
             'fields' => [
                 ['name' => 'label',        'label' => 'Section Label', 'type' => 'text',     'default' => 'CONTACT AXION'],
                 ['name' => 'heading_line1','label' => 'Heading Line 1','type' => 'text',     'default' => 'Ensure Reliable Power for Your'],

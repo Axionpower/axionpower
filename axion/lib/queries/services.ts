@@ -38,6 +38,7 @@ export interface ServiceItem {
     description: string;
     image: { node: { sourceUrl: string; altText: string } } | null;
     fallbackImage: string;
+    videoUrl?: string;
     buttonLabel: string;
     buttonUrl: string;
     isFeatured: boolean;
@@ -174,12 +175,26 @@ export async function getServicesData(): Promise<ServicesData> {
         const { getAxionSection } = await import("@/lib/queries/axion-cms");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const ax = await getAxionSection<any>("home", "services");
-        if (ax && (ax.heading || ax.label || ax.services)) {
-            const merged = { ...SERVICES_DEFAULTS };
-            if (ax.label) merged.labelText = ax.label;
-            if (ax.heading) merged.introHeading = ax.heading;
+        if (ax && (ax.intro_heading || ax.label_text || ax.services)) {
+            const merged: ServicesData = {
+                introBgColor: ax.intro_bg_color || SERVICES_DEFAULTS.introBgColor,
+                midBgColor: ax.mid_bg_color || SERVICES_DEFAULTS.midBgColor,
+                bottomBgColor: ax.bottom_bg_color || SERVICES_DEFAULTS.bottomBgColor,
+                labelText: ax.label_text || SERVICES_DEFAULTS.labelText,
+                labelColor: ax.label_color || SERVICES_DEFAULTS.labelColor,
+                introHeading: ax.intro_heading || SERVICES_DEFAULTS.introHeading,
+                headingTag: SERVICES_DEFAULTS.headingTag,
+                headingColor: ax.heading_color || SERVICES_DEFAULTS.headingColor,
+                cardHeadingTag: ax.card_heading_tag || SERVICES_DEFAULTS.cardHeadingTag,
+                cardTitleColor: ax.card_title_color || SERVICES_DEFAULTS.cardTitleColor,
+                introButtonLabel: ax.intro_button_label || SERVICES_DEFAULTS.introButtonLabel,
+                introButtonUrl: ax.intro_button_url || SERVICES_DEFAULTS.introButtonUrl,
+                bodyColor: ax.body_color || SERVICES_DEFAULTS.bodyColor,
+                services: SERVICES_DEFAULTS.services,
+            };
             if (Array.isArray(ax.services) && ax.services.length > 0) {
-                merged.services = ax.services.map((s: { title: string; description: string; bg_image_url?: string; button_text?: string; button_link?: string }, i: number) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                merged.services = ax.services.map((s: any, i: number) => {
                     const def = SERVICES_DEFAULTS.services[i] || SERVICES_DEFAULTS.services[0];
                     return {
                         ...def,

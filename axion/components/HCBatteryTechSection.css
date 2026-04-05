@@ -185,6 +185,7 @@
   .hc-batt-section {
     padding: 4rem 24px 8rem;
     margin-top: -4rem;
+    border-radius: 60px 60px 0 0;
   }
 
   .hc-batt-heading {
@@ -212,6 +213,7 @@
   .hc-batt-section {
     padding: 3rem 16px 7rem;
     margin-top: -3rem;
+    border-radius: 40px 40px 0 0;
   }
 
   .hc-batt-label {

@@ -20,7 +20,7 @@ return [
         // ══════════════════════════════════════════════════
         'hero' => [
             'label'  => 'Hero Section',
-            'icon'   => '🛡',
+            'icon'   => 'shield',
             'fields' => [
                 // ── Content ──
                 ['name' => 'background_image', 'label' => 'Background Image', 'type' => 'image',
@@ -82,7 +82,7 @@ return [
         // ══════════════════════════════════════════════════
         'intro' => [
             'label'  => 'Introduction Section',
-            'icon'   => '📘',
+            'icon'   => 'file-text',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -132,7 +132,7 @@ return [
 
         'intro-cards' => [
             'label'  => 'Introduction – Pillar Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Pillar Cards', 'type' => 'repeater',
@@ -159,7 +159,7 @@ return [
         // ══════════════════════════════════════════════════
         'standards' => [
             'label'  => 'Industry Standards Section',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -221,7 +221,7 @@ return [
 
         'standards-cards' => [
             'label'  => 'Industry Standards – Cards',
-            'icon'   => '🏅',
+            'icon'   => 'award',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Standards Cards', 'type' => 'repeater',
@@ -242,7 +242,7 @@ return [
         // ══════════════════════════════════════════════════
         'manufacturer' => [
             'label'  => 'Manufacturer QA Section',
-            'icon'   => '🔬',
+            'icon'   => 'microscope',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -309,7 +309,7 @@ return [
 
         'manufacturer-steps' => [
             'label'  => 'Manufacturer QA – Steps',
-            'icon'   => '🔢',
+            'icon'   => 'file-text',
             'fields' => [
                 [
                     'name'  => 'steps', 'label' => 'Quality Verification Steps', 'type' => 'repeater',
@@ -335,7 +335,7 @@ return [
         // ══════════════════════════════════════════════════
         'handling' => [
             'label'  => 'Safe Handling Section',
-            'icon'   => '🛡',
+            'icon'   => 'shield',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -402,7 +402,7 @@ return [
 
         'handling-cards' => [
             'label'  => 'Safe Handling – Cards',
-            'icon'   => '📋',
+            'icon'   => 'clipboard',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Handling Guidance Cards', 'type' => 'repeater',
@@ -429,7 +429,7 @@ return [
         // ══════════════════════════════════════════════════
         'environment' => [
             'label'  => 'Environmental Responsibility Section',
-            'icon'   => '🌱',
+            'icon'   => 'leaf',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',
@@ -480,7 +480,7 @@ return [
 
         'environment-cards' => [
             'label'  => 'Environmental – Info Cards',
-            'icon'   => '🃏',
+            'icon'   => 'layers',
             'fields' => [
                 [
                     'name'  => 'cards', 'label' => 'Environmental Info Cards', 'type' => 'repeater',
@@ -499,7 +499,7 @@ return [
 
         'environment-lifecycle' => [
             'label'  => 'Environmental – Lifecycle Steps',
-            'icon'   => '🔄',
+            'icon'   => 'refresh-cw',
             'fields' => [
                 [
                     'name'  => 'steps', 'label' => 'Lifecycle Steps', 'type' => 'repeater',
@@ -518,7 +518,7 @@ return [
         // ══════════════════════════════════════════════════
         'cta' => [
             'label'  => 'CTA Section',
-            'icon'   => '📣',
+            'icon'   => 'trending-up',
             'fields' => [
                 // ── Content ──
                 ['name' => 'label',   'label' => 'Section Label', 'type' => 'text',

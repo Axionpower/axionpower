@@ -1,11 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./WetCellApplicationsSection.css";
 
 interface AppCard {
     title: string;
     description: string;
     image: string;
+    videoUrl?: string;
 }
 
 const DEFAULT_CARDS: AppCard[] = [
@@ -109,11 +110,11 @@ export default function WetCellApplicationsSection({
                     {cards.map((card, i) => (
                         <div key={i} className="wetcell-app-card">
                             <div className="wetcell-app-card-img">
-                                <Image
-                                    src={card.image}
+                                <CmsMedia
+                                    imageUrl={card.image}
+                                    videoUrl={card.videoUrl}
                                     alt={card.title}
                                     fill
-                                    style={{ objectFit: "cover" }}
                                 />
                             </div>
                             <div className="wetcell-app-card-overlay" />

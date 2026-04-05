@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import "./AboutMissionSection.css";
 import type { AboutMissionData } from "@/lib/queries/about-page";
 
@@ -13,8 +13,9 @@ export default function AboutMissionSection({ data }: Props) {
         <section className="am-section">
             {/* Left – image + quote */}
             <div className="am-image-wrap">
-                <Image
-                    src={data.imageUrl ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+                <CmsMedia
+                    imageUrl={data.imageUrl ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+                    videoUrl={data.videoUrl}
                     alt={data.imageAlt ?? "Technician at work"}
                     fill
                     className="am-image"

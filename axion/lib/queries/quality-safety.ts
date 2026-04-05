@@ -98,6 +98,7 @@ function buildOverrides(sec: Raw): SectionOverrides {
 // ══════════════════════════════════
 export interface QSHeroData {
     backgroundImageUrl?: string;
+    backgroundVideoUrl?: string;
     breadcrumb: string;
     heading: string;
     subtext: string;
@@ -112,6 +113,7 @@ export async function getQSHeroData(): Promise<QSHeroData> {
 
     return {
         backgroundImageUrl: val(sec?.background_image_url) ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        backgroundVideoUrl: val(sec?.background_image_video_url),
         breadcrumb: val(sec?.breadcrumb) ?? "HOME  /  QUALITY, SAFETY & COMPLIANCE",
         heading: val(sec?.heading) ?? "Quality, Safety & Compliance",
         subtext:

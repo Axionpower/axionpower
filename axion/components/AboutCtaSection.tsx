@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import CmsMedia from "./CmsMedia";
 import Link from "next/link";
 import { HiPhone } from "react-icons/hi2";
 import "./AboutCtaSection.css";
@@ -35,8 +35,9 @@ export default function AboutCtaSection({ data }: Props) {
 
             {/* ── Right: image + emergency bar ── */}
             <div className="acta-right">
-                <Image
-                    src={data.imageUrl ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+                <CmsMedia
+                    imageUrl={data.imageUrl ?? "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png"}
+                    videoUrl={data.videoUrl}
                     alt={data.imageAlt ?? "Axion technician at work"}
                     fill
                     className="acta-image"
