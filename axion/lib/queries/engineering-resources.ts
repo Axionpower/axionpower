@@ -34,7 +34,7 @@ export async function getERHeroData(): Promise<ERHeroData> {
   const statsRaw = arr(raw.stats);
   const panelRowsRaw = arr(raw.panel_rows);
   return {
-    breadcrumb:  val(raw.breadcrumb)   ?? "Home > Resources > Engineering Resources",
+    breadcrumb:  val(raw.breadcrumb)   ?? "RESOURCES / ENGINEERING RESOURCES",
     label:       val(raw.label)        ?? "ENGINEERING RESOURCES",
     heading:     val(raw.heading)      ?? "Technical Documentation\nfor Critical Power Systems",
     subtitle:    val(raw.subtitle)     ?? "Access Axion's complete library of engineering resources — datasheets, technical guides, application notes, CAD files, and standards references — all tailored for specifiers, engineers, and facility managers working with VRLA and wet cell battery systems.",

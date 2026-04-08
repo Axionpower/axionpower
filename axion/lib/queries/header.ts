@@ -25,6 +25,8 @@ interface CmsLogoData {
     subtitle?: string;
     logo_image?: string | number;
     logo_image_url?: string;   // resolved URL from WP attachment ID
+    logo_width?: string | number;
+    logo_height?: string | number;
     link?: string;
 }
 
@@ -59,6 +61,8 @@ export interface HeaderData {
         title: string;
         subtitle: string;
         image?: string;
+        width?: number;
+        height?: number;
         link: string;
     };
     navigation: NavItem[];
@@ -108,6 +112,8 @@ export async function getHeaderData(): Promise<HeaderData> {
         // GraphQL resolves attachment IDs to URLs under `logo_image_url`.
         // Fall back to `logo_image` in case it was saved as a direct URL.
         image: logoRaw?.logo_image_url || (typeof logoRaw?.logo_image === 'string' ? logoRaw.logo_image : undefined) || undefined,
+        width:  logoRaw?.logo_width  ? Number(logoRaw.logo_width)  : undefined,
+        height: logoRaw?.logo_height ? Number(logoRaw.logo_height) : undefined,
         link: logoRaw?.link || "/",
     };
 

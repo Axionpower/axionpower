@@ -262,7 +262,7 @@ export async function getAboutHeroData(): Promise<AboutHeroData> {
     return {
         backgroundImageUrl: val(hero?.background_image_url),
         backgroundVideoUrl: val(hero?.background_image_video_url),
-        breadcrumb:     val(hero?.breadcrumb)       ?? "HOME / ABOUT US",
+        breadcrumb:     val(hero?.breadcrumb)       ?? "ABOUT US",
         heading:        val(hero?.heading)          ?? "About Axion Critical Power\nSolutions",
         subtext:        val(hero?.subtext)          ??
             "Dedicated to supplying reliable battery systems for mission-critical power applications. VRLA, wet cell, and DC power solutions built for uptime.",

@@ -78,7 +78,7 @@ export async function getCabinetsHeroData(): Promise<Partial<CabinetsHeroData> |
     return compact({
         backgroundImage: img(ax, "background_image"),
         backgroundVideoUrl: vid(ax, "background_image"),
-        breadcrumb: val(ax.breadcrumb),
+        breadcrumb: val(ax.breadcrumb) ?? "PRODUCTS / BATTERY CABINETS",
         heading: val(ax.heading),
         headingHighlight: val(ax.heading_highlight),
         description: val(ax.description),

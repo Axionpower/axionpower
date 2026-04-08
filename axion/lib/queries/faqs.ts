@@ -34,7 +34,7 @@ export async function getFAQHeroData(): Promise<FAQHeroData> {
   const statsRaw  = arr(raw.stats);
   const topicsRaw = arr(raw.topics);
   return {
-    breadcrumb:   val(raw.breadcrumb)    ?? "HOME / FAQs",
+    breadcrumb:   val(raw.breadcrumb)    ?? "RESOURCES / FAQs",
     label:        val(raw.label)         ?? "CRITICAL POWER BATTERY SYSTEMS",
     heading:      val(raw.heading)       ?? "Answers for\nCritical Power\nBattery Systems",
     subtitle:     val(raw.subtitle)      ?? "Clear, reliable answers to common questions about battery performance, maintenance, warranties, and end-of-life management — for engineers, consultants, and facility managers.",

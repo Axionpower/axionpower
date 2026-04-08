@@ -81,9 +81,7 @@ export default function WetCellHeroSection({ data }: { data?: WetCellHeroData })
 
             <div className="wetcell-hero-content">
                 <nav className="wetcell-breadcrumb" aria-label="Breadcrumb" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>
-                    <Link href="/" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>Home</Link>
-                    <span className="wetcell-breadcrumb-sep"> / </span>
-                    <span>{d.breadcrumb}</span>
+                    <span>{d.breadcrumb ?? "PRODUCTS / WET CELL BATTERIES"}</span>
                 </nav>
 
                 <HeadingTag className="wetcell-hero-heading" style={{

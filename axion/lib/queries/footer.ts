@@ -140,31 +140,49 @@ function mapColumn(raw: any): FooterColumn {
 
 // ── Data Fetcher ──
 export async function getFooterData(): Promise<FooterData> {
-  // ── Try Axion CMS first ──
+  const { getAxionSection } = await import("@/lib/queries/axion-cms");
+
+  // ── Try new Global location (footer / settings) first ──
   try {
-    const { getAxionSection } = await import("@/lib/queries/axion-cms");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ax = await getAxionSection<any>("footer", "settings");
+    if (ax && (ax.columns || ax.copyright)) {
+      const result: FooterData = {
+        copyright:      ax.copyright       || FOOTER_DEFAULTS.copyright,
+        bgColor:        ax.bg_color        || FOOTER_DEFAULTS.bgColor,
+        textColor:      ax.text_color      || FOOTER_DEFAULTS.textColor,
+        headingColor:   ax.heading_color   || FOOTER_DEFAULTS.headingColor,
+        linkHoverColor: ax.link_hover_color || FOOTER_DEFAULTS.linkHoverColor,
+        dividerColor:   ax.divider_color   || FOOTER_DEFAULTS.dividerColor,
+        columns: FOOTER_DEFAULTS.columns,
+      };
+      if (Array.isArray(ax.columns) && ax.columns.length > 0) {
+        result.columns = ax.columns.map(mapColumn);
+      }
+      return result;
+    }
+  } catch { /* fall through */ }
+
+  // ── Fallback: legacy home / footer location ──
+  try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ax = await getAxionSection<any>("home", "footer");
     if (ax && (ax.columns || ax.copyright)) {
       const result: FooterData = {
-        copyright: ax.copyright || FOOTER_DEFAULTS.copyright,
-        bgColor: ax.bg_color || FOOTER_DEFAULTS.bgColor,
-        textColor: ax.text_color || FOOTER_DEFAULTS.textColor,
-        headingColor: ax.heading_color || FOOTER_DEFAULTS.headingColor,
+        copyright:      ax.copyright       || FOOTER_DEFAULTS.copyright,
+        bgColor:        ax.bg_color        || FOOTER_DEFAULTS.bgColor,
+        textColor:      ax.text_color      || FOOTER_DEFAULTS.textColor,
+        headingColor:   ax.heading_color   || FOOTER_DEFAULTS.headingColor,
         linkHoverColor: ax.link_hover_color || FOOTER_DEFAULTS.linkHoverColor,
-        dividerColor: ax.divider_color || FOOTER_DEFAULTS.dividerColor,
+        dividerColor:   ax.divider_color   || FOOTER_DEFAULTS.dividerColor,
         columns: FOOTER_DEFAULTS.columns,
       };
-
       if (Array.isArray(ax.columns) && ax.columns.length > 0) {
         result.columns = ax.columns.map(mapColumn);
       }
-
       return result;
     }
-  } catch (e) {
-    console.log("Axion CMS footer not available", e);
-  }
+  } catch { /* fall through */ }
 
   return FOOTER_DEFAULTS;
 }

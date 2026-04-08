@@ -1,5 +1,7 @@
 /* ══════════════════════════════════════
-   ABOUT SECTION STYLES
+   ABOUT SECTION — Redesigned
+   Left: label + heading + feature list + CTA
+   Right: descriptions + approach chips
    ══════════════════════════════════════ */
 
 .about-section {
@@ -17,24 +19,29 @@
     padding: 0 2rem;
 }
 
-/* ── Two-column top area ── */
+/* ── Two-column top ── */
 .about-top {
-    display: flex;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4.5rem;
     margin-bottom: 4rem;
+    align-items: start;
 }
 
-/* ── Left Column ── */
+/* ════════════════════════════════
+   LEFT COLUMN
+   ════════════════════════════════ */
 .about-left {
-    flex: 1;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .about-label {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
 }
 
 .about-label-bar {
@@ -47,89 +54,172 @@
 
 .about-label-text {
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #64748b;
     letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .about-heading {
     font-size: 2.4rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #0f172a;
-    line-height: 1.2;
-    margin: 0 0 2.5rem;
+    line-height: 1.15;
+    margin: 0 0 2rem;
     letter-spacing: -0.5px;
 }
 
+/* ── Feature check-list ── */
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.25rem;
+}
+
+.about-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.about-feature-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid #0EA5E9;
+    color: #0EA5E9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    background: rgba(14, 165, 233, 0.06);
+}
+
+.about-feature-check svg {
+    width: 10px;
+    height: 10px;
+}
+
+.about-feature-text {
+    font-size: 0.85rem;
+    color: #334155;
+    line-height: 1.55;
+    font-weight: 500;
+}
+
+/* ── CTA button ── */
 .about-btn {
-    display: inline-block;
-    padding: 0.65rem 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.6rem;
     background: #0EA5E9;
     color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
+    align-self: flex-start;
+    text-transform: uppercase;
+}
+
+.about-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform 0.25s;
 }
 
 .about-btn:hover {
     background: #0284C7;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.35);
 }
 
-/* ── Right Column ── */
+.about-btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* ════════════════════════════════
+   RIGHT COLUMN
+   ════════════════════════════════ */
 .about-right {
-    flex: 1.15;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+}
+
+/* Description blocks */
+.about-desc-block {
+    padding: 1.1rem 1.25rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e9edf3;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.about-desc-block--accent {
+    border-left: 3px solid #0EA5E9;
 }
 
 .about-description {
     font-size: 0.88rem;
     color: #475569;
-    line-height: 1.75;
-    margin: 0 0 1.1rem;
+    line-height: 1.8;
+    margin: 0;
 }
 
-.about-focus {
-    margin-bottom: 1.8rem;
+/* Approach area (title + chips) */
+.about-approach {
+    margin-top: 0.25rem;
 }
 
 .about-approach-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #0f172a;
-    margin: 0 0 1rem;
+    margin: 0 0 0.85rem;
+    letter-spacing: -0.1px;
 }
 
 .about-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .about-tag {
     display: inline-block;
-    padding: 0.45rem 1.15rem;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.95rem;
+    font-size: 0.78rem;
     font-weight: 500;
     color: #334155;
     border: 1.5px solid #d1d5db;
     border-radius: 50px;
     background: transparent;
     white-space: nowrap;
+    transition: border-color 0.2s, color 0.2s;
 }
 
-/* ── Stats Row ── */
+.about-tag:hover {
+    border-color: #0EA5E9;
+    color: #0284C7;
+}
+
+/* ════════════════════════════════
+   STATS ROW
+   ════════════════════════════════ */
 .about-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border-top: 1px solid #e2e8f0;
     padding-top: 2.5rem;
-    padding-bottom: 3rem;
-    margin-top: 1rem;
+    padding-bottom: 2rem;
 }
 
 .about-stat {
@@ -147,7 +237,7 @@
 
 .stat-value {
     font-size: 1.85rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #0f172a;
     margin-bottom: 0.4rem;
     letter-spacing: -0.5px;
@@ -159,14 +249,16 @@
     line-height: 1.5;
 }
 
-/* ── Responsive 1100px ── */
+/* ════════════════════════════════
+   RESPONSIVE — 1100px
+   ════════════════════════════════ */
 @media (max-width: 1100px) {
     .about-section {
         border-radius: 60px 60px 0 0;
     }
 
     .about-top {
-        gap: 2.5rem;
+        gap: 3rem;
     }
 
     .about-heading {
@@ -174,11 +266,13 @@
     }
 }
 
-/* ── Responsive 768px ── */
+/* ════════════════════════════════
+   RESPONSIVE — 768px
+   ════════════════════════════════ */
 @media (max-width: 768px) {
     .about-section {
         border-radius: 40px 40px 0 0;
-        padding: 3.5rem 0 6rem;
+        padding: 3.5rem 0 5rem;
     }
 
     .about-container {
@@ -186,17 +280,18 @@
     }
 
     .about-top {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
 
     .about-heading {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
 
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .about-stat {
@@ -204,13 +299,11 @@
         border-bottom: 1px solid #e2e8f0;
         padding-bottom: 1.5rem;
     }
-
-    .about-stat:first-child {
-        border-left: none;
-    }
 }
 
-/* ── Responsive 480px ── */
+/* ════════════════════════════════
+   RESPONSIVE — 480px
+   ════════════════════════════════ */
 @media (max-width: 480px) {
     .about-section {
         border-radius: 24px 24px 0 0;
@@ -221,73 +314,49 @@
         padding: 0 1rem;
     }
 
-    .about-top {
-        gap: 1.5rem;
-    }
-
-    .about-label {
-        margin-bottom: 1rem;
-    }
-
-    .about-label-text {
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-    }
-
     .about-heading {
-        font-size: 1.5rem;
-        margin-bottom: 1.8rem;
+        font-size: 1.55rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .about-features {
+        gap: 0.6rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .about-feature-text {
+        font-size: 0.82rem;
     }
 
     .about-btn {
-        padding: 0.55rem 1.2rem;
-        font-size: 0.7rem;
+        font-size: 0.72rem;
+        padding: 0.6rem 1.3rem;
+    }
+
+    .about-desc-block {
+        padding: 0.9rem 1rem;
     }
 
     .about-description {
-        font-size: 0.8rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .about-approach-title {
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .about-tags {
-        gap: 0.5rem;
-    }
-
-    .about-tag {
-        padding: 0.35rem 0.9rem;
-        font-size: 0.75rem;
+        font-size: 0.82rem;
     }
 
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
-        padding-top: 1.8rem;
-        padding-bottom: 2rem;
-        margin-top: 0;
-        gap: 1.2rem;
+        padding-top: 1.75rem;
+        padding-bottom: 1.5rem;
+        gap: 1rem;
     }
 
     .about-stat {
-        padding: 0 0.75rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid #e2e8f0;
-        border-left: none;
-    }
-
-    .about-stat:first-child {
-        border-left: none;
+        padding: 0 0.5rem 1rem;
     }
 
     .stat-value {
         font-size: 1.4rem;
-        margin-bottom: 0.3rem;
     }
 
     .stat-desc {
-        font-size: 0.7rem;
+        font-size: 0.72rem;
     }
 }

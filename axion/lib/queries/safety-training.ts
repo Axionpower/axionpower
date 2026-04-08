@@ -22,7 +22,7 @@ export async function getSTHeroData(): Promise<STHeroData> {
     const sec = await getAxionSection<Raw>("safety-training", "hero");
     const cmsStats = arr(sec?.stats);
     return {
-        breadcrumb: val(sec?.breadcrumb) ?? "HOME  /  SERVICES  /  SAFETY TRAINING",
+        breadcrumb: val(sec?.breadcrumb) ?? "SERVICES / SAFETY TRAINING",
         heading: val(sec?.heading) ?? "Safety Training &\nDocumentation",
         subtitle: val(sec?.subtitle) ?? "Empowering teams with expert knowledge, compliance records, and readiness for mission-critical battery environments.",
         trustBadge: val(sec?.trust_badge) ?? "✓  Trusted by 500+ engineering teams",

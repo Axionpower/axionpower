@@ -20,6 +20,8 @@ interface HeaderProps {
         title: string;
         subtitle: string;
         image?: string;
+        width?: number;
+        height?: number;
         link: string;
     };
     navigation?: NavItem[];
@@ -102,12 +104,17 @@ export default function Header({ logo, navigation, cta, style }: HeaderProps) {
     const logoSubtitle = logo?.subtitle || "CRITICAL POWER SOLUTIONS";
     const logoLink = logo?.link || "/";
     const logoImage = logo?.image || undefined;  // treat empty string as no image
+    const logoWidth = logo?.width || 180;
+    const logoHeight = logo?.height || 40;
     const ctaText = cta?.text || "Get In Touch";
     const ctaLink = cta?.link || "/contact";
 
-    // Close dropdown on outside click
+    // Close dropdown on outside click — but NOT on Ctrl/Cmd/Shift+click (opens link in new tab)
     useEffect(() => {
-        const handler = () => setOpenDropdown(null);
+        const handler = (e: MouseEvent) => {
+            if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+            setOpenDropdown(null);
+        };
         document.addEventListener("click", handler);
         return () => document.removeEventListener("click", handler);
     }, []);
@@ -136,7 +143,7 @@ export default function Header({ logo, navigation, cta, style }: HeaderProps) {
                     {logoImage ? (
                         // Use regular img to avoid Next.js remote pattern issues with dynamic WP URLs
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={logoImage} alt={logoTitle} width={180} height={40} style={{ objectFit: "contain", maxHeight: 40 }} />
+                        <img src={logoImage} alt={logoTitle} width={logoWidth} height={logoHeight} style={{ objectFit: "contain", maxHeight: logoHeight }} />
                     ) : (
                         <>
                             <span className="logo-title">{logoTitle}</span>
@@ -242,7 +249,7 @@ export default function Header({ logo, navigation, cta, style }: HeaderProps) {
                     <Link href={logoLink} className="header-logo" onClick={() => setMobileOpen(false)}>
                         {logoImage ? (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={logoImage} alt={logoTitle} width={140} height={32} style={{ objectFit: "contain", maxHeight: 32 }} />
+                            <img src={logoImage} alt={logoTitle} width={Math.round(logoWidth * 0.78)} height={Math.round(logoHeight * 0.8)} style={{ objectFit: "contain", maxHeight: Math.round(logoHeight * 0.8) }} />
                         ) : (
                             <>
                                 <span className="logo-title" style={{ color: "#fff" }}>{logoTitle}</span>

@@ -1,0 +1,81 @@
+/* ══════════════════════════════════════
+   BREADCRUMB BAR
+   Renders between header and hero, on
+   the dark hero overlay area.
+   ══════════════════════════════════════ */
+
+.breadcrumb-bar {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 0.55rem 2rem;
+    position: relative;
+    z-index: 8;
+}
+
+.breadcrumb-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.breadcrumb-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.breadcrumb-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.breadcrumb-sep {
+    width: 13px;
+    height: 13px;
+    stroke: rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+    margin: 0 1px;
+}
+
+.breadcrumb-current {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .breadcrumb-bar {
+        padding: 0.5rem 1.25rem;
+    }
+
+    .breadcrumb-link,
+    .breadcrumb-current {
+        font-size: 11px;
+    }
+
+    .breadcrumb-sep {
+        width: 11px;
+        height: 11px;
+    }
+}

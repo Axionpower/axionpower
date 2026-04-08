@@ -77,7 +77,7 @@ export async function getVrlaHeroData(): Promise<Partial<VrlaHeroData> | undefin
     return compact({
         backgroundImage: img(ax, "background_image"),
         backgroundVideoUrl: vid(ax, "background_image"),
-        breadcrumb: val(ax.breadcrumb),
+        breadcrumb: val(ax.breadcrumb) ?? "PRODUCTS / VRLA BATTERIES",
         heading: val(ax.heading),
         headingHighlight: val(ax.heading_highlight),
         description: val(ax.subtitle),

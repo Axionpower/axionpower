@@ -81,9 +81,7 @@ export default function CabinetsHeroSection({ data }: { data?: CabinetsHeroData 
 
             <div className="cabinets-hero-content">
                 <nav className="cabinets-breadcrumb" aria-label="Breadcrumb" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>
-                    <Link href="/" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>Home</Link>
-                    <span className="cabinets-breadcrumb-sep"> / </span>
-                    <span>{d.breadcrumb}</span>
+                    <span>{d.breadcrumb ?? "PRODUCTS / BATTERY CABINETS"}</span>
                 </nav>
 
                 <HeadingTag className="cabinets-hero-heading" style={{

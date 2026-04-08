@@ -29,7 +29,7 @@ export async function getRUHeroData(): Promise<RUHeroData> {
     const cmsStats   = arr(sec?.stats);
     const cmsUpcoming = arr(sec?.upcoming);
     return {
-        breadcrumb:    val(sec?.breadcrumb)    ?? "HOME  /  SERVICES  /  REPLACEMENT & UPGRADES",
+        breadcrumb:    val(sec?.breadcrumb)    ?? "SERVICES / REPLACEMENT & UPGRADES",
         heading:       val(sec?.heading)       ?? "Battery Replacement &\nTechnology Upgrades",
         subtitle:      val(sec?.subtitle)      ?? "End-to-end battery replacement planning, technology upgrades, and certified disposal — keeping your critical systems current and compliant.",
         trustBadge:    val(sec?.trust_badge)   ?? "♻️  Certified disposal & compliant upgrades",

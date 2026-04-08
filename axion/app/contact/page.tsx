@@ -8,6 +8,7 @@ import {
     getContactPageInfoData,
     getContactPageWhyData,
     getContactFormLabels,
+    getContactFormConfig,
 } from "@/lib/queries/contact-page";
 
 export const metadata: Metadata = {
@@ -17,17 +18,18 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-    const [hero, info, why, formLabels] = await Promise.all([
+    const [hero, info, why, formLabels, formConfig] = await Promise.all([
         getContactPageHeroData(),
         getContactPageInfoData(),
         getContactPageWhyData(),
         getContactFormLabels(),
+        getContactFormConfig(),
     ]);
 
     return (
         <main>
             <ContactHeroSection data={hero} />
-            <ContactFormSection contactInfo={info} labels={formLabels} />
+            <ContactFormSection contactInfo={info} labels={formLabels} formConfig={formConfig} />
             <ContactWhySection data={why} />
             <ContactCtaSection data={why} />
         </main>

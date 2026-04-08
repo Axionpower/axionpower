@@ -135,6 +135,79 @@ export async function getContactPageWhyData(): Promise<ContactWhyData> {
 }
 
 // ══════════════════════════════════
+// CONTACT FORM FIELD CONFIG (CMS-managed fields)
+// ══════════════════════════════════
+export interface CmsFormField {
+    name: string;
+    label: string;
+    type: "text" | "email" | "tel" | "textarea" | "select" | "checkbox";
+    placeholder?: string;
+    required?: boolean;
+    half?: boolean;
+    options?: string[];
+}
+
+export interface CmsFormConfig {
+    heading?: string;
+    subheading?: string;
+    submitLabel?: string;
+    successMessage?: string;
+    fields: CmsFormField[];
+}
+
+const DEFAULT_CMS_FIELDS: CmsFormField[] = [
+    { name: "email",       label: "Email Address",    type: "email",    placeholder: "your@company.com",      required: true,  half: true },
+    { name: "fullName",    label: "Full Name",         type: "text",     placeholder: "John Smith",             required: true,  half: true },
+    { name: "company",     label: "Company Name",      type: "text",     placeholder: "Acme Corp",              required: false, half: true },
+    { name: "phone",       label: "Phone Number",      type: "tel",      placeholder: "+1 (555) 000-0000",      required: false, half: true },
+    { name: "inquiryType", label: "Inquiry Type",      type: "select",   placeholder: "Select an inquiry type", required: false, half: false,
+        options: ["Product Information", "Request a Quote", "Technical Information", "Warranty Information", "General Inquiry"] },
+    { name: "message",     label: "Message / Comment", type: "textarea", placeholder: "Tell us about your project...", required: false, half: false },
+];
+
+export const DEFAULT_CMS_FORM_CONFIG: CmsFormConfig = {
+    heading: "Send Us a Message",
+    subheading: "Fill in the form and we'll get back to you shortly.",
+    submitLabel: "Submit",
+    successMessage: "✓ Message sent! We'll respond within 1 business day.",
+    fields: DEFAULT_CMS_FIELDS,
+};
+
+export async function getContactFormConfig(): Promise<CmsFormConfig> {
+    try {
+        const ax = await getAxionSection<Raw>("contact", "form-fields");
+        if (!ax) return DEFAULT_CMS_FORM_CONFIG;
+
+        const rawFields = Array.isArray(ax.fields) ? ax.fields : [];
+        const fields: CmsFormField[] = rawFields.length > 0
+            ? rawFields
+                .map((f: Raw) => ({
+                    name:        (f.field_name        || "").replace(/\s+/g, "_"),
+                    label:       f.field_label        || "",
+                    type:        f.field_type         || "text",
+                    placeholder: f.field_placeholder  || "",
+                    required:    f.field_required === "1" || f.field_required === true,
+                    half:        f.field_half     === "1" || f.field_half === true,
+                    options:     f.field_options && typeof f.field_options === "string"
+                        ? f.field_options.split("\n").map((o: string) => o.trim()).filter(Boolean)
+                        : undefined,
+                }))
+                .filter((f: CmsFormField) => f.name)
+            : DEFAULT_CMS_FIELDS;
+
+        return {
+            heading:        val(ax.form_heading)    ?? DEFAULT_CMS_FORM_CONFIG.heading,
+            subheading:     val(ax.form_subheading) ?? DEFAULT_CMS_FORM_CONFIG.subheading,
+            submitLabel:    val(ax.submit_label)    ?? DEFAULT_CMS_FORM_CONFIG.submitLabel,
+            successMessage: val(ax.success_message) ?? DEFAULT_CMS_FORM_CONFIG.successMessage,
+            fields,
+        };
+    } catch {
+        return DEFAULT_CMS_FORM_CONFIG;
+    }
+}
+
+// ══════════════════════════════════
 // CONTACT FORM LABELS
 // ══════════════════════════════════
 export interface ContactFormLabels {

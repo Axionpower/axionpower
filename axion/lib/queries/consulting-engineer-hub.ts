@@ -33,7 +33,7 @@ export async function getCEHeroData(): Promise<CEHeroData> {
   const statsRaw = arr(raw.stats);
   const panelRaw = arr(raw.panel_resources);
   return {
-    breadcrumb:  val(raw.breadcrumb)   ?? "HOME / CONSULTING ENGINEER HUB",
+    breadcrumb:  val(raw.breadcrumb)   ?? "RESOURCES / CONSULTING ENGINEER HUB",
     label:       val(raw.label)        ?? "CONSULTING ENGINEER HUB",
     heading:     val(raw.heading)      ?? "Your Technical\nSpecification Partner",
     subtitle:    val(raw.subtitle)     ?? "Axion Critical Power Solutions provides consulting engineers, specifiers, and project managers with the technical documentation, basis-of-design resources, and specification language needed to design and specify critical power battery systems with confidence.",

@@ -88,9 +88,7 @@ export default function VrlaHeroSection({ data }: { data?: VrlaHeroData }) {
 
             <div className="vrla-hero-content">
                 <nav className="vrla-breadcrumb" aria-label="Breadcrumb" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>
-                    <Link href="/" style={{ ...(d.breadcrumbColor && { color: d.breadcrumbColor }) }}>Home</Link>
-                    <span className="vrla-breadcrumb-sep"> / </span>
-                    <span>{d.breadcrumb}</span>
+                    <span>{d.breadcrumb ?? "PRODUCTS / VRLA BATTERIES"}</span>
                 </nav>
 
                 <HeadingTag className="vrla-hero-heading" style={{
