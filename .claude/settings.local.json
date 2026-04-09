@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /c/Users/Hp/Axion/axion/lib/queries/*.ts)",
+      "Bash(find /c/Users/Hp/Axion -name *breadcrumb* -o -name *Breadcrumb*)",
+      "Bash(find /c/Users/Hp/Axion/axion-cms -name *.php -maxdepth 3)",
+      "Bash(sed -i 's/\"\"HOME \\\\/ SERVICES \\\\/ MAINTENANCE \\\\& MONITORING\"\"/\"\"SERVICES \\\\/ MAINTENANCE \\\\& MONITORING\"\"/g' /c/Users/Hp/Axion/axion/lib/queries/maintenance.ts)",
+      "Bash(sed -i 's/\"\"HOME \\\\/ SERVICES \\\\/ EMERGENCY SUPPORT\"\"/\"\"SERVICES \\\\/ EMERGENCY SUPPORT\"\"/g' /c/Users/Hp/Axion/axion/lib/queries/emergency-support.ts)",
+      "Bash(sed -i 's/\"\"HOME  \\\\/  SERVICES  \\\\/  REPLACEMENT \\\\& UPGRADES\"\"/\"\"SERVICES \\\\/ REPLACEMENT \\\\& UPGRADES\"\"/g' /c/Users/Hp/Axion/axion/lib/queries/replacement-upgrades.ts)",
+      "Bash(sed -i 's/\"\"HOME  \\\\/  SERVICES  \\\\/  SAFETY TRAINING\"\"/\"\"SERVICES \\\\/ SAFETY TRAINING\"\"/g' /c/Users/Hp/Axion/axion/lib/queries/safety-training.ts)",
+      "Bash(sed -i 's/\"\"HOME \\\\/ CONSULTING ENGINEER HUB\"\"/\"\"RESOURCES \\\\/ CONSULTING ENGINEER HUB\"\"/g' /c/Users/Hp/Axion/axion/lib/queries/consulting-engineer-hub.ts)",
+      "Bash(git -C \"c:/Users/Hp/Axion\" remote -v)",
+      "Bash(git -C \"c:/Users/Hp/Axion\" config user.name)",
+      "Bash(git -C \"c:/Users/Hp/Axion\" config user.email)",
+      "Bash(gh auth:*)",
+      "Bash(cmdkey /list)",
+      "Bash(git credential:*)",
+      "Bash(git -C \"c:/Users/Hp/Axion\" config --global credential.helper)",
+      "Bash(git credential-manager:*)",
+      "Bash(cmdkey \"/delete:LegacyGeneric:target=git:https://github.com\")",
+      "Bash(cmdkey \"/delete:LegacyGeneric:target=https://github.com\")"
+    ]
+  }
+}
