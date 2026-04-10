@@ -9,7 +9,7 @@ export async function fetchGraphQL<T>(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query, variables }),
-      next: { revalidate: 0 },
+      next: { revalidate: 300 },
     });
 
     if (!res.ok) {
