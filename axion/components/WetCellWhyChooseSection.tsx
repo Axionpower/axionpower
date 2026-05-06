@@ -54,7 +54,7 @@ interface WetCellWhyChooseProps {
 export default function WetCellWhyChooseSection({
     headingLine1 = "Why Choose",
     headingHighlight = "Axion",
-    headingLine3 = "Wet Cell Batteries",
+    headingLine3 = "Wet Cell Batteries?",
     cards = DEFAULT_CARDS,
     headingTag,
     headingColor,

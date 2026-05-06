@@ -42,12 +42,15 @@
     position: relative;
     z-index: 1;
     max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* ─── Label row ───────────────────────────────────────────────────────────── */
 .scta-label-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     margin-bottom: 16px;
 }
@@ -90,6 +93,7 @@
 .scta-buttons {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
 }
@@ -155,7 +159,7 @@
     }
     .scta-buttons {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
     .scta-btn-primary,
     .scta-btn-ghost {

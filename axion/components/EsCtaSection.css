@@ -36,6 +36,8 @@
   z-index: 2;
   padding: 72px 120px 180px;
   max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Green badge — positioned in normal flow */
@@ -52,6 +54,11 @@
   font-weight: 700;
   letter-spacing: 0.3px;
   margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .esct-badge-dot {
@@ -68,6 +75,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
 }
 
@@ -108,6 +116,7 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 30px;
 }
 
@@ -182,6 +191,8 @@
   padding: 16px 24px;
   max-width: 860px;
   margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .esct-line-left {
@@ -237,7 +248,8 @@
   }
 
   .esct-badge {
-    left: 48px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .esct-heading {
@@ -260,9 +272,9 @@
   }
 
   .esct-badge {
-    top: 40px;
-    left: 24px;
     font-size: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .esct-heading {

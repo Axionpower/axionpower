@@ -40,7 +40,6 @@ export default function DCCtaSection({ data }: { data: DCCtaData }) {
                     type={field.label === "Contact Email" ? "email" : "text"}
                     className="dc-cta-field-input"
                     placeholder={field.placeholder}
-                    readOnly
                   />
                 </div>
               ))}

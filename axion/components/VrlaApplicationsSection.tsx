@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import CmsMedia from "./CmsMedia";
 import "./VrlaApplicationsSection.css";
 
@@ -7,6 +8,7 @@ interface AppCard {
     description: string;
     image: string;
     videoUrl?: string;
+    url?: string;
 }
 
 const DEFAULT_CARDS: AppCard[] = [
@@ -14,21 +16,25 @@ const DEFAULT_CARDS: AppCard[] = [
         title: "Data Center UPS Systems",
         description: "Supporting continuous IT operations and redundancy",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/data-centers",
     },
     {
         title: "Telecommunications",
         description: "Ensuring network continuity and uptime",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/telecommunications",
     },
     {
         title: "Healthcare Facilities",
         description: "Powering life-safety and essential electrical systems",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/healthcare",
     },
     {
         title: "Commercial & Industrial UPS Installations",
         description: "Reliable backup for critical operations",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/industrial-infrastructure",
     },
 ];
 
@@ -107,26 +113,31 @@ export default function VrlaApplicationsSection({
                 </HeadingTag>
 
                 <div className="vrla-apps-grid">
-                    {cards.map((card, i) => (
-                        <div key={i} className="vrla-app-card">
-                            <div className="vrla-app-card-img">
-                                <CmsMedia
-                                    imageUrl={card.image}
-                                    videoUrl={card.videoUrl}
-                                    alt={card.title}
-                                    fill
-                                />
-                            </div>
-                            <div className="vrla-app-card-overlay" />
-                            <div className="vrla-app-card-content">
-                                <CardTag className="vrla-app-card-title">{card.title}</CardTag>
-                                <div className="vrla-app-card-bottom">
-                                    <p className="vrla-app-card-desc">{card.description}</p>
-                                    <ArrowIcon />
+                    {cards.map((card, i) => {
+                        const inner = (
+                            <>
+                                <div className="vrla-app-card-img">
+                                    <CmsMedia
+                                        imageUrl={card.image}
+                                        videoUrl={card.videoUrl}
+                                        alt={card.title}
+                                        fill
+                                    />
                                 </div>
-                            </div>
-                        </div>
-                    ))}
+                                <div className="vrla-app-card-overlay" />
+                                <div className="vrla-app-card-content">
+                                    <CardTag className="vrla-app-card-title">{card.title}</CardTag>
+                                    <div className="vrla-app-card-bottom">
+                                        <p className="vrla-app-card-desc">{card.description}</p>
+                                        <ArrowIcon />
+                                    </div>
+                                </div>
+                            </>
+                        );
+                        return card.url
+                            ? <Link key={i} href={card.url} className="vrla-app-card">{inner}</Link>
+                            : <div key={i} className="vrla-app-card">{inner}</div>;
+                    })}
                 </div>
             </div>
         </section>

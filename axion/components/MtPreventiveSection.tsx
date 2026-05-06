@@ -55,16 +55,19 @@ export default function MtPreventiveSection({ data }: Props) {
                 <div className="mtp-content" style={overrides.contentGap ? { gap: overrides.contentGap } : undefined}>
                     <div className="mtp-left">
                         <div className="mtp-cards" style={overrides.cardsGap ? { gap: overrides.cardsGap } : undefined}>
-                            {cards.map((card, i) => (
-                                <div key={i} className="mtp-card" style={overrides.cardBgColor ? { backgroundColor: overrides.cardBgColor } : undefined}>
+                            {cards.map((card, i) => {
+                                const hasBgOverride = !!overrides.cardBgColor;
+                                return (
+                                <div key={i} className="mtp-card" style={hasBgOverride ? { backgroundColor: overrides.cardBgColor } : undefined}>
                                     <div className="mtp-card-header">
                                         <span className="mtp-card-number" style={{ color: card.numberColor }}>{card.number}</span>
                                         <span className="mtp-card-icon">{card.icon}</span>
                                     </div>
-                                    <CardTag className="mtp-card-title">{card.title}</CardTag>
-                                    <p className="mtp-card-desc">{card.description}</p>
+                                    <CardTag className="mtp-card-title" style={hasBgOverride ? { color: '#ffffff' } : undefined}>{card.title}</CardTag>
+                                    <p className="mtp-card-desc" style={hasBgOverride ? { color: 'rgba(255,255,255,0.8)' } : undefined}>{card.description}</p>
                                 </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 

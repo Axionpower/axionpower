@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import CmsMedia from "./CmsMedia";
 import "./WetCellApplicationsSection.css";
 
@@ -7,6 +8,7 @@ interface AppCard {
     description: string;
     image: string;
     videoUrl?: string;
+    url?: string;
 }
 
 const DEFAULT_CARDS: AppCard[] = [
@@ -14,21 +16,25 @@ const DEFAULT_CARDS: AppCard[] = [
         title: "Utility Substations",
         description: "Reliable switchgear and protection system backup power",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/utilities-substations",
     },
     {
         title: "Power Generation Facilities",
         description: "Battery backup for turbine control and plant auxiliaries",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/contact",
     },
     {
         title: "Industrial DC Systems",
         description: "Continuous power for process control and safety systems",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/industrial-infrastructure",
     },
     {
         title: "Long-Duration Backup Systems",
         description: "Extended runtime for critical infrastructure and data centres",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/contact",
     },
 ];
 
@@ -80,6 +86,10 @@ export default function WetCellApplicationsSection({
 }: WetCellApplicationsProps) {
     const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
     const HeadingTag = (headingTag || 'h2') as React.ElementType;
+    const resolvedCards = cards.map((card, i) => ({
+        ...card,
+        url: card.url ?? DEFAULT_CARDS[i]?.url,
+    }));
     return (
         <section className="wetcell-apps" style={{
             ...(bgColor && { backgroundColor: bgColor }),
@@ -107,26 +117,31 @@ export default function WetCellApplicationsSection({
                 </HeadingTag>
 
                 <div className="wetcell-apps-grid">
-                    {cards.map((card, i) => (
-                        <div key={i} className="wetcell-app-card">
-                            <div className="wetcell-app-card-img">
-                                <CmsMedia
-                                    imageUrl={card.image}
-                                    videoUrl={card.videoUrl}
-                                    alt={card.title}
-                                    fill
-                                />
-                            </div>
-                            <div className="wetcell-app-card-overlay" />
-                            <div className="wetcell-app-card-content">
-                                <CardTag className="wetcell-app-card-title">{card.title}</CardTag>
-                                <div className="wetcell-app-card-bottom">
-                                    <p className="wetcell-app-card-desc">{card.description}</p>
-                                    <ArrowIcon />
+                    {resolvedCards.map((card, i) => {
+                        const inner = (
+                            <>
+                                <div className="wetcell-app-card-img">
+                                    <CmsMedia
+                                        imageUrl={card.image}
+                                        videoUrl={card.videoUrl}
+                                        alt={card.title}
+                                        fill
+                                    />
                                 </div>
-                            </div>
-                        </div>
-                    ))}
+                                <div className="wetcell-app-card-overlay" />
+                                <div className="wetcell-app-card-content">
+                                    <CardTag className="wetcell-app-card-title">{card.title}</CardTag>
+                                    <div className="wetcell-app-card-bottom">
+                                        <p className="wetcell-app-card-desc">{card.description}</p>
+                                        <ArrowIcon />
+                                    </div>
+                                </div>
+                            </>
+                        );
+                        return card.url
+                            ? <Link key={i} href={card.url} className="wetcell-app-card">{inner}</Link>
+                            : <div key={i} className="wetcell-app-card">{inner}</div>;
+                    })}
                 </div>
             </div>
         </section>

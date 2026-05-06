@@ -3,6 +3,7 @@ import { getAxionSection } from "@/lib/queries/axion-cms";
 type Raw = Record<string, unknown>;
 const val = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
 const arr = (v: unknown): Raw[] => (Array.isArray(v) && v.length > 0 ? (v as Raw[]) : []);
+const safeUrl = (v: unknown) => { const u = val(v); return u ? u.replace(/^http:\/\//i, "https://") : undefined; };
 
 /* ─── Hero ─────────────────────────────────────────────────────────────────── */
 export interface STHeroStat { value: string; label: string; }
@@ -27,9 +28,9 @@ export async function getSTHeroData(): Promise<STHeroData> {
         subtitle: val(sec?.subtitle) ?? "Empowering teams with expert knowledge, compliance records, and readiness for mission-critical battery environments.",
         trustBadge: val(sec?.trust_badge) ?? "✓  Trusted by 500+ engineering teams",
         btn1Label: val(sec?.btn1_label) ?? "Schedule Staff Training →",
-        btn1Url: val(sec?.btn1_url) ?? "/contact",
+        btn1Url: safeUrl(sec?.btn1_url) ?? "/contact",
         btn2Label: val(sec?.btn2_label) ?? "Request Documentation",
-        btn2Url: val(sec?.btn2_url) ?? "/contact",
+        btn2Url: safeUrl(sec?.btn2_url) ?? "/contact",
         stats: cmsStats.length > 0
             ? cmsStats.map((s) => ({ value: String(s.value || ""), label: String(s.label || "") }))
             : [
@@ -68,9 +69,9 @@ export async function getSTIntroData(): Promise<STIntroData> {
                 { value: "100%", label: "Compliance" },
             ],
         btn1Label: val(sec?.btn1_label) ?? "Schedule Training →",
-        btn1Url: val(sec?.btn1_url) ?? "/contact",
+        btn1Url: safeUrl(sec?.btn1_url) ?? "/contact",
         btn2Label: val(sec?.btn2_label) ?? "Request Docs",
-        btn2Url: val(sec?.btn2_url) ?? "/contact",
+        btn2Url: safeUrl(sec?.btn2_url) ?? "/contact",
     };
 }
 
@@ -323,9 +324,9 @@ export async function getSTCtaData(): Promise<STCtaData> {
         heading: val(sec?.heading) ?? "Ready to Protect\nYour Team &\nSystems?",
         description: val(sec?.description) ?? "Contact our technical team to schedule on-site training or request comprehensive system documentation.",
         btn1Label: val(sec?.btn1_label) ?? "Schedule Training →",
-        btn1Url: val(sec?.btn1_url) ?? "/contact",
+        btn1Url: safeUrl(sec?.btn1_url) ?? "/contact",
         btn2Label: val(sec?.btn2_label) ?? "Request Docs",
-        btn2Url: val(sec?.btn2_url) ?? "/contact",
+        btn2Url: safeUrl(sec?.btn2_url) ?? "/contact",
         phone: val(sec?.phone) ?? "📞  24/7 Emergency: 245 445 34352",
     };
 }

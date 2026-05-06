@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HCApplicationsData } from "@/lib/queries/healthcare";
 import "./HCApplicationsSection.css";
 
@@ -19,6 +19,18 @@ const PANEL_COLORS = [
 
 export default function HCApplicationsSection({ data }: HCApplicationsSectionProps) {
   const [activeIdx, setActiveIdx] = useState(0);
+  const isHoveredRef = useRef(false);
+  const total = data.apps.length;
+
+  useEffect(() => {
+    if (total <= 1) return;
+    const timer = setInterval(() => {
+      if (!isHoveredRef.current) {
+        setActiveIdx(prev => (prev + 1) % total);
+      }
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [total]);
 
   return (
     <section className="hc-apps">
@@ -35,7 +47,11 @@ export default function HCApplicationsSection({ data }: HCApplicationsSectionPro
         </div>
 
         {/* HORIZONTAL ACCORDION */}
-        <div className="hc-apps__accordion">
+        <div
+          className="hc-apps__accordion"
+          onMouseEnter={() => { isHoveredRef.current = true; }}
+          onMouseLeave={() => { isHoveredRef.current = false; }}
+        >
           {data.apps.map((app, idx) => (
             <div
               key={idx}

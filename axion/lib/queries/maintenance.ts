@@ -653,7 +653,7 @@ export async function getMtBenefitsData(): Promise<MtBenefitsData> {
     const benefits: MtBenefitCard[] =
         Array.isArray(rawBenefits) && rawBenefits.length > 0
             ? rawBenefits.map((b: Raw, i: number) => ({
-                  icon: String(b.icon ?? DEFAULT_BENEFITS[i]?.icon ?? "🛡"),
+                  icon: String(b.icon || DEFAULT_BENEFITS[i]?.icon || "🛡"),
                   title: String(b.title ?? DEFAULT_BENEFITS[i]?.title ?? ""),
                   description: String(b.description ?? DEFAULT_BENEFITS[i]?.description ?? ""),
               }))
@@ -663,7 +663,7 @@ export async function getMtBenefitsData(): Promise<MtBenefitsData> {
     const industries: MtIndustry[] =
         Array.isArray(rawIndustries) && rawIndustries.length > 0
             ? rawIndustries.map((ind: Raw, i: number) => ({
-                  icon: String(ind.icon ?? DEFAULT_INDUSTRIES[i]?.icon ?? "🏢"),
+                  icon: String(ind.icon || DEFAULT_INDUSTRIES[i]?.icon || "🏢"),
                   title: String(ind.title ?? DEFAULT_INDUSTRIES[i]?.title ?? ""),
                   subtitle: String(ind.subtitle ?? DEFAULT_INDUSTRIES[i]?.subtitle ?? ""),
               }))

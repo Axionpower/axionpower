@@ -117,7 +117,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.65;
-    color: rgba(200,230,255,0.85);
+    color: #ffffff;
     margin: 0 0 16px 0;
 }
 
@@ -136,7 +136,7 @@
     align-items: flex-start;
     gap: 8px;
     font-size: 13px;
-    color: rgba(200,230,255,0.85);
+    color: #ffffff;
     line-height: 1.5;
 }
 

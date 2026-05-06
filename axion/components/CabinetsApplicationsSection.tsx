@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import CmsMedia from "./CmsMedia";
 import "./CabinetsApplicationsSection.css";
 
@@ -7,6 +8,7 @@ interface AppCard {
     description: string;
     image: string;
     videoUrl?: string;
+    url?: string;
 }
 
 const DEFAULT_CARDS: AppCard[] = [
@@ -14,21 +16,25 @@ const DEFAULT_CARDS: AppCard[] = [
         title: "Data Center UPS Systems",
         description: "Supporting continuous IT operations and redundancy",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/data-centers",
     },
     {
         title: "Telecommunications",
         description: "Ensuring network continuity and uptime",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/telecommunications",
     },
     {
         title: "Healthcare Facilities",
         description: "Powering life-safety and essential electrical systems",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/healthcare",
     },
     {
         title: "Commercial & Industrial UPS Installations",
         description: "Reliable backup for critical operations",
         image: "https://violet-tarsier-674356.hostingersite.com/wp-content/uploads/2026/03/vrla-batteries.png",
+        url: "/industrial-infrastructure",
     },
 ];
 
@@ -80,6 +86,10 @@ export default function CabinetsApplicationsSection({
 }: CabinetsApplicationsProps) {
     const CardTag = (cardHeadingTag || 'h3') as React.ElementType;
     const HeadingTag = (headingTag || 'h2') as React.ElementType;
+    const resolvedCards = cards.map((card, i) => ({
+        ...card,
+        url: card.url ?? DEFAULT_CARDS[i]?.url,
+    }));
     return (
         <section className="cab-apps" style={{
             ...(bgColor && { backgroundColor: bgColor }),
@@ -107,26 +117,31 @@ export default function CabinetsApplicationsSection({
                 </HeadingTag>
 
                 <div className="cab-apps-grid">
-                    {cards.map((card, i) => (
-                        <div key={i} className="cab-app-card">
-                            <div className="cab-app-card-img">
-                                <CmsMedia
-                                    imageUrl={card.image}
-                                    videoUrl={card.videoUrl}
-                                    alt={card.title}
-                                    fill
-                                />
-                            </div>
-                            <div className="cab-app-card-overlay" />
-                            <div className="cab-app-card-content">
-                                <CardTag className="cab-app-card-title">{card.title}</CardTag>
-                                <div className="cab-app-card-bottom">
-                                    <p className="cab-app-card-desc">{card.description}</p>
-                                    <ArrowIcon />
+                    {resolvedCards.map((card, i) => {
+                        const inner = (
+                            <>
+                                <div className="cab-app-card-img">
+                                    <CmsMedia
+                                        imageUrl={card.image}
+                                        videoUrl={card.videoUrl}
+                                        alt={card.title}
+                                        fill
+                                    />
                                 </div>
-                            </div>
-                        </div>
-                    ))}
+                                <div className="cab-app-card-overlay" />
+                                <div className="cab-app-card-content">
+                                    <CardTag className="cab-app-card-title">{card.title}</CardTag>
+                                    <div className="cab-app-card-bottom">
+                                        <p className="cab-app-card-desc">{card.description}</p>
+                                        <ArrowIcon />
+                                    </div>
+                                </div>
+                            </>
+                        );
+                        return card.url
+                            ? <Link key={i} href={card.url} className="cab-app-card">{inner}</Link>
+                            : <div key={i} className="cab-app-card">{inner}</div>;
+                    })}
                 </div>
             </div>
         </section>

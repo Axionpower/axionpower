@@ -52,7 +52,7 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.7;
-    color: rgba(200,215,235,0.8);
+    color: #ffffff;
     max-width: 640px;
     margin: 0 0 14px 0;
 }
@@ -123,7 +123,7 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 1.65;
-    color: rgba(200,215,235,0.75);
+    color: #ffffff;
     margin: 0;
 }
 
@@ -167,7 +167,7 @@
     gap: 10px;
     font-size: 13px;
     line-height: 1.5;
-    color: rgba(200,215,235,0.85);
+    color: #ffffff;
 }
 
 .ru-plan-check-icon {

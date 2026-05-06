@@ -1,9 +1,37 @@
 import React from "react";
 import "./MtBenefitsSection.css";
 import type { MtBenefitsData } from "@/lib/queries/maintenance";
+import {
+    MdSecurity, MdBatteryFull, MdSettings, MdVerified, MdSavings,
+    MdBusiness, MdLocalHospital, MdCellTower, MdBolt, MdAccountBalance,
+} from "react-icons/md";
 
 interface Props {
     data: MtBenefitsData;
+}
+
+const BENEFIT_ICONS: Record<string, React.ReactElement> = {
+    "🛡": <MdSecurity size={22} />,
+    "🔋": <MdBatteryFull size={22} />,
+    "⚙": <MdSettings size={22} />,
+    "✓": <MdVerified size={22} />,
+    "💰": <MdSavings size={22} />,
+};
+
+const INDUSTRY_ICONS: Record<string, React.ReactElement> = {
+    "🏢": <MdBusiness size={20} />,
+    "🏥": <MdLocalHospital size={20} />,
+    "📡": <MdCellTower size={20} />,
+    "⚡": <MdBolt size={20} />,
+    "🏦": <MdAccountBalance size={20} />,
+};
+
+function BenefitIcon({ icon }: { icon: string }) {
+    return BENEFIT_ICONS[icon] ?? <span style={{ fontSize: 20 }}>{icon}</span>;
+}
+
+function IndustryIcon({ icon }: { icon: string }) {
+    return INDUSTRY_ICONS[icon] ?? <span style={{ fontSize: 18 }}>{icon}</span>;
 }
 
 export default function MtBenefitsSection({ data }: Props) {
@@ -41,9 +69,11 @@ export default function MtBenefitsSection({ data }: Props) {
                         <div className="mtb-benefits">
                             {benefits.map((b, i) => (
                                 <div key={i} className="mtb-benefit" style={overrides.cardBgColor ? { backgroundColor: overrides.cardBgColor } : undefined}>
-                                    <span className="mtb-benefit-icon">{b.icon}</span>
+                                    <span className="mtb-benefit-icon">
+                                        <BenefitIcon icon={b.icon} />
+                                    </span>
                                     <div className="mtb-benefit-text">
-                                        <span className="mtb-benefit-title">{b.title}</span>
+                                        <CardTag className="mtb-benefit-title">{b.title}</CardTag>
                                         <span className="mtb-benefit-desc">{b.description}</span>
                                     </div>
                                 </div>
@@ -57,7 +87,9 @@ export default function MtBenefitsSection({ data }: Props) {
                             <div className="mtb-industries">
                                 {industries.map((ind, i) => (
                                     <div key={i} className="mtb-industry">
-                                        <span className="mtb-industry-icon">{ind.icon}</span>
+                                        <span className="mtb-industry-icon">
+                                            <IndustryIcon icon={ind.icon} />
+                                        </span>
                                         <div className="mtb-industry-text">
                                             <span className="mtb-industry-title">{ind.title}</span>
                                             <span className="mtb-industry-subtitle">{ind.subtitle}</span>

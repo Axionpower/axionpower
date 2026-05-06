@@ -143,6 +143,7 @@ export interface AppCard {
     title: string;
     description: string;
     image: string;
+    url?: string;
 }
 
 export async function getWetCellApplicationsData(): Promise<{
@@ -171,6 +172,7 @@ export async function getWetCellApplicationsData(): Promise<{
             title: c.title || "",
             description: c.description || "",
             image: img(c, "image") || FALLBACK_IMG,
+            url: val(c.url) || val(c.link_url) || undefined,
         }))
         : undefined;
 
@@ -284,7 +286,7 @@ export async function getWetCellWhyChooseData(): Promise<{
     return compact({
         headingLine1: val(ax.heading_line1),
         headingHighlight: val(ax.heading_highlight),
-        headingLine3: val(ax.heading_line3),
+        headingLine3: (() => { const v = val(ax.heading_line3)?.trim(); if (!v || v === "?") return undefined; return v.endsWith("?") ? v : v + "?"; })(),
         cards,
         headingTag: val(ax.heading_tag),
         headingColor: val(ax.heading_color),

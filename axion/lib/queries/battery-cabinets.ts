@@ -299,6 +299,7 @@ export interface AppCard {
     description: string;
     image: string;
     videoUrl?: string;
+    url?: string;
 }
 
 export async function getCabinetsApplicationsData(): Promise<{
@@ -328,6 +329,7 @@ export async function getCabinetsApplicationsData(): Promise<{
             description: c.description || "",
             image: img(c, "image") || FALLBACK_IMG,
             videoUrl: vid(c, "image"),
+            url: val(c.url) || val(c.link_url) || undefined,
         }))
         : undefined;
 
@@ -438,7 +440,7 @@ export async function getCabinetsWhyChooseData(): Promise<{
     return compact({
         headingLine1: val(ax.heading_line1),
         headingHighlight: val(ax.heading_highlight),
-        headingLine3: val(ax.heading_line3),
+        headingLine3: (() => { const v = val(ax.heading_line3)?.trim(); if (!v || v === "?") return undefined; return v.endsWith("?") ? v : v + "?"; })(),
         cards,
         headingTag: val(ax.heading_tag),
         headingColor: val(ax.heading_color),

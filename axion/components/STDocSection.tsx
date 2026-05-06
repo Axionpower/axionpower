@@ -108,7 +108,7 @@ export default function STDocSection({ data }: Props) {
 
                 {/* CTA */}
                 <div className="std-full-cta">
-                    <Link href="#" className="std-card-link-full">
+                    <Link href="/quality-safety-compliance" className="std-card-link-full">
                         {bottomCard.linkLabel}
                     </Link>
                     <p className="std-full-cta-note">Always audit-ready</p>

@@ -288,7 +288,7 @@ export async function getVrlaWhyChooseData(): Promise<{
     return compact({
         headingLine1: val(ax.heading_line1),
         headingHighlight: val(ax.heading_highlight),
-        headingLine3: val(ax.heading_line3),
+        headingLine3: (val(ax.heading_line3)?.trim() === "?") ? undefined : val(ax.heading_line3),
         cards,
         headingTag: val(ax.heading_tag),
         headingColor: val(ax.heading_color),

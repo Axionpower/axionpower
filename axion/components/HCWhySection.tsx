@@ -1,11 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HCWhyData } from "@/lib/queries/healthcare";
 import "./HCWhySection.css";
 
 export default function HCWhySection({ data }: { data: HCWhyData }) {
   const [activeIdx, setActiveIdx] = useState(0);
+  const isHoveredRef = useRef(false);
+  const total = data.reasons.length;
+
+  useEffect(() => {
+    if (total <= 1) return;
+    const timer = setInterval(() => {
+      if (!isHoveredRef.current) {
+        setActiveIdx(prev => (prev + 1) % total);
+      }
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [total]);
 
   return (
     <section className="hc-why-section">
@@ -30,7 +42,11 @@ export default function HCWhySection({ data }: { data: HCWhyData }) {
         </div>
 
         {/* Horizontal Accordion */}
-        <div className="hc-why-accordion">
+        <div
+          className="hc-why-accordion"
+          onMouseEnter={() => { isHoveredRef.current = true; }}
+          onMouseLeave={() => { isHoveredRef.current = false; }}
+        >
           {data.reasons.map((reason, index) => (
             <div
               key={index}

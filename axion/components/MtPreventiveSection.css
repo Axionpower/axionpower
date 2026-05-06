@@ -101,7 +101,7 @@
 .mtp-card-title {
   font-size: 14px;
   font-weight: 700;
-  color: #ffffff;
+  color: #1a1a2e;
   margin: 0;
 }
 
@@ -203,9 +203,8 @@
     grid-template-columns: 1fr;
   }
 
-  /* White card title on dark bg at mobile */
   .mtp-card-title {
-    color: #ffffff;
+    color: #1a1a2e;
   }
 
   .mtp-image-card {

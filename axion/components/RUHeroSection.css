@@ -81,7 +81,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 1.65;
-    color: rgba(200,215,235,1);
+    color: #ffffff;
     margin: 0 0 16px 0;
     max-width: 460px;
 }
@@ -159,7 +159,7 @@
 .ru-hero-stat-label {
     font-size: 11px;
     font-weight: 500;
-    color: rgba(160,185,210,1);
+    color: #ffffff;
     margin-top: 3px;
 }
 
@@ -204,7 +204,7 @@
 
 .ru-hero-card-sub {
     font-size: 12px;
-    color: rgba(160,185,210,0.7);
+    color: #ffffff;
     margin: 0 0 20px 0;
 }
 
@@ -282,13 +282,13 @@
 .ru-hero-upcoming-sys {
     flex: 1;
     font-size: 12px;
-    color: rgba(220,235,250,1);
+    color: #ffffff;
     font-weight: 500;
 }
 
 .ru-hero-upcoming-date {
     font-size: 11px;
-    color: rgba(160,185,210,0.7);
+    color: #ffffff;
 }
 
 .ru-hero-upcoming-priority {

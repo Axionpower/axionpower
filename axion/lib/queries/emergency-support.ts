@@ -156,7 +156,7 @@ export async function getEsHeroData(): Promise<EsHeroData> {
         btnPrimaryLabel: val(sec?.btn_primary_label) ?? "🚨 Request Emergency Support",
         btnPrimaryUrl: val(sec?.btn_primary_url) ?? "/contact",
         btnGhostLabel: val(sec?.btn_ghost_label) ?? "Explore Service Contracts →",
-        btnGhostUrl: val(sec?.btn_ghost_url) ?? "/services/maintenance-monitoring",
+        btnGhostUrl: val(sec?.btn_ghost_url) ?? "/maintenance-monitoring",
         stats,
         overrides: buildOverrides(sec),
     };
@@ -672,7 +672,7 @@ export async function getEsCtaData(): Promise<EsCtaData> {
         btnPrimaryLabel: val(sec?.btn_primary_label) ?? "🚨 Request 24/7 Emergency Support",
         btnPrimaryUrl: val(sec?.btn_primary_url) ?? "/contact",
         btnSecondaryLabel: val(sec?.btn_secondary_label) ?? "📋 Explore Service Contracts",
-        btnSecondaryUrl: val(sec?.btn_secondary_url) ?? "/services/maintenance-monitoring",
+        btnSecondaryUrl: val(sec?.btn_secondary_url) ?? "/maintenance-monitoring",
         btnTertiaryLabel: val(sec?.btn_tertiary_label) ?? "📞 Schedule Consultation",
         btnTertiaryUrl: val(sec?.btn_tertiary_url) ?? "/contact",
         emergencyLineLabel: val(sec?.emergency_line_label) ?? "24-Hour Emergency Line:",

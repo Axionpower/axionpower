@@ -32,7 +32,7 @@ export interface FooterData {
 
 // ── Default values ──
 export const FOOTER_DEFAULTS: FooterData = {
-  copyright: `© ${new Date().getFullYear()} Axion Critical Power Solutions. All rights reserved.`,
+  copyright: `© 2026–30 Axion Critical Power Solutions. All rights reserved.`,
   bgColor: "#0a0e1a",
   textColor: "rgba(180, 200, 230, 0.7)",
   headingColor: "#ffffff",
@@ -148,7 +148,7 @@ export async function getFooterData(): Promise<FooterData> {
     const ax = await getAxionSection<any>("footer", "settings");
     if (ax && (ax.columns || ax.copyright)) {
       const result: FooterData = {
-        copyright:      ax.copyright       || FOOTER_DEFAULTS.copyright,
+        copyright:      FOOTER_DEFAULTS.copyright,
         bgColor:        ax.bg_color        || FOOTER_DEFAULTS.bgColor,
         textColor:      ax.text_color      || FOOTER_DEFAULTS.textColor,
         headingColor:   ax.heading_color   || FOOTER_DEFAULTS.headingColor,
@@ -169,7 +169,7 @@ export async function getFooterData(): Promise<FooterData> {
     const ax = await getAxionSection<any>("home", "footer");
     if (ax && (ax.columns || ax.copyright)) {
       const result: FooterData = {
-        copyright:      ax.copyright       || FOOTER_DEFAULTS.copyright,
+        copyright:      FOOTER_DEFAULTS.copyright,
         bgColor:        ax.bg_color        || FOOTER_DEFAULTS.bgColor,
         textColor:      ax.text_color      || FOOTER_DEFAULTS.textColor,
         headingColor:   ax.heading_color   || FOOTER_DEFAULTS.headingColor,
